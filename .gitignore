@@ -80,7 +80,9 @@ chromedriver.exe
 
 # Backup files
 *.bak
+*.bak-*
 *.backup
+bddk_data.db.bak*
 
 # Keep directory structure but ignore contents
 !data/raw/.gitkeep
