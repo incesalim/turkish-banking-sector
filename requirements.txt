@@ -1,0 +1,26 @@
+# Web Scraping (for monthly data download)
+requests>=2.31.0
+selenium>=4.15.0
+beautifulsoup4>=4.12.0
+lxml>=5.0.0
+webdriver-manager>=4.0.0
+
+# Data Processing
+pandas>=2.1.0
+numpy>=1.24.0
+openpyxl>=3.1.0
+
+# Database
+sqlalchemy>=2.0.0
+
+# Dashboard & Visualization
+plotly>=5.18.0
+dash>=2.14.0
+dash-bootstrap-components>=1.5.0
+
+# Utilities
+python-dotenv>=1.0.0
+loguru>=0.7.0
+
+# CBRT EVDS API
+evds>=1.0.0
