@@ -1,0 +1,19 @@
+{
+  "schema_version": "document-annotations-1",
+  "filing": {"bank_ticker": "TOMK", "period": "2024Q1", "kind": "unconsolidated"},
+  "pdf_sha256": "9f3e281ee93f8905fce994890ccfd46d641bc12ff928987cad98b9076dabd61c",
+  "annotation_method": "Original PDF page 7 (printed page 2), rendered with Poppler and visually read 2026-09-06. The director name belongs to a two-line responsibility cell. Bounds are displayed PDF points. Selected cases only.",
+  "cases": [
+    {
+      "id": "director_with_wrapped_responsibilities",
+      "page": 7,
+      "method": "pymupdf_lines_strict",
+      "row_label": "Onur ÖZKAN",
+      "column_count": 2,
+      "cells": [
+        {"column": 0, "text": "Onur ÖZKAN", "bbox": [130, 239, 184, 251]},
+        {"column": 1, "text": "Yönetim Kurulu Üyesi, Genel Müdür, Kredi Komitesi Üyesi, Sürdürülebilirlik Komitesi Bşk.", "bbox": [246, 229, 532, 251]}
+      ]
+    }
+  ]
+}

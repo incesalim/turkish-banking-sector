@@ -21,8 +21,11 @@ The separate complete-document corpus is under active implementation in
 candidate structure run through `build-document-corpus.yml`. The **Complete audit
 documents** panel reads its private R2 catalog, with separate registered,
 acquired, source-preserved, structured, failed, stale and fully-verified counts.
-Choose a bank, filing and PDF page to inspect table candidates and every source
-text block, review flags, the original PDF and source-evidence JSON. Table counts
+Choose a bank, filing and PDF page to inspect table candidates, paragraph and
+heading candidates, every source text block, review flags, the original PDF and
+source-evidence JSON. Narrative candidates retain source span references and
+tentative heading paths; text inside detected tables is labelled explicitly.
+The complete physical text remains accessible underneath. Table counts
 are detector candidates, potentially overlapping; they are never a completeness
 denominator. Reading order, headers and narrative roles remain unreviewed.
 

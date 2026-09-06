@@ -1,4 +1,5 @@
 from pathlib import Path
+import json
 
 import pytest
 
@@ -7,6 +8,7 @@ from src.audit_reports.document_corpus_resume import (
     annotation_identity, download_source, metadata, record_receipt, unchanged_index,
 )
 from src.audit_reports.document_structure import build_document_structure
+from src.audit_reports.document_corpus import Filing
 
 
 @pytest.fixture
@@ -95,3 +97,20 @@ def test_changed_annotations_invalidate_resume_and_missing_directory_is_an_error
     assert annotation_identity(tmp_path) != first
     with pytest.raises(ValueError, match="missing"):
         annotation_identity(Path(tmp_path / "absent"))
+
+
+def test_unrelated_bank_annotations_do_not_force_a_corpus_redownload(tmp_path):
+    one = Filing("ONE", "2026Q1", "consolidated")
+    two = Filing("TWO", "2026Q1", "consolidated")
+    (tmp_path / "one.json").write_text(json.dumps({"filing": one.as_dict(), "cases": [1]}))
+    before = annotation_identity(tmp_path, one)
+    (tmp_path / "two.json").write_text(json.dumps({"filing": two.as_dict(), "cases": [2]}))
+    assert annotation_identity(tmp_path, one) == before
+    assert annotation_identity(tmp_path, two) != before
+
+
+def test_source_only_resume_does_not_depend_on_table_annotations(published):
+    store, _client, filing, token, engine, _structure_engine = published
+    receipt(published)
+    assert unchanged_index(store, filing, token["key"], None, evidence_engine=engine,
+                            structure_engine=None, annotation_hash="changed-but-not-requested") is not None

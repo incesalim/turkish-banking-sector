@@ -1,0 +1,72 @@
+{
+  "schema_version": "document-annotations-1",
+  "filing": {
+    "bank_ticker": "ALBRK",
+    "period": "2026Q1",
+    "kind": "unconsolidated"
+  },
+  "pdf_sha256": "75497427c2503a7e21a29db8f8b55e5b2adade0520a80388a57457b5f4007a3e",
+  "annotation_basis": "Manually transcribed from rendered original PDF page 3; paragraph wording, heading association and source region. This covers four passages only.",
+  "cases": [
+    {
+      "kind": "narrative",
+      "id": "qualified_basis",
+      "page": 3,
+      "text_sha256": "37ea8143f8173f60c64371b39e628b9fef94c537e50a14359c1e5a60fdf5e3f5",
+      "heading_path": [
+        "Basis for the Qualified Conclusion"
+      ],
+      "bbox": [
+        98,
+        179,
+        570,
+        285
+      ]
+    },
+    {
+      "kind": "narrative",
+      "id": "qualified_conclusion",
+      "page": 3,
+      "text_sha256": "3330f2eb40ca730ce797038d501e508df38894958642aacf4bf5bf7c7daefe0f",
+      "heading_path": [
+        "Qualified Conclusion"
+      ],
+      "bbox": [
+        98,
+        317,
+        570,
+        400
+      ]
+    },
+    {
+      "kind": "narrative",
+      "id": "regulatory_consistency",
+      "page": 3,
+      "text_sha256": "502497c8f3ae948f14c78706783e5eb62c0f4714210da8315e0ea05646f9ac77",
+      "heading_path": [
+        "Report on other regulatory requirements arising from legislation"
+      ],
+      "bbox": [
+        98,
+        432,
+        570,
+        469
+      ]
+    },
+    {
+      "kind": "narrative",
+      "id": "translation_framework",
+      "page": 3,
+      "text_sha256": "4c96a5f7bb24a7a64ad5151dedf312f4c0ba0eb70a96a0b1faef7ec662a209ac",
+      "heading_path": [
+        "Additional Paragraph for Convenience Translation:"
+      ],
+      "bbox": [
+        98,
+        501,
+        571,
+        572
+      ]
+    }
+  ]
+}

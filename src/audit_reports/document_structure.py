@@ -20,6 +20,8 @@ from .document_capture import capture_document
 from .document_corpus import Filing, source_identity
 from .document_evidence import artifact_digest, compare_page_text, text_characters, verify_evidence_records
 from .document_sections import body_section_starts, document_contents
+from .document_rule_tables import grid_paths, underline_candidates
+from .document_narrative import narrative_candidates, verify_narrative
 from .prose import role_from_title
 
 STRUCTURE_VERSION = "document-structure-1"
@@ -30,7 +32,8 @@ def structure_engine() -> dict:
     # must not force otherwise identical documents through extraction again.
     digest = hashlib.sha256()
     for name in ("document_structure.py", "document_capture.py", "document_sections.py",
-                 "document_evidence.py", "document_corpus.py", "prose.py", "extractor.py", "units.py"):
+                 "document_evidence.py", "document_corpus.py", "document_rule_tables.py", "document_narrative.py",
+                 "prose.py", "extractor.py", "units.py"):
         path = Path(__file__).parent / name
         digest.update(path.name.encode())
         digest.update(path.read_bytes())
@@ -184,7 +187,7 @@ def _ruled_candidates(page, source):
     # Horizontal underlines alone cannot define a ruled grid. Avoid the costly
     # table search on ordinary narrative/BRSA pages that have no vertical rules.
     # These pages still go through numeric detection and complete source capture.
-    paths = page.get_drawings()
+    paths = grid_paths(page.get_drawings())
     image_rules = _image_rules(source)
     vertical, horizontal = set(), set()
     for path in paths:
@@ -287,6 +290,14 @@ def build_document_structure(pdf_path: Path, evidence: list[dict]) -> dict:
         for observed, captured in zip(evidence[1:], capture.pages, strict=True):
             numeric, lines, issues = _numeric_candidates(observed, captured)
             ruled = _ruled_candidates(pdf[observed["page"] - 1], observed)
+            extra = underline_candidates(observed, numeric + ruled)
+            tables = numeric + ruled + extra
+            for table in tables:
+                for row in table["rows"]:
+                    for cell in row["cells"]:
+                        if not cell["source_text_matches"]:
+                            issues.append({"kind": "table_cell_source_mismatch", "table_id": table["id"],
+                                           "row": row["index"], "column": cell.get("column", cell.get("col_index"))})
             conservation = compare_page_text(observed, [line["text"] for line in lines])
             if not conservation["text_conserved"]:
                 issues.append({"kind": "legacy_text_not_conserved"})
@@ -301,13 +312,14 @@ def build_document_structure(pdf_path: Path, evidence: list[dict]) -> dict:
                                "count": observed["replacement_character_count"]})
             span_blocks = _physical_blocks(observed)
             pages.append({"page": observed["page"], "text_blocks": span_blocks,
-                          "candidate_lines": lines, "tables": numeric + ruled,
+                          "candidate_lines": lines, "tables": tables,
                           "notes": [{**asdict(note), "review_status": "unreviewed"}
                                     for note in captured.notes],
                           "source_image_ids": [x["id"] for x in observed["images"]],
                           "source_drawing_ids": [x["id"] for x in observed["drawings"]],
                           "text_conservation": conservation, "issues": issues,
                           "reading_order_verified": False})
+    narrative_candidates(pages, evidence, sections)
     assert_source()
     result = {"schema_version": STRUCTURE_VERSION, "engine": structure_engine(),
               "source": source, "evidence_artifact_sha256": artifact_digest(evidence),
@@ -333,6 +345,7 @@ def verify_document_structure(structure: dict, evidence: list[dict]) -> dict:
         errors.append("page_inventory_mismatch")
     for page, source in zip(structure["pages"], evidence[1:]):
         prefix = f"page_{source['page']}:"
+        errors.extend(prefix + error for error in verify_narrative(page, source))
         spans = {s["id"]: s for s in source["spans"]}
         used = Counter()
         for block in page["text_blocks"]:

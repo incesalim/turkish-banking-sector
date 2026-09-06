@@ -52,7 +52,7 @@ def main(argv: list[str] | None = None) -> int:
     source.add_argument("--inventory-json", type=Path, help="saved R2 inventory, offline")
     parser.add_argument("--output-dir", type=Path, default=REPO / "data/audit_capture/corpus-v1")
     parser.add_argument("--capture", action="store_true", help="preserve source evidence after inventory")
-    parser.add_argument("--structure", action="store_true", help="add source-linked table candidates and text blocks")
+    parser.add_argument("--structure", action="store_true", help="add source-linked tables, paragraphs and headings")
     parser.add_argument("--annotations-dir", type=Path,
                         default=REPO / "tests/fixtures/document_annotations",
                         help="independently source-annotated regression cases")
@@ -70,6 +70,8 @@ def main(argv: list[str] | None = None) -> int:
         parser.error("--limit cannot be negative")
     if args.structure and not args.capture:
         parser.error("--structure requires --capture")
+    if args.structure and not args.annotations_dir.is_dir():
+        parser.error("Source annotation directory is missing")
     if args.publish and not (args.from_r2 and args.capture and os.environ.get("GITHUB_ACTIONS") == "true"):
         parser.error("--publish requires --from-r2 --capture in Actions")
     if args.discard_published and not args.publish:
@@ -120,7 +122,6 @@ def main(argv: list[str] | None = None) -> int:
         from src.audit_reports.document_corpus_resume import (
             annotation_identity, download_source, record_receipt, unchanged_index,
         )
-        annotation_hash = annotation_identity(args.annotations_dir)
 
     targets = [row for row in inventory["filings"]
                if row["bank_ticker"] in known_banks
@@ -156,6 +157,8 @@ def main(argv: list[str] | None = None) -> int:
             result = {**filing.as_dict(), "status": "failed"}
             identity, original_key = None, None
             try:
+                annotation_hash = (annotation_identity(args.annotations_dir, filing)
+                                   if store and args.structure else "not_requested")
                 source_url = row["source_urls"][0] if len(row["source_urls"]) == 1 else None
                 if store and not args.recheck_bytes and len(row["object_keys"]) == 1:
                     cached = unchanged_index(store, filing, row["object_keys"][0], source_url,

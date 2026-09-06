@@ -3,19 +3,21 @@
 import { useEffect, useState } from "react";
 import { SecHead } from "@/app/components/desk";
 import type { CorpusCatalogResult, CorpusFiling } from "@/app/lib/document-corpus";
+import { nf } from "@/app/lib/chart-format";
 
-const nf = new Intl.NumberFormat("en-US");
 const endpoint = "/api/admin/document-corpus";
 const id = (f: CorpusFiling) => `${f.bank_ticker}|${f.period}|${f.kind}`;
-const count = (v: number | null | undefined) => v == null ? "—" : nf.format(v);
+const count = (v: number | null | undefined) => v == null ? "—" : nf(v, 0);
 const control = "border-b border-border bg-transparent px-1 py-1.5 text-xs text-foreground focus:outline-primary";
 
 type Cell = { text: string; col_index?: number | null; column?: number; placement?: string; word_ids: string[] };
 type Table = { id: string; method: string; n_cols: number; row_count: number; col_labels?: string[];
   rows: { index: number; label?: string; cells: Cell[] }[] };
+type Narrative = { id: string; kind: string; text: string; span_ids: string[];
+  heading_path: { id: string; text: string }[]; table_ids: string[] };
 type PagePreview = { manifest: { sections: { title: string; page_start: number; page_end: number }[] };
   page: { page: number; text_blocks: { id: string; text: string }[]; tables: Table[];
-    issues: { kind: string; count?: number }[] } };
+    narrative_elements?: Narrative[]; issues: { kind: string; count?: number }[] } };
 
 async function fetchJson<T>(url: string, signal: AbortSignal): Promise<T> {
   const response = await fetch(url, { cache: "no-store", signal });
@@ -107,7 +109,20 @@ function FilingPreview({ filing }: { filing: CorpusFiling }) {
         <h4 className="border-b border-border py-2 text-xs font-semibold">Table candidates · {count(preview.page.tables.length)}</h4>
         {preview.page.tables.map((table) => <TablePreview key={table.id} table={table} />)}
         {preview.page.tables.length === 0 && <p className="py-3 text-xs text-faint">No table detected. This does not establish that the source page contains no table.</p>}
-        <details className="mt-5" open><summary className="cursor-pointer text-xs font-semibold">All page text · {count(preview.page.text_blocks.length)} source blocks</summary>
+        {preview.page.narrative_elements && <details className="mt-5" open>
+          <summary className="cursor-pointer text-xs font-semibold">Paragraphs and headings · {count(preview.page.narrative_elements.length)} candidates</summary>
+          <p className="my-2 text-xs text-faint">Source wording is retained. Paragraph boundaries, heading context and table membership are candidates awaiting review.</p>
+          {preview.page.narrative_elements.map((element) => <div key={element.id} className="border-b border-border py-3">
+            <div className="flex flex-wrap gap-x-3 text-[10px] text-faint">
+              <span className="font-mono" title={`Source spans: ${element.span_ids.join(", ")}`}>{element.id}</span>
+              <span>{element.kind.replaceAll("_", " ")}</span>
+              {element.table_ids.length > 0 && <span>Table: {element.table_ids.join(", ")}</span>}
+            </div>
+            {element.heading_path.length > 0 && <p className="mt-1 text-[10px] text-muted-foreground">{element.heading_path.map((heading) => heading.text).join(" / ")}</p>}
+            <p className={`mt-1 whitespace-pre-wrap text-xs leading-relaxed ${element.kind === "heading_candidate" ? "font-semibold" : ""}`}>{element.text}</p>
+          </div>)}
+        </details>}
+        <details className="mt-5" open={!preview.page.narrative_elements}><summary className="cursor-pointer text-xs font-semibold">All page text · {count(preview.page.text_blocks.length)} source blocks</summary>
           <p className="my-2 text-xs text-faint">Includes table text. Paragraph roles and reading order still require review.</p>
           {preview.page.text_blocks.map((block) => <div key={block.id} className="border-b border-border py-3">
             <span className="font-mono text-[10px] text-faint">{block.id}</span>

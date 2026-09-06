@@ -138,4 +138,25 @@ of detected tables.
   storage object versions; changed sources, engines, annotations, missing or
   changed artifacts and failed attempts invalidate reuse. Added full-byte replay
   and automatic corpus follow-up after the existing acquisition workflows.
-  Cloud receipt replay and registered-fleet processing are next.
+  Cloud receipt replay [34029395716](https://github.com/incesalim/Carthago/actions/runs/34029395716)
+  passed: both QNB filings reused object-version receipts, and all 15 stored
+  objects remained unchanged. The first structure fleet was stopped after new
+  source probes exposed two structural defects. Source-only fleet
+  [34029735843](https://github.com/incesalim/Carthago/actions/runs/34029735843)
+  is running while structure repairs are verified.
+- 2026-09-06: source probes found Akbank 2026Q1 solo page 6's single-row
+  ownership table was undetected, and Garanti 2022Q4 consolidated page 4's
+  pension-table left border was pulled into its text by global snapping of the
+  auditor logo's vector paths. Added conservative rule filtering and cell-width
+  underline candidates. Independent annotations fail on the prior outputs and
+  pass on the repaired pages. Also verified TOMK 2024Q1 page 7's wrapped director
+  responsibilities. Seven selected source cases across four filings now pass;
+  this still does not constitute whole-document semantic verification.
+- 2026-09-06: Albaraka 2026Q1 solo PDF page 3 stores four titled audit passages
+  and the signature in a single physical text block. Added source-line paragraph
+  segmentation, heading candidates, explicit table-text membership and retained
+  running furniture. Four manually transcribed full-paragraph digests check the
+  qualifications, negations, repeated figures and heading associations against
+  their source regions. Source accounting also rejects reordered, dropped or
+  duplicated prose. The admin can show these candidates alongside raw blocks.
+  Cloud probes and broader narrative/reading-order verification remain pending.

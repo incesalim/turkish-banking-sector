@@ -1,0 +1,22 @@
+{
+  "schema_version": "document-annotations-1",
+  "filing": {"bank_ticker": "AKBNK", "period": "2026Q1", "kind": "unconsolidated"},
+  "pdf_sha256": "d8ff0aa41d30657af3920896b2181a50faf63a33193d61245d1261b466e50c60",
+  "annotation_method": "Original PDF page 6 (printed page 2), rendered with Poppler and visually read 2026-09-06. One ownership row under five printed headers. Bounds are displayed PDF points. Selected cases only.",
+  "cases": [
+    {
+      "id": "single_row_ownership_underlines",
+      "page": 6,
+      "method": "horizontal_rule_cells",
+      "row_label": "Hacı Ömer Sabancı Holding A.Ş.",
+      "column_count": 5,
+      "cells": [
+        {"column": 0, "text": "Hacı Ömer Sabancı Holding A.Ş.", "bbox": [74, 157, 203, 167]},
+        {"column": 1, "text": "2.119.027", "bbox": [299, 157, 338, 167]},
+        {"column": 2, "text": "%40,75", "bbox": [383, 157, 413, 167]},
+        {"column": 3, "text": "2.119.027", "bbox": [449, 157, 489, 167]},
+        {"column": 4, "text": "-", "bbox": [543, 157, 549, 167]}
+      ]
+    }
+  ]
+}

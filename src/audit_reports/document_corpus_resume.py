@@ -7,6 +7,7 @@ artifact invalidates the shortcut. --recheck-bytes bypasses it for full readback
 from __future__ import annotations
 
 import hashlib
+import json
 from pathlib import Path
 
 from .document_corpus import Filing
@@ -19,13 +20,22 @@ def metadata(key: str, response: dict) -> dict:
             "modified": modified.isoformat()}
 
 
-def annotation_identity(directory: Path) -> str:
+def annotation_identity(directory: Path, filing: Filing | None = None) -> str:
     if not directory.is_dir():
         raise ValueError("Source annotation directory is missing")
+    paths = []
+    for path in sorted(directory.glob("*.json")):
+        if filing is not None:
+            annotation = json.loads(path.read_text(encoding="utf-8"))
+            if Filing(**annotation["filing"]) != filing:
+                continue
+        paths.append(path)
+    if filing is not None and not paths:
+        return "no_registered_cases"
     digest = hashlib.sha256()
     from . import document_benchmark
     digest.update(Path(document_benchmark.__file__).read_bytes())
-    for path in sorted(directory.glob("*.json")):
+    for path in paths:
         digest.update(path.name.encode("utf-8"))
         digest.update(path.read_bytes())
     return digest.hexdigest()
@@ -113,7 +123,7 @@ def unchanged_index(store, filing: Filing, acquisition_key: str, source_url: str
             or current["source"].get("source_url") != source_url
             or current["engine"] != evidence_engine
             or receipt["evidence_artifact_sha256"] != current["artifact_sha256"]
-            or receipt["annotation_sha256"] != annotation_hash):
+            or structure_engine is not None and receipt["annotation_sha256"] != annotation_hash):
         return None
     structured = current.get("structure_current")
     if structure_engine is not None and (not structured or structured["engine"] != structure_engine

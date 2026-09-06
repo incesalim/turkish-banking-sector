@@ -26,7 +26,7 @@ on:
         type: boolean
         default: true
       structure:
-        description: "Add source-linked table candidates and text blocks (unverified)"
+        description: "Add source-linked tables, paragraphs and headings (unverified)"
         type: boolean
         default: true
       recheck_bytes:
@@ -38,7 +38,9 @@ permissions:
   contents: read
 
 concurrency:
-  group: audit-document-corpus
+  # Read-only probes can inspect new code while a source-preservation fleet runs.
+  # All publishing runs still share one queue.
+  group: ${{ github.event_name == 'workflow_dispatch' && !inputs.publish && format('audit-document-probe-{0}', github.run_id) || 'audit-document-corpus' }}
   queue: max
   cancel-in-progress: false
 
@@ -86,3 +88,11 @@ jobs:
             data/audit_capture/corpus-v1/capture-results.json
           if-no-files-found: warn
           retention-days: 30
+      - name: Keep bounded read-only probe evidence for independent review
+        if: always() && github.event_name == 'workflow_dispatch' && !inputs.publish && inputs.limit > 0 && inputs.limit <= 4
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-document-probe-evidence
+          path: data/audit_capture/corpus-v1/sources/
+          if-no-files-found: warn
+          retention-days: 7

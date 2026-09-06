@@ -1,0 +1,19 @@
+{
+  "schema_version": "document-annotations-1",
+  "filing": {"bank_ticker": "GARAN", "period": "2022Q4", "kind": "consolidated"},
+  "pdf_sha256": "e8dd9818e92c4613c321714f1a5d21817d40535be0c240055c935e759491c723",
+  "annotation_method": "Original PDF page 4, rendered with Poppler and visually read 2026-09-06. Two columns: pension audit matter and the auditor's response. The logo is above the table, not part of its grid. Bounds are displayed PDF points. Selected cases only.",
+  "cases": [
+    {
+      "id": "pension_audit_matter_headers_unclipped_by_logo",
+      "page": 4,
+      "method": "pymupdf_lines_strict",
+      "row_label": "Pension Fund Obligations",
+      "column_count": 2,
+      "cells": [
+        {"column": 0, "text": "Pension Fund Obligations", "bbox": [74, 148, 200, 164]},
+        {"column": 1, "text": "How the Key Audit Matter is addressed in our audit", "bbox": [299, 139, 523, 169]}
+      ]
+    }
+  ]
+}

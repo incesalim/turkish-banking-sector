@@ -7,11 +7,63 @@ from __future__ import annotations
 
 import unicodedata
 import json
+import hashlib
 from pathlib import Path
 
 
 def _text(value):
     return " ".join(unicodedata.normalize("NFKC", value or "").split())
+
+
+def paragraph_digest(text: str) -> str:
+    """Hash normalized, independently transcribed prose; retain punctuation."""
+    return hashlib.sha256(_text(text).encode("utf-8")).hexdigest()
+
+
+def _narrative_matches(case, page, sources, pages):
+    elements = {e["id"]: (p["page"], e) for p in pages.values() for e in p.get("narrative_elements", [])}
+
+    def source_matches(element, number, bounds=None):
+        spans = {s["id"]: s for s in sources[number]["spans"]}
+        ids = element.get("span_ids", [])
+        if not ids or len(ids) != len(set(ids)) or any(i not in spans for i in ids):
+            return False
+        actual = [spans[i] for i in ids]
+        text = ""
+        previous = None
+        for span in actual:
+            key = span["block"], span["line"]
+            text += ("\n" if previous is not None and key != previous else "") + span["text"]
+            previous = key
+        if _text(text) != _text(element["text"]):
+            return False
+        return bounds is None or all(bounds[0] <= s["bbox"][0] <= s["bbox"][2] <= bounds[2]
+                                     and bounds[1] <= s["bbox"][1] <= s["bbox"][3] <= bounds[3] for s in actual)
+
+    matching = []
+    for element in page.get("narrative_elements", []):
+        if element["kind"] != case.get("element_kind", "paragraph_candidate"):
+            continue
+        if paragraph_digest(element["text"]) != case["text_sha256"]:
+            continue
+        path = element.get("heading_path", [])
+        if [_text(h["text"]) for h in path] != [_text(h) for h in case["heading_path"]]:
+            continue
+        if not source_matches(element, case["page"], case["bbox"]):
+            continue
+        good = True
+        for heading in path:
+            number, original = elements.get(heading["id"], (None, None))
+            if (original is None or original["kind"] != "heading_candidate"
+                    or _text(original["text"]) != _text(heading["text"])
+                    or number > case["page"]
+                    or (number == case["page"] and original["source_lines"][0] >= element["source_lines"][0])
+                    or not source_matches(original, number)):
+                good = False
+                break
+        if good:
+            matching.append(element["id"])
+    return matching
 
 
 def check_annotations(structure: dict, evidence: list[dict], annotation: dict) -> dict:
@@ -30,6 +82,12 @@ def check_annotations(structure: dict, evidence: list[dict], annotation: dict) -
         prefix = {"case": case["id"], "page": case["page"]}
         if case["page"] not in pages or case["page"] not in sources:
             failures.append({**prefix, "kind": "missing_page"})
+            continue
+        if case.get("kind") == "narrative":
+            matching = _narrative_matches(case, pages[case["page"]], sources, pages)
+            if len(matching) != 1:
+                failures.append({**prefix, "kind": "paragraph_heading_source_mismatch",
+                                 "matching_candidates": len(matching)})
             continue
         candidates = [table for table in pages[case["page"]]["tables"]
                       if table["method"] == case.get("method", "legacy_numeric_geometry")]

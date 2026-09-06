@@ -52,6 +52,12 @@ def test_unbounded_local_capture_is_refused(tmp_path, monkeypatch):
         build.main(_args(tmp_path) + ["--capture"])
 
 
+def test_read_only_structure_probe_cannot_silently_skip_a_missing_benchmark(tmp_path):
+    with pytest.raises(SystemExit):
+        build.main(_args(tmp_path) + ["--capture", "--structure", "--bank", "TEST",
+                                     "--annotations-dir", str(tmp_path / "missing-benchmark")])
+
+
 def test_password_protected_pdf_is_preserved_even_when_capture_fails(tmp_path):
     with fitz.open() as doc:
         doc.new_page().insert_text((40, 50), "Protected original")

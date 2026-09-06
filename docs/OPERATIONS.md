@@ -1288,8 +1288,10 @@ Migrations `0045_capital_deductions.sql` and `0046_npl_accrual_movement.sql` add
 runs that may still have acquired PDFs. It also accepts manual dispatch. It runs
 `scripts/build_document_corpus.py` against
 registered sources in R2. `structure=true` adds source-linked numerical and
-ruled-table candidates, physical text blocks, section candidates and content
-issues. The source itself remains immutable and independently accessible.
+ruled-table candidates, physical text blocks, paragraph/heading candidates,
+section candidates and content issues. Paragraph segmentation preserves source
+lines and span occurrences; styles and spacing suggest boundaries and heading
+context without certifying them. The source remains independently accessible.
 `publish=true` writes only `document-corpus/v1/`; no D1, acquired source object or
 analytical snapshot is modified. Originals are preserved even when decoding
 fails. Artifact uploads are read back, filing indexes use conditional updates,
@@ -1316,6 +1318,15 @@ response as the hashed PDF bytes; a source changed during processing is retried.
 Manual `recheck_bytes=true` / CLI `--recheck-bytes` reads all selected bytes again
 without rewriting identical objects. Metadata reuse is storage continuity,
 never a claim of fresh semantic verification.
+
+Manual `publish=false` runs have independent concurrency groups, so bounded
+read-only probes can run while a publishing fleet continues. Publishing runs
+share one queue. For a read-only probe with `limit` between 1 and 4, Actions
+retains original PDFs and capture artifacts for seven days as
+`audit-document-probe-evidence`, enabling independent review of the runner's
+output. The compact inventory/outcome report remains available for 30 days.
+Annotation reuse is scoped to the filing; another bank's new test does not
+invalidate that filing. Source-only reuse does not depend on structure tests.
 
 For a light local sample (no remote writes):
 
