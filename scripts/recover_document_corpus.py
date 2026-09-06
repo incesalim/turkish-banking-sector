@@ -216,7 +216,14 @@ def main(argv=None):
                         REPO / 'tests/fixtures/document_vector_annotations', REPO / 'tests/fixtures/document_ocr_annotations')
                     from src.audit_reports.document_recovery_text import check_text_regions
                     benchmarks['text_regions'] = check_text_regions(observed, REPO / 'tests/fixtures/document_recovery_text_annotations')
-                    packet = make_packet(observed, outlines, benchmarks, engine, table_layout=layout)
+                    from src.audit_reports.document_font_mapping import font_mapping_page
+                    font_mapping = font_mapping_page(original, filing, number)
+                    if font_mapping['missing_unicode_trace_characters']:
+                        benchmarks['font_text_regions'] = check_text_regions(font_mapping,
+                            REPO / 'tests/fixtures/document_recovery_text_annotations', word_reference='font_word_ids')
+                    else:
+                        font_mapping = None
+                    packet = make_packet(observed, outlines, benchmarks, engine, table_layout=layout, font_mapping=font_mapping)
                     verify_packet(packet, derivative, original, use_atlas)
                     output = args.output_dir / 'sources' / source['pdf_sha256']
                     _write_json(output / f'p{number}.recovery.json', packet)

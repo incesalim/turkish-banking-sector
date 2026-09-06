@@ -1582,3 +1582,14 @@ fails that filing and the run. No matching annotation is explicitly unverified.
 use the number of detected tables as the denominator for complete capture.
 Fleet processing belongs in Actions; use `banks`, `period` and `limit` to select
 an initial sample or a repair scope. See [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
+
+Recovery also derives an optional `font_mapping` observation from the original
+PDF using PyMuPDF only. Eligible Type0/Identity-H fonts have an empty Unicode
+CMap and an embedded TrueType character map. A replacement requires unique
+font/trace/origin/fallback-glyph agreement. Native characters and all alternatives
+are retained; ambiguous non-whitespace mappings abstain. `font_text_regions`
+checks the same independently transcribed regions using font-word references,
+without rewriting OCR. Packet verification recomputes the complete font view
+from the original. Its implementation participates in recovery engine and receipt
+identities; changing derived font code still reuses verified raw OCR. The admin
+reader validates the source/page binding and exposes text blocks and alternatives.

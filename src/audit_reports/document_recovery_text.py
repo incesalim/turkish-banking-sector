@@ -37,7 +37,9 @@ def text_blocks(ocr: dict, lines: list[dict], tables: list[dict]) -> list[dict]:
     return result
 
 
-def check_text_regions(ocr: dict, directory: Path) -> dict:
+def check_text_regions(ocr: dict, directory: Path, *, word_reference: str = 'ocr_word_ids') -> dict:
+    if word_reference not in ('ocr_word_ids', 'font_word_ids'):
+        raise ValueError('Unsupported text observation reference')
     if not directory.is_dir():
         raise ValueError('Recovery text annotation directory is missing')
     source = ocr['source']
@@ -61,7 +63,7 @@ def check_text_regions(ocr: dict, directory: Path) -> dict:
             matches = _normalized(observed) == _normalized(case['text'])
             checks.append({'id': case['id'], 'source_bbox': case['source_bbox'],
                            'source_transcription': case['text'], 'observed_text': observed,
-                           'ocr_word_ids': [w['id'] for w in selected], 'passed': matches,
+                           word_reference: [w['id'] for w in selected], 'passed': matches,
                            'status': 'matches_source_transcription' if matches else 'source_disagreement'})
     return {'status': ('passed' if all(c['passed'] for c in checks) else 'source_disagreement') if checks else 'not_annotated',
             'scope': 'independently_transcribed_full_text_regions', 'checks': checks,

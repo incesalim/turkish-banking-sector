@@ -393,4 +393,23 @@ of detected tables.
   Added revision-bound contextual reviews with exact source span/text/geometry
   witnesses. They supplement automatic findings and cannot approve content or
   silently clear source contradictions. Local checks of all eight originals pass;
-  cloud review-path validation remains pending.
+  cloud probes at `77c37cea` independently verify all eight reviews in 12 filings.
+  Five covers now have automatic support after source font-span joins; three
+  genuine cover contradictions remain explicit.
+
+- 2026-09-06: completed the original raw-recovery fleet: 1,117 source bindings,
+  184 filings with 741 selected pages and 289,865 OCR words; 933 filings with no
+  image/outline pages flagged. Independent reconciliation matches every source
+  hash against the verified native run. This does not establish selector recall.
+  Published six FIBA/ISCTR/Takasbank sample pages; independently rechecked R2
+  original/artifact bytes, pixels, observations and 75 selected table-cell checks.
+  All three unchanged filing replays use receipts; 25 object versions are identical.
+- 2026-09-06: introduced a separate source-bound embedded-font reading for empty
+  Unicode maps. Unique source font/glyph/origin/fallback bindings retain raw text
+  and alternatives; partial maps, duplicate bindings and ambiguous non-whitespace
+  characters abstain. Source probes recover 60/1,571 Takasbank characters on
+  pages 1/13 and pass all four independently transcribed complete text regions.
+  The dotted İstanbul source reading is recovered while the OCR discrepancy stays
+  visible. Tests cover real embedded fonts, subset-name truncation, four rotations,
+  valid/partial/absent maps, ambiguous positions and mutated packets. Integrated
+  derived-cache/receipt identity and admin alternatives; cloud probe pending.

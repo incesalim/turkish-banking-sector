@@ -28,6 +28,7 @@ def recovery_identity(ocr_engine: dict, atlas: dict | None) -> dict:
             "table_implementation_sha256": digest(Path(__file__).with_name('document_recovery_tables.py').read_bytes()),
             "unruled_implementation_sha256": digest(Path(__file__).with_name('document_recovery_unruled.py').read_bytes()),
             "text_implementation_sha256": digest(Path(__file__).with_name('document_recovery_text.py').read_bytes()),
+            "font_mapping_implementation_sha256": digest(Path(__file__).with_name('document_font_mapping.py').read_bytes()),
             "numpy": np.__version__}
 
 
@@ -60,15 +61,19 @@ def recovery_view(ocr: dict, vector: dict | None) -> dict:
             "reading_order_verified": False, "table_structure_verified": False}
 
 
-def make_packet(ocr: dict, vector: dict | None, benchmarks: dict, engine: dict, *, table_layout: dict | None = None) -> dict:
+def make_packet(ocr: dict, vector: dict | None, benchmarks: dict, engine: dict, *,
+                table_layout: dict | None = None, font_mapping: dict | None = None) -> dict:
     if vector and (vector["source"] != ocr["source"] or vector["page"] != ocr["page"]):
         raise ValueError("Recovery observations refer to different source pages")
+    if font_mapping and (font_mapping['source'] != ocr['source'] or font_mapping['page'] != ocr['page']):
+        raise ValueError('Font mapping refers to a different source page')
     view = recovery_view(ocr, vector)
     if table_layout is not None:
         view['table_layout'] = table_layout
     from .document_recovery_text import text_blocks
     view['text_blocks'] = text_blocks(ocr, view['lines'], (table_layout or {}).get('tables', []))
     return {"schema_version": "source-recovery-page-1", "source": ocr["source"], "page": ocr["page"],
+            **({'font_mapping': font_mapping} if font_mapping is not None else {}),
             "width": ocr["width"], "height": ocr["height"], "coordinate_space": "display",
             "engine": engine, "ocr": ocr, "vector": vector, "view": view,
             "benchmarks": benchmarks, "status": "recovery_candidates", "semantically_verified": False}
@@ -79,11 +84,16 @@ def verify_packet(packet: dict, derivative: bytes, original: Path, atlas: dict |
             or packet.get("status") != "recovery_candidates" or packet.get("semantically_verified") is not False):
         raise ValueError("Invalid recovery packet or unsupported approval")
     ocr, vector = packet["ocr"], packet["vector"]
+    font_mapping = None
+    if 'font_mapping' in packet:
+        from .document_font_mapping import font_mapping_page
+        source = packet['source']
+        font_mapping = font_mapping_page(original, Filing(source['bank_ticker'], source['period'], source['kind']), packet['page'])
     layout = None
     if 'table_layout' in packet['view']:
         from .document_recovery_tables import capture_recovery_tables
         layout = capture_recovery_tables(ocr, vector, derivative)
-    if packet != make_packet(ocr, vector, packet["benchmarks"], packet["engine"], table_layout=layout):
+    if packet != make_packet(ocr, vector, packet["benchmarks"], packet["engine"], table_layout=layout, font_mapping=font_mapping):
         raise ValueError("Recovery view differs from its retained observations")
     if packet["engine"] != recovery_identity(ocr["engine"], atlas):
         raise ValueError("Recovery engine or reference changed")
@@ -188,6 +198,8 @@ class RecoveryStore:
                     "vector_words": len((packet["vector"] or {}).get("matched_paths", [])),
                     "disagreements": sum(c["status"] != "exact_agreement" for c in packet["view"]["vector_comparisons"]),
                     "source_text_disagreements": sum(not c['passed'] for c in packet['benchmarks'].get('text_regions', {}).get('checks', [])),
+                    "font_mapped_characters": (packet.get('font_mapping') or {}).get('mapped_characters', 0),
+                    "font_unresolved_characters": (packet.get('font_mapping') or {}).get('unresolved_characters', 0),
                     "semantically_verified": False}
 
         def update(index):

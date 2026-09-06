@@ -64,16 +64,24 @@ The new recovery-table view keeps image and outline alternatives in each cell,
 shows unresolved outlines explicitly and preserves unassigned header text.
 Its source-pixel columns and inferred rows remain candidates. Independent
 checks of four cloud sample pages pass the 59 selected cell associations.
-Publication awaits completion of the older recovery fleet; earlier packets
-still show their complete lines and raw-reader differences.
+Publication is independently verified for the four FIBA/ISCTR sample pages;
+live FIBA page 13 shows the 64-row/six-column grid and the retained 717.417 versus
+7.417 disagreement. Earlier packets still expose their original lines.
 For pages without a ruled grid, a further candidate uses repeated amount
 alignment. Its wrapped lines remain separate physical rows; absent text is
 shown as `[no text observed]`, distinct from zero and unresolved outlines.
 Recovered OCR blocks keep their line/word IDs and table membership. Full text
 comparisons show the source transcription beside differing OCR, including
-Turkish diacritics. These new views are implemented; cloud publication and live
-review remain pending. Neither a matching passage nor a receipt approves the
-rest of a page.
+Turkish diacritics. Takasbank pages 1/13 are published and independently checked;
+all three sample filings pass unchanged receipt replays with 25 object versions
+unchanged. Neither a matching passage nor a receipt approves the rest of a page.
+A further view shows text recovered from embedded fonts whose PDF Unicode maps
+are empty. Source font/glyph/character/position bindings, original text and
+alternatives remain in full evidence; the viewer exposes physical blocks and
+side-by-side original/font readings. Unbound or ambiguous characters remain
+unresolved. Font and OCR comparisons against complete source transcriptions are
+separate; a matching font reading does not erase an OCR disagreement. The new
+font view still needs cloud publication and live review.
 
 The audit vitals label is **Audit core statements / Loaded**: it reports the
 balance-sheet and income-statement extraction flag. It does not certify all

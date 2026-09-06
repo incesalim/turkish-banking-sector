@@ -22,7 +22,7 @@ def request_identity(repo: Path, ocr_engine: dict, pages: list[int]) -> dict:
         'document_corpus.py', 'document_corpus_resume.py', 'document_corpus_store.py',
         'document_ocr.py', 'document_ocr_models.json', 'document_vector.py',
         'document_vector_anchors.json', 'document_recovery.py',
-        'document_recovery_tables.py', 'document_recovery_unruled.py', 'document_recovery_text.py',
+        'document_recovery_tables.py', 'document_recovery_unruled.py', 'document_recovery_text.py', 'document_font_mapping.py',
         'document_recovery_resume.py'))]
     paths.append(repo / 'src/audit_reports/document_quality.py')
     return {'ocr_engine': ocr_engine, 'numpy': np.__version__, 'pages': sorted(pages),
@@ -106,7 +106,10 @@ def record_receipt(recovery, filing: Filing, original: Path, acquisition: dict,
         if current['page'] != page or current['engine']['ocr'] != request['ocr_engine']:
             raise ValueError('Recovery page differs from requested page or OCR engine')
         for field, filename in [('implementation_sha256', 'document_recovery.py'),
-                                ('table_implementation_sha256', 'document_recovery_tables.py')]:
+                                ('table_implementation_sha256', 'document_recovery_tables.py'),
+                                ('unruled_implementation_sha256', 'document_recovery_unruled.py'),
+                                ('text_implementation_sha256', 'document_recovery_text.py'),
+                                ('font_mapping_implementation_sha256', 'document_font_mapping.py')]:
             if current['engine'].get(field) != request['implementation'][f'src/audit_reports/{filename}']:
                 raise ValueError('Recovery page derived implementation changed')
         if current['engine'].get('numpy') != request['numpy']:

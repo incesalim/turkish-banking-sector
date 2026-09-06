@@ -69,13 +69,18 @@ preserved source evidence is current. Selected-case success is not whole-table a
 
 Raw image/outline recovery in `recover-document-corpus.yml`, run
 [34040878532](https://github.com/incesalim/Carthago/actions/runs/34040878532)
-is active; groups 0, 1 and 2 completed. Separate recovery artifacts retain source
+completed across the original 1,117 filings: 184 filings had 741 selected pages,
+with 289,865 OCR words; 933 filings had no image/outline pages flagged. All filing
+and PDF-hash bindings match the independently reconciled native run, without
+omissions, duplicates or failed outcomes. This old selector does not cover damaged
+native character maps. Separate recovery artifacts retain source
 pixels, pinned-model OCR observations, source-transcribed glyph alternatives,
 disagreements and named failures. The later source-pixel table view passes four
 independently reconstructed FIBA/ISCTR pages and 59 selected method/region cell
-checks. Publishing samples with those tables and filing resume receipts are
-queued behind the older raw-recovery run. Their publication and no-op receipt
-replay still need cloud proof before automatic recovery follow-up is enabled.
+checks. FIBA/ISCTR and Takasbank table/receipt publications now pass independent
+R2 source/artifact bytes, pixels, raw observations and 75 selected cell checks
+across six pages. Replays reuse all three filing receipts; all 25 observed object
+versions remain unchanged. Automatic recovery follow-up is still pending.
 
 Native unchanged-object receipts have passed cloud no-write replays; changed
 source bytes, engines, per-filing annotations or artifact versions invalidate
@@ -121,15 +126,16 @@ selector includes these text signals, binds its identity to the quality code and
 preserves raw text. Raw OCR engine identity is unchanged. Local source probes and
 regression tests pass. Cloud sample `34051061868` supports all four selected
 EMLAK/EXIM/VAKIFK/ZIRAAT identities; its exact review-code hashes were checked. Eight
-automatically ambiguous cases now have a separate source-bound contextual
-review. Five introductions support the registered identity while other sections
+previously ambiguous cases now have a separate source-bound contextual
+review. The font-span join also restores cover wording on five of them, so their
+automatic identity now has support; three cover contradictions remain ambiguous. Five introductions support the registered identity while other sections
 mention QNB or earlier periods. Three English covers (HALKB 2022Q2, BURGAN
 2022Q2 and QNBFB 2023Q4 consolidated) themselves mix consolidated/unconsolidated
 wording; their auditor introductions support consolidated statements. The
 cover contradictions remain explicit. The eight reviews bind to exact PDF
 hashes, source span IDs, text digests and geometry; changed or missing witnesses
-cannot inherit a review. Local independent source checks pass; cloud validation
-of the contextual-review path is pending.
+cannot inherit a review. Four cloud probes at `77c37cea` and independent original
+PDF/witness/code-hash checks verify all eight reviews across 12 selected filings.
 
 Takasbank read-only recovery `34051059461` preserved the exact independently
 acquired original, source pixels and OCR observations for pages 1 and 13. It
@@ -147,8 +153,19 @@ against source `İstanbul`. A `source_disagreement` is retained and surfaced in
 quality review and the admin viewer, never converted into text approval. These
 new derived views reuse retained OCR. Cloud probe `34052077416` passes
 independent source-byte, pixel, word, derived-layout and exact committed-code
-checks. Publication `34052080469` is queued behind the older recovery fleet;
-live review remains pending.
+checks. Publication `34052080469` passed independent stored-byte and derived-view
+checks; its unchanged replay preserves all observed object versions.
+
+A separate embedded-font candidate now repairs missing Unicode mappings only
+when a unique source font, glyph ID, original character and position agree.
+Known native characters remain intact; ambiguous non-whitespace glyph aliases
+and unmatched characters stay unresolved. Full font/program hashes, alternatives,
+raw characters and source references are retained. On independently reviewed
+Takasbank pages 1/13 it resolves 60/1,571 characters and matches all four complete
+source-transcribed regions, including dotted `İstanbul`. The OCR disagreement
+remains visible. Tests cover rotations, partial/missing maps, duplicate positions,
+font-name truncation and mutated evidence. The admin exposes both readings and
+physical text blocks. Cloud validation of this new font view is pending.
 
 All-table coverage, row/header/unit/period meaning, cross-page continuations,
 reading order and unrecovered text remain active work. The source ledger is the

@@ -5,14 +5,18 @@ type Artifact = { key: string; sha256: string; bytes: number };
 type RecoveryRevision = { page: number; artifacts: Record<string, Artifact>; semantically_verified: false };
 type RecoveryRow = { current: RecoveryRevision | null; last_attempt?: { status: string; error?: string } };
 type RecoveryIndex = { pages: Record<string, RecoveryRow> };
+type TextComparison = { status: string; checks: { id: string; source_bbox: number[];
+  source_transcription: string; observed_text: string; passed: boolean }[] };
 export type RecoveryTable = { id: string; method?: string; row_count: number; n_cols: number; header_text: string;
   rows: { index: number; cells: { column: number; candidate_text: string | null; candidate_method: string;
     ocr_text: string; outline_text: string | null; ocr_word_ids: number[]; drawing_ids: number[];
     unresolved_drawing_ids: number[] }[] }[] };
 export type RecoveryPage = { schema_version: "source-recovery-page-1"; page: number;
   source: { pdf_sha256: string }; status: "recovery_candidates"; semantically_verified: false;
-  benchmarks?: { text_regions?: { status: string; checks: { id: string; source_bbox: number[];
-    source_transcription: string; observed_text: string; passed: boolean }[] } };
+  benchmarks?: { text_regions?: TextComparison; font_text_regions?: TextComparison };
+  font_mapping?: { mapped_characters: number; unresolved_characters: number; missing_unicode_trace_characters: number;
+    blocks: { id: string; text: string; source_span_ids: number[]; font_word_ids: number[] }[];
+    spans: { id: number; native_text: string; candidate_text: string }[] };
   view: { lines: { id: string; text: string; word_ids: number[]; bbox: number[] }[];
     text_blocks?: { id: string; text: string; ocr_word_ids: number[]; line_ids: string[];
       table_associations: { table_id: string; ocr_word_ids: number[] }[] }[];
@@ -142,12 +146,34 @@ export async function readRecoveryPage(bucket: CorpusBucket, entry: Artifact, so
       throw new Error("Invalid recovered text blocks");
     }
   }
-  const textReview = record(value.benchmarks) ? value.benchmarks.text_regions : undefined;
-  if (textReview !== undefined && (!record(textReview) || typeof textReview.status !== "string"
+  const fontMapping = value.font_mapping;
+  if (fontMapping !== undefined) {
+    if (!record(fontMapping) || fontMapping.schema_version !== "embedded-font-mapping-page-1"
+        || !record(fontMapping.source) || ["bank_ticker", "period", "kind", "pdf_sha256"].some(k =>
+          (fontMapping.source as Record<string, unknown>)[k] !== source.source[k as keyof typeof source.source])
+        || fontMapping.page !== page || fontMapping.coordinate_space !== "display"
+        || fontMapping.recognition_verified !== false || fontMapping.reading_order_verified !== false
+        || !["mapped_characters", "bound_characters", "unresolved_characters", "missing_unicode_trace_characters", "unbound_missing_trace_characters"]
+          .every(k => typeof fontMapping[k] === "number" && Number.isSafeInteger(fontMapping[k]) && (fontMapping[k] as number) >= 0)
+        || (fontMapping.mapped_characters as number) + (fontMapping.unresolved_characters as number) !== fontMapping.missing_unicode_trace_characters
+        || !Array.isArray(fontMapping.replacements) || fontMapping.replacements.length !== fontMapping.bound_characters
+        || !Array.isArray(fontMapping.spans) || fontMapping.spans.some((s, i) => !record(s) || s.id !== i
+          || typeof s.native_text !== "string" || typeof s.candidate_text !== "string")
+        || !Array.isArray(fontMapping.blocks) || fontMapping.blocks.some(b => !record(b)
+          || typeof b.id !== "string" || typeof b.text !== "string" || !Array.isArray(b.source_span_ids)
+          || !Array.isArray(b.font_word_ids) || b.recognition_verified !== false
+          || b.reading_order_verified !== false || b.paragraph_boundaries_verified !== false)) {
+      throw new Error("Invalid source font mapping");
+    }
+  }
+  for (const key of ["text_regions", "font_text_regions"]) {
+    const textReview = record(value.benchmarks) ? value.benchmarks[key] : undefined;
+    if (textReview !== undefined && (!record(textReview) || typeof textReview.status !== "string"
       || !Array.isArray(textReview.checks) || textReview.checks.some(c => !record(c) || typeof c.id !== "string"
         || typeof c.passed !== "boolean" || typeof c.source_transcription !== "string" || typeof c.observed_text !== "string"
         || !Array.isArray(c.source_bbox) || c.source_bbox.length !== 4 || !c.source_bbox.every(n => typeof n === "number" && Number.isFinite(n))))) {
-    throw new Error("Invalid source text comparison");
+      throw new Error("Invalid source text comparison");
+    }
   }
   return value as unknown as RecoveryPage;
 }

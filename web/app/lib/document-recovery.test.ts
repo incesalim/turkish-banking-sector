@@ -94,6 +94,33 @@ describe("source-bound recovery wire format", () => {
     check.source_bbox = [10, 20];
     await expect(read()).rejects.toThrow("Invalid source text comparison");
   });
+  it("keeps font readings source-bound and rejects a fabricated approval or count", async () => {
+    const packet = JSON.parse(gunzipSync(objects[entry.key]).toString());
+    const font = { schema_version: "embedded-font-mapping-page-1", source: structuredClone(packet.source),
+      page: 1, coordinate_space: "display", mapped_characters: 1, bound_characters: 1,
+      missing_unicode_trace_characters: 1, unresolved_characters: 0, unbound_missing_trace_characters: 0,
+      replacements: [{ native_text: "x", candidate_text: "İ" }],
+      spans: [{ id: 0, native_text: "xstanbul", candidate_text: "İstanbul" }],
+      blocks: [{ id: "p1:font_block0", text: "İstanbul", source_span_ids: [0], font_word_ids: [0],
+        recognition_verified: false, reading_order_verified: false, paragraph_boundaries_verified: false }],
+      recognition_verified: false, reading_order_verified: false };
+    packet.font_mapping = font;
+    const read = () => {
+      const bytes = gzipSync(JSON.stringify(packet));
+      const ref = { ...entry, bytes: bytes.length, sha256: createHash("sha256").update(bytes).digest("hex") };
+      const store = { get: async () => ({ size: bytes.length, body: stream(bytes) }) } as unknown as CorpusBucket;
+      return readRecoveryPage(store, ref, source, 1);
+    };
+    expect((await read()).font_mapping?.blocks[0].text).toBe("İstanbul");
+    font.recognition_verified = true;
+    await expect(read()).rejects.toThrow("Invalid source font mapping");
+    font.recognition_verified = false;
+    font.mapped_characters = 2;
+    await expect(read()).rejects.toThrow("Invalid source font mapping");
+    font.mapped_characters = 1;
+    font.source.pdf_sha256 = "0".repeat(64);
+    await expect(read()).rejects.toThrow("Invalid source font mapping");
+  });
 });
 
 describe("private recovery route", () => {
