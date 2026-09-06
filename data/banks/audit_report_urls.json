@@ -558,7 +558,11 @@
           "2026Q1": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB-Konsolide-Olmayan-31032026.pdf",
           "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-010-SOLO-2026-06.zip"
         }
-      }
+      },
+      "source_names": [
+        "Türkiye Cumhuriyeti Ziraat Bankası Anonim Şirketi"
+      ],
+      "_source_names_reference": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB-KONSOLIDE-31032023-denetim-raporu.pdf"
     },
     "DENIZ": {
       "name": "Denizbank A.Ş.",
@@ -1286,6 +1290,15 @@
           "2025Q4": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-AS-31122025-Solo-Rapor.pdf",
           "2026Q1": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-AS-31032026-Solo-Rapor.pdf",
           "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-135-SOLO-2026-06.zip"
+        }
+      },
+      "archive_selection": {
+        "consolidated": {
+          "2026Q2": {
+            "member": "Anadolubank Konsolide 30062026.pdf",
+            "sha256": "f90ac903d1e0e0cf7f69b7a0bdff59cfdebefbd226897a9961fe5de300a28a10",
+            "review_note": "Independently opened 96-page report and cover. The other PDF is a one-page signed responsibility declaration, retained in the source transport and still awaiting separate text capture. Source review 2026-09-06."
+          }
         }
       }
     },

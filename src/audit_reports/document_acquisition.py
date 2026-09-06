@@ -18,22 +18,38 @@ from .document_corpus_store import PREFIX, _error_code, _json
 from .document_quality import fold, source_identity_review
 
 
-def unwrap_pdf(body: bytes) -> tuple[bytes, dict]:
+def unwrap_pdf(body: bytes, reviewed_member: dict | None = None) -> tuple[bytes, dict]:
     selection = {'method': 'direct_pdf', 'archive_members': []}
     if body.startswith(b'PK\x03\x04'):
         with zipfile.ZipFile(io.BytesIO(body)) as archive:
             members = [i for i in archive.infolist() if not i.is_dir()]
-            selection['archive_members'] = [{'name': i.filename, 'bytes': i.file_size} for i in members]
+            selection['archive_members'] = [{'name': i.filename, 'bytes': i.file_size,
+                                             'sha256': hashlib.sha256(archive.read(i)).hexdigest()} for i in members]
             pdfs = [i for i in members if i.filename.lower().endswith('.pdf')]
             statements = [i for i in pdfs if not any(w in fold(i.filename) for w in ('faaliyet', 'activity'))]
+            if reviewed_member:
+                statements = [i for i in pdfs if i.filename == reviewed_member['member']]
             if len(statements) != 1:
                 raise ValueError(f'Archive needs source selection: {len(statements)} non-activity PDFs')
             chosen = statements[0]
             selection.update(method='single_non_activity_pdf', archive_member=chosen.filename)
             body = archive.read(chosen)
-    elif body.startswith(b'\xac\xed\x00\x05') and b'%PDF' in body[:64]:
+            if reviewed_member:
+                if hashlib.sha256(body).hexdigest() != reviewed_member['sha256']:
+                    raise ValueError('Reviewed archive member bytes changed')
+                selection.update(method='source_reviewed_archive_member', reviewed_member=reviewed_member)
+            selection['unselected_pdf_members'] = [row for row in selection['archive_members']
+                                                  if row['name'].lower().endswith('.pdf') and row['name'] != chosen.filename]
+    elif reviewed_member:
+        raise ValueError('Reviewed archive selection requires the source archive')
+    # Some BDDK archives contain a serialized byte array as their PDF member.
+    # Apply the wrapper check after archive selection as well as to direct URLs.
+    if body.startswith(b'\xac\xed\x00\x05') and b'%PDF' in body[:64]:
         start = body.index(b'%PDF')
-        selection.update(method='java_stream_prefix_removed', prefix_bytes=start)
+        selection.update(prefix_bytes=start, prefix_format='java_object_stream',
+                         wrapped_pdf_sha256=hashlib.sha256(body).hexdigest())
+        if selection['method'] == 'direct_pdf':
+            selection['method'] = 'java_stream_prefix_removed'
         body = body[start:]
     if not body.startswith(b'%PDF-'):
         raise ValueError('Source did not contain a PDF')
@@ -64,7 +80,8 @@ def _existing(store, key):
         raise
 
 
-def acquire_filing(store, filing: Filing, url: str, patterns: dict, *, fetch=fetch_source) -> dict:
+def acquire_filing(store, filing: Filing, url: str, patterns: dict, *, fetch=fetch_source,
+                   reviewed_member: dict | None = None) -> dict:
     """Only create a missing acquisition key; retain bytes before interpreting them."""
     key = f'{filing.bank_ticker.lower()}/{filing.filename}'
     result = {'filing': filing.as_dict(), 'acquisition_key': key, 'source_url': url,
@@ -81,11 +98,12 @@ def acquire_filing(store, filing: Filing, url: str, patterns: dict, *, fetch=fet
                     name: hashlib.sha256((Path(__file__).parent / name).read_bytes()).hexdigest()
                     for name in ('document_acquisition.py', 'document_quality.py')}}}
     try:
-        body, selection = unwrap_pdf(transport)
+        body, selection = unwrap_pdf(transport, reviewed_member)
         sha = hashlib.sha256(body).hexdigest()
         original_key = f'{PREFIX}sources/{sha}/original.pdf'
         store._immutable(original_key, body, 'application/pdf')
-        manifest.update(selection=selection, pdf_sha256=sha, pdf_bytes=len(body), original_key=original_key)
+        manifest.update(selection=selection, pdf_sha256=sha, pdf_bytes=len(body), original_key=original_key,
+                        related_pdf_content_capture='pending' if selection.get('unselected_pdf_members') else 'not_applicable')
         with fitz.open(stream=body, filetype='pdf') as pdf:
             if pdf.needs_pass or not len(pdf):
                 raise ValueError('Source PDF requires a password or has no pages')

@@ -1503,6 +1503,22 @@ recovery index never means recovery is complete. Conflicting source identity or
 artifact failures fail the review run without changing source data. Local use
 requires `--limit 1..4`; full byte reviews belong in Actions.
 
+Source-byte review verifies the acquired R2 PDF and retained copy. For older
+acquisitions, `source_url` is a configured lookup URL, not proof that the current
+HTTP response has the same bytes. New acquisition manifests retain the actual
+response/transport/member chain. Comparing older stored PDFs with current
+official-source downloads remains a separate source-origin review.
+
+Identity review joins adjacent font spans on the same physical source line;
+font boundaries do not insert spaces into bank names. Explicit `source_names`
+contain corroborated legal-name aliases. Text-review signals retain the source
+span IDs and character offsets of nontext controls, as well as replacement
+characters and suspicious tokens. Automatic recovery selection now uses
+`source_content_detector`, including these text signals alongside image/outline
+geometry. Historical `image_outline_detector` selections remain readable. The
+request/selector hashes include `document_quality.py`; the raw OCR engine is
+unchanged, so existing OCR observations can be reused when derived views change.
+
 To fill explicitly registered source gaps, dispatch the same workflow with
 `acquire_missing=true` and `publish=true` (not `quality_only`). This runs
 `scripts/acquire_document_corpus.py` before capture, with the same bank, period,
@@ -1512,7 +1528,13 @@ acquisition manifests under `document-corpus/v1/`, rejects ambiguous multi-PDF
 archives and conflicting leading-page claims, and uses conditional creation plus
 byte readback for the acquisition key. An unresolved or damaged cover remains
 explicitly unresolved; it is not excluded or silently approved. Existing source
-keys are never overwritten. No D1 writes, analytical extraction or notifications
+keys are never overwritten. Java byte-array wrappers are recorded and removed
+from direct downloads or selected ZIP members while original transport bytes
+remain intact. For a reviewed multi-PDF package, `archive_selection` in the bank
+URL config is keyed by canonical basis and period and requires an exact member
+name plus its SHA-256. A changed or missing member fails selection. Unselected
+PDF members remain named and hashed, with related text capture explicitly pending;
+a successful primary-PDF acquisition does not claim its attachments are processed. No D1 writes, analytical extraction or notifications
 occur. Successful acquisitions are captured even if another source needs review;
 the run then reports the acquisition failure. `acquisition-results.json` retains
 each named outcome in `audit-document-acquisition-report-N` artifacts, where N

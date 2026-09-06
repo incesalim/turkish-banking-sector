@@ -87,8 +87,15 @@ and never replaces an existing acquisition. Publishing sample `34049005525`
 acquired Takasbank and VakıfBank 2022Q1, preserved/captured 292 pages across
 three selected filings and left the existing VakıfBank solo PDF unchanged.
 Independent R2 transport, manifest, PDF-copy and retained-artifact checks pass;
-the two new PDFs match the separate official-source downloads. R2 now contains
-1,119 acquired filings; 27 registered sources remain to acquire. Acquisition
+the two new PDFs match the separate official-source downloads. The following full run, `34049704430`, acquired another 25 sources; all four
+acquisition reports reconcile 1,146 named outcomes (1,119 unchanged, 25 acquired,
+two needing review). R2 now contains 1,144 acquired filings. Ziraat Dinamik
+2025Q2 has a serialized PDF wrapper inside its ZIP, and Anadolubank 2026Q2
+consolidated includes both a 96-page report and a one-page signed responsibility
+declaration. Both were independently opened. Nested-wrapper support and a
+filename/hash-bound Anadolubank selection are implemented; their publishing
+repairs are pending. The declaration remains retained in transport and explicitly
+awaits separate text capture. The four full capture groups are running. Acquisition
 groups now finish before any capture group reads its inventory, avoiding stale
 acquisition counts during parallel fills. This path writes no D1 data.
 
@@ -103,6 +110,18 @@ reconcile to the acquisition inventory and verify both PDF copies plus retained
 source/structure bytes for all 116,503 pages. Leading source text supports 1,050
 registered identities; 59 remain unresolved and eight have competing claims.
 No text-legibility signal is a readability approval.
+
+Follow-up identity review found readable bank names split across font spans;
+joining spans on their original physical line resolves the reviewed Emlak and
+Vakıf Katılım covers. The source-corroborated Ziraat legal-name alias resolves its
+reviewed cover. Takasbank exposes a different defect: printable text decodes to
+control characters, which the old legibility heuristic missed. Four source pages
+now trigger explicit control-character signals. The revised automatic recovery
+selector includes these text signals, binds its identity to the quality code and
+preserves raw text. Raw OCR engine identity is unchanged. Local source probes and
+regression tests pass; a new cloud recovery/quality sample remains pending. Eight
+ambiguous cover cases still require source review; some covers themselves mix
+consolidated and unconsolidated wording, so they are not silently reclassified.
 
 All-table coverage, row/header/unit/period meaning, cross-page continuations,
 reading order and unrecovered text remain active work. The source ledger is the

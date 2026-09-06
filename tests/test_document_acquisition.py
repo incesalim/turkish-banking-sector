@@ -54,6 +54,40 @@ def test_java_wrapper_is_recorded_and_never_changes_pdf_bytes():
     assert receipt['prefix_bytes'] == 27
 
 
+def test_serialized_pdf_inside_a_zip_is_unwrapped_with_both_source_steps_retained():
+    import hashlib
+    wanted = pdf_body()
+    wrapped = b'\xac\xed\x00\x05' + b'x' * 23 + wanted
+    transport = archive_body([('bank report.pdf', wrapped)])
+    selected, receipt = unwrap_pdf(transport)
+    assert selected == wanted
+    assert receipt['archive_member'] == 'bank report.pdf'
+    assert receipt['prefix_bytes'] == 27
+    assert receipt['wrapped_pdf_sha256'] == hashlib.sha256(wrapped).hexdigest()
+    client = MemoryR2()
+    result = run_acquire(client, transport)
+    assert result['status'] == 'acquired'
+    assert client.objects[result['transport_key']] == transport
+    assert client.objects[result['original_key']] == wanted
+
+
+def test_reviewed_archive_selection_is_bound_to_member_bytes_and_keeps_other_pdfs_named():
+    import hashlib
+    report, declaration = pdf_body(), pdf_body('Signed responsibility declaration')
+    archive = archive_body([('declaration.pdf', declaration), ('report.pdf', report)])
+    reviewed = {'member': 'report.pdf', 'sha256': hashlib.sha256(report).hexdigest()}
+    body, selection = unwrap_pdf(archive, reviewed)
+    assert body == report and selection['method'] == 'source_reviewed_archive_member'
+    assert selection['unselected_pdf_members'] == [{'name': 'declaration.pdf', 'bytes': len(declaration),
+                                                  'sha256': hashlib.sha256(declaration).hexdigest()}]
+    with pytest.raises(ValueError, match='bytes changed'):
+        unwrap_pdf(archive_body([('report.pdf', declaration)]), reviewed)
+    with pytest.raises(ValueError, match='needs source selection'):
+        unwrap_pdf(archive_body([('renamed.pdf', report)]), reviewed)
+    with pytest.raises(ValueError, match='requires the source archive'):
+        unwrap_pdf(report, reviewed)
+
+
 def test_source_bytes_are_preserved_before_acquisition_and_replay_writes_nothing():
     client = MemoryR2()
     body = pdf_body()
@@ -165,3 +199,25 @@ def test_scoped_cli_records_each_success_and_failure_without_touching_other_fili
     report = json.loads((tmp_path / 'acquisition-results.json').read_text())
     assert report['summary'] == {'failed': 1, 'acquired': 1}
     assert len(calls) == 2 and all(f.bank_ticker == 'TEST' for f in calls)
+
+
+def test_cli_archive_selection_cannot_leak_to_another_period(tmp_path, monkeypatch):
+    import acquire_document_corpus as command
+    from src.audit_reports import r2_storage
+    monkeypatch.setenv('GITHUB_ACTIONS', 'true')
+    chosen = {'member': 'reviewed.pdf', 'sha256': 'a' * 64}
+    config = {'banks': {'TEST': {'name': 'Test Bank', 'urls': {'consolidated': {
+        '2026Q1': 'https://example/one.zip', '2026Q2': 'https://example/two.zip'}},
+        'archive_selection': {'consolidated': {'2026Q2': chosen}}}}}
+    path = tmp_path / 'config.json'
+    path.write_text(json.dumps(config))
+    monkeypatch.setattr(r2_storage, 'get_client', MemoryR2)
+    calls = []
+
+    def acquire(store, filing, url, patterns, **kwargs):
+        calls.append((filing.period, kwargs))
+        return {'filing': filing.as_dict(), 'status': 'acquired'}
+
+    monkeypatch.setattr(command, 'acquire_filing', acquire)
+    assert command.main(['--config', str(path), '--output-dir', str(tmp_path)]) == 0
+    assert calls == [('2026Q1', {}), ('2026Q2', {'reviewed_member': chosen})]

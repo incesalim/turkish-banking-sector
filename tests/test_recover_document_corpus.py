@@ -26,6 +26,27 @@ def test_raster_selection_uses_display_bounds_once_and_counts_text_inside_images
         assert selection['observations'][0]['native_words_inside_images'] == 0
 
 
+def test_text_with_control_glyphs_is_selected_without_an_image_or_outline(tmp_path):
+    import recover_document_corpus as cli
+    path = tmp_path / 'damaged-text.pdf'
+    with fitz.open() as pdf:
+        page = pdf.new_page()
+        page.insert_text((40, 80), 'Readable printed report text')
+        xref = page.get_contents()[0]
+        text = 'BROKEN\x03NATIVE\x03TEXT'.encode('utf-16-be').hex()
+        wrapped = f'/Span << /ActualText <feff{text}> >> BDC\n'.encode() + pdf.xref_stream(xref) + b'\nEMC'
+        pdf.update_stream(xref, wrapped)
+        pdf.save(path)
+    result = cli.select_pages(path, [])
+    assert result['pages'] == [1] and result['method'] == 'source_content_detector'
+    observation = result['observations'][0]
+    assert observation['text_layer'] == 'text' and observation['drawing_items'] == 0
+    assert observation['summed_image_area_ratio'] == 0
+    assert observation['text_review']['signals'] == ['nontext_control_characters']
+    assert observation['text_review']['control_character_spans']
+    assert result['selection_completeness_verified'] is False
+
+
 @pytest.mark.parametrize('args', [[], ['--limit', '1'], ['--pages', '1'],
                                 ['--pages', '0', '--limit', '1'], ['--pages', '1,1', '--limit', '1'],
                                 ['--pages', '1', '--limit', '1', '--publish']])

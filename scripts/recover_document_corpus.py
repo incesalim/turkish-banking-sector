@@ -19,6 +19,7 @@ sys.path.insert(0, str(REPO))
 
 from src.audit_reports.document_corpus import Filing, registered_sources, reconcile_inventory  # noqa: E402
 from src.audit_reports.document_corpus_store import CorpusStore  # noqa: E402
+from src.audit_reports.document_quality import text_legibility_signals  # noqa: E402
 from src.audit_reports.document_recovery import (  # noqa: E402
     RecoveryStore, make_packet, recovery_identity, verify_packet,
 )
@@ -33,6 +34,14 @@ def select_pages(original: Path, explicit: list[int]) -> dict:
         for number in explicit or range(1, len(pdf) + 1):
             page = pdf[number - 1]
             words = page.get_text("words", clip=fitz.INFINITE_RECT())
+            raw = page.get_text('dict', flags=fitz.TEXTFLAGS_DICT & ~fitz.TEXT_PRESERVE_IMAGES,
+                                clip=fitz.INFINITE_RECT())
+            spans = [span for block in raw['blocks'] if block['type'] == 0
+                     for line in block['lines'] for span in line['spans']]
+            text_review = text_legibility_signals({
+                'page': number, 'words': [{'id': i, 'text': w[4]} for i, w in enumerate(words)],
+                'spans': [{'id': i, 'text': s['text']} for i, s in enumerate(spans)],
+                'replacement_character_count': sum(s['text'].count('\ufffd') for s in spans)})
             # page.rect is already in display coordinates. Rotating it again
             # clips the wrong area on landscape PDFs. Transform source boxes only.
             bounds = page.rect
@@ -48,9 +57,12 @@ def select_pages(original: Path, explicit: list[int]) -> dict:
             observations.append({"page": number, "native_words": len(words), "text_layer": layer,
                                  "drawing_items": items, "summed_image_area_ratio": area / bounds.get_area(),
                                  "native_words_inside_images": inside_images,
-                                 "selected": bool(explicit) or layer != "text"})
-        return {"page_count": len(pdf), "method": "explicit" if explicit else "image_outline_detector",
-                "detector_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+                                 "text_review": text_review,
+                                 "selected": bool(explicit) or layer != "text" or text_review['needs_text_review']})
+        detector = hashlib.sha256(Path(__file__).read_bytes())
+        detector.update((REPO / 'src/audit_reports/document_quality.py').read_bytes())
+        return {"page_count": len(pdf), "method": "explicit" if explicit else "source_content_detector",
+                "detector_sha256": detector.hexdigest(),
                 "pages": [p['page'] for p in observations if p['selected']],
                 "observations": observations, "selection_completeness_verified": False}
 

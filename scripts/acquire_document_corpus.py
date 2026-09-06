@@ -61,7 +61,9 @@ def main(argv=None):
             urls = registered[filing]
             if len(urls) != 1:
                 raise ValueError('Source acquisition requires one unambiguous registered URL')
-            result = acquire_filing(store, filing, urls[0], patterns)
+            member = config['banks'][filing.bank_ticker].get('archive_selection', {}).get(filing.kind, {}).get(filing.period)
+            kwargs = {'reviewed_member': member} if member else {}
+            result = acquire_filing(store, filing, urls[0], patterns, **kwargs)
         except Exception as error:
             result = {'filing': filing.as_dict(), 'status': 'failed', 'error': str(error)}
         report['filings'].append(result)

@@ -153,7 +153,9 @@ def review_filing(store, filing: Filing, acquisition_key: str, patterns: dict) -
             'structure_issues': {k: {'observations': n, 'pages': issue_pages[k], 'examples': examples[k]}
                                  for k, n in sorted(issue_counts.items())},
             'recovery': {'index_present': recovery is not None,
-                         'automatic_selection_recorded': any(s['method'] == 'image_outline_detector' for s in selections),
+                         'automatic_selection_recorded': any(s['method'] in ('image_outline_detector', 'source_content_detector')
+                                                             for s in selections),
+                         'text_legibility_selection_recorded': any(s['method'] == 'source_content_detector' for s in selections),
                          'selected_pages_all_requests': sorted(selected), 'recovered_pages': sorted(recovered),
                          'pending_selected_pages': sorted(selected - recovered), 'failed_pages': failed,
                          'unselected_text_review_pages': [p['page'] for p in legibility if p['page'] not in selected],

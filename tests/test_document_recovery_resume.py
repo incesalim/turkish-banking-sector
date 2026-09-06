@@ -109,9 +109,10 @@ def test_invalid_publication_cannot_receive_a_receipt(published, change):
     assert not any('/recovery-receipts/' in key for key in client.objects)
 
 
-def test_no_selected_pages_still_requires_source_and_selection_versions(published):
+@pytest.mark.parametrize('method', ['image_outline_detector', 'source_content_detector'])
+def test_no_selected_pages_still_requires_source_and_selection_versions(published, method):
     store, client, filing, original, acquisition, selection, request = published
-    selection = {**selection, 'method': 'image_outline_detector', 'pages': []}
+    selection = {**selection, 'method': method, 'pages': []}
     request = {**request, 'pages': []}
     from src.audit_reports.document_corpus import source_identity
     store.record_selection(source_identity(original, filing), selection)

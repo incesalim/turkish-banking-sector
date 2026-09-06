@@ -13,6 +13,33 @@ def test_corroborated_legal_name_is_an_explicit_alias_without_changing_display_n
     assert not any(p.search(fold('Türkiye Kalkınma ve Yatırım Bankası')) for p in patterns['EXIM'])
 
 
+def test_font_span_boundaries_do_not_insert_spaces_inside_the_printed_bank_name():
+    source = page('Al', 'pha Bank ', 'Unconsolidated ', '31 March 2026')
+    for span in source['spans']:
+        span.update(block=0, line=0)
+    result = source_identity_review(FILING, [source], PATTERNS)
+    assert result['status'] == 'supported_by_source_text'
+    assert result['observations'][0]['banks'][0]['source_span_ids'] == [0, 1]
+    assert result['observations'][0]['banks'][0]['observed_text'] == 'alpha bank'
+
+
+@pytest.mark.parametrize('text', ['ABCD\x03EFGH', 'BANK\x81ASI', '12\x1123', 'PAGE\x0bTEXT'])
+def test_control_characters_require_review_even_when_the_tokens_look_alphabetic(text):
+    source = page(text)
+    result = text_legibility_signals(source)
+    assert result['needs_text_review']
+    assert result['signals'] == ['nontext_control_characters']
+    assert result['control_character_spans'] == [{'source_span_id': 0, 'character_offsets': [
+        i for i, c in enumerate(text) if ord(c) < 32 or ord(c) == 129]}]
+    assert result['readability_verified'] is False
+
+
+def test_ordinary_accents_signs_nil_tokens_and_line_separators_are_not_control_glyphs():
+    result = text_legibility_signals(page('Vakıf Katılım\nBankası\t12.345 (0) - 0,05% Türk Lirası'))
+    assert result['control_character_spans'] == []
+    assert result['needs_text_review'] is False
+
+
 def page(*texts, number=1):
     return {'page': number, 'spans': [{'id': i, 'text': t} for i, t in enumerate(texts)],
             'words': [{'id': i, 'text': t} for i, t in enumerate(' '.join(texts).split())]}

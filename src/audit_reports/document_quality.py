@@ -51,13 +51,18 @@ def bank_patterns(banks: dict) -> dict[str, list[re.Pattern]]:
 
 def _page_text(page):
     text, offsets = '', []
+    previous_line = None
     for span in page['spans']:
         part = fold(span['text'])
-        if text:
+        line = (span['block'], span['line']) if 'block' in span and 'line' in span else None
+        # Font changes can split a single printed word into several spans.
+        # Add a separator between physical lines, never inside that source word.
+        if text and (line is None or line != previous_line):
             text += ' '
         start = len(text)
         text += part
         offsets.append((start, len(text), span['id']))
+        previous_line = line
     return text, offsets
 
 
@@ -138,10 +143,15 @@ def text_legibility_signals(page: dict) -> dict:
             suspect.append(word['id'])
     broken_map = len(suspect) >= 8 and len(suspect) / max(len(nonnumeric), 1) >= .25
     replacement = page.get('replacement_character_count', 0)
+    controls = [{'source_span_id': span['id'], 'character_offsets': [
+        i for i, c in enumerate(span['text']) if unicodedata.category(c) == 'Cc' and c not in '\t\n\r']}
+        for span in page.get('spans', [])]
+    controls = [item for item in controls if item['character_offsets']]
     return {'page': page['page'], 'native_words': len(page['words']),
             'nonnumeric_words': len(nonnumeric), 'suspect_word_ids': suspect,
-            'replacement_characters': replacement,
-            'needs_text_review': bool(broken_map or replacement),
+            'replacement_characters': replacement, 'control_character_spans': controls,
+            'needs_text_review': bool(broken_map or replacement or controls),
             'signals': (['possible_font_character_mapping_problem'] if broken_map else [])
-                       + (['replacement_characters'] if replacement else []),
+                       + (['replacement_characters'] if replacement else [])
+                       + (['nontext_control_characters'] if controls else []),
             'readability_verified': False}

@@ -352,3 +352,25 @@ of detected tables.
   292 selected pages. There are now 1,119 acquired filings and 27 registered
   gaps. Added an acquisition-before-capture job dependency so parallel groups
   cannot freeze different acquisition inventories while sources are arriving.
+
+- 2026-09-06: expanded acquisition in 34049704430 names all 1,146 registered
+  outcomes: 1,119 unchanged, 25 newly acquired, two held for review. Independent
+  inspection explains both: Ziraat Dinamik has a Java-wrapped PDF inside a ZIP;
+  Anadolubank has a 96-page report and a one-page signed responsibility statement.
+  Added nested-wrapper provenance and exact filename/hash-bound reviewed archive
+  selection. Unselected PDF members stay named/hashed with text capture pending.
+  Publishing repairs remain queued work after the ongoing full native run.
+- 2026-09-06: repaired artificial spaces at font-span boundaries in source
+  identity review and added Ziraat's source-corroborated legal name. Reviewed
+  Emlak, Vakıf Katılım and Ziraat covers now resolve; a contradictory Halkbank
+  cover stays ambiguous. The old heuristic missed all four inspected damaged-text
+  Takasbank pages. Nontext control-character signals now flag each, and automatic
+  recovery selection includes these signals while preserving native observations.
+  Tests cover controls, ordinary Turkish text, split font spans, explicit/automatic
+  receipt scopes and a real PDF whose text layer contains control glyphs.
+
+- Still required for source provenance: older `source_url` metadata is a registry
+  lookup, not a fresh HTTP byte comparison. Stored-copy byte checks and opening
+  identity claims do not establish that an older acquisition matches the current
+  official published revision. Add an independent origin comparison and retain
+  named mismatches/unavailable sources without overwriting historical originals.

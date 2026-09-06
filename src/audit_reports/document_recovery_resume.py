@@ -23,6 +23,7 @@ def request_identity(repo: Path, ocr_engine: dict, pages: list[int]) -> dict:
         'document_ocr.py', 'document_ocr_models.json', 'document_vector.py',
         'document_vector_anchors.json', 'document_recovery.py',
         'document_recovery_tables.py', 'document_recovery_resume.py'))]
+    paths.append(repo / 'src/audit_reports/document_quality.py')
     return {'ocr_engine': ocr_engine, 'numpy': np.__version__, 'pages': sorted(pages),
             'implementation': {p.relative_to(repo).as_posix(): digest(p.read_bytes()) for p in paths}}
 
@@ -85,7 +86,8 @@ def record_receipt(recovery, filing: Filing, original: Path, acquisition: dict,
     index = json.loads(raw) if raw else None
     if not index or index['source'] != source or selection not in index['selections']:
         raise ValueError('Recovery selection has not been recorded for this source')
-    if selection['method'] != ('explicit' if request['pages'] else 'image_outline_detector'):
+    allowed = {'explicit'} if request['pages'] else {'image_outline_detector', 'source_content_detector'}
+    if selection['method'] not in allowed:
         raise ValueError('Recovery selection differs from requested scope')
     if request['pages'] and sorted(selection['pages']) != request['pages']:
         raise ValueError('Explicit recovery selection omits requested pages')
