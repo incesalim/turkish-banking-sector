@@ -72,10 +72,22 @@ Bounded read-only OCR probes now retain the rendered source image, image-bearing
 OCR PDF and raw words/spans, with pinned English/Turkish model hashes and native
 runtime identity. Local probes on FIBA 2025Q3 solo page 10 and ISCTR 2025Q1
 consolidated page 11 pass retention checks and 12 transcribed amount-token/region
-checks. This is not cell approval: an isolated-cell comparison misread FIBA's
+checks. Actions probes `34035657812` and `34035660589` and independent downloads
+pass the same retention and token checks. This is not cell approval: an isolated-cell comparison misread FIBA's
 `37.237.474` as `37.137.474`, while full-page OCR read it correctly, and table
-borders sometimes become punctuation. OCR remains probe evidence; cloud checks,
-agreement handling, cell structure and production integration are pending.
+borders sometimes become punctuation. Local and Actions OCR also differ on
+other labels and amounts. OCR remains probe evidence; agreement handling,
+cell structure and production integration are pending.
+
+A separate outline-reader probe rebuilds numeric character templates from
+transcribed regions of the hash-bound FIBA PDF. It reads all 182 numbers and
+100 printed dashes in page 10's 47-row numeric body; all 38 identities containing
+three explicit numbers balance. Page 11 supplies no training glyphs: 274 entries
+are read and eight parenthesized amounts stay unresolved. Twelve manually checked
+held-out deposit/total-liability values match, and negative-sign checks reject a
+partial positive reading. Labels, full table semantics and broader source formats
+remain unverified. The bounded workflow probe retains the atlas, reference PDF
+and source-linked observations; its cloud validation is pending.
 
 ## Data coverage in D1
 

@@ -85,6 +85,9 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--ocr-dpi", type=int, choices=(300, 450, 600), default=300)
     parser.add_argument("--ocr-language", choices=("eng", "tur", "eng+tur", "tur+eng"), default="eng+tur")
     parser.add_argument("--ocr-annotations-dir", type=Path, default=REPO / "tests/fixtures/document_ocr_annotations")
+    parser.add_argument("--vector-pages", default="", help="bounded read-only outline probe: PDF page numbers")
+    parser.add_argument("--vector-reference", type=Path, help="local PDF used by the source-transcribed character atlas")
+    parser.add_argument("--vector-annotations-dir", type=Path, default=REPO / "tests/fixtures/document_vector_annotations")
     args = parser.parse_args(argv)
     if args.limit < 0:
         parser.error("--limit cannot be negative")
@@ -100,6 +103,17 @@ def main(argv: list[str] | None = None) -> int:
         parser.error("OCR probes require --capture, --limit 1..4, and no --publish")
     if ocr_pages and not args.ocr_annotations_dir.is_dir():
         parser.error("OCR source annotation directory is missing")
+    try:
+        vector_pages = [int(value.strip()) for value in args.vector_pages.split(",")] if args.vector_pages else []
+        if (any(value < 1 for value in vector_pages) or len(vector_pages) > 4
+                or len(set(vector_pages)) != len(vector_pages)):
+            raise ValueError()
+    except ValueError:
+        parser.error("--vector-pages must name one to four distinct positive PDF page numbers")
+    if vector_pages and (not args.capture or args.publish or not 1 <= args.limit <= 4):
+        parser.error("Vector probes require --capture, --limit 1..4, and no --publish")
+    if vector_pages and not args.vector_annotations_dir.is_dir():
+        parser.error("Vector source annotation directory is missing")
     if args.structure and not args.capture:
         parser.error("--structure requires --capture")
     if args.capture and not args.annotations_dir.is_dir():
@@ -193,6 +207,7 @@ def main(argv: list[str] | None = None) -> int:
                                      structure_engine=structure_engine())
                 catalog_indexes.clear()
 
+    vector_atlas = None
     with tempfile.TemporaryDirectory(prefix="carthago-document-source-") as temp:
         for row in targets:
             filing = Filing(row["bank_ticker"], row["period"], row["kind"])
@@ -314,6 +329,43 @@ def main(argv: list[str] | None = None) -> int:
                                 "recognition_verified": False})
                             if benchmark["status"] == "failed":
                                 raise ValueError(f"OCR source-token regression failed: {benchmark['checks']}")
+                    if vector_pages:
+                        from src.audit_reports import document_vector
+                        if vector_atlas is None:
+                            anchors = json.loads(document_vector.ANCHORS.read_text(encoding="utf-8"))
+                            reference = args.vector_reference
+                            if reference is None and identity["pdf_sha256"] == anchors["pdf_sha256"]:
+                                reference = pdf
+                            if reference is None and args.from_r2:
+                                reference = Path(temp) / "vector-reference.pdf"
+                                r2_storage.download_to(anchors["object_key"], reference)
+                            if reference is None:
+                                raise ValueError("This local vector probe requires --vector-reference or --from-r2")
+                            candidate_atlas = document_vector.build_atlas(reference, anchors)
+                            reference_copy = (args.output_dir / "sources" / anchors["pdf_sha256"] / "original.pdf")
+                            preserve_original(reference, reference_copy, candidate_atlas["source"])
+                            vector_atlas = candidate_atlas
+                        atlas_path = artifact.parent / f"{document_vector.atlas_digest(vector_atlas)}.vector-atlas.json"
+                        _write_json(atlas_path, vector_atlas)
+                        result["vector_recovery"] = []
+                        for number in vector_pages:
+                            recovery = document_vector.capture_vector_page(pdf, filing, number, vector_atlas, **provenance)
+                            check = document_vector.verify_vector_page(recovery, pdf, vector_atlas)
+                            if not check["valid"]:
+                                raise ValueError(f"Vector source retention failed: {check['errors']}")
+                            address = document_vector.atlas_digest(recovery)
+                            recovery_path = artifact.parent / f"p{number}.{address}.vector.json"
+                            _write_json(recovery_path, recovery)
+                            benchmark = document_vector.check_vector_annotations(recovery, args.vector_annotations_dir)
+                            result["vector_recovery"].append({"page": number, "status": "vector_candidates",
+                                "observation": str(recovery_path.relative_to(args.output_dir)),
+                                "atlas": str(atlas_path.relative_to(args.output_dir)),
+                                "reference_pdf": str(reference_copy.relative_to(args.output_dir)),
+                                "matched_paths": len(recovery["matched_paths"]),
+                                "unresolved_paths": len(recovery["unresolved_paths"]),
+                                "retention_check": check, "benchmark": benchmark, "recognition_verified": False})
+                            if benchmark["status"] == "failed":
+                                raise ValueError(f"Vector source regression failed: {benchmark['checks']}")
                     result.update(status="source_preserved", source=manifest["source"],
                                   page_count=manifest["page_count"],
                                   text_characters=manifest["text_characters"],

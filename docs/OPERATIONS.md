@@ -1374,6 +1374,27 @@ tokens in their source regions; punctuation and sign/association questions remai
 visible, and a matching token is never full-cell approval. A failed token check
 retains the probe evidence, names the failure and fails the run.
 
+Manual `vector_pages` / CLI `--vector-pages` selects one to four pages for a
+separate outline-reader probe, also requiring `publish=false` and `limit=1..4`.
+`src/audit_reports/document_vector_anchors.json` records the reference filing,
+PDF hash, source regions and transcriptions used to rebuild character templates.
+In R2 mode the builder reads that registered reference if the target is another
+PDF; a hash mismatch fails the probe. For a local target that is not the reference,
+provide the reference PDF with `--vector-reference`. Glyph contours are rebuilt
+on the runner. The retained artifact includes the atlas and reference original.
+
+Matching uses contour commands, normalized coordinates and bounded horizontal
+scaling. Each filled path must match every glyph unambiguously; an unknown or
+conflicting glyph leaves its text null and retains the partial observations.
+Printed dashes remain dashes. Outlines have no inherent row/column or visibility
+guarantee, so candidate transcriptions carry explicit unverified status.
+`.vector.json` observations retain source drawing/glyph references and unresolved
+paths; checks reproduce these against the original PDF and atlas. The separately
+registered `tests/fixtures/document_vector_annotations/` cases check transcribed
+words/regions and abstention on unrecognized negative signs. Failed checks retain
+the named probe and fail the run. This probe does not update production recovery
+data or existing analytical lanes.
+
 For a light local sample (no remote writes):
 
 ```powershell

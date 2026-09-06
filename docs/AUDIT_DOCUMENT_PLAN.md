@@ -214,3 +214,19 @@ of detected tables.
   cell signs, wording or whole tables. The workflow exposes only bounded,
   read-only OCR probes at this stage; cloud verification and production recovery
   integration remain outstanding.
+- 2026-09-06: OCR cloud probes `34035657812` (FIBA) and `34035660589` (ISCTR)
+  pass. Independently downloaded their originals, native evidence, OCR PDFs and
+  observations; pixel/source retention and the 12 selected token-region checks
+  pass. Comparing Windows and Actions outputs exposes differences outside those
+  selected cases, including amounts. Raw OCR is retained as an observation.
+- 2026-09-06: a vector-outline prototype on FIBA page 10 uses 24 transcribed
+  numeric words and two dash styles as source anchors. It reconstructs 47 numeric
+  rows (182 numbers, 100 dashes), with all 38 fully numeric TP+FC=total identities
+  passing. On held-out page 11 it reads 274 entries and leaves eight parenthesized
+  amounts unresolved, preserving the signs' uncertainty. Twelve independently
+  transcribed deposit/total-liability region checks pass. Added a bounded,
+  read-only outline probe with a source-rebuilt atlas and tests for reference
+  mismatches, ambiguous glyphs, moved/changed words, and partial negative reads.
+  The 26 selected word/region/abstention checks pass locally. Cloud validation,
+  parentheses and additional fonts/characters remain outstanding; this does not
+  certify complete table or prose semantics.

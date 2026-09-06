@@ -1,0 +1,305 @@
+{
+  "filing": {
+    "bank_ticker": "FIBA",
+    "period": "2025Q3",
+    "kind": "unconsolidated"
+  },
+  "pdf_sha256": "7f87ed53ead58816393a1498fd98dbd97cf20ac893d6288a51e6dbccfc49e992",
+  "annotation_method": "Original PDF render and enlarged source regions. Page 10 supplies character seeds; page 11 supplies held-out values and negative-sign abstention checks.",
+  "cases": [
+    {
+      "id": "assets_total_assets_current_tp",
+      "page": 10,
+      "source_bbox": [
+        349.5,
+        610.5,
+        383.5,
+        618.5
+      ],
+      "text": "117.480.982"
+    },
+    {
+      "id": "assets_total_assets_current_fc",
+      "page": 10,
+      "source_bbox": [
+        385.5,
+        610.5,
+        419.5,
+        618.5
+      ],
+      "text": "50.017.379"
+    },
+    {
+      "id": "assets_total_assets_current_total",
+      "page": 10,
+      "source_bbox": [
+        421.5,
+        610.5,
+        455.5,
+        618.5
+      ],
+      "text": "167.498.361"
+    },
+    {
+      "id": "assets_total_assets_prior_tp",
+      "page": 10,
+      "source_bbox": [
+        457.5,
+        610.5,
+        491.5,
+        618.5
+      ],
+      "text": "92.350.996"
+    },
+    {
+      "id": "assets_total_assets_prior_fc",
+      "page": 10,
+      "source_bbox": [
+        493.5,
+        610.5,
+        527.5,
+        618.5
+      ],
+      "text": "37.237.474"
+    },
+    {
+      "id": "assets_total_assets_prior_total",
+      "page": 10,
+      "source_bbox": [
+        529.5,
+        610.5,
+        563.5,
+        618.5
+      ],
+      "text": "129.588.470"
+    },
+    {
+      "id": "holdout_deposits_0",
+      "page": 11,
+      "source_bbox": [
+        349.5,
+        144,
+        383.5,
+        151
+      ],
+      "text": "70.050.069"
+    },
+    {
+      "id": "holdout_deposits_1",
+      "page": 11,
+      "source_bbox": [
+        385.5,
+        144,
+        419.5,
+        151
+      ],
+      "text": "39.030.638"
+    },
+    {
+      "id": "holdout_deposits_2",
+      "page": 11,
+      "source_bbox": [
+        421.5,
+        144,
+        455.5,
+        151
+      ],
+      "text": "109.080.707"
+    },
+    {
+      "id": "holdout_deposits_3",
+      "page": 11,
+      "source_bbox": [
+        457.5,
+        144,
+        491.5,
+        151
+      ],
+      "text": "58.946.099"
+    },
+    {
+      "id": "holdout_deposits_4",
+      "page": 11,
+      "source_bbox": [
+        493.5,
+        144,
+        527.5,
+        151
+      ],
+      "text": "26.666.083"
+    },
+    {
+      "id": "holdout_deposits_5",
+      "page": 11,
+      "source_bbox": [
+        529.5,
+        144,
+        563.5,
+        151
+      ],
+      "text": "85.612.182"
+    },
+    {
+      "id": "holdout_total_liabilities_0",
+      "page": 11,
+      "source_bbox": [
+        349.5,
+        598,
+        383.5,
+        605
+      ],
+      "text": "99.714.459"
+    },
+    {
+      "id": "holdout_total_liabilities_1",
+      "page": 11,
+      "source_bbox": [
+        385.5,
+        598,
+        419.5,
+        605
+      ],
+      "text": "67.783.902"
+    },
+    {
+      "id": "holdout_total_liabilities_2",
+      "page": 11,
+      "source_bbox": [
+        421.5,
+        598,
+        455.5,
+        605
+      ],
+      "text": "167.498.361"
+    },
+    {
+      "id": "holdout_total_liabilities_3",
+      "page": 11,
+      "source_bbox": [
+        457.5,
+        598,
+        491.5,
+        605
+      ],
+      "text": "83.100.019"
+    },
+    {
+      "id": "holdout_total_liabilities_4",
+      "page": 11,
+      "source_bbox": [
+        493.5,
+        598,
+        527.5,
+        605
+      ],
+      "text": "46.488.451"
+    },
+    {
+      "id": "holdout_total_liabilities_5",
+      "page": 11,
+      "source_bbox": [
+        529.5,
+        598,
+        563.5,
+        605
+      ],
+      "text": "129.588.470"
+    },
+    {
+      "id": "holdout_negative_sign_0",
+      "page": 11,
+      "source_bbox": [
+        365.20176391601564,
+        500.65647583007814,
+        383.7427551269531,
+        506.29820556640624
+      ],
+      "text": "(190.248)",
+      "allow_unresolved": true
+    },
+    {
+      "id": "holdout_negative_sign_1",
+      "page": 11,
+      "source_bbox": [
+        435.2722595214844,
+        500.65647583007814,
+        453.8083068847656,
+        506.29820556640624
+      ],
+      "text": "(190.248)",
+      "allow_unresolved": true
+    },
+    {
+      "id": "holdout_negative_sign_2",
+      "page": 11,
+      "source_bbox": [
+        365.20176391601564,
+        510.5191162109375,
+        383.7427551269531,
+        516.1608764648438
+      ],
+      "text": "(375.116)",
+      "allow_unresolved": true
+    },
+    {
+      "id": "holdout_negative_sign_3",
+      "page": 11,
+      "source_bbox": [
+        435.2722595214844,
+        510.5191162109375,
+        453.8083068847656,
+        516.1608764648438
+      ],
+      "text": "(209.006)",
+      "allow_unresolved": true
+    },
+    {
+      "id": "holdout_negative_sign_4",
+      "page": 11,
+      "source_bbox": [
+        470.30503540039064,
+        510.5191162109375,
+        488.8460266113281,
+        516.1608764648438
+      ],
+      "text": "(277.881)",
+      "allow_unresolved": true
+    },
+    {
+      "id": "holdout_negative_sign_5",
+      "page": 11,
+      "source_bbox": [
+        540.3704956054687,
+        510.5191162109375,
+        558.9115478515625,
+        516.1608764648438
+      ],
+      "text": "(261.173)",
+      "allow_unresolved": true
+    },
+    {
+      "id": "holdout_negative_sign_6",
+      "page": 11,
+      "source_bbox": [
+        472.63560180664064,
+        579.5589721679687,
+        488.8460266113281,
+        585.1994506835938
+      ],
+      "text": "(40.026)",
+      "allow_unresolved": true
+    },
+    {
+      "id": "holdout_negative_sign_7",
+      "page": 11,
+      "source_bbox": [
+        542.7060668945312,
+        579.5589721679687,
+        558.9164916992188,
+        585.1994506835938
+      ],
+      "text": "(40.026)",
+      "allow_unresolved": true
+    }
+  ]
+}

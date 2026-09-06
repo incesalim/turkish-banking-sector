@@ -52,6 +52,10 @@ on:
         type: choice
         options: [eng+tur, tur+eng, eng, tur]
         default: eng+tur
+      vector_pages:
+        description: "Read-only outline probe: up to four PDF pages; requires publish=false and limit=1..4"
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -101,12 +105,14 @@ jobs:
           OCR_PAGES: ${{ inputs.ocr_pages }}
           OCR_DPI: ${{ inputs.ocr_dpi || '300' }}
           OCR_LANGUAGE: ${{ inputs.ocr_language || 'eng+tur' }}
+          VECTOR_PAGES: ${{ inputs.vector_pages }}
         run: |
           args=(--from-r2 --capture --limit "$LIMIT" --shard-count "$SHARD_COUNT" --shard-index "$SHARD_INDEX")
           [ "$BANKS" != "ALL" ] && args+=(--bank "$BANKS")
           [ -n "$PERIOD" ] && args+=(--period "$PERIOD")
           [ "$KIND" != "BOTH" ] && args+=(--kind "$KIND")
           [ -n "$OCR_PAGES" ] && args+=(--ocr-pages "$OCR_PAGES" --ocr-dpi "$OCR_DPI" --ocr-language "$OCR_LANGUAGE")
+          [ -n "$VECTOR_PAGES" ] && args+=(--vector-pages "$VECTOR_PAGES")
           [ "$PUBLISH" = "true" ] && args+=(--publish --discard-published)
           [ "$STRUCTURE" = "true" ] && args+=(--structure)
           [ "$RECHECK_BYTES" = "true" ] && args+=(--recheck-bytes)

@@ -1,0 +1,300 @@
+{
+  "schema_version": "source-vector-anchors-1",
+  "filing": {
+    "bank_ticker": "FIBA",
+    "period": "2025Q3",
+    "kind": "unconsolidated"
+  },
+  "pdf_sha256": "7f87ed53ead58816393a1498fd98dbd97cf20ac893d6288a51e6dbccfc49e992",
+  "object_key": "fiba/FIBA_2025Q3_unconsolidated.pdf",
+  "alphabet": "-.0123456789",
+  "annotation_method": "Numeric words and two dash styles transcribed from the original FIBA assets-page render. Glyph contours are rebuilt from that hash-bound PDF; the following liabilities page is held out.",
+  "seeds": [
+    {
+      "id": "number_or_mark_00",
+      "page": 10,
+      "source_bbox": [
+        349.5,
+        610.5,
+        383.5,
+        618.5
+      ],
+      "text": "117.480.982"
+    },
+    {
+      "id": "number_or_mark_01",
+      "page": 10,
+      "source_bbox": [
+        385.5,
+        610.5,
+        419.5,
+        618.5
+      ],
+      "text": "50.017.379"
+    },
+    {
+      "id": "number_or_mark_02",
+      "page": 10,
+      "source_bbox": [
+        421.5,
+        610.5,
+        455.5,
+        618.5
+      ],
+      "text": "167.498.361"
+    },
+    {
+      "id": "number_or_mark_03",
+      "page": 10,
+      "source_bbox": [
+        457.5,
+        610.5,
+        491.5,
+        618.5
+      ],
+      "text": "92.350.996"
+    },
+    {
+      "id": "number_or_mark_04",
+      "page": 10,
+      "source_bbox": [
+        493.5,
+        610.5,
+        527.5,
+        618.5
+      ],
+      "text": "37.237.474"
+    },
+    {
+      "id": "number_or_mark_05",
+      "page": 10,
+      "source_bbox": [
+        529.5,
+        610.5,
+        563.5,
+        618.5
+      ],
+      "text": "129.588.470"
+    },
+    {
+      "id": "number_or_mark_06",
+      "page": 10,
+      "source_bbox": [
+        349.5,
+        158,
+        383.5,
+        165
+      ],
+      "text": "52.065.294"
+    },
+    {
+      "id": "number_or_mark_07",
+      "page": 10,
+      "source_bbox": [
+        385.5,
+        158,
+        419.5,
+        165
+      ],
+      "text": "29.635.995"
+    },
+    {
+      "id": "number_or_mark_08",
+      "page": 10,
+      "source_bbox": [
+        421.5,
+        158,
+        455.5,
+        165
+      ],
+      "text": "81.701.289"
+    },
+    {
+      "id": "number_or_mark_09",
+      "page": 10,
+      "source_bbox": [
+        457.5,
+        158,
+        491.5,
+        165
+      ],
+      "text": "38.554.886"
+    },
+    {
+      "id": "number_or_mark_10",
+      "page": 10,
+      "source_bbox": [
+        493.5,
+        158,
+        527.5,
+        165
+      ],
+      "text": "21.481.289"
+    },
+    {
+      "id": "number_or_mark_11",
+      "page": 10,
+      "source_bbox": [
+        529.5,
+        158,
+        563.5,
+        165
+      ],
+      "text": "60.036.175"
+    },
+    {
+      "id": "number_or_mark_12",
+      "page": 10,
+      "source_bbox": [
+        349.5,
+        178,
+        383.5,
+        184
+      ],
+      "text": "11.001.717"
+    },
+    {
+      "id": "number_or_mark_13",
+      "page": 10,
+      "source_bbox": [
+        385.5,
+        178,
+        419.5,
+        184
+      ],
+      "text": "16.489.771"
+    },
+    {
+      "id": "number_or_mark_14",
+      "page": 10,
+      "source_bbox": [
+        421.5,
+        178,
+        455.5,
+        184
+      ],
+      "text": "27.491.488"
+    },
+    {
+      "id": "number_or_mark_15",
+      "page": 10,
+      "source_bbox": [
+        457.5,
+        178,
+        491.5,
+        184
+      ],
+      "text": "12.279.012"
+    },
+    {
+      "id": "number_or_mark_16",
+      "page": 10,
+      "source_bbox": [
+        493.5,
+        178,
+        527.5,
+        184
+      ],
+      "text": "10.984.964"
+    },
+    {
+      "id": "number_or_mark_17",
+      "page": 10,
+      "source_bbox": [
+        529.5,
+        178,
+        563.5,
+        184
+      ],
+      "text": "23.263.976"
+    },
+    {
+      "id": "number_or_mark_18",
+      "page": 10,
+      "source_bbox": [
+        349.5,
+        187,
+        383.5,
+        194
+      ],
+      "text": "704.004"
+    },
+    {
+      "id": "number_or_mark_19",
+      "page": 10,
+      "source_bbox": [
+        385.5,
+        187,
+        419.5,
+        194
+      ],
+      "text": "2.667.913"
+    },
+    {
+      "id": "number_or_mark_20",
+      "page": 10,
+      "source_bbox": [
+        421.5,
+        187,
+        455.5,
+        194
+      ],
+      "text": "3.371.917"
+    },
+    {
+      "id": "number_or_mark_21",
+      "page": 10,
+      "source_bbox": [
+        457.5,
+        187,
+        491.5,
+        194
+      ],
+      "text": "575.744"
+    },
+    {
+      "id": "number_or_mark_22",
+      "page": 10,
+      "source_bbox": [
+        493.5,
+        187,
+        527.5,
+        194
+      ],
+      "text": "2.779.623"
+    },
+    {
+      "id": "number_or_mark_23",
+      "page": 10,
+      "source_bbox": [
+        529.5,
+        187,
+        563.5,
+        194
+      ],
+      "text": "3.355.367"
+    },
+    {
+      "id": "number_or_mark_24",
+      "page": 10,
+      "source_bbox": [
+        487,
+        199,
+        490,
+        201
+      ],
+      "text": "-"
+    },
+    {
+      "id": "number_or_mark_25",
+      "page": 10,
+      "source_bbox": [
+        415,
+        400,
+        418,
+        405
+      ],
+      "text": "-"
+    }
+  ]
+}

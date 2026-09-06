@@ -169,3 +169,12 @@ def test_ocr_probe_scope_is_bounded_and_read_only(tmp_path, extra):
     with pytest.raises(SystemExit):
         build.main(_args(tmp_path) + ["--capture", "--bank", "TEST"] + extra)
     assert not (tmp_path / "out/inventory.json").exists()
+
+
+@pytest.mark.parametrize("extra", [["--vector-pages", "1"], ["--vector-pages", "0", "--limit", "1"],
+    ["--vector-pages", "1,1", "--limit", "1"], ["--vector-pages", "1,2,3,4,5", "--limit", "1"],
+    ["--vector-pages", "1", "--limit", "1", "--publish"], ["--vector-pages", "1", "--limit", "5"]])
+def test_vector_probe_scope_is_bounded_and_read_only(tmp_path, extra):
+    with pytest.raises(SystemExit):
+        build.main(_args(tmp_path) + ["--capture", "--bank", "TEST"] + extra)
+    assert not (tmp_path / "out/inventory.json").exists()
