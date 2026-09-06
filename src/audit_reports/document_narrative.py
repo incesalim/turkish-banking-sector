@@ -62,7 +62,7 @@ def narrative_candidates(pages: list[dict], evidence: list[dict], sections: list
                              "bbox": _bounds(spans), "font_size": median(s["size"] for s in spans),
                              "table_ids": pending_tables,
                              "method": "source_line_spacing_and_style", "review_status": "unreviewed",
-                             "heading_context_verified": False})
+                             "heading_context_verified": False, "heading_context_scope": "page"})
             pending.clear()
 
         for key, spans in _lines(source).items():
@@ -94,6 +94,7 @@ def narrative_candidates(pages: list[dict], evidence: list[dict], sections: list
             repeated[" ".join(element["text"].split())].add(source["page"])
     headings = []
     current_section = None
+    current_page = None
     for source, element in all_elements:
         text = " ".join(element["text"].split())
         box = element["bbox"]
@@ -103,9 +104,13 @@ def narrative_candidates(pages: list[dict], evidence: list[dict], sections: list
             element["kind"] = "running_header_candidate" if box[1] < .14 * source["height"] else "running_footer_candidate"
         section = next((s for s in sections if s["page_start"] <= source["page"] <= s["page_end"]), None)
         section_number = section["number"] if section else None
-        if section_number != current_section:
+        # Font sizes are comparable within a page, not across a report's cover,
+        # auditor letter and statements. Keep section context separately; a
+        # cross-page heading relationship requires continuation evidence.
+        if section_number != current_section or source["page"] != current_page:
             headings.clear()
             current_section = section_number
+            current_page = source["page"]
         element["section_candidate"] = ({k: section[k] for k in ("number", "title", "role")}
                                         if section else None)
         if element["kind"] == "heading_candidate":

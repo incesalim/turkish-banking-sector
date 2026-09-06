@@ -1290,8 +1290,10 @@ runs that may still have acquired PDFs. It also accepts manual dispatch. It runs
 registered sources in R2. `structure=true` adds source-linked numerical and
 ruled-table candidates, physical text blocks, paragraph/heading candidates,
 section candidates and content issues. Paragraph segmentation preserves source
-lines and span occurrences; styles and spacing suggest boundaries and heading
-context without certifying them. The source remains independently accessible.
+lines and span occurrences; styles and spacing suggest boundaries and page-local
+heading context without certifying them. Document section context is separate;
+font-size comparisons do not establish cross-page heading relationships.
+The source remains independently accessible.
 `publish=true` writes only `document-corpus/v1/`; no D1, acquired source object or
 analytical snapshot is modified. Originals are preserved even when decoding
 fails. Artifact uploads are read back, filing indexes use conditional updates,

@@ -39,7 +39,9 @@ The initial structure fleet was stopped after independent probes found a missed
 Akbank single-row table and a Garanti audit-table border corrupted by logo-path
 snapping. Repairs pass source annotations locally. Paragraph/heading candidates
 also pass four full-passage source checks on Albaraka's qualified opinion;
-the cloud checks are pending. Fleet structure publication will resume after
+the cloud probe caught cover typography leaking into its heading context, now
+repaired against the saved cloud output and awaiting replay. Akbank, Garanti, QNB and
+TOMK's selected cases passed in Actions. Fleet structure publication will resume after
 those checks. Existing analytical lanes and their stored data have
 not been replaced. The source-verified QNB countercyclical-buffer classification
 fix is in code; existing stored wide rows have not been rebuilt.

@@ -109,3 +109,22 @@ def test_repeated_margin_text_and_page_numbers_do_not_become_heading_context():
             "running_header_candidate", "paragraph_candidate", "page_number_candidate"]
         assert page["narrative_elements"][1]["heading_path"] == []
         assert not verify_narrative(page, source)
+
+
+def test_cover_typography_does_not_leak_into_the_following_audit_opinion(narrative):
+    _structure, evidence, annotation = narrative
+    cover = {"page": 1, "height": 800, "spans": [
+        {"id": "cover", "block": 0, "line": 0, "text": "Bank cover title",
+         "bbox": [40, 200, 400, 250], "size": 36, "flags": 16}]}
+    opinion = copy.deepcopy(evidence[1])
+    opinion["page"] = 2
+    pages = [{"page": 1, "tables": []}, {"page": 2, "tables": []}]
+    combined = [evidence[0], cover, opinion]
+    narrative_candidates(pages, combined, [])
+    changed = copy.deepcopy(annotation)
+    changed["cases"][0]["page"] = 2
+    structure = {"source": evidence[0]["source"], "pages": pages}
+    assert check_annotations(structure, combined, changed)["passed"]
+    assert pages[1]["narrative_elements"][1]["heading_path"] == [
+        {"id": "p2:narrative0", "text": "Qualified conclusion"}]
+    assert pages[1]["narrative_elements"][1]["heading_context_scope"] == "page"

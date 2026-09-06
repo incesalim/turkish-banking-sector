@@ -160,3 +160,11 @@ of detected tables.
   their source regions. Source accounting also rejects reordered, dropped or
   duplicated prose. The admin can show these candidates alongside raw blocks.
   Cloud probes and broader narrative/reading-order verification remain pending.
+- 2026-09-06: cloud probes at `e842211c` passed Akbank, Garanti, QNB and TOMK's selected
+  cases. The Albaraka whole-report probe correctly failed all four paragraph
+  checks: larger cover typography leaked into the auditor opinion's heading
+  path. The wording itself was intact. Reproduced the failure from the retained
+  cloud artifact and corrected heading scope to the page, with document section
+  context retained separately. The unchanged source annotations then pass.
+  Cross-page paragraph/heading continuation remains an explicit later task;
+  relative font size alone is insufficient evidence for that relationship.
