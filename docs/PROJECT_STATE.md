@@ -97,17 +97,25 @@ beyond bounded source annotations.
 `review-document-origins.yml` independently downloads registered sources afresh,
 retains transport/PDF revisions and compares them with acquired bytes without
 replacing acquisitions. Four cloud probes and publishing byte/receipt checks pass;
-full registered comparison `34058065551` remains running. Byte agreement does
-not clear conflicting cover claims. Origin indexes preserve unavailable/different
-observations and their timestamps; Anadolubank's early missing-acquisition
-observation predates its successful repair; follow-up `34062651771` is queued.
-The first completed origin group covers 289 filings: 250 byte matches, five
-different PDFs, 14 non-PDF/unclear downloads, 19 unavailable sources and that one
-historical missing observation. Independently inspected Albaraka 2026Q2
-consolidated and Eximbank 2026Q1 solo differences are English/Turkish editions:
-the acquired covers explicitly declare convenience translations, while the fresh
-BDDK covers are Turkish. Full content equivalence is not established. Both
-versions remain preserved; the other differences still require investigation.
+full registered comparison `34058065551` completed with **973 byte matches,
+11 different PDFs, 102 unavailable sources, 59 non-PDF/unclear downloads and one
+pre-repair acquisition absence**. Independent reconciliation verifies all 1,146
+unique registry bindings, committed engine and receipt hashes, and all 1,145
+observed acquisition hashes against native capture. Follow-up `34062651771`
+verifies repaired Anadolubank consolidated bytes and its retained receipt/index;
+974 filings now have byte agreement. Old observations remain in history.
+Byte agreement does not clear conflicting cover claims or verify document content.
+Independently inspected Albaraka 2026Q2 consolidated and Eximbank 2026Q1 solo
+copies are English/Turkish editions. Both remain preserved; full content
+comparison is pending. Other differences include four Şekerbank historical PDFs.
+ICBC's 36 downloads fail certificate-chain validation; Ziraat Katılım returns
+browser-challenge HTML. Halkbank's 2026Q2 solo BDDK archive contains a DOCX,
+not a PDF. None is reclassified as a missing acquired filing.
+
+The Anadolu 2026Q2 solo archive contains its already-acquired 86-page report
+and another one-page signed declaration. Both covers and archive/member hashes
+were independently inspected. An exact reviewed member selection is configured;
+separate declaration capture and the corrected origin observation remain pending.
 
 `capture-related-documents.yml` separately preserves every additional PDF member
 of a verified report archive. Anadolubank's one-page signed declaration has
@@ -133,14 +141,31 @@ workflow: render selected pages, or a whole single filing in Actions, with exact
 PDF/pixel bindings and named per-page failures. This supports independent
 whole-document review. Cloud pack `34062146313` contains all 51 TOMK 2023Q3
 solo pages; PNG bytes, source/engine hashes, four fresh original-pixel probes and
-all retained native/structure pages pass independent checks. Visual review of
-pages 1–12 found footer reading order, separated bullet markers and split
-signatory roles. A complete physical-table benchmark now checks all 40 slots,
+all retained native/structure pages pass independent checks. All 51 original page images have now been visually inspected for a layout/content
+inventory. Found footer reading order, separated bullet markers, split signatory
+roles and a missed one-row exchange-rate table on page 30. A complete physical-table benchmark now checks all 40 slots,
 both merged period headings, every source word in the region and the unit
-qualification of page 6's shareholder table. Local mutation/source checks pass;
-this does not approve the whole report or financial interpretation.
+qualification of page 6's shareholder table. Publication `34063685062` matches the
+independently verified probe and passes that complete-table case. This does not
+approve the whole report or financial interpretation.
 
-Remaining work: reconcile fresh-origin and revised recovery fleets; establish
+A separate source-line view now divides tall ruled body cells by original word
+positions while retaining the original column borders and merged header cells.
+It keeps note `(11)` in its own column, net profit `148.071` in the current-period
+column and the EPS `Tam TL` qualification. No numerical value is inferred from a
+reference. Local complete-word inventory, geometry and mutation checks pass;
+three independent page-13 source-row annotations supplement the shareholder case.
+The admin can toggle these source lines; wrapped labels remain physical lines,
+not certified accounting rows. Cloud execution and live display remain pending.
+
+The TOMK PDF itself has unresolved source disagreements: capital adequacy is
+93.93% in page-26 prose, 93.75% in page-28 detail and 93.90% in page-50 summary.
+Page-33 liquidity summaries also show differing TP+YP figures. These observations
+are retained with source pages in the internal visual review, without changing
+any original or declaring one value authoritative. A general analyst-facing
+content-review ledger is still needed.
+
+Remaining work: resolve fresh-origin exceptions and reconcile the revised recovery fleet; establish
 whole-document physical and semantic coverage with independently reviewed source
 benchmarks; verify table headers/units/row-column associations and continuations;
 verify prose structure/order and analyst retrieval. Older history and additional

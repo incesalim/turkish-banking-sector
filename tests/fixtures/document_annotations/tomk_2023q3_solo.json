@@ -102,6 +102,57 @@
           "text": "(Tutarlar aksi belirtilmedikçe Bin Türk Lirası (“TL”) olarak ifade edilmiştir.)"
         }
       ]
+    },
+    {
+      "id": "profit-income-full-source-line",
+      "kind": "source_table_line",
+      "page": 13,
+      "bbox": [
+        47,
+        137,
+        578,
+        145
+      ],
+      "columns": [
+        "I. KAR PAYI GELİRLERİ",
+        "(1)",
+        "112.338",
+        "-"
+      ]
+    },
+    {
+      "id": "net-profit-note-is-reference",
+      "kind": "source_table_line",
+      "page": 13,
+      "bbox": [
+        47,
+        629,
+        578,
+        636
+      ],
+      "columns": [
+        "XXIV. NET DÖNEM KARI/ZARARI (XIII+XXIII)",
+        "(11)",
+        "148.071",
+        "-"
+      ]
+    },
+    {
+      "id": "eps-source-unit-override",
+      "kind": "source_table_line",
+      "page": 13,
+      "bbox": [
+        47,
+        637,
+        578,
+        645
+      ],
+      "columns": [
+        "Hisse Başına Kar/Zarar (Tam TL)",
+        "",
+        "0,09871",
+        "-"
+      ]
     }
   ]
 }

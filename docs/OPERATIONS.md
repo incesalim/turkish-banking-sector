@@ -1737,3 +1737,12 @@ receipt and timestamp to establish a fresh download/byte relationship. Language
 editions and changed revisions remain separate evidence; do not overwrite an
 acquired English translation merely because the registered BDDK URL serves a
 Turkish PDF. Both exact originals must remain traceable.
+
+Source-line structure for tall ruled cells is derived from retained word positions,
+with exact original-cell word inventories and unambiguous baseline bands. Original
+physical cells remain intact; note references are text, not newly parsed figures.
+The TOMK 2023Q3 source annotations cover the complete shareholder grid/unit and
+three source lines in the profit/loss statement. They do not certify the whole
+report. The reviewed Anadolubank 2026Q2 solo archive selection is bound to its
+86-page primary PDF hash; capture its separate signed member only after a fresh
+origin observation has published that exact selection.

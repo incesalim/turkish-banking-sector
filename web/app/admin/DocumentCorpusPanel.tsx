@@ -20,8 +20,10 @@ type Narrative = { id: string; kind: string; text: string; span_ids: string[];
 type TableContext = { table_id: string; heading: { text: string } | null;
   physical_grid: { anchors: { row: number; column: number; row_span: number; column_span: number }[];
     covered_slots: { row: number; column: number; anchor: number[] }[] } | null };
+type SourceRows = { table_id: string; split_rows: { source_row: number; lines: { index: number; cells: Cell[] }[] }[] };
 type PagePreview = { manifest: { sections: { title: string; page_start: number; page_end: number }[] };
   page: { page: number; text_blocks: { id: string; text: string }[]; tables: Table[];
+    table_source_rows?: { tables: SourceRows[] };
     table_context?: { tables: TableContext[]; continuations: { status: string; from_page: number;
       from_table_ids: string[]; to_table_id: string; title: string; column_identifiers: string[] }[] };
     narrative_elements?: Narrative[]; issues: { kind: string; count?: number }[] } };
@@ -41,18 +43,28 @@ function status(row: CorpusFiling) {
   return row.acquisition_status === "missing" ? "Source missing" : "Not captured";
 }
 
-function TablePreview({ table, context }: { table: Table; context?: TableContext }) {
+function TablePreview({ table, context, sourceRows }: { table: Table; context?: TableContext; sourceRows?: SourceRows }) {
+  const [expandLines, setExpandLines] = useState(true);
   const positioned = table.method === "native_image_replacement_geometry";
   const numeric = table.method === "legacy_numeric_geometry" || positioned;
   const unplaced = table.rows.some((r) => r.cells.some((c) => c.placement === "unplaced"));
   const grid = !numeric ? context?.physical_grid : null;
   const covered = new Set(grid?.covered_slots.map((slot) => `${slot.row}:${slot.column}`));
+  const rows = table.rows.flatMap((row) => {
+    const split = expandLines && sourceRows?.split_rows.find((s) => s.source_row === row.index);
+    return split ? split.lines.map((line) => ({ ...row, cells: line.cells, key: `${row.index}:${line.index}`, sourceLine: true }))
+      : [{ ...row, key: String(row.index), sourceLine: false }];
+  });
   return <details className="border-b border-border py-3" open>
     <summary className="cursor-pointer text-xs font-medium">
       Candidate {table.id} · {table.row_count} rows · {table.n_cols} value/text columns
       <span className="ml-2 font-normal text-faint">{positioned ? "PDF-linked label positions" : numeric ? "Numeric layout" : "Ruled layout"} · unreviewed</span>
     </summary>
     {context?.heading && <p className="mt-2 text-xs font-medium">{context.heading.text}</p>}
+    {sourceRows && <div className="mt-2 text-xs text-muted-foreground">
+      <label><input type="checkbox" checked={expandLines} onChange={(e) => setExpandLines(e.target.checked)} className="mr-2" />Show separate source lines inside tall cells</label>
+      <p className="mt-1">Original columns and header cells are retained. Wrapped labels may span several lines; these lines are not verified accounting rows.</p>
+    </div>}
     <div className="mt-2 overflow-x-auto">
       <table className="w-full border-collapse text-[11px]">
         <thead><tr className="border-b border-border text-left text-muted-foreground">
@@ -60,14 +72,14 @@ function TablePreview({ table, context }: { table: Table; context?: TableContext
           {Array.from({ length: table.n_cols }, (_, c) => <th key={c} className="p-2 font-normal">{table.col_labels?.[c] || `Column ${c + 1}`}</th>)}
           {unplaced && <th className="p-2 font-normal text-warning">Unplaced text</th>}
         </tr></thead>
-        <tbody>{table.rows.map((row) => <tr key={row.index} className="border-b border-border/60 align-top">
+        <tbody>{rows.map((row) => <tr key={row.key} className="border-b border-border/60 align-top">
           {numeric && <td className="min-w-48 whitespace-pre-wrap p-2">{row.label}</td>}
           {Array.from({ length: table.n_cols }, (_, c) => {
             if (covered.has(`${row.index}:${c}`)) return null;
             const anchor = grid?.anchors.find((a) => a.row === row.index && a.column === c);
             return <td key={c} rowSpan={anchor?.row_span} colSpan={anchor?.column_span} className="min-w-20 whitespace-pre-wrap p-2 font-mono">
             {row.cells.filter((cell) => (numeric ? cell.placement === "data" && cell.col_index === c : cell.column === c))
-              .map((cell, i) => <div key={i} title={`${positioned ? "Positioned source pieces" : "Source words"}: ${cell.word_ids.join(", ")}`}>{cell.text || "[empty source cell]"}</div>)}
+              .map((cell, i) => <div key={i} title={`${positioned ? "Positioned source pieces" : "Source words"}: ${cell.word_ids.join(", ")}`}>{cell.text || (row.sourceLine ? "[no text on this line]" : "[empty source cell]")}</div>)}
           </td>;
           })}
           {unplaced && <td className="p-2 font-mono text-warning">{row.cells.filter((c) => c.placement === "unplaced").map((c) => c.text).join("\n")}</td>}
@@ -130,6 +142,7 @@ function FilingPreview({ filing }: { filing: CorpusFiling }) {
         </div>)}
         <h4 className="border-b border-border py-2 text-xs font-semibold">Table candidates · {count(preview.page.tables.length)}</h4>
         {preview.page.tables.map((table) => <TablePreview key={table.id} table={table}
+          sourceRows={preview.page.table_source_rows?.tables.find((rows) => rows.table_id === table.id)}
           context={preview.page.table_context?.tables.find((context) => context.table_id === table.id)} />)}
         {preview.page.tables.length === 0 && <p className="py-3 text-xs text-faint">No table detected. This does not establish that the source page contains no table.</p>}
         {preview.page.narrative_elements && <details className="mt-5" open>

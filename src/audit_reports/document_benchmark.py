@@ -110,6 +110,23 @@ def _complete_table_matches(case, page, source):
     return matches
 
 
+def _source_line_matches(case, page, source):
+    from .document_table_rows import table_source_rows
+    if page.get('table_source_rows') != table_source_rows(page, source):
+        return []
+    region = case['bbox']
+    matches = []
+    for table in page['table_source_rows']['tables']:
+        for split in table['split_rows']:
+            for line in split['lines']:
+                box = line['bbox']
+                if (region[0] <= box[0] <= box[2] <= region[2]
+                        and region[1] <= box[1] <= box[3] <= region[3]
+                        and [_text(c['text']) for c in line['cells']] == [_text(t) for t in case['columns']]):
+                    matches.append((table['table_id'], split['source_row'], line['index']))
+    return matches
+
+
 def _narrative_matches(case, page, sources, pages):
     elements = {e["id"]: (p["page"], e) for p in pages.values() for e in p.get("narrative_elements", [])}
 
@@ -184,6 +201,12 @@ def check_annotations(structure: dict, evidence: list[dict], annotation: dict) -
             matching = _complete_table_matches(case, pages[case['page']], sources[case['page']])
             if len(matching) != 1:
                 failures.append({**prefix, 'kind': 'complete_table_source_mismatch',
+                                 'matching_candidates': len(matching)})
+            continue
+        if case.get('kind') == 'source_table_line':
+            matching = _source_line_matches(case, pages[case['page']], sources[case['page']])
+            if len(matching) != 1:
+                failures.append({**prefix, 'kind': 'table_source_line_mismatch',
                                  'matching_candidates': len(matching)})
             continue
         if case.get("kind") in SOURCE_CASE_KINDS:

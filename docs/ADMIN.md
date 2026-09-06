@@ -26,6 +26,10 @@ heading candidates, every source text block, review flags, the original PDF and
 source-evidence JSON. Narrative candidates retain source span references and
 tentative page-scoped heading paths; document section context is kept separately.
 Text inside detected tables is labelled explicitly.
+Tall ruled body cells can expose a separate source-line view with the original
+column positions and merged headers. Use the checkbox to return to physical
+cells. Blank positions mean no text on that line; no zero is inferred. Wrapped
+labels remain separate lines and accounting-row associations require review.
 The complete physical text remains accessible underneath. Table counts
 are detector candidates, potentially overlapping; they are never a completeness
 denominator. Reading order, headers and narrative roles remain unreviewed.

@@ -1,0 +1,7768 @@
+{
+  "source": {
+    "bank_ticker": "TOMK",
+    "byte_count": 912865,
+    "kind": "unconsolidated",
+    "object_key": "tomk/TOMK_2023Q3_unconsolidated.pdf",
+    "pdf_sha256": "80dbb8e5a2b18675e84b2ed62fbbaf07c3dadebc5984ea36979ba0687b610c84",
+    "period": "2023Q3",
+    "source_url": "https://tombank.com.tr/assets/images/doc/denetim-raporlari/30092023.pdf"
+  },
+  "pages": [
+    {
+      "page": 13,
+      "tables": [
+        {
+          "bbox": [
+            47.276363372802734,
+            112.29203033447266,
+            576.9436645507812,
+            645.0279541015625
+          ],
+          "header_association_verified": false,
+          "header_external": false,
+          "header_names": [
+            "GELİR VE GİDER KALEMLERİ",
+            "Dipnot (V-IV)",
+            "Cari Dönem\n1 Ocak-\n30 Eylül 2023",
+            "Önceki Dönem\n1 Ocak-\n30 Eylül 2022"
+          ],
+          "id": "p13:ruled0",
+          "image_rule_candidates": [],
+          "kind": "table_candidate",
+          "method": "pymupdf_lines_strict",
+          "n_cols": 4,
+          "review_status": "unreviewed",
+          "row_count": 2,
+          "rows": [
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    47.276363372802734,
+                    112.29203033447266,
+                    353.7099914550781,
+                    136.58001708984375
+                  ],
+                  "column": 0,
+                  "row": 0,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "GELİR VE GİDER KALEMLERİ",
+                  "word_ids": [
+                    42,
+                    43,
+                    44,
+                    45
+                  ]
+                },
+                {
+                  "bbox": [
+                    353.7099914550781,
+                    112.29203033447266,
+                    407.1099853515625,
+                    136.58001708984375
+                  ],
+                  "column": 1,
+                  "row": 0,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Dipnot (V-IV)",
+                  "word_ids": [
+                    46,
+                    47
+                  ]
+                },
+                {
+                  "bbox": [
+                    407.1099853515625,
+                    112.29203033447266,
+                    492.0999755859375,
+                    136.58001708984375
+                  ],
+                  "column": 2,
+                  "row": 0,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Cari Dönem\n1 Ocak-\n30 Eylül 2023",
+                  "word_ids": [
+                    48,
+                    49,
+                    50,
+                    51,
+                    52,
+                    53,
+                    54
+                  ]
+                },
+                {
+                  "bbox": [
+                    492.0999755859375,
+                    112.29203033447266,
+                    576.9436645507812,
+                    136.58001708984375
+                  ],
+                  "column": 3,
+                  "row": 0,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Önceki Dönem\n1 Ocak-\n30 Eylül 2022",
+                  "word_ids": [
+                    55,
+                    56,
+                    57,
+                    58,
+                    59,
+                    60,
+                    61
+                  ]
+                }
+              ],
+              "index": 0
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    47.276363372802734,
+                    136.58001708984375,
+                    353.7099914550781,
+                    645.0279541015625
+                  ],
+                  "column": 0,
+                  "row": 1,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "I. KAR PAYI GELİRLERİ\n1.1 Kredilerden Alınan Kar Payları\n1.2 Zorunlu Karşılıklardan Alınan Gelirler\n1.3 Bankalardan Alınan Gelirler\n1.4 Para Piyasası İşlemlerinden Alınan Gelirler\n1.5 Menkul Değerlerden Alınan Gelirler\n1.5.1 Gerçeğe Uygun Değer Farkı Kar Zarara Yansıtılanlar\n1.5.2 Gerçeğe Uygun Değer Farkı Diğer Kapsamlı Gelire Yansıtılanlar\n1.5.3 İtfa Edilmiş Maliyeti İle Ölçülenler\n1.6 Finansal Kiralama Gelirleri\n1.7 Diğer Kar Payı Gelirleri\nII. KAR PAYI GİDERLERİ (-)\n2.1 Katılma Hesaplarına Verilen Kar Payları\n2.2 Kullanılan Kredilere Verilen Kar Payları\n2.3 Para Piyasası İşlemlerine Verilen Kar Payları\n2.4 İhraç Edilen Menkul Kıymetlere Verilen Kar Payları\n2.5 Kiralama Kar Payı Giderleri\n2.6 Diğer Kar Payı Giderleri\nIII. NET KAR PAYI GELİRİ/GİDERİ (I - II)\nIV. NET ÜCRET VE KOMİSYON GELİRLERİ/GİDERLERİ\n4.1 Alınan Ücret ve Komisyonlar\n4.1.1 Gayri Nakdi Kredilerden\n4.1.2 Diğer\n4.2 Verilen Ücret ve Komisyonlar (-)\n4.2.1 Gayri Nakdi Kredilere\n4.2.2 Diğer\nV. TEMETTÜ GELİRLERİ\nVI. TİCARİ KAR/ZARAR (Net)\n6.1 Sermaye Piyasası İşlemleri Karı/Zararı\n6.2 Türev Finansal İşlemlerden Kar/Zarar\n6.3 Kambiyo İşlemleri Karı/Zararı\nVII. DİĞER FAALİYET GELİRLERİ\nVIII. FAALİYET BRÜT KÂRI (III+IV+V+VI+VII)\nIX. KREDİ KARŞILIKLARI (-)\nX. PERSONEL GİDERLERİ (-)\nXI DİĞER FAALİYET GİDERLERİ (-)\nXII. NET FAALİYET KÂRI/ZARARI (VIII-IX-X-XI)\nXIII. BİRLEŞME İŞLEMİ SONRASINDA GELİR OLARAK KAYDEDİLEN\nFAZLALIK TUTARI\nXIV. ÖZKAYNAK YÖNTEMİ UYGULANAN ORTAKLIKLARDAN\nKAR/ZARAR\nXV. NET PARASAL POZİSYON KARI/ZARARI\nXVI. SÜRDÜRÜLEN FAALİYETLER VERGİ ÖNCESİ K/Z (XII+...+XV)\nXVII. SÜRDÜRÜLEN FAALİYETLER VERGİ KARŞILIĞI (±)\n18.1 Cari Vergi Karşılığı\n18.2 Ertelenmiş Vergi Gider Etkisi (+)\n18.3 Ertelenmiş Vergi Gelir Etkisi (-)\nXIII. SÜRDÜRÜLEN FAALİYETLER DÖNEM NET K/Z (XVI±XVII)\nXIX. DURDURULAN FAALİYETLERDEN GELİRLER\n20.1 Satış Amaçlı Elde Tutulan Duran Varlık Gelirleri\n20.2 İştirak, Bağlı Ortaklık ve Birlikte Kontrol Edilen Ortaklıklar (İş Ort.) Satış Karları\n20.3 Diğer Durdurulan Faaliyet Gelirleri\nXX. DURDURULAN FAALİYETLERDEN GİDERLER (-)\n21.1 Satış Amaçlı Elde Tutulan Duran Varlık Giderleri\n21.2 İştirak, Bağlı Ortaklık ve Birlikte Kontrol Edilen Ortaklıklar (İş Ort.) Satış Zararları\n21.3 Diğer Durdurulan Faaliyet Giderleri\nXXI. DURDURULAN FAALİYETLER VERGİ ÖNCESİ K/Z (XIX-XX)\nXXII. DURDURULAN FAALİYETLER VERGİ KARŞILIĞI (±)\n23.1 Cari Vergi Karşılığı\n23.2 Ertelenmiş Vergi Gider Etkisi (+)\n23.3 Ertelenmiş Vergi Gelir Etkisi (-)\nXXIII. DURDURULAN FAALİYETLER DÖNEM NET K/Z (XXI±XXII)\nXXIV. NET DÖNEM KARI/ZARARI (XIII+XXIII)\nHisse Başına Kar/Zarar (Tam TL)",
+                  "word_ids": [
+                    62,
+                    63,
+                    64,
+                    65,
+                    69,
+                    70,
+                    71,
+                    72,
+                    73,
+                    76,
+                    77,
+                    78,
+                    79,
+                    80,
+                    83,
+                    84,
+                    85,
+                    86,
+                    89,
+                    90,
+                    91,
+                    92,
+                    93,
+                    94,
+                    97,
+                    98,
+                    99,
+                    100,
+                    101,
+                    104,
+                    105,
+                    106,
+                    107,
+                    108,
+                    109,
+                    110,
+                    111,
+                    114,
+                    115,
+                    116,
+                    117,
+                    118,
+                    119,
+                    120,
+                    121,
+                    122,
+                    125,
+                    126,
+                    127,
+                    128,
+                    129,
+                    130,
+                    133,
+                    134,
+                    135,
+                    136,
+                    139,
+                    140,
+                    141,
+                    142,
+                    143,
+                    146,
+                    147,
+                    148,
+                    149,
+                    150,
+                    154,
+                    155,
+                    156,
+                    157,
+                    158,
+                    159,
+                    162,
+                    163,
+                    164,
+                    165,
+                    166,
+                    167,
+                    170,
+                    171,
+                    172,
+                    173,
+                    174,
+                    175,
+                    176,
+                    179,
+                    180,
+                    181,
+                    182,
+                    183,
+                    184,
+                    185,
+                    186,
+                    189,
+                    190,
+                    191,
+                    192,
+                    193,
+                    196,
+                    197,
+                    198,
+                    199,
+                    200,
+                    203,
+                    204,
+                    205,
+                    206,
+                    207,
+                    208,
+                    209,
+                    210,
+                    213,
+                    214,
+                    215,
+                    216,
+                    217,
+                    218,
+                    221,
+                    222,
+                    223,
+                    224,
+                    225,
+                    228,
+                    229,
+                    230,
+                    231,
+                    234,
+                    235,
+                    238,
+                    239,
+                    240,
+                    241,
+                    242,
+                    243,
+                    246,
+                    247,
+                    248,
+                    249,
+                    252,
+                    253,
+                    256,
+                    257,
+                    258,
+                    261,
+                    262,
+                    263,
+                    264,
+                    268,
+                    269,
+                    270,
+                    271,
+                    272,
+                    275,
+                    276,
+                    277,
+                    278,
+                    279,
+                    282,
+                    283,
+                    284,
+                    285,
+                    288,
+                    289,
+                    290,
+                    291,
+                    294,
+                    295,
+                    296,
+                    297,
+                    298,
+                    301,
+                    302,
+                    303,
+                    304,
+                    307,
+                    308,
+                    309,
+                    310,
+                    313,
+                    314,
+                    315,
+                    316,
+                    317,
+                    321,
+                    322,
+                    323,
+                    324,
+                    325,
+                    328,
+                    329,
+                    330,
+                    331,
+                    332,
+                    333,
+                    334,
+                    335,
+                    336,
+                    339,
+                    340,
+                    341,
+                    342,
+                    343,
+                    344,
+                    347,
+                    348,
+                    349,
+                    350,
+                    351,
+                    354,
+                    355,
+                    356,
+                    357,
+                    358,
+                    359,
+                    360,
+                    364,
+                    365,
+                    366,
+                    367,
+                    368,
+                    369,
+                    373,
+                    374,
+                    375,
+                    376,
+                    379,
+                    380,
+                    381,
+                    382,
+                    383,
+                    384,
+                    387,
+                    388,
+                    389,
+                    390,
+                    391,
+                    392,
+                    395,
+                    396,
+                    397,
+                    398,
+                    399,
+                    400,
+                    401,
+                    405,
+                    406,
+                    407,
+                    408,
+                    411,
+                    412,
+                    413,
+                    414,
+                    415,
+                    416,
+                    417,
+                    418,
+                    421,
+                    422,
+                    423,
+                    424,
+                    425,
+                    426,
+                    427,
+                    428,
+                    429,
+                    430,
+                    431,
+                    432,
+                    433,
+                    436,
+                    437,
+                    438,
+                    439,
+                    440,
+                    443,
+                    444,
+                    445,
+                    446,
+                    447,
+                    450,
+                    451,
+                    452,
+                    453,
+                    454,
+                    455,
+                    456,
+                    457,
+                    460,
+                    461,
+                    462,
+                    463,
+                    464,
+                    465,
+                    466,
+                    467,
+                    468,
+                    469,
+                    470,
+                    471,
+                    472,
+                    475,
+                    476,
+                    477,
+                    478,
+                    479,
+                    482,
+                    483,
+                    484,
+                    485,
+                    486,
+                    487,
+                    488,
+                    491,
+                    492,
+                    493,
+                    494,
+                    495,
+                    496,
+                    499,
+                    500,
+                    501,
+                    502,
+                    505,
+                    506,
+                    507,
+                    508,
+                    509,
+                    510,
+                    513,
+                    514,
+                    515,
+                    516,
+                    517,
+                    518,
+                    521,
+                    522,
+                    523,
+                    524,
+                    525,
+                    526,
+                    527,
+                    530,
+                    531,
+                    532,
+                    533,
+                    534,
+                    538,
+                    539,
+                    540,
+                    541,
+                    542
+                  ]
+                },
+                {
+                  "bbox": [
+                    353.7099914550781,
+                    136.58001708984375,
+                    407.1099853515625,
+                    645.0279541015625
+                  ],
+                  "column": 1,
+                  "row": 1,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "(1)\n(2)\n(4)\n(7)\n(8)\n(9)\n(10)\n(11)",
+                  "word_ids": [
+                    66,
+                    151,
+                    265,
+                    318,
+                    361,
+                    370,
+                    402,
+                    535
+                  ]
+                },
+                {
+                  "bbox": [
+                    407.1099853515625,
+                    136.58001708984375,
+                    492.0999755859375,
+                    645.0279541015625
+                  ],
+                  "column": 2,
+                  "row": 1,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "112.338\n-\n-\n112.338\n-\n-\n-\n-\n-\n-\n-\n275\n-\n-\n-\n-\n275\n-\n112.063\n-\n-\n-\n-\n-\n-\n-\n-\n179.095\n170.750\n-\n8.345\n-\n291.158\n-\n70.837\n82.638\n137.683\n-\n-\n-\n137.683\n10.388\n-\n(6.802)\n17.190\n148.071\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n148.071\n0,09871",
+                  "word_ids": [
+                    67,
+                    74,
+                    81,
+                    87,
+                    95,
+                    102,
+                    112,
+                    123,
+                    131,
+                    137,
+                    144,
+                    152,
+                    160,
+                    168,
+                    177,
+                    187,
+                    194,
+                    201,
+                    211,
+                    219,
+                    226,
+                    232,
+                    236,
+                    244,
+                    250,
+                    254,
+                    259,
+                    266,
+                    273,
+                    280,
+                    286,
+                    292,
+                    299,
+                    305,
+                    311,
+                    319,
+                    326,
+                    337,
+                    345,
+                    352,
+                    362,
+                    371,
+                    377,
+                    385,
+                    393,
+                    403,
+                    409,
+                    419,
+                    434,
+                    441,
+                    448,
+                    458,
+                    473,
+                    480,
+                    489,
+                    497,
+                    503,
+                    511,
+                    519,
+                    528,
+                    536,
+                    543
+                  ]
+                },
+                {
+                  "bbox": [
+                    492.0999755859375,
+                    136.58001708984375,
+                    576.9436645507812,
+                    645.0279541015625
+                  ],
+                  "column": 3,
+                  "row": 1,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-\n-",
+                  "word_ids": [
+                    68,
+                    75,
+                    82,
+                    88,
+                    96,
+                    103,
+                    113,
+                    124,
+                    132,
+                    138,
+                    145,
+                    153,
+                    161,
+                    169,
+                    178,
+                    188,
+                    195,
+                    202,
+                    212,
+                    220,
+                    227,
+                    233,
+                    237,
+                    245,
+                    251,
+                    255,
+                    260,
+                    267,
+                    274,
+                    281,
+                    287,
+                    293,
+                    300,
+                    306,
+                    312,
+                    320,
+                    327,
+                    338,
+                    346,
+                    353,
+                    363,
+                    372,
+                    378,
+                    386,
+                    394,
+                    404,
+                    410,
+                    420,
+                    435,
+                    442,
+                    449,
+                    459,
+                    474,
+                    481,
+                    490,
+                    498,
+                    504,
+                    512,
+                    520,
+                    529,
+                    537,
+                    544
+                  ]
+                }
+              ],
+              "index": 1
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "source_pages": [
+    {
+      "page": 13,
+      "words": [
+        {
+          "bbox": [
+            66.024,
+            40.6834,
+            100.6786,
+            52.9047
+          ],
+          "block": 0,
+          "id": 0,
+          "line": 0,
+          "text": "T.O.M.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            104.54,
+            40.6834,
+            154.6395,
+            52.9047
+          ],
+          "block": 0,
+          "id": 1,
+          "line": 0,
+          "text": "KATILIM",
+          "word": 1
+        },
+        {
+          "bbox": [
+            158.42,
+            40.6834,
+            208.4422,
+            52.9047
+          ],
+          "block": 0,
+          "id": 2,
+          "line": 0,
+          "text": "BANKASI",
+          "word": 2
+        },
+        {
+          "bbox": [
+            212.33,
+            40.6834,
+            231.9039,
+            52.9047
+          ],
+          "block": 0,
+          "id": 3,
+          "line": 0,
+          "text": "A.Ş.",
+          "word": 3
+        },
+        {
+          "bbox": [
+            66.024,
+            64.4633,
+            77.064,
+            76.6846
+          ],
+          "block": 1,
+          "id": 4,
+          "line": 0,
+          "text": "30",
+          "word": 0
+        },
+        {
+          "bbox": [
+            80.664,
+            64.4633,
+            118.522,
+            76.6846
+          ],
+          "block": 1,
+          "id": 5,
+          "line": 0,
+          "text": "EYLÜL",
+          "word": 1
+        },
+        {
+          "bbox": [
+            122.18,
+            64.4633,
+            144.26,
+            76.6846
+          ],
+          "block": 1,
+          "id": 6,
+          "line": 0,
+          "text": "2023",
+          "word": 2
+        },
+        {
+          "bbox": [
+            148.1,
+            64.4633,
+            211.4696,
+            76.6846
+          ],
+          "block": 1,
+          "id": 7,
+          "line": 0,
+          "text": "TARİHİNDE",
+          "word": 3
+        },
+        {
+          "bbox": [
+            215.21,
+            64.4633,
+            245.8792,
+            76.6846
+          ],
+          "block": 1,
+          "id": 8,
+          "line": 0,
+          "text": "SONA",
+          "word": 4
+        },
+        {
+          "bbox": [
+            249.53,
+            64.4633,
+            280.068,
+            76.6846
+          ],
+          "block": 1,
+          "id": 9,
+          "line": 0,
+          "text": "EREN",
+          "word": 5
+        },
+        {
+          "bbox": [
+            283.73,
+            64.4633,
+            320.3387,
+            76.6846
+          ],
+          "block": 1,
+          "id": 10,
+          "line": 0,
+          "text": "HESAP",
+          "word": 6
+        },
+        {
+          "bbox": [
+            323.93,
+            64.4633,
+            385.7429,
+            76.6846
+          ],
+          "block": 1,
+          "id": 11,
+          "line": 0,
+          "text": "DÖNEMİNE",
+          "word": 7
+        },
+        {
+          "bbox": [
+            389.47,
+            64.4633,
+            409.0439,
+            76.6846
+          ],
+          "block": 1,
+          "id": 12,
+          "line": 0,
+          "text": "AİT",
+          "word": 8
+        },
+        {
+          "bbox": [
+            66.024,
+            77.3034,
+            135.6468,
+            89.5247
+          ],
+          "block": 1,
+          "id": 13,
+          "line": 1,
+          "text": "KONSOLİDE",
+          "word": 0
+        },
+        {
+          "bbox": [
+            138.38,
+            77.3034,
+            199.0353,
+            89.5247
+          ],
+          "block": 1,
+          "id": 14,
+          "line": 1,
+          "text": "OLMAYAN",
+          "word": 1
+        },
+        {
+          "bbox": [
+            201.74,
+            77.3034,
+            227.1706,
+            89.5247
+          ],
+          "block": 1,
+          "id": 15,
+          "line": 1,
+          "text": "KAR",
+          "word": 2
+        },
+        {
+          "bbox": [
+            229.85,
+            77.3034,
+            262.3459,
+            89.5247
+          ],
+          "block": 1,
+          "id": 16,
+          "line": 1,
+          "text": "VEYA",
+          "word": 3
+        },
+        {
+          "bbox": [
+            265.01,
+            77.3034,
+            305.8959,
+            89.5247
+          ],
+          "block": 1,
+          "id": 17,
+          "line": 1,
+          "text": "ZARAR",
+          "word": 4
+        },
+        {
+          "bbox": [
+            308.69,
+            77.3034,
+            363.4688,
+            89.5247
+          ],
+          "block": 1,
+          "id": 18,
+          "line": 1,
+          "text": "TABLOSU",
+          "word": 5
+        },
+        {
+          "bbox": [
+            66.024,
+            89.8687,
+            96.3126,
+            99.3003
+          ],
+          "block": 1,
+          "id": 19,
+          "line": 2,
+          "text": "(Tutarlar",
+          "word": 0
+        },
+        {
+          "bbox": [
+            98.304,
+            89.8687,
+            111.9445,
+            99.3003
+          ],
+          "block": 1,
+          "id": 20,
+          "line": 2,
+          "text": "aksi",
+          "word": 1
+        },
+        {
+          "bbox": [
+            113.66,
+            89.8687,
+            165.0441,
+            99.3003
+          ],
+          "block": 1,
+          "id": 21,
+          "line": 2,
+          "text": "belirtilmedikçe",
+          "word": 2
+        },
+        {
+          "bbox": [
+            167.06,
+            89.8687,
+            179.2436,
+            99.3003
+          ],
+          "block": 1,
+          "id": 22,
+          "line": 2,
+          "text": "Bin",
+          "word": 3
+        },
+        {
+          "bbox": [
+            180.98,
+            89.8687,
+            197.4747,
+            99.3003
+          ],
+          "block": 1,
+          "id": 23,
+          "line": 2,
+          "text": "Türk",
+          "word": 4
+        },
+        {
+          "bbox": [
+            199.34,
+            89.8687,
+            219.0979,
+            99.3003
+          ],
+          "block": 1,
+          "id": 24,
+          "line": 2,
+          "text": "Lirası",
+          "word": 5
+        },
+        {
+          "bbox": [
+            221.21,
+            89.8687,
+            244.8019,
+            99.3003
+          ],
+          "block": 1,
+          "id": 25,
+          "line": 2,
+          "text": "(“TL”)",
+          "word": 6
+        },
+        {
+          "bbox": [
+            246.41,
+            89.8687,
+            267.6929,
+            99.3003
+          ],
+          "block": 1,
+          "id": 26,
+          "line": 2,
+          "text": "olarak",
+          "word": 7
+        },
+        {
+          "bbox": [
+            269.69,
+            89.8687,
+            286.6618,
+            99.3003
+          ],
+          "block": 1,
+          "id": 27,
+          "line": 2,
+          "text": "ifade",
+          "word": 8
+        },
+        {
+          "bbox": [
+            288.53,
+            89.8687,
+            326.1203,
+            99.3003
+          ],
+          "block": 1,
+          "id": 28,
+          "line": 2,
+          "text": "edilmiştir.)",
+          "word": 9
+        },
+        {
+          "bbox": [
+            118.46,
+            728.181,
+            151.8273,
+            738.144
+          ],
+          "block": 2,
+          "id": 29,
+          "line": 0,
+          "text": "İlişikteki",
+          "word": 0
+        },
+        {
+          "bbox": [
+            153.98,
+            728.181,
+            187.9425,
+            738.144
+          ],
+          "block": 2,
+          "id": 30,
+          "line": 0,
+          "text": "açıklama",
+          "word": 1
+        },
+        {
+          "bbox": [
+            190.1,
+            728.181,
+            199.0288,
+            738.144
+          ],
+          "block": 2,
+          "id": 31,
+          "line": 0,
+          "text": "ve",
+          "word": 2
+        },
+        {
+          "bbox": [
+            201.14,
+            728.181,
+            235.1304,
+            738.144
+          ],
+          "block": 2,
+          "id": 32,
+          "line": 0,
+          "text": "dipnotlar",
+          "word": 3
+        },
+        {
+          "bbox": [
+            237.41,
+            728.181,
+            246.7397,
+            738.144
+          ],
+          "block": 2,
+          "id": 33,
+          "line": 0,
+          "text": "bu",
+          "word": 4
+        },
+        {
+          "bbox": [
+            248.81,
+            728.181,
+            285.395,
+            738.144
+          ],
+          "block": 2,
+          "id": 34,
+          "line": 0,
+          "text": "konsolide",
+          "word": 5
+        },
+        {
+          "bbox": [
+            287.45,
+            728.181,
+            319.8966,
+            738.144
+          ],
+          "block": 2,
+          "id": 35,
+          "line": 0,
+          "text": "olmayan",
+          "word": 6
+        },
+        {
+          "bbox": [
+            321.89,
+            728.181,
+            351.7978,
+            738.144
+          ],
+          "block": 2,
+          "id": 36,
+          "line": 0,
+          "text": "finansal",
+          "word": 7
+        },
+        {
+          "bbox": [
+            353.95,
+            728.181,
+            389.977,
+            738.144
+          ],
+          "block": 2,
+          "id": 37,
+          "line": 0,
+          "text": "tabloların",
+          "word": 8
+        },
+        {
+          "bbox": [
+            392.11,
+            728.181,
+            438.6828,
+            738.144
+          ],
+          "block": 2,
+          "id": 38,
+          "line": 0,
+          "text": "tamamlayıcı",
+          "word": 9
+        },
+        {
+          "bbox": [
+            440.95,
+            728.181,
+            451.3471,
+            738.144
+          ],
+          "block": 2,
+          "id": 39,
+          "line": 0,
+          "text": "bir",
+          "word": 10
+        },
+        {
+          "bbox": [
+            453.55,
+            728.181,
+            492.99,
+            738.144
+          ],
+          "block": 2,
+          "id": 40,
+          "line": 0,
+          "text": "parçasıdır.",
+          "word": 11
+        },
+        {
+          "bbox": [
+            303.53,
+            741.501,
+            308.03,
+            751.464
+          ],
+          "block": 3,
+          "id": 41,
+          "line": 0,
+          "text": "7",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            128.714,
+            95.076,
+            135.356
+          ],
+          "block": 7,
+          "id": 42,
+          "line": 0,
+          "text": "GELİR",
+          "word": 0
+        },
+        {
+          "bbox": [
+            96.984,
+            128.714,
+            105.306,
+            135.356
+          ],
+          "block": 7,
+          "id": 43,
+          "line": 0,
+          "text": "VE",
+          "word": 1
+        },
+        {
+          "bbox": [
+            107.3,
+            128.714,
+            126.872,
+            135.356
+          ],
+          "block": 7,
+          "id": 44,
+          "line": 0,
+          "text": "GİDER",
+          "word": 2
+        },
+        {
+          "bbox": [
+            128.78,
+            128.714,
+            166.142,
+            135.356
+          ],
+          "block": 7,
+          "id": 45,
+          "line": 0,
+          "text": "KALEMLERİ",
+          "word": 3
+        },
+        {
+          "bbox": [
+            361.27,
+            128.714,
+            379.5485,
+            135.356
+          ],
+          "block": 7,
+          "id": 46,
+          "line": 1,
+          "text": "Dipnot",
+          "word": 0
+        },
+        {
+          "bbox": [
+            381.07,
+            128.714,
+            398.6418,
+            135.356
+          ],
+          "block": 7,
+          "id": 47,
+          "line": 1,
+          "text": "(V-IV)",
+          "word": 1
+        },
+        {
+          "bbox": [
+            457.75,
+            112.874,
+            469.378,
+            119.516
+          ],
+          "block": 8,
+          "id": 48,
+          "line": 0,
+          "text": "Cari",
+          "word": 0
+        },
+        {
+          "bbox": [
+            471.55,
+            112.874,
+            489.88,
+            119.516
+          ],
+          "block": 8,
+          "id": 49,
+          "line": 0,
+          "text": "Dönem",
+          "word": 1
+        },
+        {
+          "bbox": [
+            469.75,
+            120.794,
+            472.8928,
+            127.436
+          ],
+          "block": 9,
+          "id": 50,
+          "line": 0,
+          "text": "1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            474.31,
+            120.794,
+            490.4731,
+            127.436
+          ],
+          "block": 9,
+          "id": 51,
+          "line": 0,
+          "text": "Ocak-",
+          "word": 1
+        },
+        {
+          "bbox": [
+            454.99,
+            128.714,
+            461.2527,
+            135.356
+          ],
+          "block": 9,
+          "id": 52,
+          "line": 1,
+          "text": "30",
+          "word": 0
+        },
+        {
+          "bbox": [
+            462.55,
+            128.714,
+            476.6486,
+            135.356
+          ],
+          "block": 9,
+          "id": 53,
+          "line": 1,
+          "text": "Eylül",
+          "word": 1
+        },
+        {
+          "bbox": [
+            478.03,
+            128.714,
+            490.5327,
+            135.356
+          ],
+          "block": 9,
+          "id": 54,
+          "line": 1,
+          "text": "2023",
+          "word": 2
+        },
+        {
+          "bbox": [
+            537.1,
+            112.874,
+            555.4361,
+            119.516
+          ],
+          "block": 10,
+          "id": 55,
+          "line": 0,
+          "text": "Önceki",
+          "word": 0
+        },
+        {
+          "bbox": [
+            557.86,
+            112.874,
+            576.1899,
+            119.516
+          ],
+          "block": 10,
+          "id": 56,
+          "line": 0,
+          "text": "Dönem",
+          "word": 1
+        },
+        {
+          "bbox": [
+            555.34,
+            120.794,
+            558.4828,
+            127.436
+          ],
+          "block": 11,
+          "id": 57,
+          "line": 0,
+          "text": "1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            559.9,
+            120.794,
+            576.0331,
+            127.436
+          ],
+          "block": 11,
+          "id": 58,
+          "line": 0,
+          "text": "Ocak-",
+          "word": 1
+        },
+        {
+          "bbox": [
+            540.34,
+            128.714,
+            546.6028,
+            135.356
+          ],
+          "block": 11,
+          "id": 59,
+          "line": 1,
+          "text": "30",
+          "word": 0
+        },
+        {
+          "bbox": [
+            547.9,
+            128.714,
+            562.2563,
+            135.356
+          ],
+          "block": 11,
+          "id": 60,
+          "line": 1,
+          "text": "Eylül",
+          "word": 1
+        },
+        {
+          "bbox": [
+            563.62,
+            128.714,
+            576.1226,
+            135.356
+          ],
+          "block": 11,
+          "id": 61,
+          "line": 1,
+          "text": "2022",
+          "word": 2
+        },
+        {
+          "bbox": [
+            49.68,
+            137.234,
+            53.6513,
+            143.876
+          ],
+          "block": 11,
+          "id": 62,
+          "line": 2,
+          "text": "I.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            137.234,
+            89.196,
+            143.876
+          ],
+          "block": 11,
+          "id": 63,
+          "line": 3,
+          "text": "KAR",
+          "word": 0
+        },
+        {
+          "bbox": [
+            91.104,
+            137.234,
+            105.792,
+            143.876
+          ],
+          "block": 11,
+          "id": 64,
+          "line": 3,
+          "text": "PAYI",
+          "word": 1
+        },
+        {
+          "bbox": [
+            107.66,
+            137.234,
+            141.548,
+            143.876
+          ],
+          "block": 11,
+          "id": 65,
+          "line": 3,
+          "text": "GELİRLERİ",
+          "word": 2
+        },
+        {
+          "bbox": [
+            376.39,
+            137.234,
+            383.7567,
+            143.876
+          ],
+          "block": 11,
+          "id": 66,
+          "line": 4,
+          "text": "(1)",
+          "word": 0
+        },
+        {
+          "bbox": [
+            465.55,
+            137.234,
+            485.953,
+            143.876
+          ],
+          "block": 11,
+          "id": 67,
+          "line": 5,
+          "text": "112.338",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            137.234,
+            569.578,
+            143.876
+          ],
+          "block": 11,
+          "id": 68,
+          "line": 6,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            145.154,
+            57.6243,
+            151.796
+          ],
+          "block": 11,
+          "id": 69,
+          "line": 7,
+          "text": "1.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            145.154,
+            105.5307,
+            151.796
+          ],
+          "block": 11,
+          "id": 70,
+          "line": 8,
+          "text": "Kredilerden",
+          "word": 0
+        },
+        {
+          "bbox": [
+            106.7,
+            145.154,
+            123.647,
+            151.796
+          ],
+          "block": 11,
+          "id": 71,
+          "line": 8,
+          "text": "Alınan",
+          "word": 1
+        },
+        {
+          "bbox": [
+            124.94,
+            145.154,
+            134.2388,
+            151.796
+          ],
+          "block": 11,
+          "id": 72,
+          "line": 8,
+          "text": "Kar",
+          "word": 2
+        },
+        {
+          "bbox": [
+            135.62,
+            145.154,
+            153.4364,
+            151.796
+          ],
+          "block": 11,
+          "id": 73,
+          "line": 8,
+          "text": "Payları",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            145.154,
+            486.0379,
+            151.796
+          ],
+          "block": 11,
+          "id": 74,
+          "line": 10,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            145.154,
+            569.578,
+            151.796
+          ],
+          "block": 11,
+          "id": 75,
+          "line": 11,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            153.074,
+            57.6243,
+            159.716
+          ],
+          "block": 11,
+          "id": 76,
+          "line": 12,
+          "text": "1.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            153.074,
+            95.28,
+            159.716
+          ],
+          "block": 11,
+          "id": 77,
+          "line": 13,
+          "text": "Zorunlu",
+          "word": 0
+        },
+        {
+          "bbox": [
+            97.224,
+            153.074,
+            131.4,
+            159.716
+          ],
+          "block": 11,
+          "id": 78,
+          "line": 13,
+          "text": "Karşılıklardan",
+          "word": 1
+        },
+        {
+          "bbox": [
+            133.34,
+            153.074,
+            149.672,
+            159.716
+          ],
+          "block": 11,
+          "id": 79,
+          "line": 13,
+          "text": "Alınan",
+          "word": 2
+        },
+        {
+          "bbox": [
+            151.46,
+            153.074,
+            170.138,
+            159.716
+          ],
+          "block": 11,
+          "id": 80,
+          "line": 13,
+          "text": "Gelirler",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            153.074,
+            485.938,
+            159.716
+          ],
+          "block": 11,
+          "id": 81,
+          "line": 15,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            153.074,
+            569.578,
+            159.716
+          ],
+          "block": 11,
+          "id": 82,
+          "line": 16,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            160.994,
+            57.6243,
+            167.636
+          ],
+          "block": 11,
+          "id": 83,
+          "line": 17,
+          "text": "1.3",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            160.994,
+            107.3199,
+            167.636
+          ],
+          "block": 11,
+          "id": 84,
+          "line": 18,
+          "text": "Bankalardan",
+          "word": 0
+        },
+        {
+          "bbox": [
+            108.5,
+            160.994,
+            125.447,
+            167.636
+          ],
+          "block": 11,
+          "id": 85,
+          "line": 18,
+          "text": "Alınan",
+          "word": 1
+        },
+        {
+          "bbox": [
+            126.74,
+            160.994,
+            145.8794,
+            167.636
+          ],
+          "block": 11,
+          "id": 86,
+          "line": 18,
+          "text": "Gelirler",
+          "word": 2
+        },
+        {
+          "bbox": [
+            465.43,
+            160.994,
+            485.8483,
+            167.636
+          ],
+          "block": 11,
+          "id": 87,
+          "line": 20,
+          "text": "112.338",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            160.994,
+            569.578,
+            167.636
+          ],
+          "block": 11,
+          "id": 88,
+          "line": 21,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            168.914,
+            57.6243,
+            175.556
+          ],
+          "block": 11,
+          "id": 89,
+          "line": 22,
+          "text": "1.4",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            168.914,
+            87.0528,
+            175.556
+          ],
+          "block": 11,
+          "id": 90,
+          "line": 23,
+          "text": "Para",
+          "word": 0
+        },
+        {
+          "bbox": [
+            88.224,
+            168.914,
+            108.447,
+            175.556
+          ],
+          "block": 11,
+          "id": 91,
+          "line": 23,
+          "text": "Piyasası",
+          "word": 1
+        },
+        {
+          "bbox": [
+            109.7,
+            168.914,
+            143.7893,
+            175.556
+          ],
+          "block": 11,
+          "id": 92,
+          "line": 23,
+          "text": "İşlemlerinden",
+          "word": 2
+        },
+        {
+          "bbox": [
+            145.1,
+            168.914,
+            162.047,
+            175.556
+          ],
+          "block": 11,
+          "id": 93,
+          "line": 23,
+          "text": "Alınan",
+          "word": 3
+        },
+        {
+          "bbox": [
+            163.22,
+            168.914,
+            182.4791,
+            175.556
+          ],
+          "block": 11,
+          "id": 94,
+          "line": 23,
+          "text": "Gelirler",
+          "word": 4
+        },
+        {
+          "bbox": [
+            483.94,
+            168.914,
+            485.938,
+            175.556
+          ],
+          "block": 11,
+          "id": 95,
+          "line": 25,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            168.914,
+            569.578,
+            175.556
+          ],
+          "block": 11,
+          "id": 96,
+          "line": 26,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            176.834,
+            57.6243,
+            183.476
+          ],
+          "block": 11,
+          "id": 97,
+          "line": 27,
+          "text": "1.5",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            176.834,
+            95.2491,
+            183.476
+          ],
+          "block": 11,
+          "id": 98,
+          "line": 28,
+          "text": "Menkul",
+          "word": 0
+        },
+        {
+          "bbox": [
+            96.624,
+            176.834,
+            127.2483,
+            183.476
+          ],
+          "block": 11,
+          "id": 99,
+          "line": 28,
+          "text": "Değerlerden",
+          "word": 1
+        },
+        {
+          "bbox": [
+            128.54,
+            176.834,
+            145.3673,
+            183.476
+          ],
+          "block": 11,
+          "id": 100,
+          "line": 28,
+          "text": "Alınan",
+          "word": 2
+        },
+        {
+          "bbox": [
+            146.66,
+            176.834,
+            165.9128,
+            183.476
+          ],
+          "block": 11,
+          "id": 101,
+          "line": 28,
+          "text": "Gelirler",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            176.834,
+            485.938,
+            183.476
+          ],
+          "block": 11,
+          "id": 102,
+          "line": 30,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            176.834,
+            569.578,
+            183.476
+          ],
+          "block": 11,
+          "id": 103,
+          "line": 31,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            184.754,
+            62.4186,
+            191.396
+          ],
+          "block": 11,
+          "id": 104,
+          "line": 32,
+          "text": "1.5.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            184.754,
+            95.802,
+            191.396
+          ],
+          "block": 11,
+          "id": 105,
+          "line": 33,
+          "text": "Gerçeğe",
+          "word": 0
+        },
+        {
+          "bbox": [
+            97.704,
+            184.754,
+            114.036,
+            191.396
+          ],
+          "block": 11,
+          "id": 106,
+          "line": 33,
+          "text": "Uygun",
+          "word": 1
+        },
+        {
+          "bbox": [
+            115.94,
+            184.754,
+            130.538,
+            191.396
+          ],
+          "block": 11,
+          "id": 107,
+          "line": 33,
+          "text": "Değer",
+          "word": 2
+        },
+        {
+          "bbox": [
+            132.38,
+            184.754,
+            145.076,
+            191.396
+          ],
+          "block": 11,
+          "id": 108,
+          "line": 33,
+          "text": "Farkı",
+          "word": 3
+        },
+        {
+          "bbox": [
+            146.78,
+            184.754,
+            155.738,
+            191.396
+          ],
+          "block": 11,
+          "id": 109,
+          "line": 33,
+          "text": "Kar",
+          "word": 4
+        },
+        {
+          "bbox": [
+            157.46,
+            184.754,
+            173.186,
+            191.396
+          ],
+          "block": 11,
+          "id": 110,
+          "line": 33,
+          "text": "Zarara",
+          "word": 5
+        },
+        {
+          "bbox": [
+            174.98,
+            184.754,
+            205.898,
+            191.396
+          ],
+          "block": 11,
+          "id": 111,
+          "line": 33,
+          "text": "Yansıtılanlar",
+          "word": 6
+        },
+        {
+          "bbox": [
+            483.94,
+            184.754,
+            485.938,
+            191.396
+          ],
+          "block": 11,
+          "id": 112,
+          "line": 35,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            184.754,
+            569.578,
+            191.396
+          ],
+          "block": 11,
+          "id": 113,
+          "line": 36,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            192.674,
+            62.4186,
+            199.316
+          ],
+          "block": 11,
+          "id": 114,
+          "line": 37,
+          "text": "1.5.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            192.674,
+            95.802,
+            199.316
+          ],
+          "block": 11,
+          "id": 115,
+          "line": 38,
+          "text": "Gerçeğe",
+          "word": 0
+        },
+        {
+          "bbox": [
+            97.704,
+            192.674,
+            114.036,
+            199.316
+          ],
+          "block": 11,
+          "id": 116,
+          "line": 38,
+          "text": "Uygun",
+          "word": 1
+        },
+        {
+          "bbox": [
+            115.82,
+            192.674,
+            130.418,
+            199.316
+          ],
+          "block": 11,
+          "id": 117,
+          "line": 38,
+          "text": "Değer",
+          "word": 2
+        },
+        {
+          "bbox": [
+            132.38,
+            192.674,
+            145.076,
+            199.316
+          ],
+          "block": 11,
+          "id": 118,
+          "line": 38,
+          "text": "Farkı",
+          "word": 3
+        },
+        {
+          "bbox": [
+            146.78,
+            192.674,
+            160.298,
+            199.316
+          ],
+          "block": 11,
+          "id": 119,
+          "line": 38,
+          "text": "Diğer",
+          "word": 4
+        },
+        {
+          "bbox": [
+            162.38,
+            192.674,
+            185.282,
+            199.316
+          ],
+          "block": 11,
+          "id": 120,
+          "line": 38,
+          "text": "Kapsamlı",
+          "word": 5
+        },
+        {
+          "bbox": [
+            187.22,
+            192.674,
+            202.118,
+            199.316
+          ],
+          "block": 11,
+          "id": 121,
+          "line": 38,
+          "text": "Gelire",
+          "word": 6
+        },
+        {
+          "bbox": [
+            204.05,
+            192.674,
+            234.968,
+            199.316
+          ],
+          "block": 11,
+          "id": 122,
+          "line": 38,
+          "text": "Yansıtılanlar",
+          "word": 7
+        },
+        {
+          "bbox": [
+            483.94,
+            192.674,
+            485.938,
+            199.316
+          ],
+          "block": 11,
+          "id": 123,
+          "line": 40,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            192.674,
+            569.578,
+            199.316
+          ],
+          "block": 11,
+          "id": 124,
+          "line": 41,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            200.714,
+            62.4186,
+            207.356
+          ],
+          "block": 11,
+          "id": 125,
+          "line": 42,
+          "text": "1.5.3",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            200.714,
+            84.5391,
+            207.356
+          ],
+          "block": 11,
+          "id": 126,
+          "line": 43,
+          "text": "İtfa",
+          "word": 0
+        },
+        {
+          "bbox": [
+            85.704,
+            200.714,
+            105.1899,
+            207.356
+          ],
+          "block": 11,
+          "id": 127,
+          "line": 43,
+          "text": "Edilmiş",
+          "word": 1
+        },
+        {
+          "bbox": [
+            106.46,
+            200.714,
+            127.4012,
+            207.356
+          ],
+          "block": 11,
+          "id": 128,
+          "line": 43,
+          "text": "Maliyeti",
+          "word": 2
+        },
+        {
+          "bbox": [
+            128.78,
+            200.714,
+            135.4139,
+            207.356
+          ],
+          "block": 11,
+          "id": 129,
+          "line": 43,
+          "text": "İle",
+          "word": 3
+        },
+        {
+          "bbox": [
+            136.7,
+            200.714,
+            162.782,
+            207.356
+          ],
+          "block": 11,
+          "id": 130,
+          "line": 43,
+          "text": "Ölçülenler",
+          "word": 4
+        },
+        {
+          "bbox": [
+            483.94,
+            200.714,
+            485.938,
+            207.356
+          ],
+          "block": 11,
+          "id": 131,
+          "line": 45,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            200.714,
+            569.578,
+            207.356
+          ],
+          "block": 11,
+          "id": 132,
+          "line": 46,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            208.634,
+            57.6243,
+            215.276
+          ],
+          "block": 11,
+          "id": 133,
+          "line": 47,
+          "text": "1.6",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            208.634,
+            96.9249,
+            215.276
+          ],
+          "block": 11,
+          "id": 134,
+          "line": 48,
+          "text": "Finansal",
+          "word": 0
+        },
+        {
+          "bbox": [
+            98.184,
+            208.634,
+            121.2357,
+            215.276
+          ],
+          "block": 11,
+          "id": 135,
+          "line": 48,
+          "text": "Kiralama",
+          "word": 1
+        },
+        {
+          "bbox": [
+            122.54,
+            208.634,
+            143.8403,
+            215.276
+          ],
+          "block": 11,
+          "id": 136,
+          "line": 48,
+          "text": "Gelirleri",
+          "word": 2
+        },
+        {
+          "bbox": [
+            483.94,
+            208.634,
+            485.938,
+            215.276
+          ],
+          "block": 11,
+          "id": 137,
+          "line": 50,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            208.634,
+            569.578,
+            215.276
+          ],
+          "block": 11,
+          "id": 138,
+          "line": 51,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            216.554,
+            57.6243,
+            223.196
+          ],
+          "block": 11,
+          "id": 139,
+          "line": 52,
+          "text": "1.7",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            216.554,
+            89.9571,
+            223.196
+          ],
+          "block": 11,
+          "id": 140,
+          "line": 53,
+          "text": "Diğer",
+          "word": 0
+        },
+        {
+          "bbox": [
+            91.464,
+            216.554,
+            100.7628,
+            223.196
+          ],
+          "block": 11,
+          "id": 141,
+          "line": 53,
+          "text": "Kar",
+          "word": 1
+        },
+        {
+          "bbox": [
+            102.3819,
+            216.554,
+            113.3691,
+            223.196
+          ],
+          "block": 11,
+          "id": 142,
+          "line": 53,
+          "text": "Payı",
+          "word": 2
+        },
+        {
+          "bbox": [
+            114.62,
+            216.554,
+            135.5675,
+            223.196
+          ],
+          "block": 11,
+          "id": 143,
+          "line": 53,
+          "text": "Gelirleri",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            216.554,
+            486.0379,
+            223.196
+          ],
+          "block": 11,
+          "id": 144,
+          "line": 55,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            216.554,
+            569.578,
+            223.196
+          ],
+          "block": 11,
+          "id": 145,
+          "line": 56,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            224.504,
+            56.0513,
+            231.146
+          ],
+          "block": 11,
+          "id": 146,
+          "line": 57,
+          "text": "II.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            224.504,
+            89.196,
+            231.146
+          ],
+          "block": 11,
+          "id": 147,
+          "line": 58,
+          "text": "KAR",
+          "word": 0
+        },
+        {
+          "bbox": [
+            91.104,
+            224.504,
+            105.792,
+            231.146
+          ],
+          "block": 11,
+          "id": 148,
+          "line": 58,
+          "text": "PAYI",
+          "word": 1
+        },
+        {
+          "bbox": [
+            107.66,
+            224.504,
+            141.806,
+            231.146
+          ],
+          "block": 11,
+          "id": 149,
+          "line": 58,
+          "text": "GİDERLERİ",
+          "word": 2
+        },
+        {
+          "bbox": [
+            143.66,
+            224.504,
+            149.738,
+            231.146
+          ],
+          "block": 11,
+          "id": 150,
+          "line": 58,
+          "text": "(-)",
+          "word": 3
+        },
+        {
+          "bbox": [
+            376.39,
+            224.504,
+            383.7567,
+            231.146
+          ],
+          "block": 11,
+          "id": 151,
+          "line": 59,
+          "text": "(2)",
+          "word": 0
+        },
+        {
+          "bbox": [
+            476.47,
+            224.504,
+            485.8527,
+            231.146
+          ],
+          "block": 11,
+          "id": 152,
+          "line": 60,
+          "text": "275",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            224.504,
+            569.578,
+            231.146
+          ],
+          "block": 11,
+          "id": 153,
+          "line": 61,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            232.424,
+            57.6243,
+            239.066
+          ],
+          "block": 11,
+          "id": 154,
+          "line": 62,
+          "text": "2.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            232.424,
+            95.9295,
+            239.066
+          ],
+          "block": 11,
+          "id": 155,
+          "line": 63,
+          "text": "Katılma",
+          "word": 0
+        },
+        {
+          "bbox": [
+            97.104,
+            232.424,
+            126.651,
+            239.066
+          ],
+          "block": 11,
+          "id": 156,
+          "line": 63,
+          "text": "Hesaplarına",
+          "word": 1
+        },
+        {
+          "bbox": [
+            127.94,
+            232.424,
+            146.5691,
+            239.066
+          ],
+          "block": 11,
+          "id": 157,
+          "line": 63,
+          "text": "Verilen",
+          "word": 2
+        },
+        {
+          "bbox": [
+            147.74,
+            232.424,
+            157.0388,
+            239.066
+          ],
+          "block": 11,
+          "id": 158,
+          "line": 63,
+          "text": "Kar",
+          "word": 3
+        },
+        {
+          "bbox": [
+            158.42,
+            232.424,
+            176.2364,
+            239.066
+          ],
+          "block": 11,
+          "id": 159,
+          "line": 63,
+          "text": "Payları",
+          "word": 4
+        },
+        {
+          "bbox": [
+            483.94,
+            232.424,
+            486.0379,
+            239.066
+          ],
+          "block": 11,
+          "id": 160,
+          "line": 65,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            232.424,
+            569.578,
+            239.066
+          ],
+          "block": 11,
+          "id": 161,
+          "line": 66,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            240.344,
+            57.6243,
+            246.986
+          ],
+          "block": 11,
+          "id": 162,
+          "line": 67,
+          "text": "2.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            240.344,
+            102.0405,
+            246.986
+          ],
+          "block": 11,
+          "id": 163,
+          "line": 68,
+          "text": "Kullanılan",
+          "word": 0
+        },
+        {
+          "bbox": [
+            103.46,
+            240.344,
+            126.8834,
+            246.986
+          ],
+          "block": 11,
+          "id": 164,
+          "line": 68,
+          "text": "Kredilere",
+          "word": 1
+        },
+        {
+          "bbox": [
+            128.06,
+            240.344,
+            146.6891,
+            246.986
+          ],
+          "block": 11,
+          "id": 165,
+          "line": 68,
+          "text": "Verilen",
+          "word": 2
+        },
+        {
+          "bbox": [
+            147.86,
+            240.344,
+            157.1588,
+            246.986
+          ],
+          "block": 11,
+          "id": 166,
+          "line": 68,
+          "text": "Kar",
+          "word": 3
+        },
+        {
+          "bbox": [
+            158.66,
+            240.344,
+            176.1236,
+            246.986
+          ],
+          "block": 11,
+          "id": 167,
+          "line": 68,
+          "text": "Payları",
+          "word": 4
+        },
+        {
+          "bbox": [
+            483.94,
+            240.344,
+            486.0379,
+            246.986
+          ],
+          "block": 11,
+          "id": 168,
+          "line": 70,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            240.344,
+            569.578,
+            246.986
+          ],
+          "block": 11,
+          "id": 169,
+          "line": 71,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            248.264,
+            57.6243,
+            254.906
+          ],
+          "block": 11,
+          "id": 170,
+          "line": 72,
+          "text": "2.3",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            248.264,
+            87.0528,
+            254.906
+          ],
+          "block": 11,
+          "id": 171,
+          "line": 73,
+          "text": "Para",
+          "word": 0
+        },
+        {
+          "bbox": [
+            88.224,
+            248.264,
+            108.447,
+            254.906
+          ],
+          "block": 11,
+          "id": 172,
+          "line": 73,
+          "text": "Piyasası",
+          "word": 1
+        },
+        {
+          "bbox": [
+            109.7,
+            248.264,
+            137.6783,
+            254.906
+          ],
+          "block": 11,
+          "id": 173,
+          "line": 73,
+          "text": "İşlemlerine",
+          "word": 2
+        },
+        {
+          "bbox": [
+            138.86,
+            248.264,
+            157.4891,
+            254.906
+          ],
+          "block": 11,
+          "id": 174,
+          "line": 73,
+          "text": "Verilen",
+          "word": 3
+        },
+        {
+          "bbox": [
+            158.78,
+            248.264,
+            168.0788,
+            254.906
+          ],
+          "block": 11,
+          "id": 175,
+          "line": 73,
+          "text": "Kar",
+          "word": 4
+        },
+        {
+          "bbox": [
+            169.46,
+            248.264,
+            187.163,
+            254.906
+          ],
+          "block": 11,
+          "id": 176,
+          "line": 73,
+          "text": "Payları",
+          "word": 5
+        },
+        {
+          "bbox": [
+            483.94,
+            248.264,
+            486.0379,
+            254.906
+          ],
+          "block": 11,
+          "id": 177,
+          "line": 75,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            248.264,
+            569.578,
+            254.906
+          ],
+          "block": 11,
+          "id": 178,
+          "line": 76,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            256.184,
+            57.6243,
+            262.826
+          ],
+          "block": 11,
+          "id": 179,
+          "line": 77,
+          "text": "2.4",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            256.184,
+            88.236,
+            262.826
+          ],
+          "block": 11,
+          "id": 180,
+          "line": 78,
+          "text": "İhraç",
+          "word": 0
+        },
+        {
+          "bbox": [
+            90.024,
+            256.184,
+            105.732,
+            262.826
+          ],
+          "block": 11,
+          "id": 181,
+          "line": 78,
+          "text": "Edilen",
+          "word": 1
+        },
+        {
+          "bbox": [
+            107.42,
+            256.184,
+            126.008,
+            262.826
+          ],
+          "block": 11,
+          "id": 182,
+          "line": 78,
+          "text": "Menkul",
+          "word": 2
+        },
+        {
+          "bbox": [
+            127.94,
+            256.184,
+            154.958,
+            262.826
+          ],
+          "block": 11,
+          "id": 183,
+          "line": 78,
+          "text": "Kıymetlere",
+          "word": 3
+        },
+        {
+          "bbox": [
+            156.74,
+            256.184,
+            174.728,
+            262.826
+          ],
+          "block": 11,
+          "id": 184,
+          "line": 78,
+          "text": "Verilen",
+          "word": 4
+        },
+        {
+          "bbox": [
+            176.54,
+            256.184,
+            185.498,
+            262.826
+          ],
+          "block": 11,
+          "id": 185,
+          "line": 78,
+          "text": "Kar",
+          "word": 5
+        },
+        {
+          "bbox": [
+            187.22,
+            256.184,
+            204.116,
+            262.826
+          ],
+          "block": 11,
+          "id": 186,
+          "line": 78,
+          "text": "Payları",
+          "word": 6
+        },
+        {
+          "bbox": [
+            483.94,
+            256.184,
+            485.938,
+            262.826
+          ],
+          "block": 11,
+          "id": 187,
+          "line": 80,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            256.184,
+            569.578,
+            262.826
+          ],
+          "block": 11,
+          "id": 188,
+          "line": 81,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            264.224,
+            57.6243,
+            270.866
+          ],
+          "block": 11,
+          "id": 189,
+          "line": 82,
+          "text": "2.5",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            264.224,
+            99.0291,
+            270.866
+          ],
+          "block": 11,
+          "id": 190,
+          "line": 83,
+          "text": "Kiralama",
+          "word": 0
+        },
+        {
+          "bbox": [
+            100.22,
+            264.224,
+            109.5188,
+            270.866
+          ],
+          "block": 11,
+          "id": 191,
+          "line": 83,
+          "text": "Kar",
+          "word": 1
+        },
+        {
+          "bbox": [
+            110.9,
+            264.224,
+            121.8872,
+            270.866
+          ],
+          "block": 11,
+          "id": 192,
+          "line": 83,
+          "text": "Payı",
+          "word": 2
+        },
+        {
+          "bbox": [
+            123.14,
+            264.224,
+            145.8767,
+            270.866
+          ],
+          "block": 11,
+          "id": 193,
+          "line": 83,
+          "text": "Giderleri",
+          "word": 3
+        },
+        {
+          "bbox": [
+            476.47,
+            264.224,
+            485.8599,
+            270.866
+          ],
+          "block": 11,
+          "id": 194,
+          "line": 85,
+          "text": "275",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            264.224,
+            569.578,
+            270.866
+          ],
+          "block": 11,
+          "id": 195,
+          "line": 86,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            272.144,
+            57.6243,
+            278.786
+          ],
+          "block": 11,
+          "id": 196,
+          "line": 87,
+          "text": "2.6",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            272.144,
+            89.9571,
+            278.786
+          ],
+          "block": 11,
+          "id": 197,
+          "line": 88,
+          "text": "Diğer",
+          "word": 0
+        },
+        {
+          "bbox": [
+            91.464,
+            272.144,
+            100.7628,
+            278.786
+          ],
+          "block": 11,
+          "id": 198,
+          "line": 88,
+          "text": "Kar",
+          "word": 1
+        },
+        {
+          "bbox": [
+            102.3819,
+            272.144,
+            113.3691,
+            278.786
+          ],
+          "block": 11,
+          "id": 199,
+          "line": 88,
+          "text": "Payı",
+          "word": 2
+        },
+        {
+          "bbox": [
+            114.62,
+            272.144,
+            136.8842,
+            278.786
+          ],
+          "block": 11,
+          "id": 200,
+          "line": 88,
+          "text": "Giderleri",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            272.144,
+            486.0379,
+            278.786
+          ],
+          "block": 11,
+          "id": 201,
+          "line": 90,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            272.144,
+            569.578,
+            278.786
+          ],
+          "block": 11,
+          "id": 202,
+          "line": 91,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            280.064,
+            58.4512,
+            286.706
+          ],
+          "block": 11,
+          "id": 203,
+          "line": 92,
+          "text": "III.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            280.064,
+            88.7998,
+            286.706
+          ],
+          "block": 11,
+          "id": 204,
+          "line": 93,
+          "text": "NET",
+          "word": 0
+        },
+        {
+          "bbox": [
+            90.024,
+            280.064,
+            103.9152,
+            286.706
+          ],
+          "block": 11,
+          "id": 205,
+          "line": 93,
+          "text": "KAR",
+          "word": 1
+        },
+        {
+          "bbox": [
+            105.14,
+            280.064,
+            120.414,
+            286.706
+          ],
+          "block": 11,
+          "id": 206,
+          "line": 93,
+          "text": "PAYI",
+          "word": 2
+        },
+        {
+          "bbox": [
+            121.58,
+            280.064,
+            168.6403,
+            286.706
+          ],
+          "block": 11,
+          "id": 207,
+          "line": 93,
+          "text": "GELİRİ/GİDERİ",
+          "word": 3
+        },
+        {
+          "bbox": [
+            169.82,
+            280.064,
+            174.0651,
+            286.706
+          ],
+          "block": 11,
+          "id": 208,
+          "line": 93,
+          "text": "(I",
+          "word": 4
+        },
+        {
+          "bbox": [
+            175.34,
+            280.064,
+            177.4331,
+            286.706
+          ],
+          "block": 11,
+          "id": 209,
+          "line": 93,
+          "text": "-",
+          "word": 5
+        },
+        {
+          "bbox": [
+            178.94,
+            280.064,
+            185.3531,
+            286.706
+          ],
+          "block": 11,
+          "id": 210,
+          "line": 93,
+          "text": "II)",
+          "word": 6
+        },
+        {
+          "bbox": [
+            465.55,
+            280.064,
+            485.953,
+            286.706
+          ],
+          "block": 11,
+          "id": 211,
+          "line": 95,
+          "text": "112.063",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            280.064,
+            569.578,
+            286.706
+          ],
+          "block": 11,
+          "id": 212,
+          "line": 96,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            287.984,
+            58.2033,
+            294.626
+          ],
+          "block": 11,
+          "id": 213,
+          "line": 97,
+          "text": "IV.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            287.984,
+            88.146,
+            294.626
+          ],
+          "block": 11,
+          "id": 214,
+          "line": 98,
+          "text": "NET",
+          "word": 0
+        },
+        {
+          "bbox": [
+            90.024,
+            287.984,
+            111.06,
+            294.626
+          ],
+          "block": 11,
+          "id": 215,
+          "line": 98,
+          "text": "ÜCRET",
+          "word": 1
+        },
+        {
+          "bbox": [
+            113.06,
+            287.984,
+            121.382,
+            294.626
+          ],
+          "block": 11,
+          "id": 216,
+          "line": 98,
+          "text": "VE",
+          "word": 2
+        },
+        {
+          "bbox": [
+            123.38,
+            287.984,
+            157.34,
+            294.626
+          ],
+          "block": 11,
+          "id": 217,
+          "line": 98,
+          "text": "KOMİSYON",
+          "word": 3
+        },
+        {
+          "bbox": [
+            159.5,
+            287.984,
+            229.268,
+            294.626
+          ],
+          "block": 11,
+          "id": 218,
+          "line": 98,
+          "text": "GELİRLERİ/GİDERLERİ",
+          "word": 4
+        },
+        {
+          "bbox": [
+            483.94,
+            287.984,
+            485.938,
+            294.626
+          ],
+          "block": 11,
+          "id": 219,
+          "line": 100,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            287.984,
+            569.578,
+            294.626
+          ],
+          "block": 11,
+          "id": 220,
+          "line": 101,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            295.904,
+            57.6243,
+            302.546
+          ],
+          "block": 11,
+          "id": 221,
+          "line": 102,
+          "text": "4.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            295.904,
+            92.8047,
+            302.546
+          ],
+          "block": 11,
+          "id": 222,
+          "line": 103,
+          "text": "Alınan",
+          "word": 0
+        },
+        {
+          "bbox": [
+            94.104,
+            295.904,
+            107.8506,
+            302.546
+          ],
+          "block": 11,
+          "id": 223,
+          "line": 103,
+          "text": "Ücret",
+          "word": 1
+        },
+        {
+          "bbox": [
+            109.22,
+            295.904,
+            115.1372,
+            302.546
+          ],
+          "block": 11,
+          "id": 224,
+          "line": 103,
+          "text": "ve",
+          "word": 2
+        },
+        {
+          "bbox": [
+            116.42,
+            295.904,
+            148.7453,
+            302.546
+          ],
+          "block": 11,
+          "id": 225,
+          "line": 103,
+          "text": "Komisyonlar",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            295.904,
+            485.938,
+            302.546
+          ],
+          "block": 11,
+          "id": 226,
+          "line": 105,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            295.904,
+            569.578,
+            302.546
+          ],
+          "block": 11,
+          "id": 227,
+          "line": 106,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            303.824,
+            62.4186,
+            310.466
+          ],
+          "block": 11,
+          "id": 228,
+          "line": 107,
+          "text": "4.1.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            303.824,
+            89.976,
+            310.466
+          ],
+          "block": 11,
+          "id": 229,
+          "line": 108,
+          "text": "Gayri",
+          "word": 0
+        },
+        {
+          "bbox": [
+            91.344,
+            303.824,
+            106.5333,
+            310.466
+          ],
+          "block": 11,
+          "id": 230,
+          "line": 108,
+          "text": "Nakdi",
+          "word": 1
+        },
+        {
+          "bbox": [
+            107.9,
+            303.824,
+            137.5667,
+            310.466
+          ],
+          "block": 11,
+          "id": 231,
+          "line": 108,
+          "text": "Kredilerden",
+          "word": 2
+        },
+        {
+          "bbox": [
+            483.94,
+            303.824,
+            485.938,
+            310.466
+          ],
+          "block": 11,
+          "id": 232,
+          "line": 110,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            303.824,
+            569.578,
+            310.466
+          ],
+          "block": 11,
+          "id": 233,
+          "line": 111,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            311.744,
+            62.4186,
+            318.386
+          ],
+          "block": 11,
+          "id": 234,
+          "line": 112,
+          "text": "4.1.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            311.744,
+            90.1965,
+            318.386
+          ],
+          "block": 11,
+          "id": 235,
+          "line": 113,
+          "text": "Diğer",
+          "word": 0
+        },
+        {
+          "bbox": [
+            483.94,
+            311.744,
+            485.938,
+            318.386
+          ],
+          "block": 11,
+          "id": 236,
+          "line": 115,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            311.744,
+            569.578,
+            318.386
+          ],
+          "block": 11,
+          "id": 237,
+          "line": 116,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            319.664,
+            57.6243,
+            326.306
+          ],
+          "block": 11,
+          "id": 238,
+          "line": 117,
+          "text": "4.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            319.664,
+            93.852,
+            326.306
+          ],
+          "block": 11,
+          "id": 239,
+          "line": 118,
+          "text": "Verilen",
+          "word": 0
+        },
+        {
+          "bbox": [
+            95.664,
+            319.664,
+            108.966,
+            326.306
+          ],
+          "block": 11,
+          "id": 240,
+          "line": 118,
+          "text": "Ücret",
+          "word": 1
+        },
+        {
+          "bbox": [
+            110.9,
+            319.664,
+            116.564,
+            326.306
+          ],
+          "block": 11,
+          "id": 241,
+          "line": 118,
+          "text": "ve",
+          "word": 2
+        },
+        {
+          "bbox": [
+            118.34,
+            319.664,
+            149.63,
+            326.306
+          ],
+          "block": 11,
+          "id": 242,
+          "line": 118,
+          "text": "Komisyonlar",
+          "word": 3
+        },
+        {
+          "bbox": [
+            151.34,
+            319.664,
+            157.298,
+            326.306
+          ],
+          "block": 11,
+          "id": 243,
+          "line": 118,
+          "text": "(-)",
+          "word": 4
+        },
+        {
+          "bbox": [
+            483.94,
+            319.664,
+            485.938,
+            326.306
+          ],
+          "block": 11,
+          "id": 244,
+          "line": 120,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            319.664,
+            569.578,
+            326.306
+          ],
+          "block": 11,
+          "id": 245,
+          "line": 121,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            327.704,
+            62.4186,
+            334.346
+          ],
+          "block": 11,
+          "id": 246,
+          "line": 122,
+          "text": "4.2.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            327.704,
+            89.976,
+            334.346
+          ],
+          "block": 11,
+          "id": 247,
+          "line": 123,
+          "text": "Gayri",
+          "word": 0
+        },
+        {
+          "bbox": [
+            91.344,
+            327.704,
+            106.4136,
+            334.346
+          ],
+          "block": 11,
+          "id": 248,
+          "line": 123,
+          "text": "Nakdi",
+          "word": 1
+        },
+        {
+          "bbox": [
+            107.78,
+            327.704,
+            131.5625,
+            334.346
+          ],
+          "block": 11,
+          "id": 249,
+          "line": 123,
+          "text": "Kredilere",
+          "word": 2
+        },
+        {
+          "bbox": [
+            483.94,
+            327.704,
+            485.938,
+            334.346
+          ],
+          "block": 11,
+          "id": 250,
+          "line": 125,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            327.704,
+            569.578,
+            334.346
+          ],
+          "block": 11,
+          "id": 251,
+          "line": 126,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            335.624,
+            62.4186,
+            342.266
+          ],
+          "block": 11,
+          "id": 252,
+          "line": 127,
+          "text": "4.2.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            335.624,
+            90.1965,
+            342.266
+          ],
+          "block": 11,
+          "id": 253,
+          "line": 128,
+          "text": "Diğer",
+          "word": 0
+        },
+        {
+          "bbox": [
+            483.94,
+            335.624,
+            485.938,
+            342.266
+          ],
+          "block": 11,
+          "id": 254,
+          "line": 130,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            335.624,
+            569.578,
+            342.266
+          ],
+          "block": 11,
+          "id": 255,
+          "line": 131,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            343.544,
+            55.8113,
+            350.186
+          ],
+          "block": 11,
+          "id": 256,
+          "line": 132,
+          "text": "V.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            343.544,
+            105.75,
+            350.186
+          ],
+          "block": 11,
+          "id": 257,
+          "line": 133,
+          "text": "TEMETTÜ",
+          "word": 0
+        },
+        {
+          "bbox": [
+            107.78,
+            343.544,
+            141.782,
+            350.186
+          ],
+          "block": 11,
+          "id": 258,
+          "line": 133,
+          "text": "GELİRLERİ",
+          "word": 1
+        },
+        {
+          "bbox": [
+            483.94,
+            343.544,
+            485.938,
+            350.186
+          ],
+          "block": 11,
+          "id": 259,
+          "line": 135,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            343.544,
+            569.578,
+            350.186
+          ],
+          "block": 11,
+          "id": 260,
+          "line": 136,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            351.464,
+            58.2033,
+            358.106
+          ],
+          "block": 11,
+          "id": 261,
+          "line": 137,
+          "text": "VI.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            351.464,
+            97.512,
+            358.106
+          ],
+          "block": 11,
+          "id": 262,
+          "line": 138,
+          "text": "TİCARİ",
+          "word": 0
+        },
+        {
+          "bbox": [
+            99.384,
+            351.464,
+            135.648,
+            358.106
+          ],
+          "block": 11,
+          "id": 263,
+          "line": 138,
+          "text": "KAR/ZARAR",
+          "word": 1
+        },
+        {
+          "bbox": [
+            137.66,
+            351.464,
+            150.686,
+            358.106
+          ],
+          "block": 11,
+          "id": 264,
+          "line": 138,
+          "text": "(Net)",
+          "word": 2
+        },
+        {
+          "bbox": [
+            376.39,
+            351.464,
+            383.7567,
+            358.106
+          ],
+          "block": 11,
+          "id": 265,
+          "line": 139,
+          "text": "(4)",
+          "word": 0
+        },
+        {
+          "bbox": [
+            465.55,
+            351.464,
+            485.953,
+            358.106
+          ],
+          "block": 11,
+          "id": 266,
+          "line": 140,
+          "text": "179.095",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            351.464,
+            569.578,
+            358.106
+          ],
+          "block": 11,
+          "id": 267,
+          "line": 141,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            359.384,
+            57.6243,
+            366.026
+          ],
+          "block": 11,
+          "id": 268,
+          "line": 142,
+          "text": "6.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            359.384,
+            97.7376,
+            366.026
+          ],
+          "block": 11,
+          "id": 269,
+          "line": 143,
+          "text": "Sermaye",
+          "word": 0
+        },
+        {
+          "bbox": [
+            99.024,
+            359.384,
+            119.247,
+            366.026
+          ],
+          "block": 11,
+          "id": 270,
+          "line": 143,
+          "text": "Piyasası",
+          "word": 1
+        },
+        {
+          "bbox": [
+            120.5,
+            359.384,
+            142.3988,
+            366.026
+          ],
+          "block": 11,
+          "id": 271,
+          "line": 143,
+          "text": "İşlemleri",
+          "word": 2
+        },
+        {
+          "bbox": [
+            143.78,
+            359.384,
+            171.5693,
+            366.026
+          ],
+          "block": 11,
+          "id": 272,
+          "line": 143,
+          "text": "Karı/Zararı",
+          "word": 3
+        },
+        {
+          "bbox": [
+            465.43,
+            359.384,
+            485.8483,
+            366.026
+          ],
+          "block": 11,
+          "id": 273,
+          "line": 145,
+          "text": "170.750",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            359.384,
+            569.578,
+            366.026
+          ],
+          "block": 11,
+          "id": 274,
+          "line": 146,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            367.304,
+            57.6243,
+            373.946
+          ],
+          "block": 11,
+          "id": 275,
+          "line": 147,
+          "text": "6.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            367.304,
+            90.252,
+            373.946
+          ],
+          "block": 11,
+          "id": 276,
+          "line": 148,
+          "text": "Türev",
+          "word": 0
+        },
+        {
+          "bbox": [
+            92.184,
+            367.304,
+            112.446,
+            373.946
+          ],
+          "block": 11,
+          "id": 277,
+          "line": 148,
+          "text": "Finansal",
+          "word": 1
+        },
+        {
+          "bbox": [
+            114.14,
+            367.304,
+            142.448,
+            373.946
+          ],
+          "block": 11,
+          "id": 278,
+          "line": 148,
+          "text": "İşlemlerden",
+          "word": 2
+        },
+        {
+          "bbox": [
+            144.38,
+            367.304,
+            167.96,
+            373.946
+          ],
+          "block": 11,
+          "id": 279,
+          "line": 148,
+          "text": "Kar/Zarar",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            367.304,
+            485.938,
+            373.946
+          ],
+          "block": 11,
+          "id": 280,
+          "line": 150,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            367.304,
+            569.578,
+            373.946
+          ],
+          "block": 11,
+          "id": 281,
+          "line": 151,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            375.244,
+            57.6243,
+            381.886
+          ],
+          "block": 11,
+          "id": 282,
+          "line": 152,
+          "text": "6.3",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            375.244,
+            99.048,
+            381.886
+          ],
+          "block": 11,
+          "id": 283,
+          "line": 153,
+          "text": "Kambiyo",
+          "word": 0
+        },
+        {
+          "bbox": [
+            100.34,
+            375.244,
+            122.2388,
+            381.886
+          ],
+          "block": 11,
+          "id": 284,
+          "line": 153,
+          "text": "İşlemleri",
+          "word": 1
+        },
+        {
+          "bbox": [
+            123.74,
+            375.244,
+            151.5356,
+            381.886
+          ],
+          "block": 11,
+          "id": 285,
+          "line": 153,
+          "text": "Karı/Zararı",
+          "word": 2
+        },
+        {
+          "bbox": [
+            471.79,
+            375.244,
+            485.9713,
+            381.886
+          ],
+          "block": 11,
+          "id": 286,
+          "line": 155,
+          "text": "8.345",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            375.244,
+            569.578,
+            381.886
+          ],
+          "block": 11,
+          "id": 287,
+          "line": 156,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            383.164,
+            60.6044,
+            389.806
+          ],
+          "block": 11,
+          "id": 288,
+          "line": 157,
+          "text": "VII.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            383.164,
+            95.436,
+            389.806
+          ],
+          "block": 11,
+          "id": 289,
+          "line": 158,
+          "text": "DİĞER",
+          "word": 0
+        },
+        {
+          "bbox": [
+            97.464,
+            383.164,
+            128.454,
+            389.806
+          ],
+          "block": 11,
+          "id": 290,
+          "line": 158,
+          "text": "FAALİYET",
+          "word": 1
+        },
+        {
+          "bbox": [
+            130.46,
+            383.164,
+            164.36,
+            389.806
+          ],
+          "block": 11,
+          "id": 291,
+          "line": 158,
+          "text": "GELİRLERİ",
+          "word": 2
+        },
+        {
+          "bbox": [
+            483.94,
+            383.164,
+            485.938,
+            389.806
+          ],
+          "block": 11,
+          "id": 292,
+          "line": 160,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            383.164,
+            569.578,
+            389.806
+          ],
+          "block": 11,
+          "id": 293,
+          "line": 161,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            391.084,
+            63.0055,
+            397.726
+          ],
+          "block": 11,
+          "id": 294,
+          "line": 162,
+          "text": "VIII.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            391.084,
+            106.74,
+            397.726
+          ],
+          "block": 11,
+          "id": 295,
+          "line": 163,
+          "text": "FAALİYET",
+          "word": 0
+        },
+        {
+          "bbox": [
+            108.62,
+            391.084,
+            125.336,
+            397.726
+          ],
+          "block": 11,
+          "id": 296,
+          "line": 163,
+          "text": "BRÜT",
+          "word": 1
+        },
+        {
+          "bbox": [
+            127.46,
+            391.084,
+            143.126,
+            397.726
+          ],
+          "block": 11,
+          "id": 297,
+          "line": 163,
+          "text": "KÂRI",
+          "word": 2
+        },
+        {
+          "bbox": [
+            144.98,
+            391.084,
+            196.262,
+            397.726
+          ],
+          "block": 11,
+          "id": 298,
+          "line": 163,
+          "text": "(III+IV+V+VI+VII)",
+          "word": 3
+        },
+        {
+          "bbox": [
+            465.55,
+            391.084,
+            485.953,
+            397.726
+          ],
+          "block": 11,
+          "id": 299,
+          "line": 165,
+          "text": "291.158",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            391.084,
+            569.578,
+            397.726
+          ],
+          "block": 11,
+          "id": 300,
+          "line": 166,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            399.124,
+            58.2033,
+            405.766
+          ],
+          "block": 11,
+          "id": 301,
+          "line": 167,
+          "text": "IX.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            399.124,
+            95.49,
+            405.766
+          ],
+          "block": 11,
+          "id": 302,
+          "line": 168,
+          "text": "KREDİ",
+          "word": 0
+        },
+        {
+          "bbox": [
+            97.464,
+            399.124,
+            142.506,
+            405.766
+          ],
+          "block": 11,
+          "id": 303,
+          "line": 168,
+          "text": "KARŞILIKLARI",
+          "word": 1
+        },
+        {
+          "bbox": [
+            144.5,
+            399.124,
+            150.578,
+            405.766
+          ],
+          "block": 11,
+          "id": 304,
+          "line": 168,
+          "text": "(-)",
+          "word": 2
+        },
+        {
+          "bbox": [
+            483.94,
+            399.124,
+            485.938,
+            405.766
+          ],
+          "block": 11,
+          "id": 305,
+          "line": 170,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            399.124,
+            569.578,
+            405.766
+          ],
+          "block": 11,
+          "id": 306,
+          "line": 171,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            407.044,
+            55.8113,
+            413.686
+          ],
+          "block": 11,
+          "id": 307,
+          "line": 172,
+          "text": "X.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            407.044,
+            108.174,
+            413.686
+          ],
+          "block": 11,
+          "id": 308,
+          "line": 173,
+          "text": "PERSONEL",
+          "word": 0
+        },
+        {
+          "bbox": [
+            110.06,
+            407.044,
+            144.32,
+            413.686
+          ],
+          "block": 11,
+          "id": 309,
+          "line": 173,
+          "text": "GİDERLERİ",
+          "word": 1
+        },
+        {
+          "bbox": [
+            146.18,
+            407.044,
+            152.258,
+            413.686
+          ],
+          "block": 11,
+          "id": 310,
+          "line": 173,
+          "text": "(-)",
+          "word": 2
+        },
+        {
+          "bbox": [
+            468.67,
+            407.044,
+            485.9554,
+            413.686
+          ],
+          "block": 11,
+          "id": 311,
+          "line": 175,
+          "text": "70.837",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            407.044,
+            569.578,
+            413.686
+          ],
+          "block": 11,
+          "id": 312,
+          "line": 176,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            414.964,
+            56.685,
+            421.606
+          ],
+          "block": 11,
+          "id": 313,
+          "line": 177,
+          "text": "XI",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            414.964,
+            95.436,
+            421.606
+          ],
+          "block": 11,
+          "id": 314,
+          "line": 178,
+          "text": "DİĞER",
+          "word": 0
+        },
+        {
+          "bbox": [
+            97.344,
+            414.964,
+            128.334,
+            421.606
+          ],
+          "block": 11,
+          "id": 315,
+          "line": 178,
+          "text": "FAALİYET",
+          "word": 1
+        },
+        {
+          "bbox": [
+            130.22,
+            414.964,
+            164.594,
+            421.606
+          ],
+          "block": 11,
+          "id": 316,
+          "line": 178,
+          "text": "GİDERLERİ",
+          "word": 2
+        },
+        {
+          "bbox": [
+            166.46,
+            414.964,
+            172.538,
+            421.606
+          ],
+          "block": 11,
+          "id": 317,
+          "line": 178,
+          "text": "(-)",
+          "word": 3
+        },
+        {
+          "bbox": [
+            376.39,
+            414.964,
+            383.7567,
+            421.606
+          ],
+          "block": 11,
+          "id": 318,
+          "line": 179,
+          "text": "(7)",
+          "word": 0
+        },
+        {
+          "bbox": [
+            468.67,
+            414.964,
+            485.9727,
+            421.606
+          ],
+          "block": 11,
+          "id": 319,
+          "line": 180,
+          "text": "82.638",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            414.964,
+            569.578,
+            421.606
+          ],
+          "block": 11,
+          "id": 320,
+          "line": 181,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            422.884,
+            60.6044,
+            429.526
+          ],
+          "block": 11,
+          "id": 321,
+          "line": 182,
+          "text": "XII.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            422.884,
+            88.146,
+            429.526
+          ],
+          "block": 11,
+          "id": 322,
+          "line": 183,
+          "text": "NET",
+          "word": 0
+        },
+        {
+          "bbox": [
+            90.144,
+            422.884,
+            121.134,
+            429.526
+          ],
+          "block": 11,
+          "id": 323,
+          "line": 183,
+          "text": "FAALİYET",
+          "word": 1
+        },
+        {
+          "bbox": [
+            123.14,
+            422.884,
+            164.12,
+            429.526
+          ],
+          "block": 11,
+          "id": 324,
+          "line": 183,
+          "text": "KÂRI/ZARARI",
+          "word": 2
+        },
+        {
+          "bbox": [
+            166.1,
+            422.884,
+            205.178,
+            429.526
+          ],
+          "block": 11,
+          "id": 325,
+          "line": 183,
+          "text": "(VIII-IX-X-XI)",
+          "word": 3
+        },
+        {
+          "bbox": [
+            465.55,
+            422.884,
+            485.953,
+            429.526
+          ],
+          "block": 11,
+          "id": 326,
+          "line": 185,
+          "text": "137.683",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            422.884,
+            569.578,
+            429.526
+          ],
+          "block": 11,
+          "id": 327,
+          "line": 186,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            430.804,
+            63.0114,
+            437.446
+          ],
+          "block": 11,
+          "id": 328,
+          "line": 187,
+          "text": "XIII.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.264,
+            430.804,
+            106.854,
+            437.446
+          ],
+          "block": 11,
+          "id": 329,
+          "line": 188,
+          "text": "BİRLEŞME",
+          "word": 0
+        },
+        {
+          "bbox": [
+            108.98,
+            430.804,
+            130.622,
+            437.446
+          ],
+          "block": 11,
+          "id": 330,
+          "line": 188,
+          "text": "İŞLEMİ",
+          "word": 1
+        },
+        {
+          "bbox": [
+            132.62,
+            430.804,
+            172.22,
+            437.446
+          ],
+          "block": 11,
+          "id": 331,
+          "line": 188,
+          "text": "SONRASINDA",
+          "word": 2
+        },
+        {
+          "bbox": [
+            174.26,
+            430.804,
+            193.586,
+            437.446
+          ],
+          "block": 11,
+          "id": 332,
+          "line": 188,
+          "text": "GELİR",
+          "word": 3
+        },
+        {
+          "bbox": [
+            195.62,
+            430.804,
+            221.9,
+            437.446
+          ],
+          "block": 11,
+          "id": 333,
+          "line": 188,
+          "text": "OLARAK",
+          "word": 4
+        },
+        {
+          "bbox": [
+            224.09,
+            430.804,
+            264.656,
+            437.446
+          ],
+          "block": 11,
+          "id": 334,
+          "line": 188,
+          "text": "KAYDEDİLEN",
+          "word": 5
+        },
+        {
+          "bbox": [
+            75.264,
+            438.724,
+            106.446,
+            445.366
+          ],
+          "block": 11,
+          "id": 335,
+          "line": 192,
+          "text": "FAZLALIK",
+          "word": 0
+        },
+        {
+          "bbox": [
+            108.5,
+            438.724,
+            131.828,
+            445.366
+          ],
+          "block": 11,
+          "id": 336,
+          "line": 192,
+          "text": "TUTARI",
+          "word": 1
+        },
+        {
+          "bbox": [
+            483.94,
+            438.724,
+            485.938,
+            445.366
+          ],
+          "block": 11,
+          "id": 337,
+          "line": 194,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            438.724,
+            569.578,
+            445.366
+          ],
+          "block": 11,
+          "id": 338,
+          "line": 195,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            446.644,
+            62.7713,
+            453.286
+          ],
+          "block": 11,
+          "id": 339,
+          "line": 196,
+          "text": "XIV.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.264,
+            446.644,
+            110.544,
+            453.286
+          ],
+          "block": 11,
+          "id": 340,
+          "line": 197,
+          "text": "ÖZKAYNAK",
+          "word": 0
+        },
+        {
+          "bbox": [
+            112.7,
+            446.644,
+            142.028,
+            453.286
+          ],
+          "block": 11,
+          "id": 341,
+          "line": 197,
+          "text": "YÖNTEMİ",
+          "word": 1
+        },
+        {
+          "bbox": [
+            144.26,
+            446.644,
+            183.164,
+            453.286
+          ],
+          "block": 11,
+          "id": 342,
+          "line": 197,
+          "text": "UYGULANAN",
+          "word": 2
+        },
+        {
+          "bbox": [
+            185.3,
+            446.644,
+            243.98,
+            453.286
+          ],
+          "block": 11,
+          "id": 343,
+          "line": 197,
+          "text": "ORTAKLIKLARDAN",
+          "word": 3
+        },
+        {
+          "bbox": [
+            75.264,
+            454.564,
+            113.4679,
+            461.206
+          ],
+          "block": 11,
+          "id": 344,
+          "line": 201,
+          "text": "KAR/ZARAR",
+          "word": 0
+        },
+        {
+          "bbox": [
+            483.94,
+            454.564,
+            485.938,
+            461.206
+          ],
+          "block": 11,
+          "id": 345,
+          "line": 203,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            454.564,
+            569.578,
+            461.206
+          ],
+          "block": 11,
+          "id": 346,
+          "line": 204,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            462.604,
+            60.3712,
+            469.246
+          ],
+          "block": 11,
+          "id": 347,
+          "line": 205,
+          "text": "XV.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.264,
+            462.604,
+            87.546,
+            469.246
+          ],
+          "block": 11,
+          "id": 348,
+          "line": 206,
+          "text": "NET",
+          "word": 0
+        },
+        {
+          "bbox": [
+            89.424,
+            462.604,
+            117.78,
+            469.246
+          ],
+          "block": 11,
+          "id": 349,
+          "line": 206,
+          "text": "PARASAL",
+          "word": 1
+        },
+        {
+          "bbox": [
+            119.78,
+            462.604,
+            151.1,
+            469.246
+          ],
+          "block": 11,
+          "id": 350,
+          "line": 206,
+          "text": "POZİSYON",
+          "word": 2
+        },
+        {
+          "bbox": [
+            153.14,
+            462.604,
+            194.108,
+            469.246
+          ],
+          "block": 11,
+          "id": 351,
+          "line": 206,
+          "text": "KARI/ZARARI",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            462.604,
+            485.938,
+            469.246
+          ],
+          "block": 11,
+          "id": 352,
+          "line": 208,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            462.604,
+            569.578,
+            469.246
+          ],
+          "block": 11,
+          "id": 353,
+          "line": 209,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            470.524,
+            62.754,
+            477.166
+          ],
+          "block": 11,
+          "id": 354,
+          "line": 210,
+          "text": "XVI.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            470.524,
+            117.39,
+            477.166
+          ],
+          "block": 11,
+          "id": 355,
+          "line": 211,
+          "text": "SÜRDÜRÜLEN",
+          "word": 0
+        },
+        {
+          "bbox": [
+            119.42,
+            470.524,
+            162.734,
+            477.166
+          ],
+          "block": 11,
+          "id": 356,
+          "line": 211,
+          "text": "FAALİYETLER",
+          "word": 1
+        },
+        {
+          "bbox": [
+            164.78,
+            470.524,
+            184.508,
+            477.166
+          ],
+          "block": 11,
+          "id": 357,
+          "line": 211,
+          "text": "VERGİ",
+          "word": 2
+        },
+        {
+          "bbox": [
+            186.38,
+            470.524,
+            209.462,
+            477.166
+          ],
+          "block": 11,
+          "id": 358,
+          "line": 211,
+          "text": "ÖNCESİ",
+          "word": 3
+        },
+        {
+          "bbox": [
+            211.49,
+            470.524,
+            221.852,
+            477.166
+          ],
+          "block": 11,
+          "id": 359,
+          "line": 211,
+          "text": "K/Z",
+          "word": 4
+        },
+        {
+          "bbox": [
+            223.85,
+            470.524,
+            256.778,
+            477.166
+          ],
+          "block": 11,
+          "id": 360,
+          "line": 211,
+          "text": "(XII+...+XV)",
+          "word": 5
+        },
+        {
+          "bbox": [
+            376.39,
+            470.524,
+            383.7567,
+            477.166
+          ],
+          "block": 11,
+          "id": 361,
+          "line": 212,
+          "text": "(8)",
+          "word": 0
+        },
+        {
+          "bbox": [
+            465.55,
+            470.524,
+            485.953,
+            477.166
+          ],
+          "block": 11,
+          "id": 362,
+          "line": 213,
+          "text": "137.683",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            470.524,
+            569.578,
+            477.166
+          ],
+          "block": 11,
+          "id": 363,
+          "line": 214,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            478.444,
+            65.1552,
+            485.086
+          ],
+          "block": 11,
+          "id": 364,
+          "line": 215,
+          "text": "XVII.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            478.444,
+            117.39,
+            485.086
+          ],
+          "block": 11,
+          "id": 365,
+          "line": 216,
+          "text": "SÜRDÜRÜLEN",
+          "word": 0
+        },
+        {
+          "bbox": [
+            119.3,
+            478.444,
+            162.614,
+            485.086
+          ],
+          "block": 11,
+          "id": 366,
+          "line": 216,
+          "text": "FAALİYETLER",
+          "word": 1
+        },
+        {
+          "bbox": [
+            164.66,
+            478.444,
+            184.388,
+            485.086
+          ],
+          "block": 11,
+          "id": 367,
+          "line": 216,
+          "text": "VERGİ",
+          "word": 2
+        },
+        {
+          "bbox": [
+            186.26,
+            478.444,
+            218.588,
+            485.086
+          ],
+          "block": 11,
+          "id": 368,
+          "line": 216,
+          "text": "KARŞILIĞI",
+          "word": 3
+        },
+        {
+          "bbox": [
+            220.73,
+            478.444,
+            228.002,
+            485.086
+          ],
+          "block": 11,
+          "id": 369,
+          "line": 216,
+          "text": "(±)",
+          "word": 4
+        },
+        {
+          "bbox": [
+            376.39,
+            478.444,
+            383.7567,
+            485.086
+          ],
+          "block": 11,
+          "id": 370,
+          "line": 217,
+          "text": "(9)",
+          "word": 0
+        },
+        {
+          "bbox": [
+            468.67,
+            478.444,
+            485.9554,
+            485.086
+          ],
+          "block": 11,
+          "id": 371,
+          "line": 218,
+          "text": "10.388",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            478.444,
+            569.578,
+            485.086
+          ],
+          "block": 11,
+          "id": 372,
+          "line": 219,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            486.364,
+            60.7428,
+            493.006
+          ],
+          "block": 11,
+          "id": 373,
+          "line": 220,
+          "text": "18.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            486.364,
+            86.6181,
+            493.006
+          ],
+          "block": 11,
+          "id": 374,
+          "line": 221,
+          "text": "Cari",
+          "word": 0
+        },
+        {
+          "bbox": [
+            87.864,
+            486.364,
+            101.9697,
+            493.006
+          ],
+          "block": 11,
+          "id": 375,
+          "line": 221,
+          "text": "Vergi",
+          "word": 1
+        },
+        {
+          "bbox": [
+            103.34,
+            486.364,
+            125.2388,
+            493.006
+          ],
+          "block": 11,
+          "id": 376,
+          "line": 221,
+          "text": "Karşılığı",
+          "word": 2
+        },
+        {
+          "bbox": [
+            483.94,
+            486.364,
+            486.0379,
+            493.006
+          ],
+          "block": 11,
+          "id": 377,
+          "line": 223,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            486.364,
+            569.578,
+            493.006
+          ],
+          "block": 11,
+          "id": 378,
+          "line": 224,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            494.284,
+            60.7428,
+            500.926
+          ],
+          "block": 11,
+          "id": 379,
+          "line": 225,
+          "text": "18.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            494.284,
+            102.7776,
+            500.926
+          ],
+          "block": 11,
+          "id": 380,
+          "line": 226,
+          "text": "Ertelenmiş",
+          "word": 0
+        },
+        {
+          "bbox": [
+            104.06,
+            494.284,
+            118.1657,
+            500.926
+          ],
+          "block": 11,
+          "id": 381,
+          "line": 226,
+          "text": "Vergi",
+          "word": 1
+        },
+        {
+          "bbox": [
+            119.54,
+            494.284,
+            133.6331,
+            500.926
+          ],
+          "block": 11,
+          "id": 382,
+          "line": 226,
+          "text": "Gider",
+          "word": 2
+        },
+        {
+          "bbox": [
+            134.9,
+            494.284,
+            149.3585,
+            500.926
+          ],
+          "block": 11,
+          "id": 383,
+          "line": 226,
+          "text": "Etkisi",
+          "word": 3
+        },
+        {
+          "bbox": [
+            150.74,
+            494.284,
+            158.4701,
+            500.926
+          ],
+          "block": 11,
+          "id": 384,
+          "line": 226,
+          "text": "(+)",
+          "word": 4
+        },
+        {
+          "bbox": [
+            467.59,
+            494.284,
+            485.9923,
+            500.926
+          ],
+          "block": 11,
+          "id": 385,
+          "line": 228,
+          "text": "(6.802)",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            494.284,
+            569.578,
+            500.926
+          ],
+          "block": 11,
+          "id": 386,
+          "line": 229,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            502.204,
+            60.7428,
+            508.846
+          ],
+          "block": 11,
+          "id": 387,
+          "line": 230,
+          "text": "18.3",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            502.204,
+            102.7776,
+            508.846
+          ],
+          "block": 11,
+          "id": 388,
+          "line": 231,
+          "text": "Ertelenmiş",
+          "word": 0
+        },
+        {
+          "bbox": [
+            104.06,
+            502.204,
+            118.1657,
+            508.846
+          ],
+          "block": 11,
+          "id": 389,
+          "line": 231,
+          "text": "Vergi",
+          "word": 1
+        },
+        {
+          "bbox": [
+            119.54,
+            502.204,
+            132.203,
+            508.846
+          ],
+          "block": 11,
+          "id": 390,
+          "line": 231,
+          "text": "Gelir",
+          "word": 2
+        },
+        {
+          "bbox": [
+            133.46,
+            502.204,
+            147.9185,
+            508.846
+          ],
+          "block": 11,
+          "id": 391,
+          "line": 231,
+          "text": "Etkisi",
+          "word": 3
+        },
+        {
+          "bbox": [
+            149.3,
+            502.204,
+            155.5979,
+            508.846
+          ],
+          "block": 11,
+          "id": 392,
+          "line": 231,
+          "text": "(-)",
+          "word": 4
+        },
+        {
+          "bbox": [
+            468.67,
+            502.204,
+            485.9698,
+            508.846
+          ],
+          "block": 11,
+          "id": 393,
+          "line": 233,
+          "text": "17.190",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            502.204,
+            569.578,
+            508.846
+          ],
+          "block": 11,
+          "id": 394,
+          "line": 234,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            510.124,
+            63.0114,
+            516.766
+          ],
+          "block": 11,
+          "id": 395,
+          "line": 235,
+          "text": "XIII.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            510.124,
+            117.39,
+            516.766
+          ],
+          "block": 11,
+          "id": 396,
+          "line": 236,
+          "text": "SÜRDÜRÜLEN",
+          "word": 0
+        },
+        {
+          "bbox": [
+            119.42,
+            510.124,
+            162.734,
+            516.766
+          ],
+          "block": 11,
+          "id": 397,
+          "line": 236,
+          "text": "FAALİYETLER",
+          "word": 1
+        },
+        {
+          "bbox": [
+            164.78,
+            510.124,
+            187.724,
+            516.766
+          ],
+          "block": 11,
+          "id": 398,
+          "line": 236,
+          "text": "DÖNEM",
+          "word": 2
+        },
+        {
+          "bbox": [
+            189.86,
+            510.124,
+            202.142,
+            516.766
+          ],
+          "block": 11,
+          "id": 399,
+          "line": 236,
+          "text": "NET",
+          "word": 3
+        },
+        {
+          "bbox": [
+            204.05,
+            510.124,
+            214.412,
+            516.766
+          ],
+          "block": 11,
+          "id": 400,
+          "line": 236,
+          "text": "K/Z",
+          "word": 4
+        },
+        {
+          "bbox": [
+            216.29,
+            510.124,
+            247.796,
+            516.766
+          ],
+          "block": 11,
+          "id": 401,
+          "line": 236,
+          "text": "(XVI±XVII)",
+          "word": 5
+        },
+        {
+          "bbox": [
+            374.83,
+            510.124,
+            385.3144,
+            516.766
+          ],
+          "block": 11,
+          "id": 402,
+          "line": 237,
+          "text": "(10)",
+          "word": 0
+        },
+        {
+          "bbox": [
+            465.55,
+            510.124,
+            485.953,
+            516.766
+          ],
+          "block": 11,
+          "id": 403,
+          "line": 238,
+          "text": "148.071",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            510.124,
+            569.578,
+            516.766
+          ],
+          "block": 11,
+          "id": 404,
+          "line": 239,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            518.044,
+            62.7714,
+            524.686
+          ],
+          "block": 11,
+          "id": 405,
+          "line": 240,
+          "text": "XIX.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            518.044,
+            118.716,
+            524.686
+          ],
+          "block": 11,
+          "id": 406,
+          "line": 241,
+          "text": "DURDURULAN",
+          "word": 0
+        },
+        {
+          "bbox": [
+            120.86,
+            518.044,
+            176.888,
+            524.686
+          ],
+          "block": 11,
+          "id": 407,
+          "line": 241,
+          "text": "FAALİYETLERDEN",
+          "word": 1
+        },
+        {
+          "bbox": [
+            179.18,
+            518.044,
+            210.86,
+            524.686
+          ],
+          "block": 11,
+          "id": 408,
+          "line": 241,
+          "text": "GELİRLER",
+          "word": 2
+        },
+        {
+          "bbox": [
+            483.94,
+            518.044,
+            485.938,
+            524.686
+          ],
+          "block": 11,
+          "id": 409,
+          "line": 243,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            518.044,
+            569.578,
+            524.686
+          ],
+          "block": 11,
+          "id": 410,
+          "line": 244,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            525.994,
+            60.7428,
+            532.636
+          ],
+          "block": 11,
+          "id": 411,
+          "line": 245,
+          "text": "20.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            525.994,
+            88.0293,
+            532.636
+          ],
+          "block": 11,
+          "id": 412,
+          "line": 246,
+          "text": "Satış",
+          "word": 0
+        },
+        {
+          "bbox": [
+            89.304,
+            525.994,
+            107.4984,
+            532.636
+          ],
+          "block": 11,
+          "id": 413,
+          "line": 246,
+          "text": "Amaçlı",
+          "word": 1
+        },
+        {
+          "bbox": [
+            109.0041,
+            525.994,
+            120.426,
+            532.636
+          ],
+          "block": 11,
+          "id": 414,
+          "line": 246,
+          "text": "Elde",
+          "word": 2
+        },
+        {
+          "bbox": [
+            121.58,
+            525.994,
+            140.9336,
+            532.636
+          ],
+          "block": 11,
+          "id": 415,
+          "line": 246,
+          "text": "Tutulan",
+          "word": 3
+        },
+        {
+          "bbox": [
+            142.22,
+            525.994,
+            157.844,
+            532.636
+          ],
+          "block": 11,
+          "id": 416,
+          "line": 246,
+          "text": "Duran",
+          "word": 4
+        },
+        {
+          "bbox": [
+            159.02,
+            525.994,
+            174.8897,
+            532.636
+          ],
+          "block": 11,
+          "id": 417,
+          "line": 246,
+          "text": "Varlık",
+          "word": 5
+        },
+        {
+          "bbox": [
+            176.18,
+            525.994,
+            197.1275,
+            532.636
+          ],
+          "block": 11,
+          "id": 418,
+          "line": 246,
+          "text": "Gelirleri",
+          "word": 6
+        },
+        {
+          "bbox": [
+            483.94,
+            525.994,
+            485.938,
+            532.636
+          ],
+          "block": 11,
+          "id": 419,
+          "line": 248,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            525.994,
+            569.578,
+            532.636
+          ],
+          "block": 11,
+          "id": 420,
+          "line": 249,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            534.034,
+            60.7428,
+            540.676
+          ],
+          "block": 11,
+          "id": 421,
+          "line": 250,
+          "text": "20.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            534.034,
+            92.706,
+            540.676
+          ],
+          "block": 11,
+          "id": 422,
+          "line": 251,
+          "text": "İştirak,",
+          "word": 0
+        },
+        {
+          "bbox": [
+            94.704,
+            534.034,
+            107.64,
+            540.676
+          ],
+          "block": 11,
+          "id": 423,
+          "line": 251,
+          "text": "Bağlı",
+          "word": 1
+        },
+        {
+          "bbox": [
+            109.58,
+            534.034,
+            129.602,
+            540.676
+          ],
+          "block": 11,
+          "id": 424,
+          "line": 251,
+          "text": "Ortaklık",
+          "word": 2
+        },
+        {
+          "bbox": [
+            131.42,
+            534.034,
+            137.084,
+            540.676
+          ],
+          "block": 11,
+          "id": 425,
+          "line": 251,
+          "text": "ve",
+          "word": 3
+        },
+        {
+          "bbox": [
+            138.86,
+            534.034,
+            157.106,
+            540.676
+          ],
+          "block": 11,
+          "id": 426,
+          "line": 251,
+          "text": "Birlikte",
+          "word": 4
+        },
+        {
+          "bbox": [
+            158.9,
+            534.034,
+            177.602,
+            540.676
+          ],
+          "block": 11,
+          "id": 427,
+          "line": 251,
+          "text": "Kontrol",
+          "word": 5
+        },
+        {
+          "bbox": [
+            179.06,
+            534.034,
+            194.768,
+            540.676
+          ],
+          "block": 11,
+          "id": 428,
+          "line": 251,
+          "text": "Edilen",
+          "word": 6
+        },
+        {
+          "bbox": [
+            196.46,
+            534.034,
+            222.806,
+            540.676
+          ],
+          "block": 11,
+          "id": 429,
+          "line": 251,
+          "text": "Ortaklıklar",
+          "word": 7
+        },
+        {
+          "bbox": [
+            224.69,
+            534.034,
+            231.104,
+            540.676
+          ],
+          "block": 11,
+          "id": 430,
+          "line": 251,
+          "text": "(İş",
+          "word": 8
+        },
+        {
+          "bbox": [
+            232.85,
+            534.034,
+            244.316,
+            540.676
+          ],
+          "block": 11,
+          "id": 431,
+          "line": 251,
+          "text": "Ort.)",
+          "word": 9
+        },
+        {
+          "bbox": [
+            246.05,
+            534.034,
+            257.606,
+            540.676
+          ],
+          "block": 11,
+          "id": 432,
+          "line": 251,
+          "text": "Satış",
+          "word": 10
+        },
+        {
+          "bbox": [
+            259.37,
+            534.034,
+            276.386,
+            540.676
+          ],
+          "block": 11,
+          "id": 433,
+          "line": 251,
+          "text": "Karları",
+          "word": 11
+        },
+        {
+          "bbox": [
+            483.94,
+            534.034,
+            485.938,
+            540.676
+          ],
+          "block": 11,
+          "id": 434,
+          "line": 253,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            534.034,
+            569.578,
+            540.676
+          ],
+          "block": 11,
+          "id": 435,
+          "line": 254,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            541.954,
+            60.7428,
+            548.596
+          ],
+          "block": 11,
+          "id": 436,
+          "line": 255,
+          "text": "20.3",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            541.954,
+            89.9571,
+            548.596
+          ],
+          "block": 11,
+          "id": 437,
+          "line": 256,
+          "text": "Diğer",
+          "word": 0
+        },
+        {
+          "bbox": [
+            91.344,
+            541.954,
+            120.0342,
+            548.596
+          ],
+          "block": 11,
+          "id": 438,
+          "line": 256,
+          "text": "Durdurulan",
+          "word": 1
+        },
+        {
+          "bbox": [
+            121.34,
+            541.954,
+            141.0842,
+            548.596
+          ],
+          "block": 11,
+          "id": 439,
+          "line": 256,
+          "text": "Faaliyet",
+          "word": 2
+        },
+        {
+          "bbox": [
+            142.46,
+            541.954,
+            163.4075,
+            548.596
+          ],
+          "block": 11,
+          "id": 440,
+          "line": 256,
+          "text": "Gelirleri",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            541.954,
+            485.938,
+            548.596
+          ],
+          "block": 11,
+          "id": 441,
+          "line": 258,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            541.954,
+            569.578,
+            548.596
+          ],
+          "block": 11,
+          "id": 442,
+          "line": 259,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            549.874,
+            60.3712,
+            556.516
+          ],
+          "block": 11,
+          "id": 443,
+          "line": 260,
+          "text": "XX.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            549.874,
+            118.716,
+            556.516
+          ],
+          "block": 11,
+          "id": 444,
+          "line": 261,
+          "text": "DURDURULAN",
+          "word": 0
+        },
+        {
+          "bbox": [
+            120.86,
+            549.874,
+            176.774,
+            556.516
+          ],
+          "block": 11,
+          "id": 445,
+          "line": 261,
+          "text": "FAALİYETLERDEN",
+          "word": 1
+        },
+        {
+          "bbox": [
+            178.94,
+            549.874,
+            210.98,
+            556.516
+          ],
+          "block": 11,
+          "id": 446,
+          "line": 261,
+          "text": "GİDERLER",
+          "word": 2
+        },
+        {
+          "bbox": [
+            213.17,
+            549.874,
+            219.248,
+            556.516
+          ],
+          "block": 11,
+          "id": 447,
+          "line": 261,
+          "text": "(-)",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            549.874,
+            485.938,
+            556.516
+          ],
+          "block": 11,
+          "id": 448,
+          "line": 263,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            549.874,
+            569.578,
+            556.516
+          ],
+          "block": 11,
+          "id": 449,
+          "line": 264,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            557.794,
+            60.7428,
+            564.436
+          ],
+          "block": 11,
+          "id": 450,
+          "line": 265,
+          "text": "21.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            557.794,
+            88.0293,
+            564.436
+          ],
+          "block": 11,
+          "id": 451,
+          "line": 266,
+          "text": "Satış",
+          "word": 0
+        },
+        {
+          "bbox": [
+            89.184,
+            557.794,
+            107.4918,
+            564.436
+          ],
+          "block": 11,
+          "id": 452,
+          "line": 266,
+          "text": "Amaçlı",
+          "word": 1
+        },
+        {
+          "bbox": [
+            108.86,
+            557.794,
+            120.2945,
+            564.436
+          ],
+          "block": 11,
+          "id": 453,
+          "line": 266,
+          "text": "Elde",
+          "word": 2
+        },
+        {
+          "bbox": [
+            121.46,
+            557.794,
+            140.801,
+            564.436
+          ],
+          "block": 11,
+          "id": 454,
+          "line": 266,
+          "text": "Tutulan",
+          "word": 3
+        },
+        {
+          "bbox": [
+            142.1,
+            557.794,
+            157.6043,
+            564.436
+          ],
+          "block": 11,
+          "id": 455,
+          "line": 266,
+          "text": "Duran",
+          "word": 4
+        },
+        {
+          "bbox": [
+            158.78,
+            557.794,
+            174.6497,
+            564.436
+          ],
+          "block": 11,
+          "id": 456,
+          "line": 266,
+          "text": "Varlık",
+          "word": 5
+        },
+        {
+          "bbox": [
+            175.94,
+            557.794,
+            198.6704,
+            564.436
+          ],
+          "block": 11,
+          "id": 457,
+          "line": 266,
+          "text": "Giderleri",
+          "word": 6
+        },
+        {
+          "bbox": [
+            483.94,
+            557.794,
+            485.938,
+            564.436
+          ],
+          "block": 11,
+          "id": 458,
+          "line": 268,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            557.794,
+            569.578,
+            564.436
+          ],
+          "block": 11,
+          "id": 459,
+          "line": 269,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            565.714,
+            60.7428,
+            572.356
+          ],
+          "block": 11,
+          "id": 460,
+          "line": 270,
+          "text": "21.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            565.714,
+            92.706,
+            572.356
+          ],
+          "block": 11,
+          "id": 461,
+          "line": 271,
+          "text": "İştirak,",
+          "word": 0
+        },
+        {
+          "bbox": [
+            94.704,
+            565.714,
+            107.64,
+            572.356
+          ],
+          "block": 11,
+          "id": 462,
+          "line": 271,
+          "text": "Bağlı",
+          "word": 1
+        },
+        {
+          "bbox": [
+            109.58,
+            565.714,
+            129.602,
+            572.356
+          ],
+          "block": 11,
+          "id": 463,
+          "line": 271,
+          "text": "Ortaklık",
+          "word": 2
+        },
+        {
+          "bbox": [
+            131.54,
+            565.714,
+            137.204,
+            572.356
+          ],
+          "block": 11,
+          "id": 464,
+          "line": 271,
+          "text": "ve",
+          "word": 3
+        },
+        {
+          "bbox": [
+            138.86,
+            565.714,
+            157.106,
+            572.356
+          ],
+          "block": 11,
+          "id": 465,
+          "line": 271,
+          "text": "Birlikte",
+          "word": 4
+        },
+        {
+          "bbox": [
+            158.9,
+            565.714,
+            177.602,
+            572.356
+          ],
+          "block": 11,
+          "id": 466,
+          "line": 271,
+          "text": "Kontrol",
+          "word": 5
+        },
+        {
+          "bbox": [
+            179.18,
+            565.714,
+            194.888,
+            572.356
+          ],
+          "block": 11,
+          "id": 467,
+          "line": 271,
+          "text": "Edilen",
+          "word": 6
+        },
+        {
+          "bbox": [
+            196.46,
+            565.714,
+            222.806,
+            572.356
+          ],
+          "block": 11,
+          "id": 468,
+          "line": 271,
+          "text": "Ortaklıklar",
+          "word": 7
+        },
+        {
+          "bbox": [
+            224.69,
+            565.714,
+            231.104,
+            572.356
+          ],
+          "block": 11,
+          "id": 469,
+          "line": 271,
+          "text": "(İş",
+          "word": 8
+        },
+        {
+          "bbox": [
+            232.85,
+            565.714,
+            244.316,
+            572.356
+          ],
+          "block": 11,
+          "id": 470,
+          "line": 271,
+          "text": "Ort.)",
+          "word": 9
+        },
+        {
+          "bbox": [
+            246.05,
+            565.714,
+            257.606,
+            572.356
+          ],
+          "block": 11,
+          "id": 471,
+          "line": 271,
+          "text": "Satış",
+          "word": 10
+        },
+        {
+          "bbox": [
+            259.37,
+            565.714,
+            280.34,
+            572.356
+          ],
+          "block": 11,
+          "id": 472,
+          "line": 271,
+          "text": "Zararları",
+          "word": 11
+        },
+        {
+          "bbox": [
+            483.94,
+            565.714,
+            485.938,
+            572.356
+          ],
+          "block": 11,
+          "id": 473,
+          "line": 273,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            565.714,
+            569.578,
+            572.356
+          ],
+          "block": 11,
+          "id": 474,
+          "line": 274,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            573.634,
+            60.7428,
+            580.276
+          ],
+          "block": 11,
+          "id": 475,
+          "line": 275,
+          "text": "21.3",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            573.634,
+            89.9571,
+            580.276
+          ],
+          "block": 11,
+          "id": 476,
+          "line": 276,
+          "text": "Diğer",
+          "word": 0
+        },
+        {
+          "bbox": [
+            91.344,
+            573.634,
+            120.0342,
+            580.276
+          ],
+          "block": 11,
+          "id": 477,
+          "line": 276,
+          "text": "Durdurulan",
+          "word": 1
+        },
+        {
+          "bbox": [
+            121.34,
+            573.634,
+            141.0842,
+            580.276
+          ],
+          "block": 11,
+          "id": 478,
+          "line": 276,
+          "text": "Faaliyet",
+          "word": 2
+        },
+        {
+          "bbox": [
+            142.46,
+            573.634,
+            164.7242,
+            580.276
+          ],
+          "block": 11,
+          "id": 479,
+          "line": 276,
+          "text": "Giderleri",
+          "word": 3
+        },
+        {
+          "bbox": [
+            483.94,
+            573.634,
+            485.938,
+            580.276
+          ],
+          "block": 11,
+          "id": 480,
+          "line": 278,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            573.634,
+            569.578,
+            580.276
+          ],
+          "block": 11,
+          "id": 481,
+          "line": 279,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            581.554,
+            62.754,
+            588.196
+          ],
+          "block": 11,
+          "id": 482,
+          "line": 280,
+          "text": "XXI.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            581.554,
+            118.716,
+            588.196
+          ],
+          "block": 11,
+          "id": 483,
+          "line": 281,
+          "text": "DURDURULAN",
+          "word": 0
+        },
+        {
+          "bbox": [
+            120.74,
+            581.554,
+            164.054,
+            588.196
+          ],
+          "block": 11,
+          "id": 484,
+          "line": 281,
+          "text": "FAALİYETLER",
+          "word": 1
+        },
+        {
+          "bbox": [
+            166.1,
+            581.554,
+            185.714,
+            588.196
+          ],
+          "block": 11,
+          "id": 485,
+          "line": 281,
+          "text": "VERGİ",
+          "word": 2
+        },
+        {
+          "bbox": [
+            187.58,
+            581.554,
+            210.662,
+            588.196
+          ],
+          "block": 11,
+          "id": 486,
+          "line": 281,
+          "text": "ÖNCESİ",
+          "word": 3
+        },
+        {
+          "bbox": [
+            212.57,
+            581.554,
+            222.932,
+            588.196
+          ],
+          "block": 11,
+          "id": 487,
+          "line": 281,
+          "text": "K/Z",
+          "word": 4
+        },
+        {
+          "bbox": [
+            225.05,
+            581.554,
+            250.688,
+            588.196
+          ],
+          "block": 11,
+          "id": 488,
+          "line": 281,
+          "text": "(XIX-XX)",
+          "word": 5
+        },
+        {
+          "bbox": [
+            483.94,
+            581.554,
+            485.938,
+            588.196
+          ],
+          "block": 11,
+          "id": 489,
+          "line": 283,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            581.554,
+            569.578,
+            588.196
+          ],
+          "block": 11,
+          "id": 490,
+          "line": 284,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            589.474,
+            65.1552,
+            596.116
+          ],
+          "block": 11,
+          "id": 491,
+          "line": 285,
+          "text": "XXII.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            589.474,
+            118.716,
+            596.116
+          ],
+          "block": 11,
+          "id": 492,
+          "line": 286,
+          "text": "DURDURULAN",
+          "word": 0
+        },
+        {
+          "bbox": [
+            120.74,
+            589.474,
+            164.054,
+            596.116
+          ],
+          "block": 11,
+          "id": 493,
+          "line": 286,
+          "text": "FAALİYETLER",
+          "word": 1
+        },
+        {
+          "bbox": [
+            166.22,
+            589.474,
+            185.834,
+            596.116
+          ],
+          "block": 11,
+          "id": 494,
+          "line": 286,
+          "text": "VERGİ",
+          "word": 2
+        },
+        {
+          "bbox": [
+            187.82,
+            589.474,
+            220.262,
+            596.116
+          ],
+          "block": 11,
+          "id": 495,
+          "line": 286,
+          "text": "KARŞILIĞI",
+          "word": 3
+        },
+        {
+          "bbox": [
+            222.29,
+            589.474,
+            229.562,
+            596.116
+          ],
+          "block": 11,
+          "id": 496,
+          "line": 286,
+          "text": "(±)",
+          "word": 4
+        },
+        {
+          "bbox": [
+            483.94,
+            589.474,
+            485.938,
+            596.116
+          ],
+          "block": 11,
+          "id": 497,
+          "line": 288,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            589.474,
+            569.578,
+            596.116
+          ],
+          "block": 11,
+          "id": 498,
+          "line": 289,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            597.514,
+            60.7428,
+            604.156
+          ],
+          "block": 11,
+          "id": 499,
+          "line": 290,
+          "text": "23.1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            597.514,
+            86.6181,
+            604.156
+          ],
+          "block": 11,
+          "id": 500,
+          "line": 291,
+          "text": "Cari",
+          "word": 0
+        },
+        {
+          "bbox": [
+            87.864,
+            597.514,
+            101.9697,
+            604.156
+          ],
+          "block": 11,
+          "id": 501,
+          "line": 291,
+          "text": "Vergi",
+          "word": 1
+        },
+        {
+          "bbox": [
+            103.34,
+            597.514,
+            125.2388,
+            604.156
+          ],
+          "block": 11,
+          "id": 502,
+          "line": 291,
+          "text": "Karşılığı",
+          "word": 2
+        },
+        {
+          "bbox": [
+            483.94,
+            597.514,
+            485.938,
+            604.156
+          ],
+          "block": 11,
+          "id": 503,
+          "line": 293,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            597.514,
+            569.578,
+            604.156
+          ],
+          "block": 11,
+          "id": 504,
+          "line": 294,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            605.434,
+            60.7428,
+            612.076
+          ],
+          "block": 11,
+          "id": 505,
+          "line": 295,
+          "text": "23.2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            605.434,
+            102.7776,
+            612.076
+          ],
+          "block": 11,
+          "id": 506,
+          "line": 296,
+          "text": "Ertelenmiş",
+          "word": 0
+        },
+        {
+          "bbox": [
+            104.06,
+            605.434,
+            118.1657,
+            612.076
+          ],
+          "block": 11,
+          "id": 507,
+          "line": 296,
+          "text": "Vergi",
+          "word": 1
+        },
+        {
+          "bbox": [
+            119.54,
+            605.434,
+            133.6331,
+            612.076
+          ],
+          "block": 11,
+          "id": 508,
+          "line": 296,
+          "text": "Gider",
+          "word": 2
+        },
+        {
+          "bbox": [
+            134.9,
+            605.434,
+            149.3585,
+            612.076
+          ],
+          "block": 11,
+          "id": 509,
+          "line": 296,
+          "text": "Etkisi",
+          "word": 3
+        },
+        {
+          "bbox": [
+            150.74,
+            605.434,
+            158.4701,
+            612.076
+          ],
+          "block": 11,
+          "id": 510,
+          "line": 296,
+          "text": "(+)",
+          "word": 4
+        },
+        {
+          "bbox": [
+            483.94,
+            605.434,
+            485.938,
+            612.076
+          ],
+          "block": 11,
+          "id": 511,
+          "line": 298,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            605.434,
+            569.578,
+            612.076
+          ],
+          "block": 11,
+          "id": 512,
+          "line": 299,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            613.354,
+            60.7428,
+            619.996
+          ],
+          "block": 11,
+          "id": 513,
+          "line": 300,
+          "text": "23.3",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            613.354,
+            102.7776,
+            619.996
+          ],
+          "block": 11,
+          "id": 514,
+          "line": 301,
+          "text": "Ertelenmiş",
+          "word": 0
+        },
+        {
+          "bbox": [
+            104.06,
+            613.354,
+            118.1657,
+            619.996
+          ],
+          "block": 11,
+          "id": 515,
+          "line": 301,
+          "text": "Vergi",
+          "word": 1
+        },
+        {
+          "bbox": [
+            119.54,
+            613.354,
+            132.203,
+            619.996
+          ],
+          "block": 11,
+          "id": 516,
+          "line": 301,
+          "text": "Gelir",
+          "word": 2
+        },
+        {
+          "bbox": [
+            133.46,
+            613.354,
+            147.9185,
+            619.996
+          ],
+          "block": 11,
+          "id": 517,
+          "line": 301,
+          "text": "Etkisi",
+          "word": 3
+        },
+        {
+          "bbox": [
+            149.3,
+            613.354,
+            155.5979,
+            619.996
+          ],
+          "block": 11,
+          "id": 518,
+          "line": 301,
+          "text": "(-)",
+          "word": 4
+        },
+        {
+          "bbox": [
+            483.94,
+            613.354,
+            485.938,
+            619.996
+          ],
+          "block": 11,
+          "id": 519,
+          "line": 303,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            613.354,
+            569.578,
+            619.996
+          ],
+          "block": 11,
+          "id": 520,
+          "line": 304,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            621.274,
+            67.5954,
+            627.916
+          ],
+          "block": 11,
+          "id": 521,
+          "line": 305,
+          "text": "XXIII.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            621.274,
+            118.716,
+            627.916
+          ],
+          "block": 11,
+          "id": 522,
+          "line": 306,
+          "text": "DURDURULAN",
+          "word": 0
+        },
+        {
+          "bbox": [
+            120.74,
+            621.274,
+            164.054,
+            627.916
+          ],
+          "block": 11,
+          "id": 523,
+          "line": 306,
+          "text": "FAALİYETLER",
+          "word": 1
+        },
+        {
+          "bbox": [
+            166.1,
+            621.274,
+            189.044,
+            627.916
+          ],
+          "block": 11,
+          "id": 524,
+          "line": 306,
+          "text": "DÖNEM",
+          "word": 2
+        },
+        {
+          "bbox": [
+            191.06,
+            621.274,
+            203.456,
+            627.916
+          ],
+          "block": 11,
+          "id": 525,
+          "line": 306,
+          "text": "NET",
+          "word": 3
+        },
+        {
+          "bbox": [
+            205.49,
+            621.274,
+            215.852,
+            627.916
+          ],
+          "block": 11,
+          "id": 526,
+          "line": 306,
+          "text": "K/Z",
+          "word": 4
+        },
+        {
+          "bbox": [
+            217.73,
+            621.274,
+            249.236,
+            627.916
+          ],
+          "block": 11,
+          "id": 527,
+          "line": 306,
+          "text": "(XXI±XXII)",
+          "word": 5
+        },
+        {
+          "bbox": [
+            483.94,
+            621.274,
+            485.938,
+            627.916
+          ],
+          "block": 11,
+          "id": 528,
+          "line": 308,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            621.274,
+            569.578,
+            627.916
+          ],
+          "block": 11,
+          "id": 529,
+          "line": 309,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            49.68,
+            629.194,
+            67.3313,
+            635.836
+          ],
+          "block": 11,
+          "id": 530,
+          "line": 310,
+          "text": "XXIV.",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            629.194,
+            88.146,
+            635.836
+          ],
+          "block": 11,
+          "id": 531,
+          "line": 311,
+          "text": "NET",
+          "word": 0
+        },
+        {
+          "bbox": [
+            90.024,
+            629.194,
+            112.968,
+            635.836
+          ],
+          "block": 11,
+          "id": 532,
+          "line": 311,
+          "text": "DÖNEM",
+          "word": 1
+        },
+        {
+          "bbox": [
+            115.1,
+            629.194,
+            156.068,
+            635.836
+          ],
+          "block": 11,
+          "id": 533,
+          "line": 311,
+          "text": "KARI/ZARARI",
+          "word": 2
+        },
+        {
+          "bbox": [
+            158.06,
+            629.194,
+            192.458,
+            635.836
+          ],
+          "block": 11,
+          "id": 534,
+          "line": 311,
+          "text": "(XIII+XXIII)",
+          "word": 3
+        },
+        {
+          "bbox": [
+            374.83,
+            629.194,
+            385.3144,
+            635.836
+          ],
+          "block": 11,
+          "id": 535,
+          "line": 312,
+          "text": "(11)",
+          "word": 0
+        },
+        {
+          "bbox": [
+            465.55,
+            629.194,
+            485.953,
+            635.836
+          ],
+          "block": 11,
+          "id": 536,
+          "line": 313,
+          "text": "148.071",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            629.194,
+            569.578,
+            635.836
+          ],
+          "block": 11,
+          "id": 537,
+          "line": 314,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            75.864,
+            637.114,
+            89.8185,
+            643.756
+          ],
+          "block": 11,
+          "id": 538,
+          "line": 315,
+          "text": "Hisse",
+          "word": 0
+        },
+        {
+          "bbox": [
+            91.104,
+            637.114,
+            107.9376,
+            643.756
+          ],
+          "block": 11,
+          "id": 539,
+          "line": 315,
+          "text": "Başına",
+          "word": 1
+        },
+        {
+          "bbox": [
+            109.22,
+            637.114,
+            133.6325,
+            643.756
+          ],
+          "block": 11,
+          "id": 540,
+          "line": 315,
+          "text": "Kar/Zarar",
+          "word": 2
+        },
+        {
+          "bbox": [
+            134.9,
+            637.114,
+            148.445,
+            643.756
+          ],
+          "block": 11,
+          "id": 541,
+          "line": 315,
+          "text": "(Tam",
+          "word": 3
+        },
+        {
+          "bbox": [
+            149.54,
+            637.114,
+            159.3113,
+            643.756
+          ],
+          "block": 11,
+          "id": 542,
+          "line": 315,
+          "text": "TL)",
+          "word": 4
+        },
+        {
+          "bbox": [
+            465.43,
+            637.114,
+            485.8599,
+            643.756
+          ],
+          "block": 11,
+          "id": 543,
+          "line": 317,
+          "text": "0,09871",
+          "word": 0
+        },
+        {
+          "bbox": [
+            567.58,
+            637.114,
+            569.578,
+            643.756
+          ],
+          "block": 11,
+          "id": 544,
+          "line": 318,
+          "text": "-",
+          "word": 0
+        }
+      ]
+    }
+  ]
+}

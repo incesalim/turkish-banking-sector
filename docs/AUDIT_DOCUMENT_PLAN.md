@@ -541,3 +541,18 @@ of detected tables.
   both editions and investigate remaining differences. Capture-time registered
   locators are not retroactive download provenance. Full origin/recovery fleets
   and later Anadolubank comparison remain outstanding.
+
+- 2026-09-07: independently reconciled all 1,146 origin outcomes: 973 byte matches,
+  11 differences, 161 unavailable/non-PDF sources and one historical absence.
+  The repaired Anadolu consolidated follow-up matches and preserves history.
+  Identified ICBC certificate failures, Ziraat Katılım challenge HTML, Halkbank
+  DOCX-only transport and Anadolu solo's separate signed PDF. The latter's
+  86-page primary member matches acquired bytes and now has an exact selection.
+- 2026-09-07: completed the visual inventory pass across all 51 TOMK pages. This
+  is not full cell/paragraph certification. Found the missed prior FX table and
+  conflicting source capital/liquidity values, retained in the internal review.
+  The complete40slot shareholder case is published and independently verified.
+  Added separate source lines inside tall ruled body cells, preserving original
+  columns/headers, literal note references and EPS unit wording. Full source-word
+  accounting and corruption tests pass; three independently read profit/loss
+  lines are added to the cloud benchmark. Admin toggle and cloud validation pending.

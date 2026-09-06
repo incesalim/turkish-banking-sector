@@ -1299,6 +1299,13 @@
             "sha256": "f90ac903d1e0e0cf7f69b7a0bdff59cfdebefbd226897a9961fe5de300a28a10",
             "review_note": "Independently opened 96-page report and cover. The other PDF is a one-page signed responsibility declaration, retained in the source transport and still awaiting separate text capture. Source review 2026-09-06."
           }
+        },
+        "unconsolidated": {
+          "2026Q2": {
+            "member": "Anadolubank A.Ş. -  30.06.2026 - Solo Rapor.pdf",
+            "sha256": "cbf5cb96a54ffe40dd8e6c8c874abf75e3ca8f79635efa9ed21838179ebc79af",
+            "review_note": "Independently opened the 86-page report cover and the separate one-page signed responsibility declaration. Primary member equals the acquired PDF byte for byte. Source archive SHA-256:430addb19d9db2dbe366012c7545859546da399e43dc31668d8fe354d7a4b29e. Source review2026-09-07; declaration text capture pending."
+          }
         }
       }
     },
