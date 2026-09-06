@@ -30,13 +30,17 @@ pages). The eight stored R2 objects were independently downloaded and verified;
 four source-annotated solo cases pass. An identical replay at commit `8977e619`
 ([34027268957](https://github.com/incesalim/Carthago/actions/runs/34027268957))
 left all ten then-stored objects byte- and metadata-identical. A private admin
-catalog and source-page viewer are implemented; their deployment and the whole
-corpus run remain pending. Existing analytical lanes and their stored data have
+catalog and source-page viewer are deployed at commit `8020250c`; live review
+confirmed the 23×3 QNB solo page-47 table, source text, filing switches and the
+explicit zero-verified status. Anonymous catalog/PDF requests return 403.
+Whole-corpus processing remains pending. Existing analytical lanes and their stored data have
 not been replaced. The source-verified QNB countercyclical-buffer classification
 fix is in code; existing stored wide rows have not been rebuilt.
 
-Table/prose association, unreadable image/vector content, corpus verification
-and live admin verification remain active work. See [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
+Table/prose association, unreadable image/vector content and corpus verification
+remain active work. Metadata-based incremental resume and automatic follow-up
+after acquisition are implemented, awaiting cloud replay verification. See
+[AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
 
 ## Data coverage in D1
 

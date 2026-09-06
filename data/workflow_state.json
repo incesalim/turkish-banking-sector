@@ -12,7 +12,7 @@
   "workflows": {
     "build-document-corpus.yml": {
       "state": "active",
-      "reason": "Manual source preservation into a separate R2 namespace; immutable originals, versioned page evidence and named failures. No D1 or analytical snapshot writes."
+      "reason": "After audit refresh/acquisition plus manual dispatch: immutable originals, versioned page evidence, candidate tables/text and named failures in a separate R2 namespace. No D1 or analytical snapshot writes."
     },
     "repair-missing-audit-rows.yml": {
       "state": "active",

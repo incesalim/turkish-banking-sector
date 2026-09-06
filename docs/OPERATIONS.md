@@ -15,7 +15,7 @@ machine involvement is required for routine refreshes.
 
 | When | Workflow | What it does |
 |---|---|---|
-| Manual only | `build-document-corpus.yml` | Preserve original audit PDFs and versioned source-page evidence in `document-corpus/v1/` on R2. Inputs `banks=ALL`, optional `period`, `limit=0`, `publish=true`. Uses existing `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`; optional local `R2_BUCKET` overrides the default bucket. Separate `audit-document-corpus` concurrency group; no D1 or analytical snapshot writes. Reuses only evidence matching current PDF bytes and current engine; retains every source revision and failed filing. Run artifacts contain inventory and outcomes. Successful source preservation does not certify table/prose correctness. |
+| After audit acquisition/refresh + manual | `build-document-corpus.yml` | Preserve original audit PDFs and versioned source-page evidence in `document-corpus/v1/` on R2. Inputs `banks=ALL`, optional `period`, `limit=0`, `publish=true`. Uses existing `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`; optional local `R2_BUCKET` overrides the default bucket. Separate `audit-document-corpus` concurrency group; no D1 or analytical snapshot writes. Reuses only evidence matching current PDF bytes and current engine; retains every source revision and failed filing. Run artifacts contain inventory and outcomes. Successful source preservation does not certify table/prose correctness. |
 | Manual only | `repair-audit-roles.yml` | Restore missing/stale `bank_audit_pl_roles` after a targeted reload omitted the role map. Pulls the current audit snapshot, compares semantic role content with live D1, and requires identical underlying P&L rows before replacing **only differing role partitions**. No PDF extraction or financial-row writes. Inputs: explicit `banks` (no ALL), optional `periods`, `kind`, `dry_run=true` by default. `--apply` is Actions-only; a repeat run writes nothing. Uses existing R2 and `CLOUDFLARE_API_TOKEN` secrets; serialized with the `bddk-audit` lane |
 | Manual only | `repair-missing-audit-rows.yml` | Repair narrowly proven D1 drift against the latest authoritative R2 audit snapshot without extraction or re-stamping. Default missing-row mode accepts explicit allowlisted `tables` (no ALL) plus optional `banks`/`periods`/`kind`; complete D1 factual multisets must be strict source subsets (null is distinct from zero), then Actions-only apply replaces only affected table partitions, post-verifies, requires a no-op replay, and uploads updated snapshot digests. `remove_remote_extras=true` instead requires explicit `partitions=BANK:YYYYQn:kind` and no Cartesian filters; every named D1 partition must contain every authoritative fact unchanged, then one atomic import deletes only the extra full primary keys. Canonical rows and R2 remain untouched. Missing tables, source-empty targets, schema/PK drift, changed or missing canonical facts, duplicate keys, or incomplete reads abort **all selected tables before any write**. `dry_run=true` by default; unchanged runs write neither D1 nor R2. Uses existing R2 and `CLOUDFLARE_API_TOKEN` secrets; serialized with `bddk-audit` |
 | Sun–Fri 05:00 UTC | `refresh-evds-daily.yml` | TCMB EVDS **daily/workday series only** (FX, policy/funding rates, sterilization, …) → D1. Weekly/monthly/quarterly series are polled by Saturday's full refresh. A run with no changed observation performs no D1 or R2 write |
@@ -1283,7 +1283,10 @@ Migrations `0045_capital_deductions.sql` and `0046_npl_accrual_movement.sql` add
 
 ## Complete-document source corpus (implementation in progress)
 
-`build-document-corpus.yml` runs `scripts/build_document_corpus.py` against
+`build-document-corpus.yml` runs after completion of `Refresh audit reports` or
+`Acquire audit reports` on this repository's `master`, including failed upstream
+runs that may still have acquired PDFs. It also accepts manual dispatch. It runs
+`scripts/build_document_corpus.py` against
 registered sources in R2. `structure=true` adds source-linked numerical and
 ruled-table candidates, physical text blocks, section candidates and content
 issues. The source itself remains immutable and independently accessible.
@@ -1303,6 +1306,16 @@ The Worker binding `AUDIT_DOCUMENTS` points to `bddk-audit-reports` in
 The authenticated `/api/admin/document-corpus` route provides the catalog,
 filing metadata, original PDF, compressed full evidence/structure downloads and
 `artifact=source|structure&page=N` previews. It never writes storage or D1.
+
+After byte-verified publication, a per-filing resume receipt records the acquired
+object and artifact versions (ETag, size and modification time). An unchanged
+source, evidence engine, structure engine, annotation set and successful receipt
+can reuse those artifacts using metadata reads only. A changed or missing object
+or failed attempt disables that shortcut. Download metadata comes from the same
+response as the hashed PDF bytes; a source changed during processing is retried.
+Manual `recheck_bytes=true` / CLI `--recheck-bytes` reads all selected bytes again
+without rewriting identical objects. Metadata reuse is storage continuity,
+never a claim of fresh semantic verification.
 
 For a light local sample (no remote writes):
 

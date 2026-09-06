@@ -3,6 +3,10 @@ name: Build audit document corpus
 # Separate from analytical snapshot publication. Stores immutable originals and
 # source evidence only; a successful run never means the contents are verified.
 on:
+  workflow_run:
+    workflows: ["Refresh audit reports", "Acquire audit reports"]
+    types: [completed]
+    branches: [master]
   workflow_dispatch:
     inputs:
       banks:
@@ -25,6 +29,10 @@ on:
         description: "Add source-linked table candidates and text blocks (unverified)"
         type: boolean
         default: true
+      recheck_bytes:
+        description: "Read every selected artifact again, bypassing unchanged-object receipts"
+        type: boolean
+        default: false
 
 permissions:
   contents: read
@@ -36,6 +44,7 @@ concurrency:
 
 jobs:
   capture:
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.head_repository.full_name == github.repository
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
@@ -53,17 +62,19 @@ jobs:
         run: pip install -r requirements.txt
       - name: Preserve and verify source artifact bytes
         env:
-          BANKS: ${{ inputs.banks }}
+          BANKS: ${{ inputs.banks || 'ALL' }}
           PERIOD: ${{ inputs.period }}
-          LIMIT: ${{ inputs.limit }}
-          PUBLISH: ${{ inputs.publish }}
-          STRUCTURE: ${{ inputs.structure }}
+          LIMIT: ${{ inputs.limit || 0 }}
+          PUBLISH: ${{ github.event_name != 'workflow_dispatch' || inputs.publish }}
+          STRUCTURE: ${{ github.event_name != 'workflow_dispatch' || inputs.structure }}
+          RECHECK_BYTES: ${{ inputs.recheck_bytes || false }}
         run: |
           args=(--from-r2 --capture --limit "$LIMIT")
           [ "$BANKS" != "ALL" ] && args+=(--bank "$BANKS")
           [ -n "$PERIOD" ] && args+=(--period "$PERIOD")
           [ "$PUBLISH" = "true" ] && args+=(--publish --discard-published)
           [ "$STRUCTURE" = "true" ] && args+=(--structure)
+          [ "$RECHECK_BYTES" = "true" ] && args+=(--recheck-bytes)
           python scripts/build_document_corpus.py "${args[@]}"
       - name: Keep inventory and named outcomes, including failures
         if: always()

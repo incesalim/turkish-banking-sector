@@ -1,6 +1,7 @@
 import copy
 import hashlib
 import io
+from datetime import datetime, timedelta, timezone
 
 import fitz
 import pytest
@@ -21,6 +22,8 @@ class MemoryR2:
         self.objects = {}
         self.writes = []
         self.fail_key = None
+        self.versions = {}
+        self.reads = []
 
     @staticmethod
     def etag(body):
@@ -30,7 +33,16 @@ class MemoryR2:
         if Key not in self.objects:
             raise ClientError({"Error": {"Code": "NoSuchKey"}}, "GetObject")
         body = self.objects[Key]
-        return {"Body": io.BytesIO(body), "ETag": self.etag(body)}
+        self.reads.append(Key)
+        return {"Body": io.BytesIO(body), **self.head_object(Bucket=Bucket, Key=Key)}
+
+    def head_object(self, *, Bucket, Key):
+        if Key not in self.objects:
+            raise ClientError({"Error": {"Code": "NoSuchKey"}}, "HeadObject")
+        body = self.objects[Key]
+        return {"ETag": self.etag(body), "ContentLength": len(body),
+                "LastModified": datetime(2026, 1, 1, tzinfo=timezone.utc)
+                + timedelta(seconds=self.versions.get(Key, 0))}
 
     def put_object(self, *, Bucket, Key, Body, ContentType, IfNoneMatch=None, IfMatch=None):
         if Key == self.fail_key:
@@ -40,6 +52,7 @@ class MemoryR2:
                 IfMatch is not None and (old is None or self.etag(old) != IfMatch)):
             raise ClientError({"Error": {"Code": "PreconditionFailed"}}, "PutObject")
         self.objects[Key] = Body
+        self.versions[Key] = self.versions.get(Key, 0) + 1
         self.writes.append(Key)
 
 
@@ -225,6 +238,7 @@ def test_cli_publication_and_restart_use_verified_cache_without_any_rewrite(corp
         "2026Q1": "https://bank.example/report.pdf"}}}}}))
     key = "test/" + filing.filename
     payload = pdf.read_bytes()
+    client.objects[key] = payload
     monkeypatch.setenv("GITHUB_ACTIONS", "true")
     monkeypatch.setattr(r2_storage, "get_client", lambda: client)
     monkeypatch.setattr(r2_storage, "_bucket", lambda: "test-bucket")
@@ -239,9 +253,16 @@ def test_cli_publication_and_restart_use_verified_cache_without_any_rewrite(corp
         raise AssertionError("Unchanged verified source should be reused")
 
     monkeypatch.setattr(document_evidence, "capture_source_evidence", must_not_extract)
+    client.reads.clear()
     assert build.main(args) == 0
     assert len(client.writes) == writes
     result = json.loads((tmp_path / "out/capture-results.json").read_text())["filings"][0]
     assert result["evidence_reused"] is True
+    assert result["reuse_check"] == "verified_object_versions_unchanged"
+    assert key not in client.reads
     assert result["status"] == "structured_candidates"
     assert not (tmp_path / "out" / result["original"]).exists()
+    client.reads.clear()
+    assert build.main(args + ["--recheck-bytes"]) == 0
+    assert key in client.reads
+    assert len(client.writes) == writes

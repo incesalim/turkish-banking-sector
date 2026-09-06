@@ -131,4 +131,11 @@ of detected tables.
   and modification time. Added a compact corpus catalog and private admin page
   viewer. Python-produced wire fixtures test exact page-byte compatibility with
   the Worker reader, plus dropped/changed pages, wrong sources and auth gating.
-  Live deployment and broader source-format verification remain pending.
+  Deployed at `8020250c` after green CI. Live admin checks confirmed source-bound
+  page streaming, the QNB page-47 23×3 table, preserved prose and blocked anonymous
+  downloads. Broader source-format verification remains pending.
+- 2026-09-06: added resume receipts that bind already-verified bytes to their
+  storage object versions; changed sources, engines, annotations, missing or
+  changed artifacts and failed attempts invalidate reuse. Added full-byte replay
+  and automatic corpus follow-up after the existing acquisition workflows.
+  Cloud receipt replay and registered-fleet processing are next.
