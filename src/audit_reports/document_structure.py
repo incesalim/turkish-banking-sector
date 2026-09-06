@@ -26,10 +26,12 @@ STRUCTURE_VERSION = "document-structure-1"
 
 
 def structure_engine() -> dict:
-    # All audit helper modules participate: a parser helper change must invalidate
-    # the cache even when this adapter itself did not change.
+    # Extraction dependencies participate; changing a storage/catalog adapter
+    # must not force otherwise identical documents through extraction again.
     digest = hashlib.sha256()
-    for path in sorted(Path(__file__).parent.glob("*.py")):
+    for name in ("document_structure.py", "document_capture.py", "document_sections.py",
+                 "document_evidence.py", "document_corpus.py", "prose.py", "extractor.py", "units.py"):
+        path = Path(__file__).parent / name
         digest.update(path.name.encode())
         digest.update(path.read_bytes())
     return {"pymupdf": fitz.VersionBind, "implementation_sha256": digest.hexdigest()}
@@ -370,3 +372,34 @@ def verify_document_structure(structure: dict, evidence: list[dict]) -> dict:
 def structure_digest(structure: dict) -> str:
     return hashlib.sha256(json.dumps(structure, ensure_ascii=False, sort_keys=True,
                                      separators=(",", ":")).encode("utf-8")).hexdigest()
+
+
+def structure_jsonl(structure: dict) -> bytes:
+    """Streamable, individually verifiable pages without loading a whole filing."""
+    def line(value):
+        return json.dumps(value, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+    pages = [line({"type": "structured_page", **page}) for page in structure["pages"]]
+    manifest = {"type": "structure_manifest", **{k: v for k, v in structure.items() if k != "pages"},
+                "page_count": len(pages),
+                "page_sha256": [hashlib.sha256(page.encode("utf-8")).hexdigest() for page in pages]}
+    return ("\n".join([line(manifest), *pages]) + "\n").encode("utf-8")
+
+
+def structure_from_jsonl(body: bytes) -> dict:
+    lines = body.splitlines()
+    if not lines:
+        raise ValueError("Empty structure artifact")
+    manifest = json.loads(lines[0])
+    if manifest.get("type") != "structure_manifest" or manifest.get("page_count") != len(lines) - 1:
+        raise ValueError("Structure page manifest mismatch")
+    hashes = [hashlib.sha256(line).hexdigest() for line in lines[1:]]
+    if manifest.get("page_sha256") != hashes:
+        raise ValueError("Structure page digest mismatch")
+    pages = []
+    for number, line in enumerate(lines[1:], 1):
+        page = json.loads(line)
+        if page.pop("type", None) != "structured_page" or page.get("page") != number:
+            raise ValueError("Structure page order mismatch")
+        pages.append(page)
+    return {**{k: v for k, v in manifest.items() if k not in ("type", "page_count", "page_sha256")},
+            "pages": pages}

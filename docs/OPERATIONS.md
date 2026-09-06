@@ -1293,6 +1293,17 @@ fails. Artifact uploads are read back, filing indexes use conditional updates,
 revisions and failures are retained, and unchanged replay performs no R2 writes.
 Large published files are removed from the runner after verified publication.
 
+The compact `document-corpus/v1/catalog.json` retains scoped progress and the
+full acquisition denominator; it updates every ten filings and at run end using
+conditional writes. A replay with unchanged content does not restamp it. Source
+and structured artifacts store per-page SHA-256 lists in their JSONL manifests,
+allowing the admin to stream and verify one page without loading a whole report.
+The Worker binding `AUDIT_DOCUMENTS` points to `bddk-audit-reports` in
+`web/wrangler.jsonc`; it uses the Worker binding, not an exposed R2 credential.
+The authenticated `/api/admin/document-corpus` route provides the catalog,
+filing metadata, original PDF, compressed full evidence/structure downloads and
+`artifact=source|structure&page=N` previews. It never writes storage or D1.
+
 For a light local sample (no remote writes):
 
 ```powershell

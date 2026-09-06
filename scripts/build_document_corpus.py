@@ -114,6 +114,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.publish:
         from src.audit_reports.document_corpus_store import CorpusStore
         store = CorpusStore(r2_storage.get_client(), r2_storage._bucket())
+        from src.audit_reports.document_structure import structure_engine
 
     targets = [row for row in inventory["filings"]
                if row["bank_ticker"] in known_banks
@@ -124,7 +125,11 @@ def main(argv: list[str] | None = None) -> int:
         targets = targets[:args.limit]
     if not targets:
         parser.error("No registered/acquired filing matches the requested scope")
+    if store:
+        store.update_catalog(inventory, [], evidence_engine=engine_identity(),
+                             structure_engine=structure_engine())
     results = []
+    catalog_indexes = []
     with tempfile.TemporaryDirectory(prefix="carthago-document-source-") as temp:
         for row in targets:
             filing = Filing(row["bank_ticker"], row["period"], row["kind"])
@@ -218,6 +223,14 @@ def main(argv: list[str] | None = None) -> int:
             results.append(result)
             _write_json(args.output_dir / "capture-results.json", {"filings": results})
             print(f"{filing.filename}: {result['status']}", flush=True)
+            if store:
+                index = store.read_index(filing)
+                if index:
+                    catalog_indexes.append(index)
+                if len(results) % 10 == 0 or len(results) == len(targets):
+                    store.update_catalog(inventory, catalog_indexes, evidence_engine=engine_identity(),
+                                         structure_engine=structure_engine())
+                    catalog_indexes.clear()
     failures = sum(r["status"] == "failed" for r in results)
     print(f"Source preservation: {len(results) - failures}/{len(results)}; "
           "semantic verification: not performed")

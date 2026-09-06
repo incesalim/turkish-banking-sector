@@ -3,6 +3,8 @@
 interface CloudflareEnv {
   DB: D1Database;
   ASSETS: Fetcher;
+  // Private audit originals and source-bound corpus artifacts; admin routes only.
+  AUDIT_DOCUMENTS?: import("./app/lib/document-corpus").CorpusBucket;
 
   // --- Admin panel (all optional; the panel degrades gracefully when unset) ---
   // Password mode (default for workers.dev): the shared /admin password (secret).

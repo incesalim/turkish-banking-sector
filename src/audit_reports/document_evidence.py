@@ -157,6 +157,11 @@ def verify_evidence_records(records: list[dict], *, expected_source: dict | None
         errors.append("manifest_text_count_mismatch")
     if manifest.get("image_regions") != sum(len(p.get("images", [])) for p in pages):
         errors.append("manifest_image_count_mismatch")
+    page_hashes = [hashlib.sha256(_canonical_json(p).encode("utf-8")).hexdigest() for p in pages]
+    # Older source-evidence-1 artifacts remain readable. New captures include
+    # page hashes so an authenticated viewer can verify one streamed page.
+    if "page_sha256" in manifest and manifest["page_sha256"] != page_hashes:
+        errors.append("individual_page_digest_mismatch")
     actual_digest = hashlib.sha256(
         "\n".join(_canonical_json(p) for p in pages).encode("utf-8")).hexdigest()
     if actual_digest != manifest.get("pages_sha256"):
@@ -186,6 +191,7 @@ def capture_source_evidence(path: str | Path, filing: Filing, *,
                 "engine": engine_identity(),
                 "source": identity, "page_count": len(pages),
                 "pages_sha256": payload_hash,
+                "page_sha256": [hashlib.sha256(_canonical_json(p).encode("utf-8")).hexdigest() for p in pages],
                 "text_characters": sum(p["text_character_count"] for p in pages),
                 "image_regions": sum(len(p["images"]) for p in pages),
                 "status": "source_preserved", "semantic_verification": "not_performed"}

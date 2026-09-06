@@ -29,6 +29,12 @@
       "database_id": "4ff6aaac-b2ca-4371-b93c-282a96083e72"
     }
   ],
+  "r2_buckets": [
+    {
+      "binding": "AUDIT_DOCUMENTS",
+      "bucket_name": "bddk-audit-reports"
+    }
+  ],
   // ISR / Next incremental cache store. Lets pages be cached and revalidated
   // hourly instead of re-querying D1 on every request (cuts D1 rows-read).
   "kv_namespaces": [

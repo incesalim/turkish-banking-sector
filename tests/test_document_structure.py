@@ -5,7 +5,9 @@ import pytest
 
 from src.audit_reports.document_corpus import Filing
 from src.audit_reports.document_evidence import capture_source_evidence
-from src.audit_reports.document_structure import build_document_structure, verify_document_structure
+from src.audit_reports.document_structure import (
+    build_document_structure, structure_from_jsonl, structure_jsonl, verify_document_structure,
+)
 
 
 @pytest.fixture
@@ -108,3 +110,15 @@ def test_raster_dash_rules_recover_text_table_without_ocr(tmp_path):
     assert len(table["image_rule_candidates"]) == 3
     assert len(structure["pages"][0]["source_image_ids"]) == 300
     assert verify_document_structure(structure, evidence)["valid"]
+
+
+def test_streamed_structure_round_trip_and_corruption_detection(document):
+    _path, evidence, structure = document
+    body = structure_jsonl(structure)
+    assert structure_from_jsonl(body) == structure
+    assert verify_document_structure(structure_from_jsonl(body), evidence)["valid"]
+    changed = body.replace(b"Credit committee", b"Other committee", 1)
+    with pytest.raises(ValueError, match="digest"):
+        structure_from_jsonl(changed)
+    with pytest.raises(ValueError, match="manifest"):
+        structure_from_jsonl(b"\n".join(body.splitlines()[:-1]))

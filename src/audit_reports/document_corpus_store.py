@@ -97,6 +97,31 @@ class CorpusStore:
                     raise
         raise RuntimeError("Corpus index changed concurrently; retry the filing")
 
+    def update_catalog(self, inventory: dict, indexes: list[dict], *,
+                       evidence_engine: dict, structure_engine: dict) -> dict:
+        from .document_corpus_catalog import build_catalog
+        key = PREFIX + "catalog.json"
+        for _attempt in range(3):
+            previous, etag = self._read(key)
+            catalog = build_catalog(inventory, json.loads(previous) if previous else None, indexes,
+                                    evidence_engine=evidence_engine, structure_engine=structure_engine)
+            body = _json(catalog)
+            if body == previous:
+                return catalog
+            condition = {"IfMatch": etag} if etag else {"IfNoneMatch": "*"}
+            try:
+                self.client.put_object(Bucket=self.bucket, Key=key, Body=body,
+                                       ContentType="application/json", **condition)
+                return catalog
+            except Exception as error:
+                if _error_code(error) not in ("412", "PreconditionFailed"):
+                    raise
+        raise RuntimeError("Corpus catalog changed concurrently; retry its update")
+
+    def read_index(self, filing: Filing) -> dict | None:
+        body, _ = self._read(self.index_key(filing))
+        return json.loads(body) if body is not None else None
+
     def publish(self, records: list[dict], original: Path, evidence: Path) -> dict:
         check = verify_evidence_records(records)
         if not check["valid"]:
@@ -161,15 +186,15 @@ class CorpusStore:
         return key
 
     def publish_structure(self, structure: dict, evidence: list[dict]) -> dict:
-        from .document_structure import structure_digest, verify_document_structure
+        from .document_structure import structure_digest, structure_jsonl, verify_document_structure
         check = verify_document_structure(structure, evidence)
         if not check["valid"]:
             raise ValueError(f"Cannot publish invalid structure: {check['errors']}")
         source = structure["source"]
         filing = Filing(source["bank_ticker"], source["period"], source["kind"])
         digest = structure_digest(structure)
-        key = f"{PREFIX}sources/{source['pdf_sha256']}/{digest}.structure.json.gz"
-        payload = gzip.compress(_json(structure), compresslevel=6, mtime=0)
+        key = f"{PREFIX}sources/{source['pdf_sha256']}/{digest}.structure.jsonl.gz"
+        payload = gzip.compress(structure_jsonl(structure), compresslevel=6, mtime=0)
         self._immutable(key, payload, "application/gzip")
         summary = {"artifact_sha256": digest, "key": key, "bytes_sha256": _sha(payload),
                    "engine": structure["engine"], "status": "structured_candidates",
@@ -194,7 +219,7 @@ class CorpusStore:
         return self._update_index(filing, update)
 
     def cached_structure(self, evidence: list[dict], engine: dict) -> dict | None:
-        from .document_structure import structure_digest, verify_document_structure
+        from .document_structure import structure_digest, structure_from_jsonl, verify_document_structure
         source = evidence[0]["source"]
         filing = Filing(source["bank_ticker"], source["period"], source["kind"])
         body, _ = self._read(self.index_key(filing))
@@ -210,7 +235,9 @@ class CorpusStore:
                 compressed, _ = self._read(saved["key"])
                 if compressed is None or _sha(compressed) != saved["bytes_sha256"]:
                     raise ValueError("Cached structure is missing or corrupted")
-                structure = json.loads(gzip.decompress(compressed))
+                raw = gzip.decompress(compressed)
+                structure = (structure_from_jsonl(raw) if saved["key"].endswith(".jsonl.gz")
+                             else json.loads(raw))
                 if (not verify_document_structure(structure, evidence)["valid"]
                         or structure["engine"] != engine
                         or structure_digest(structure) != saved["artifact_sha256"]):

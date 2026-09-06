@@ -125,4 +125,10 @@ of detected tables.
   and verified the stored bytes and source accounting; the four annotated solo
   cases pass, while consolidated remains unannotated. CI exposed an unnecessary
   SDK import in offline storage tests; removed that dependency and tested the
-  adapter with the SDK unavailable. Unchanged cloud replay is the next check.
+  adapter with the SDK unavailable.
+- 2026-09-06: identical replay [34027268957](https://github.com/incesalim/Carthago/actions/runs/34027268957)
+  passed and left all ten stored objects unchanged, including ETag, byte count
+  and modification time. Added a compact corpus catalog and private admin page
+  viewer. Python-produced wire fixtures test exact page-byte compatibility with
+  the Worker reader, plus dropped/changed pages, wrong sources and auth gating.
+  Live deployment and broader source-format verification remain pending.

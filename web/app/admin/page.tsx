@@ -21,6 +21,7 @@ import LoginForm from "./LoginForm";
 import PipelinePanel from "./PipelinePanel";
 import PurgeCacheButton from "./PurgeCacheButton";
 import TrafficPanel from "./TrafficPanel";
+import DocumentCorpusPanel from "./DocumentCorpusPanel";
 
 export const dynamic = "force-dynamic";
 
@@ -176,6 +177,10 @@ export default async function AdminPage({
 
       <section className="mt-9">
         <FilingSeason report={filingSeason} />
+      </section>
+
+      <section className="mt-9">
+        <DocumentCorpusPanel />
       </section>
 
       <section className="mt-9">

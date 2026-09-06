@@ -18,9 +18,23 @@ The existing audit coverage matrix measures predefined analytical lanes. A green
 cell does not certify that every table or passage in the filing was captured.
 The separate complete-document corpus is under active implementation in
 [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md). Its source preservation and
-candidate structure currently run through `build-document-corpus.yml`; corpus
-revision, unresolved-content and verification controls are not yet integrated
-into the admin view.
+candidate structure run through `build-document-corpus.yml`. The **Complete audit
+documents** panel reads its private R2 catalog, with separate registered,
+acquired, source-preserved, structured, failed, stale and fully-verified counts.
+Choose a bank, filing and PDF page to inspect table candidates and every source
+text block, review flags, the original PDF and source-evidence JSON. Table counts
+are detector candidates, potentially overlapping; they are never a completeness
+denominator. Reading order, headers and narrative roles remain unreviewed.
+
+`AUDIT_DOCUMENTS` binds the existing `bddk-audit-reports` bucket to the Worker.
+`/api/admin/document-corpus` requires the existing admin session before any
+storage access and returns private, uncached responses. Storage keys are derived
+from validated filing indexes and PDF hashes, never accepted from a request.
+Page previews stream compressed JSONL and verify the exact page bytes against
+their stored manifest. A missing connection, missing artifact or invalid checksum
+is an unavailable/error state, never zero coverage. Large full-report artifacts
+are streamed as downloads. Older captures remain downloadable but need a new
+capture before page previews are available.
 
 The audit vitals label is **Audit core statements / Loaded**: it reports the
 balance-sheet and income-statement extraction flag. It does not certify all

@@ -27,13 +27,16 @@ R2 `document-corpus/v1/` prefix. A source hash and engine identity bind each
 artifact. Failed attempts remain visible and previous revisions survive. This
 implementation has passed an Actions sample for both QNB 2026Q1 filings (218
 pages). The eight stored R2 objects were independently downloaded and verified;
-four source-annotated solo cases pass. Whole-corpus publication and a dedicated
-admin view remain pending. Existing analytical lanes and their stored data have
+four source-annotated solo cases pass. An identical replay at commit `8977e619`
+([34027268957](https://github.com/incesalim/Carthago/actions/runs/34027268957))
+left all ten then-stored objects byte- and metadata-identical. A private admin
+catalog and source-page viewer are implemented; their deployment and the whole
+corpus run remain pending. Existing analytical lanes and their stored data have
 not been replaced. The source-verified QNB countercyclical-buffer classification
 fix is in code; existing stored wide rows have not been rebuilt.
 
 Table/prose association, unreadable image/vector content, corpus verification
-and admin integration remain active work. See [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
+and live admin verification remain active work. See [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
 
 ## Data coverage in D1
 
