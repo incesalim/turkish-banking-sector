@@ -56,10 +56,11 @@ missing OCR/outline readings, retained image-bearing OCR PDFs and full evidence.
 The API accepts only the current source revision and checks artifact bytes before
 returning them. A failed latest attempt remains visible alongside earlier retained
 candidates. Recovery does not clear source review flags or mark values verified.
-`recover-document-corpus.yml` currently runs manually. Published FIBA 2025Q3 solo
+`recover-document-corpus.yml` runs manually and is configured to follow completed
+source capture, limited to its successfully published filing/PDF revisions. Published FIBA 2025Q3 solo
 pages 10/11/13 and ISCTR 2025Q1 consolidated page 11 have passed independent
 artifact/source checks and live admin review. Whole-document accuracy, broader
-recovery coverage and automatic follow-up remain pending.
+recovery coverage remain pending; the automatic trigger still needs cloud validation.
 The new recovery-table view keeps image and outline alternatives in each cell,
 shows unresolved outlines explicitly and preserves unassigned header text.
 Its source-pixel columns and inferred rows remain candidates. Independent
@@ -81,7 +82,10 @@ alternatives remain in full evidence; the viewer exposes physical blocks and
 side-by-side original/font readings. Unbound or ambiguous characters remain
 unresolved. Font and OCR comparisons against complete source transcriptions are
 separate; a matching font reading does not erase an OCR disagreement. The new
-font view still needs cloud publication and live review.
+font view has passed independent cloud and publication checks on Takasbank pages
+1/13. Live page 1 shows dotted İstanbul, the original image-reading disagreement
+and 60 source-bound recovered characters; eight object versions stay unchanged
+in the filing-receipt replay.
 
 The audit vitals label is **Audit core statements / Loaded**: it reports the
 balance-sheet and income-statement extraction flag. It does not certify all

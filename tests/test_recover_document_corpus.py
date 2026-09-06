@@ -129,6 +129,36 @@ def test_published_cli_replay_skips_pdf_work_and_explicit_recheck_reuses_raw_obs
     assert len(client.reads) == 2 and '/recovery-receipts/' in client.reads[0]
     assert '/recovery/' in client.reads[1]
     assert client.writes == writes and calls == ['ocr']
+    # Automatic follow-up carries exact published PDF revisions. A valid
+    # unchanged receipt cannot lend its approval to a different source hash.
+    manifest_path = tmp_path / 'followup.json'
+    manifest = {'schema_version': 'document-recovery-followup-1', 'source_run_id': 123,
+                'source_head_sha': 'b' * 40, 'semantically_verified': False,
+                'filings': [{**record['source'], 'pdf_sha256': record['source']['pdf_sha256']}]}
+    manifest_path.write_text(json.dumps(manifest), encoding='utf-8')
+    followup_args = ['--config', str(config), '--source-dir', str(source.parent), '--output-dir', str(output),
+                     '--scope-manifest', str(manifest_path), '--from-r2', '--publish']
+    monkeypatch.setattr(cli, 'select_pages', selector)
+    assert cli.main(followup_args) == 0
+    followup_writes = list(client.writes)
+    monkeypatch.setattr(cli, 'select_pages', forbidden)
+    assert cli.main(followup_args) == 0
+    manifest['filings'][0]['pdf_sha256'] = '0' * 64
+    manifest_path.write_text(json.dumps(manifest), encoding='utf-8')
+    assert cli.main(followup_args) == 1
+    result = json.loads((output / 'recovery-results.json').read_text())['filings'][0]
+    assert result['status'] == 'failed' and 'upstream published source' in result['error']
+    assert client.writes == followup_writes
+    missing = {**manifest['filings'][0], 'bank_ticker': 'MISSING'}
+    manifest['filings'] = [missing]
+    manifest_path.write_text(json.dumps(manifest), encoding='utf-8')
+    assert cli.main(followup_args) == 1
+    result = json.loads((output / 'recovery-results.json').read_text())['filings'][0]
+    assert result['filing']['bank_ticker'] == 'MISSING' and result['status'] == 'failed'
+    monkeypatch.setattr(cli, 'select_pages', selector)
+    # Restore the earlier explicit-page receipt after its index token changed.
+    assert cli.main(args) == 0
+    writes = list(client.writes)
     monkeypatch.setattr(cli, 'select_pages', selector)
     assert cli.main(args + ['--recheck-bytes']) == 0
     result = json.loads((output / 'recovery-results.json').read_text())['filings'][0]

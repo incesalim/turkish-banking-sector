@@ -413,3 +413,16 @@ of detected tables.
   visible. Tests cover real embedded fonts, subset-name truncation, four rotations,
   valid/partial/absent maps, ambiguous positions and mutated packets. Integrated
   derived-cache/receipt identity and admin alternatives; cloud probe pending.
+
+- 2026-09-06: cloud font probe `34055586894` exactly matches source bytes,
+  source pixels, retained OCR, the independently rebuilt font view and all four
+  full text regions. Raw OCR is reused. Published packets at `34055751819` match
+  that verified probe; CI/deploy at `0b43b2ef` pass.
+- 2026-09-06: configured recovery after completed source capture. It downloads
+  that same-repository run's reports, retains a manifest of successfully published
+  filing/PDF hashes and names read-only/failed exclusions. Quality-only reports
+  trigger no recovery. Workers process only the manifest, retain missing outcomes
+  and reject changed PDFs before recovery or receipt reuse. Four or fewer filings
+  stay one job; larger scopes use four stable groups. Tests cover scope omission,
+  duplicate/conflicting bindings, changed source receipts and missing acquisitions.
+  Automatic cloud execution remains pending; no D1 or analytical-lane writes.

@@ -70,6 +70,8 @@ def select_pages(original: Path, explicit: list[int]) -> dict:
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--from-r2', action='store_true')
+    parser.add_argument('--scope-manifest', type=Path,
+                        help='Only recover these source-hash-bound published filings from an upstream capture')
     parser.add_argument('--publish', action='store_true')
     parser.add_argument('--recheck-bytes', action='store_true',
                         help='Bypass filing receipts; recheck source and retained recovery bytes')
@@ -86,6 +88,16 @@ def main(argv=None):
     parser.add_argument('--shard-count', type=int, default=1)
     parser.add_argument('--shard-index', type=int, default=0)
     args = parser.parse_args(argv)
+    manifest = expected_sources = None
+    if args.scope_manifest:
+        if (not args.from_r2 or os.environ.get('GITHUB_ACTIONS') != 'true'
+                or args.bank or args.period or args.kind or args.limit or args.pages != 'flagged'):
+            parser.error('Follow-up scope requires Actions/R2 and cannot be combined with manual filters')
+        from src.audit_reports.document_recovery_followup import validate_manifest
+        manifest = json.loads(args.scope_manifest.read_text(encoding='utf-8'))
+        expected_sources = validate_manifest(manifest)
+        if not expected_sources:
+            parser.error('Follow-up manifest contains no published sources')
     if args.limit < 0 or args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
         parser.error('Invalid filing limit or group assignment')
     try:
@@ -124,6 +136,10 @@ def main(argv=None):
     _write_json(args.output_dir / 'inventory.json', inventory)
     selected = [r for r in inventory['filings'] if (not banks or r['bank_ticker'] in banks)
                 and (not args.period or r['period'] == args.period) and (not args.kind or r['kind'] == args.kind)]
+    if expected_sources is not None:
+        by_filing = {Filing(r['bank_ticker'], r['period'], r['kind']): r for r in selected}
+        # Missing acquisitions still receive named outcomes; never vanish at filtering.
+        selected = [by_filing.get(f, {**f.as_dict(), 'object_keys': []}) for f in sorted(expected_sources)]
     if args.limit:
         selected = selected[:args.limit]
     if not selected:
@@ -132,6 +148,8 @@ def main(argv=None):
     report = {'schema_version': 'corpus-recovery-run-1', 'selected_filings': len(selected),
               'assigned_filings': len(assigned), 'shard_count': args.shard_count, 'shard_index': args.shard_index,
               'filings': [], 'semantically_verified': False}
+    if manifest is not None:
+        report['followup_manifest'] = manifest
     _write_json(args.output_dir / 'recovery-results.json', report)
     from src.audit_reports import document_ocr as ocr, document_vector as vector
     from src.audit_reports.document_corpus import source_identity
@@ -159,6 +177,8 @@ def main(argv=None):
                 receipt = unchanged_receipt(store, filing, row['object_keys'][0], request, annotation_hash) \
                     if args.publish and not args.recheck_bytes else None
                 if receipt:
+                    if expected_sources is not None and receipt['source']['pdf_sha256'] != expected_sources[filing]:
+                        raise ValueError('Current PDF revision differs from the upstream published source')
                     outcome.update({k: receipt[k] for k in ('source', 'selection', 'pages', 'status')})
                     outcome['reused_receipt'] = True
                     _write_json(args.output_dir / 'recovery-results.json', report)
@@ -169,6 +189,8 @@ def main(argv=None):
             # Identity intentionally contains no mutable URL metadata; source bytes
             # and filing identity bind both observations and all recovery revisions.
             source = source_identity(original, filing)
+            if expected_sources is not None and source['pdf_sha256'] != expected_sources[filing]:
+                raise ValueError('Current PDF revision differs from the upstream published source')
             selection = select_pages(original, pages)
             outcome['source'] = source
             outcome['selection'] = selection

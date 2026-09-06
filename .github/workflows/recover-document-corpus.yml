@@ -1,6 +1,10 @@
 name: Recover audit document text
 
 on:
+  workflow_run:
+    workflows: ["Build audit document corpus"]
+    types: [completed]
+    branches: [master]
   workflow_dispatch:
     inputs:
       banks:
@@ -45,19 +49,54 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
-  group: ${{ inputs.publish && 'audit-document-recovery' || format('audit-recovery-probe-{0}', github.run_id) }}
+  group: ${{ (github.event_name != 'workflow_dispatch' || inputs.publish) && 'audit-document-recovery' || format('audit-recovery-probe-{0}', github.run_id) }}
   queue: max
   cancel-in-progress: false
 
 jobs:
+  scope:
+    if: github.event_name == 'workflow_run' && github.event.workflow_run.head_repository.full_name == github.repository && !contains(fromJSON('["cancelled","skipped"]'), github.event.workflow_run.conclusion)
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      has_sources: ${{ steps.scope.outputs.has_sources }}
+      shards: ${{ steps.scope.outputs.shards }}
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      - uses: actions/download-artifact@v8
+        with:
+          pattern: audit-document-corpus-report*
+          path: data/audit_capture/upstream-reports
+          merge-multiple: false
+          github-token: ${{ github.token }}
+          run-id: ${{ github.event.workflow_run.id }}
+      - name: Select only successfully published source revisions
+        id: scope
+        env:
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          SOURCE_HEAD_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          python -m src.audit_reports.document_recovery_followup --reports-dir data/audit_capture/upstream-reports --run-id "$SOURCE_RUN_ID" --head-sha "$SOURCE_HEAD_SHA" --output data/audit_capture/recovery-followup.json --github-output "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: audit-document-recovery-scope
+          path: data/audit_capture/recovery-followup.json
+          retention-days: 30
+
   recover:
+    needs: scope
+    if: always() && !cancelled() && (github.event_name == 'workflow_dispatch' || (needs.scope.result == 'success' && needs.scope.outputs.has_sources == 'true'))
     strategy:
       fail-fast: false
       max-parallel: 4
       matrix:
-        shard: ${{ fromJSON((inputs.banks == 'ALL' && inputs.limit == 0) && '[0,1,2,3]' || '[0]') }}
+        shard: ${{ fromJSON(github.event_name != 'workflow_dispatch' && needs.scope.outputs.shards || ((inputs.banks == 'ALL' && inputs.limit == 0) && '[0,1,2,3]' || '[0]')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
@@ -67,6 +106,11 @@ jobs:
       PYTHONIOENCODING: utf-8
     steps:
       - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v8
+        if: github.event_name == 'workflow_run'
+        with:
+          name: audit-document-recovery-scope
+          path: data/audit_capture
       - uses: actions/setup-python@v7
         with:
           python-version: "3.12"
@@ -74,19 +118,21 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Recover selected source pages and retain disagreements
         env:
-          BANKS: ${{ inputs.banks }}
+          BANKS: ${{ inputs.banks || 'ALL' }}
           PERIOD: ${{ inputs.period }}
-          KIND: ${{ inputs.kind }}
-          LIMIT: ${{ inputs.limit }}
-          PAGES: ${{ inputs.pages }}
-          PUBLISH: ${{ inputs.publish }}
+          KIND: ${{ inputs.kind || 'BOTH' }}
+          LIMIT: ${{ inputs.limit || 0 }}
+          PAGES: ${{ inputs.pages || 'flagged' }}
+          PUBLISH: ${{ github.event_name != 'workflow_dispatch' || inputs.publish }}
           RECHECK_BYTES: ${{ inputs.recheck_bytes || false }}
-          DPI: ${{ inputs.dpi }}
-          LANGUAGE: ${{ inputs.language }}
+          DPI: ${{ inputs.dpi || '300' }}
+          LANGUAGE: ${{ inputs.language || 'eng+tur' }}
+          FOLLOWUP: ${{ github.event_name == 'workflow_run' }}
           SHARD_INDEX: ${{ matrix.shard }}
           SHARD_COUNT: ${{ strategy.job-total }}
         run: |
           args=(--from-r2 --limit "$LIMIT" --pages "$PAGES" --dpi "$DPI" --language "$LANGUAGE" --shard-count "$SHARD_COUNT" --shard-index "$SHARD_INDEX")
+          [ "$FOLLOWUP" = "true" ] && args+=(--scope-manifest data/audit_capture/recovery-followup.json)
           [ "$BANKS" != "ALL" ] && args+=(--bank "$BANKS")
           [ -n "$PERIOD" ] && args+=(--period "$PERIOD")
           [ "$KIND" != "BOTH" ] && args+=(--kind "$KIND")
@@ -103,7 +149,7 @@ jobs:
             data/audit_capture/recovery-v1/recovery-results.json
           retention-days: 30
       - name: Keep bounded read-only recovery evidence
-        if: always() && !inputs.publish && inputs.limit > 0 && inputs.limit <= 4
+        if: always() && github.event_name == 'workflow_dispatch' && !inputs.publish && inputs.limit > 0 && inputs.limit <= 4
         uses: actions/upload-artifact@v7
         with:
           name: audit-document-recovery-evidence

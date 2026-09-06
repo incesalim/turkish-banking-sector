@@ -8,8 +8,12 @@ machine is involved in the production data flow.
 
 The complete-document corpus is an additional, separate audit output under
 `document-corpus/v1/` in the audit R2 bucket. `build-document-corpus.yml` preserves
-the native source layer. Manual `recover-document-corpus.yml` adds separate
-image-bearing OCR and outline observations with per-source/page revision history;
+the native source layer. `recover-document-corpus.yml` follows completed capture
+and also supports manual scopes. A retained follow-up manifest selects only the
+successfully published filing/PDF revisions from that run; missing or changed
+sources fail explicitly, and quality-only probes trigger no recovery. Recovery
+adds separate image-bearing OCR, outline and embedded-font observations with
+per-source/page revision history;
 the admin exposes raw alternatives and unresolved differences. Recovery never
 approves financial values or overwrites native source evidence. Source capture preserves
 original PDF bytes and versioned page evidence, indexed by filing with retained

@@ -80,7 +80,11 @@ independently reconstructed FIBA/ISCTR pages and 59 selected method/region cell
 checks. FIBA/ISCTR and Takasbank table/receipt publications now pass independent
 R2 source/artifact bytes, pixels, raw observations and 75 selected cell checks
 across six pages. Replays reuse all three filing receipts; all 25 observed object
-versions remain unchanged. Automatic recovery follow-up is still pending.
+versions remain unchanged. Automatic recovery follow-up is now configured to
+consume source-hash-bound published outcomes from capture reports, including
+successful filings in a partially failed run. Failed/read-only rows are excluded
+explicitly; quality-only runs trigger no recovery. Missing or changed PDFs fail
+by name. The automatic trigger still needs cloud validation.
 
 Native unchanged-object receipts have passed cloud no-write replays; changed
 source bytes, engines, per-filing annotations or artifact versions invalidate
@@ -165,7 +169,12 @@ Takasbank pages 1/13 it resolves 60/1,571 characters and matches all four comple
 source-transcribed regions, including dotted `İstanbul`. The OCR disagreement
 remains visible. Tests cover rotations, partial/missing maps, duplicate positions,
 font-name truncation and mutated evidence. The admin exposes both readings and
-physical text blocks. Cloud validation of this new font view is pending.
+physical text blocks. Cloud probe `34055586894` matches the independently acquired
+PDF, pixels, retained OCR, font view and all four source passages exactly while
+reusing raw OCR. Publication `34055751819` retains the identical reviewed packets;
+CI and deployment at `0b43b2ef` pass. Its replay reuses the filing receipt with
+all eight observed object versions unchanged. Live admin page 1 shows the correct
+font reading and keeps the OCR disagreement beside it.
 
 All-table coverage, row/header/unit/period meaning, cross-page continuations,
 reading order and unrecovered text remain active work. The source ledger is the

@@ -1399,13 +1399,26 @@ the named probe and fail the run. This probe does not update production recovery
 data or existing analytical lanes.
 
 `recover-document-corpus.yml` runs `scripts/recover_document_corpus.py` as a
-separate manual workflow. Inputs are `banks`, `period`, `kind`, `limit`, `pages`
+separate manual workflow and follows completed `Build audit document corpus`
+runs on master. Inputs are `banks`, `period`, `kind`, `limit`, `pages`
 (`flagged` or up to four explicit page numbers), `publish`, `dpi` and `language`.
 It uses the same three R2 secrets and optional `R2_BUCKET` override. Full-scope
 runs use four stable filing groups; publishing shares the separate
 `audit-document-recovery` queue. It does not change native capture engines,
-filing indexes, the core catalog or D1. Automatic recovery follow-up is pending
-validation of the production recovery run.
+filing indexes, the core catalog or D1. Automatic follow-up reads only capture
+reports from the completed same-repository run using the built-in `GITHUB_TOKEN`
+with `actions: read`. `SOURCE_RUN_ID` and `SOURCE_HEAD_SHA` identify that upstream
+run. `src.audit_reports.document_recovery_followup` selects only successfully
+published filing/PDF hashes; failed and read-only rows remain named exclusions.
+Quality-only runs have no capture reports and trigger no recovery. The manifest
+is retained as `audit-document-recovery-scope`; `GITHUB_OUTPUT` carries only the
+validated has-sources flag and group list. Up to four filings use one job, larger
+scopes use four. The worker's `FOLLOWUP` flag adds `--scope-manifest`; manual
+filters cannot be combined with it. Missing acquisitions receive named failures,
+and a changed source hash is refused even if it has a valid current receipt.
+This processes successful publications from partially failed capture runs without
+claiming that excluded sources succeeded. Cross-run reports are scope evidence,
+not executable inputs or content approval. Cloud follow-up validation is pending.
 
 The source classifier records its per-page observations and selected-page list.
 It transforms image/word boxes into display coordinates once, keeps the already
