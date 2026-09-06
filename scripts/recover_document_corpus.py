@@ -59,6 +59,8 @@ def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--from-r2', action='store_true')
     parser.add_argument('--publish', action='store_true')
+    parser.add_argument('--recheck-bytes', action='store_true',
+                        help='Bypass filing receipts; recheck source and retained recovery bytes')
     parser.add_argument('--config', type=Path, default=REPO / 'data/banks/audit_report_urls.json')
     parser.add_argument('--source-dir', type=Path, default=REPO / 'data/audit_pdfs')
     parser.add_argument('--output-dir', type=Path, default=REPO / 'data/audit_capture/recovery-v1')
@@ -121,7 +123,13 @@ def main(argv=None):
     _write_json(args.output_dir / 'recovery-results.json', report)
     from src.audit_reports import document_ocr as ocr, document_vector as vector
     from src.audit_reports.document_corpus import source_identity
+    from src.audit_reports.document_corpus_resume import download_source
+    from src.audit_reports.document_recovery_resume import (
+        annotation_identity, record_receipt, request_identity, unchanged_receipt,
+    )
     atlas = reference = ocr_engine = None
+    request = request_identity(REPO, ocr._engine(json.loads(ocr.MODEL_LOCK.read_text(encoding='utf-8')),
+                                               args.dpi, args.language), pages) if store else None
     failures = 0
     for row in assigned:
         filing = Filing(row['bank_ticker'], row['period'], row['kind'])
@@ -133,8 +141,19 @@ def main(argv=None):
             if client:
                 if len(row['object_keys']) != 1:
                     raise ValueError('Recovery requires one unambiguous acquired PDF object')
-                response = client.get_object(Bucket=bucket, Key=row['object_keys'][0])
-                _write_bytes(original, response['Body'].read())
+                annotation_hash = annotation_identity(REPO, filing)
+                # Read-only probes always retain downloadable evidence. Only
+                # publishing runs can replace byte processing with a receipt.
+                receipt = unchanged_receipt(store, filing, row['object_keys'][0], request, annotation_hash) \
+                    if args.publish and not args.recheck_bytes else None
+                if receipt:
+                    outcome.update({k: receipt[k] for k in ('source', 'selection', 'pages', 'status')})
+                    outcome['reused_receipt'] = True
+                    _write_json(args.output_dir / 'recovery-results.json', report)
+                    print(f"{filing.filename}: {outcome['status']}; unchanged source/artifact versions", flush=True)
+                    continue
+                original.parent.mkdir(parents=True, exist_ok=True)
+                acquisition = download_source(store.store, row['object_keys'][0], original)
             # Identity intentionally contains no mutable URL metadata; source bytes
             # and filing identity bind both observations and all recovery revisions.
             source = source_identity(original, filing)
@@ -207,6 +226,8 @@ def main(argv=None):
                 _write_json(args.output_dir / 'recovery-results.json', report)
             outcome['status'] = ('failed' if any(p['status'] == 'failed' for p in outcome['pages']) else
                                  'recovery_candidates' if outcome['pages'] else 'no_pages_flagged')
+            if args.publish and outcome['status'] != 'failed':
+                record_receipt(store, filing, original, acquisition, selection, request, annotation_hash)
         except Exception as error:
             failures += 1
             outcome.update(status='failed', error=str(error))

@@ -56,9 +56,10 @@ artifact/source checks and live admin review. Whole-document accuracy, broader
 recovery coverage and automatic follow-up remain pending.
 The new recovery-table view keeps image and outline alternatives in each cell,
 shows unresolved outlines explicitly and preserves unassigned header text.
-Its source-pixel columns and inferred rows remain candidates. This extension is
-pending cloud publication/verification; earlier recovery packets still show
-their complete lines and raw-reader differences.
+Its source-pixel columns and inferred rows remain candidates. Independent
+checks of four cloud sample pages pass the 59 selected cell associations.
+Publication awaits completion of the older recovery fleet; earlier packets
+still show their complete lines and raw-reader differences.
 
 The audit vitals label is **Audit core statements / Loaded**: it reports the
 balance-sheet and income-statement extraction flag. It does not certify all

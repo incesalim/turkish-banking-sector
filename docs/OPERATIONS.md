@@ -1453,9 +1453,25 @@ The pixel/rule/table view is recomputed during retention verification, and the
 matching source annotations also check that their words land in the corresponding
 cells. Changed layout code rebuilds from the retained OCR PDF and observations;
 it does not require new OCR recognition. The artifact records the layout-code and
-NumPy identities separately from recognition inputs. This layout extension is
-pending cloud validation; the running recovery fleet `34040878532` is at `8cb6b60`
-and contains raw observations only.
+NumPy identities separately from recognition inputs. Read-only cloud runs
+`34042466701` and `34042468735`, followed by independent source reconstruction,
+pass all 59 selected cell-association checks. The running recovery fleet
+`34040878532` is at `8cb6b60` and contains raw observations only; candidate-layout
+publication follows completion of that run.
+
+Successful publishing runs now issue `recovery-receipts/<bank>/<period>/<basis>/`
+receipts after reading back the original, selected page artifacts and recovery
+index. Receipts bind metadata from the exact acquired PDF download, source hash,
+request scope, code/runtime/model identities and per-filing annotations. An
+unchanged publishing replay reads the receipt and recovery index and checks object versions without downloading or
+classifying the PDF. Changes, missing artifacts or a later recovery-index failure
+invalidate reuse. Explicit page scopes cannot stand in for automatic selection.
+No-page selections still retain source and selector evidence and never certify
+that a report needs no recovery. `recheck_bytes=true` / `--recheck-bytes` bypasses
+filing receipts while retaining verified raw-OCR reuse. Read-only probes always
+process retained bytes so their evidence remains downloadable. The runner
+`RECHECK_BYTES` input carries the option; it is not a secret. Local unit and
+end-to-end no-write/changed-input tests pass; receipt cloud validation is pending.
 
 For a light local sample (no remote writes):
 

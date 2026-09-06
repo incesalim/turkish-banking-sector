@@ -269,3 +269,19 @@ of detected tables.
   preserve unresolved signs and OCR `o` without inventing numeric zeros.
   Full raw observations remain accessible; table semantics and cloud layout
   validation are still outstanding.
+
+- 2026-09-06: read-only recovery table probes `34042466701` (FIBA pages
+  10/11/13) and `34042468735` (ISCTR page 11) pass at `7cd0cf88`; CI and
+  deployment pass. Independent downloaded source-pixel, raw observation,
+  source-built atlas and grid reconstruction checks pass all 59 selected
+  cell associations. Windows NumPy 1.26.4 and Actions 2.5.2 produce identical
+  grids; this cross-runtime check is recorded separately from engine identity.
+  Whole-table interpretation and unannotated content remain unverified.
+- 2026-09-06: added recovery filing receipts after byte readback of original,
+  page artifacts and recovery index. Changed source versions, page failures,
+  code/runtime/models, per-filing annotations or retained artifact versions
+  invalidate the shortcut. Explicit and automatic page scopes are separate.
+  Tests confirm a no-op replay reads only the receipt, recovery index and object metadata,
+  writes nothing and runs no PDF processing; explicit byte recheck reuses raw
+  OCR. These receipts still require a cloud replay proof before automatic
+  recovery follow-up. The native and raw-recovery full runs remain active.

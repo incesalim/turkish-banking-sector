@@ -106,9 +106,8 @@ FIBA has 21/4/2 OCR-outline differences on those pages, including a source-check
 adds this printed amount to the vector checks. Local selector repairs avoid
 rotating display-page bounds twice and count native text inside image regions;
 tests cover all four rotations. Recovery reuse now rebuilds changed derived views
-from verified raw observations without needlessly repeating OCR. Cloud replay
-of these refinements remains pending. Core capture fingerprints and served data
-are unchanged.
+from verified raw observations without needlessly repeating OCR. The cloud refinement and unchanged replays are described below. Core capture
+fingerprints and served data are unchanged.
 
 Recovery refinement replay `34040563636` reused all three selected OCR pages.
 An unchanged replay (`34040764985`) reused them again and left all 12 checked
@@ -118,8 +117,21 @@ extension reconstructs source-pixel grids on the four tested pages: FIBA has
 47×8, 47×8 and 64×6 candidates, and ISCTR 48×8. All 59 selected method/region
 checks pass (53 annotated source locations; six are checked through both readers).
 This checks selected cell associations, not entire tables. Raw OCR errors,
-unresolved glyphs and unverified headers remain explicit. Layout publication
-and its cloud validation are pending.
+unresolved glyphs and unverified headers remain explicit. Read-only cloud runs `34042466701` and `34042468735` pass at `7cd0cf88`.
+Independent downloads reproduce the retained source pixels, raw observations,
+source-built atlas and all four grids, and pass all 59 cell-association checks.
+NumPy differs between Actions (2.5.2) and Windows (1.26.4), but the reconstructed
+grids are identical; committed code hashes are checked separately. Layout
+publication awaits completion of the older raw-recovery fleet.
+
+Read-only catalog reconciliation during the active native fleet now finds 960
+source-preserved/structured candidates out of 1,117 acquired PDFs, zero stale
+captures and zero recorded failures; semantic verification remains zero.
+Recovery filing receipts are implemented locally: source/artifact byte readback
+precedes a metadata shortcut, and source, runtime, code, annotation, recovery
+index or artifact changes invalidate it. End-to-end tests confirm unchanged
+replay performs no PDF processing or writes and explicit recheck reuses OCR.
+Cloud validation of these receipts and automatic recovery follow-up are pending.
 
 ## Data coverage in D1
 

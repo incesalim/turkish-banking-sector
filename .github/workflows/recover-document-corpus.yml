@@ -28,6 +28,10 @@ on:
         description: "Store unverified recovery evidence in the separate R2 corpus"
         type: boolean
         default: true
+      recheck_bytes:
+        description: "Bypass unchanged-filing receipts and verify retained bytes again"
+        type: boolean
+        default: false
       dpi:
         description: "OCR render resolution"
         type: choice
@@ -76,6 +80,7 @@ jobs:
           LIMIT: ${{ inputs.limit }}
           PAGES: ${{ inputs.pages }}
           PUBLISH: ${{ inputs.publish }}
+          RECHECK_BYTES: ${{ inputs.recheck_bytes || false }}
           DPI: ${{ inputs.dpi }}
           LANGUAGE: ${{ inputs.language }}
           SHARD_INDEX: ${{ matrix.shard }}
@@ -86,6 +91,7 @@ jobs:
           [ -n "$PERIOD" ] && args+=(--period "$PERIOD")
           [ "$KIND" != "BOTH" ] && args+=(--kind "$KIND")
           [ "$PUBLISH" = "true" ] && args+=(--publish)
+          [ "$RECHECK_BYTES" = "true" ] && args+=(--recheck-bytes)
           python scripts/recover_document_corpus.py "${args[@]}"
       - name: Keep named recovery outcomes
         if: always()
