@@ -1638,3 +1638,11 @@ Differences and unavailable sources make the job fail for review while other
 filings continue. Bounded read-only samples (`limit=1..4`) retain downloaded bodies
 in `audit-document-origin-evidence` for seven days; full read-only runs retain
 reports only. Use publication for durable full-scope original-byte evidence.
+
+The authenticated `/api/admin/document-origin` reader accepts validated filing
+identity plus optional `artifact=origin_pdf|transport`. It verifies the retained
+comparison receipt and artifact hashes, rejects arbitrary storage keys and keeps
+`private, no-store` responses. The admin displays missing comparisons, observed
+revision differences, source identity and pending archive attachments separately
+from capture/semantic status. Artifact previews use the existing bounded
+24 MB verified-byte reader; larger responses require direct operator R2 access.

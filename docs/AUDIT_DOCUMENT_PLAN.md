@@ -435,3 +435,14 @@ of detected tables.
   named unavailable/different outcomes. Matching wrong-period bytes still fail.
   Mutation, publication readback, grouped-scope and CLI tests pass; cloud source
   comparison pending. No acquired PDF or analytical row is replaced.
+
+- 2026-09-06: independently verified four cloud origin probes at `2d0bbf2`: exact
+  transport/PDF bytes, selected archive members, wrapper provenance, first-three
+  page spans, committed implementation hashes and current acquisition bytes or
+  absence. FIBA/Takasbank match; the two queued acquisition repairs stay missing.
+  FIBA published transport/receipt/index matches the probe; the original object
+  version is unchanged. Dispatched the full registered origin review. Added an
+  authenticated admin comparison reader with receipt/artifact checksums, immutable
+  filing/source bindings, explicit differences and links to retained source bytes.
+  Python-produced wire tests exercise corrupt bytes, reminted wrong bindings,
+  nonexistent comparisons and anonymous access; 719 web tests pass.

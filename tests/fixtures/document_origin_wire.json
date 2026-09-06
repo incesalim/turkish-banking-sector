@@ -1,0 +1,145 @@
+{
+  "filing": {
+    "bank_ticker": "TEST",
+    "period": "2026Q1",
+    "kind": "consolidated"
+  },
+  "review": {
+    "schema_version": "document-origin-review-1",
+    "filing": {
+      "bank_ticker": "TEST",
+      "period": "2026Q1",
+      "kind": "consolidated"
+    },
+    "source_url": "https://bank.example/report.pdf",
+    "acquisition_key": "test/TEST_2026Q1_consolidated.pdf",
+    "requested_archive_selection": null,
+    "checked_at": "2026-09-06T20:00:00+00:00",
+    "acquisition": {
+      "key": "test/TEST_2026Q1_consolidated.pdf",
+      "sha256": "7c9ac8663cf90036d36aa9ad2ef97cb36fa4df28a618bdcba711f9ea07cae731",
+      "bytes": 881,
+      "version": {
+        "key": "test/TEST_2026Q1_consolidated.pdf",
+        "etag": "\"7c9ac8663cf90036d36aa9ad2ef97cb36fa4df28a618bdcba711f9ea07cae731\"",
+        "size": 881,
+        "modified": "2026-01-01T00:00:00+00:00"
+      }
+    },
+    "transport": {
+      "sha256": "7c9ac8663cf90036d36aa9ad2ef97cb36fa4df28a618bdcba711f9ea07cae731",
+      "bytes": 881,
+      "key": "document-corpus/v1/transports/7c9ac8663cf90036d36aa9ad2ef97cb36fa4df28a618bdcba711f9ea07cae731/original.bin"
+    },
+    "origin_pdf": {
+      "sha256": "7c9ac8663cf90036d36aa9ad2ef97cb36fa4df28a618bdcba711f9ea07cae731",
+      "bytes": 881,
+      "key": "document-corpus/v1/sources/7c9ac8663cf90036d36aa9ad2ef97cb36fa4df28a618bdcba711f9ea07cae731/original.pdf"
+    },
+    "semantically_verified": false,
+    "engine": {
+      "pymupdf": "1.27.2.3",
+      "implementation": {
+        "document_origin.py": "2621794e99de4d786ab539ffe83a8f72375e214c116d785c60ccb94eba3688bb",
+        "document_acquisition.py": "19446a560ff0cd9058901259fbc6879f189886cadc9909346bf81b40821020e7",
+        "document_quality.py": "41908cb8a61e7f3997fd1a8a21202011a8786e3995e0a164194cfce4b4c5f9ad"
+      }
+    },
+    "response": {
+      "source_url": "https://bank.example/report.pdf",
+      "resolved_url": "https://bank.example/report.pdf",
+      "content_type": "application/pdf"
+    },
+    "selection": {
+      "method": "direct_pdf",
+      "archive_members": []
+    },
+    "page_count": 1,
+    "origin_leading_pages": [
+      {
+        "page": 1,
+        "spans": [
+          {
+            "id": 0,
+            "block": 0,
+            "line": 0,
+            "text": "Test Bank 31 March 2026 Consolidated Financial Statements",
+            "bbox": [
+              40.0,
+              68.17500305175781,
+              338.9689636230469,
+              83.28900146484375
+            ]
+          }
+        ]
+      }
+    ],
+    "origin_identity": {
+      "filing": {
+        "bank_ticker": "TEST",
+        "period": "2026Q1",
+        "kind": "consolidated"
+      },
+      "status": "supported_by_source_text",
+      "claim_page": 1,
+      "observations": [
+        {
+          "page": 1,
+          "banks": [
+            {
+              "bank_ticker": "TEST",
+              "observed_text": "test bank",
+              "source_span_ids": [
+                0
+              ],
+              "normalized_text_range": [
+                0,
+                9
+              ]
+            }
+          ],
+          "quarter_end_dates": [
+            {
+              "period": "2026Q1",
+              "observed_text": "31 march 2026",
+              "source_span_ids": [
+                0
+              ],
+              "normalized_text_range": [
+                10,
+                23
+              ]
+            }
+          ],
+          "bases": [
+            {
+              "kind": "consolidated",
+              "observed_text": "consolidated",
+              "source_span_ids": [
+                0
+              ],
+              "normalized_text_range": [
+                24,
+                36
+              ]
+            }
+          ]
+        }
+      ],
+      "issues": [],
+      "scope": "leading_source_text_only",
+      "semantic_verification": "not_performed"
+    },
+    "related_pdf_content_capture": "not_applicable",
+    "status": "matches_acquired_bytes",
+    "review_key": "document-corpus/v1/origins/TEST/2026Q1/consolidated/9f3404243bb61ed46f0ef9d0d0341be3dbd97d207ca352996170f877c0830e0c.json",
+    "index_key": "document-corpus/v1/origins/TEST/2026Q1/consolidated/index.json"
+  },
+  "objects": {
+    "test/TEST_2026Q1_consolidated.pdf": "JVBERi0xLjcKJcK1wrYKJSBXcml0dGVuIGJ5IE11UERGIDEuMjcuMgoKMSAwIG9iago8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvSW5mbzw8L1Byb2R1Y2VyKE11UERGIDEuMjcuMik+Pj4+CmVuZG9iagoKMiAwIG9iago8PC9UeXBlL1BhZ2VzL0NvdW50IDEvS2lkc1s0IDAgUl0+PgplbmRvYmoKCjMgMCBvYmoKPDwvRm9udDw8L2hlbHYgNSAwIFI+Pj4+CmVuZG9iagoKNCAwIG9iago8PC9UeXBlL1BhZ2UvTWVkaWFCb3hbMCAwIDU5NSA4NDJdL1JvdGF0ZSAwL1Jlc291cmNlcyAzIDAgUi9QYXJlbnQgMiAwIFIvQ29udGVudHNbNiAwIFJdPj4KZW5kb2JqCgo1IDAgb2JqCjw8L1R5cGUvRm9udC9TdWJ0eXBlL1R5cGUxL0Jhc2VGb250L0hlbHZldGljYS9FbmNvZGluZy9XaW5BbnNpRW5jb2Rpbmc+PgplbmRvYmoKCjYgMCBvYmoKPDwvTGVuZ3RoIDEyOS9GaWx0ZXIvRmxhdGVEZWNvZGU+PgpzdHJlYW0KeNotjL0KAkEMhPs8Rd7Azc9OFMRCsLE72O6w8W4PCy1sfH6zImFCZph89KZzI+GSI+yFA8rtRbtHf35YhNvG87E6ali4FlcIOu5azEzSr5BQGPaZqA0hU8OGHmMvOMCzkwSMf6TvP4blJVi01CT/G2uqh4edbu1Kl0YTfQFaoyQuCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA3CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA0MiAwMDAwMCBuIAowMDAwMDAwMTIwIDAwMDAwIG4gCjAwMDAwMDAxNzIgMDAwMDAgbiAKMDAwMDAwMDIxMyAwMDAwMCBuIAowMDAwMDAwMzIwIDAwMDAwIG4gCjAwMDAwMDA0MDkgMDAwMDAgbiAKCnRyYWlsZXIKPDwvU2l6ZSA3L1Jvb3QgMSAwIFIvSURbPEMyOTFDMkE3NjU1MDIzNDk3NDVEM0Q3QjAzQzM5QUMyPjw2NjI4RTM5NDY1RDBGNEVDN0QwNEQ1MzNENjIwQjY2RD5dPj4Kc3RhcnR4cmVmCjYwNwolJUVPRgo=",
+    "document-corpus/v1/transports/7c9ac8663cf90036d36aa9ad2ef97cb36fa4df28a618bdcba711f9ea07cae731/original.bin": "JVBERi0xLjcKJcK1wrYKJSBXcml0dGVuIGJ5IE11UERGIDEuMjcuMgoKMSAwIG9iago8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvSW5mbzw8L1Byb2R1Y2VyKE11UERGIDEuMjcuMik+Pj4+CmVuZG9iagoKMiAwIG9iago8PC9UeXBlL1BhZ2VzL0NvdW50IDEvS2lkc1s0IDAgUl0+PgplbmRvYmoKCjMgMCBvYmoKPDwvRm9udDw8L2hlbHYgNSAwIFI+Pj4+CmVuZG9iagoKNCAwIG9iago8PC9UeXBlL1BhZ2UvTWVkaWFCb3hbMCAwIDU5NSA4NDJdL1JvdGF0ZSAwL1Jlc291cmNlcyAzIDAgUi9QYXJlbnQgMiAwIFIvQ29udGVudHNbNiAwIFJdPj4KZW5kb2JqCgo1IDAgb2JqCjw8L1R5cGUvRm9udC9TdWJ0eXBlL1R5cGUxL0Jhc2VGb250L0hlbHZldGljYS9FbmNvZGluZy9XaW5BbnNpRW5jb2Rpbmc+PgplbmRvYmoKCjYgMCBvYmoKPDwvTGVuZ3RoIDEyOS9GaWx0ZXIvRmxhdGVEZWNvZGU+PgpzdHJlYW0KeNotjL0KAkEMhPs8Rd7Azc9OFMRCsLE72O6w8W4PCy1sfH6zImFCZph89KZzI+GSI+yFA8rtRbtHf35YhNvG87E6ali4FlcIOu5azEzSr5BQGPaZqA0hU8OGHmMvOMCzkwSMf6TvP4blJVi01CT/G2uqh4edbu1Kl0YTfQFaoyQuCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA3CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA0MiAwMDAwMCBuIAowMDAwMDAwMTIwIDAwMDAwIG4gCjAwMDAwMDAxNzIgMDAwMDAgbiAKMDAwMDAwMDIxMyAwMDAwMCBuIAowMDAwMDAwMzIwIDAwMDAwIG4gCjAwMDAwMDA0MDkgMDAwMDAgbiAKCnRyYWlsZXIKPDwvU2l6ZSA3L1Jvb3QgMSAwIFIvSURbPEMyOTFDMkE3NjU1MDIzNDk3NDVEM0Q3QjAzQzM5QUMyPjw2NjI4RTM5NDY1RDBGNEVDN0QwNEQ1MzNENjIwQjY2RD5dPj4Kc3RhcnR4cmVmCjYwNwolJUVPRgo=",
+    "document-corpus/v1/sources/7c9ac8663cf90036d36aa9ad2ef97cb36fa4df28a618bdcba711f9ea07cae731/original.pdf": "JVBERi0xLjcKJcK1wrYKJSBXcml0dGVuIGJ5IE11UERGIDEuMjcuMgoKMSAwIG9iago8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvSW5mbzw8L1Byb2R1Y2VyKE11UERGIDEuMjcuMik+Pj4+CmVuZG9iagoKMiAwIG9iago8PC9UeXBlL1BhZ2VzL0NvdW50IDEvS2lkc1s0IDAgUl0+PgplbmRvYmoKCjMgMCBvYmoKPDwvRm9udDw8L2hlbHYgNSAwIFI+Pj4+CmVuZG9iagoKNCAwIG9iago8PC9UeXBlL1BhZ2UvTWVkaWFCb3hbMCAwIDU5NSA4NDJdL1JvdGF0ZSAwL1Jlc291cmNlcyAzIDAgUi9QYXJlbnQgMiAwIFIvQ29udGVudHNbNiAwIFJdPj4KZW5kb2JqCgo1IDAgb2JqCjw8L1R5cGUvRm9udC9TdWJ0eXBlL1R5cGUxL0Jhc2VGb250L0hlbHZldGljYS9FbmNvZGluZy9XaW5BbnNpRW5jb2Rpbmc+PgplbmRvYmoKCjYgMCBvYmoKPDwvTGVuZ3RoIDEyOS9GaWx0ZXIvRmxhdGVEZWNvZGU+PgpzdHJlYW0KeNotjL0KAkEMhPs8Rd7Azc9OFMRCsLE72O6w8W4PCy1sfH6zImFCZph89KZzI+GSI+yFA8rtRbtHf35YhNvG87E6ali4FlcIOu5azEzSr5BQGPaZqA0hU8OGHmMvOMCzkwSMf6TvP4blJVi01CT/G2uqh4edbu1Kl0YTfQFaoyQuCmVuZHN0cmVhbQplbmRvYmoKCnhyZWYKMCA3CjAwMDAwMDAwMDAgNjU1MzUgZiAKMDAwMDAwMDA0MiAwMDAwMCBuIAowMDAwMDAwMTIwIDAwMDAwIG4gCjAwMDAwMDAxNzIgMDAwMDAgbiAKMDAwMDAwMDIxMyAwMDAwMCBuIAowMDAwMDAwMzIwIDAwMDAwIG4gCjAwMDAwMDA0MDkgMDAwMDAgbiAKCnRyYWlsZXIKPDwvU2l6ZSA3L1Jvb3QgMSAwIFIvSURbPEMyOTFDMkE3NjU1MDIzNDk3NDVEM0Q3QjAzQzM5QUMyPjw2NjI4RTM5NDY1RDBGNEVDN0QwNEQ1MzNENjIwQjY2RD5dPj4Kc3RhcnR4cmVmCjYwNwolJUVPRgo=",
+    "document-corpus/v1/origins/TEST/2026Q1/consolidated/9f3404243bb61ed46f0ef9d0d0341be3dbd97d207ca352996170f877c0830e0c.json": "eyJhY3F1aXNpdGlvbiI6eyJieXRlcyI6ODgxLCJrZXkiOiJ0ZXN0L1RFU1RfMjAyNlExX2NvbnNvbGlkYXRlZC5wZGYiLCJzaGEyNTYiOiI3YzlhYzg2NjNjZjkwMDM2ZDM2YWE5YWQyZWY5N2NiMzZmYTRkZjI4YTYxOGJkY2JhNzExZjllYTA3Y2FlNzMxIiwidmVyc2lvbiI6eyJldGFnIjoiXCI3YzlhYzg2NjNjZjkwMDM2ZDM2YWE5YWQyZWY5N2NiMzZmYTRkZjI4YTYxOGJkY2JhNzExZjllYTA3Y2FlNzMxXCIiLCJrZXkiOiJ0ZXN0L1RFU1RfMjAyNlExX2NvbnNvbGlkYXRlZC5wZGYiLCJtb2RpZmllZCI6IjIwMjYtMDEtMDFUMDA6MDA6MDArMDA6MDAiLCJzaXplIjo4ODF9fSwiYWNxdWlzaXRpb25fa2V5IjoidGVzdC9URVNUXzIwMjZRMV9jb25zb2xpZGF0ZWQucGRmIiwiY2hlY2tlZF9hdCI6IjIwMjYtMDktMDZUMjA6MDA6MDArMDA6MDAiLCJlbmdpbmUiOnsiaW1wbGVtZW50YXRpb24iOnsiZG9jdW1lbnRfYWNxdWlzaXRpb24ucHkiOiIxOTQ0NmE1NjBmZjBjZDkwNTg5MDEyNTlmYmM2ODc5ZjE4OTg4NmNhZGM5OTA5MzQ2YmY4MWI0MDgyMTAyMGU3IiwiZG9jdW1lbnRfb3JpZ2luLnB5IjoiMjYyMTc5NGU5OWRlNGQ3ODZhYjUzOWZmZTgzYThmNzIzNzVlMjE0YzExNmQ3ODVjNjBjY2I5NGViYTM2ODhiYiIsImRvY3VtZW50X3F1YWxpdHkucHkiOiI0MTkwOGNiOGE2MWU3ZjM5OTdmZDFhOGEyMTIwMjAxMWE4Nzg2ZTM5OTVlMGExNjQxOTRjZmNlNGI0YzVmOWFkIn0sInB5bXVwZGYiOiIxLjI3LjIuMyJ9LCJmaWxpbmciOnsiYmFua190aWNrZXIiOiJURVNUIiwia2luZCI6ImNvbnNvbGlkYXRlZCIsInBlcmlvZCI6IjIwMjZRMSJ9LCJvcmlnaW5faWRlbnRpdHkiOnsiY2xhaW1fcGFnZSI6MSwiZmlsaW5nIjp7ImJhbmtfdGlja2VyIjoiVEVTVCIsImtpbmQiOiJjb25zb2xpZGF0ZWQiLCJwZXJpb2QiOiIyMDI2UTEifSwiaXNzdWVzIjpbXSwib2JzZXJ2YXRpb25zIjpbeyJiYW5rcyI6W3siYmFua190aWNrZXIiOiJURVNUIiwibm9ybWFsaXplZF90ZXh0X3JhbmdlIjpbMCw5XSwib2JzZXJ2ZWRfdGV4dCI6InRlc3QgYmFuayIsInNvdXJjZV9zcGFuX2lkcyI6WzBdfV0sImJhc2VzIjpbeyJraW5kIjoiY29uc29saWRhdGVkIiwibm9ybWFsaXplZF90ZXh0X3JhbmdlIjpbMjQsMzZdLCJvYnNlcnZlZF90ZXh0IjoiY29uc29saWRhdGVkIiwic291cmNlX3NwYW5faWRzIjpbMF19XSwicGFnZSI6MSwicXVhcnRlcl9lbmRfZGF0ZXMiOlt7Im5vcm1hbGl6ZWRfdGV4dF9yYW5nZSI6WzEwLDIzXSwib2JzZXJ2ZWRfdGV4dCI6IjMxIG1hcmNoIDIwMjYiLCJwZXJpb2QiOiIyMDI2UTEiLCJzb3VyY2Vfc3Bhbl9pZHMiOlswXX1dfV0sInNjb3BlIjoibGVhZGluZ19zb3VyY2VfdGV4dF9vbmx5Iiwic2VtYW50aWNfdmVyaWZpY2F0aW9uIjoibm90X3BlcmZvcm1lZCIsInN0YXR1cyI6InN1cHBvcnRlZF9ieV9zb3VyY2VfdGV4dCJ9LCJvcmlnaW5fbGVhZGluZ19wYWdlcyI6W3sicGFnZSI6MSwic3BhbnMiOlt7ImJib3giOls0MC4wLDY4LjE3NTAwMzA1MTc1NzgxLDMzOC45Njg5NjM2MjMwNDY5LDgzLjI4OTAwMTQ2NDg0Mzc1XSwiYmxvY2siOjAsImlkIjowLCJsaW5lIjowLCJ0ZXh0IjoiVGVzdCBCYW5rIDMxIE1hcmNoIDIwMjYgQ29uc29saWRhdGVkIEZpbmFuY2lhbCBTdGF0ZW1lbnRzIn1dfV0sIm9yaWdpbl9wZGYiOnsiYnl0ZXMiOjg4MSwia2V5IjoiZG9jdW1lbnQtY29ycHVzL3YxL3NvdXJjZXMvN2M5YWM4NjYzY2Y5MDAzNmQzNmFhOWFkMmVmOTdjYjM2ZmE0ZGYyOGE2MThiZGNiYTcxMWY5ZWEwN2NhZTczMS9vcmlnaW5hbC5wZGYiLCJzaGEyNTYiOiI3YzlhYzg2NjNjZjkwMDM2ZDM2YWE5YWQyZWY5N2NiMzZmYTRkZjI4YTYxOGJkY2JhNzExZjllYTA3Y2FlNzMxIn0sInBhZ2VfY291bnQiOjEsInJlbGF0ZWRfcGRmX2NvbnRlbnRfY2FwdHVyZSI6Im5vdF9hcHBsaWNhYmxlIiwicmVxdWVzdGVkX2FyY2hpdmVfc2VsZWN0aW9uIjpudWxsLCJyZXNwb25zZSI6eyJjb250ZW50X3R5cGUiOiJhcHBsaWNhdGlvbi9wZGYiLCJyZXNvbHZlZF91cmwiOiJodHRwczovL2JhbmsuZXhhbXBsZS9yZXBvcnQucGRmIiwic291cmNlX3VybCI6Imh0dHBzOi8vYmFuay5leGFtcGxlL3JlcG9ydC5wZGYifSwic2NoZW1hX3ZlcnNpb24iOiJkb2N1bWVudC1vcmlnaW4tcmV2aWV3LTEiLCJzZWxlY3Rpb24iOnsiYXJjaGl2ZV9tZW1iZXJzIjpbXSwibWV0aG9kIjoiZGlyZWN0X3BkZiJ9LCJzZW1hbnRpY2FsbHlfdmVyaWZpZWQiOmZhbHNlLCJzb3VyY2VfdXJsIjoiaHR0cHM6Ly9iYW5rLmV4YW1wbGUvcmVwb3J0LnBkZiIsInN0YXR1cyI6Im1hdGNoZXNfYWNxdWlyZWRfYnl0ZXMiLCJ0cmFuc3BvcnQiOnsiYnl0ZXMiOjg4MSwia2V5IjoiZG9jdW1lbnQtY29ycHVzL3YxL3RyYW5zcG9ydHMvN2M5YWM4NjYzY2Y5MDAzNmQzNmFhOWFkMmVmOTdjYjM2ZmE0ZGYyOGE2MThiZGNiYTcxMWY5ZWEwN2NhZTczMS9vcmlnaW5hbC5iaW4iLCJzaGEyNTYiOiI3YzlhYzg2NjNjZjkwMDM2ZDM2YWE5YWQyZWY5N2NiMzZmYTRkZjI4YTYxOGJkY2JhNzExZjllYTA3Y2FlNzMxIn19Cg==",
+    "document-corpus/v1/origins/TEST/2026Q1/consolidated/index.json": "eyJjdXJyZW50Ijp7ImFjcXVpc2l0aW9uX3NoYTI1NiI6IjdjOWFjODY2M2NmOTAwMzZkMzZhYTlhZDJlZjk3Y2IzNmZhNGRmMjhhNjE4YmRjYmE3MTFmOWVhMDdjYWU3MzEiLCJieXRlcyI6MjUzMCwiY2hlY2tlZF9hdCI6IjIwMjYtMDktMDZUMjA6MDA6MDArMDA6MDAiLCJrZXkiOiJkb2N1bWVudC1jb3JwdXMvdjEvb3JpZ2lucy9URVNULzIwMjZRMS9jb25zb2xpZGF0ZWQvOWYzNDA0MjQzYmI2MWVkNDZmMGVmOWQwZDAzNDFiZTNkYmQ5N2QyMDdjYTM1Mjk5NjE3MGY4NzdjMDgzMGUwYy5qc29uIiwic2hhMjU2IjoiOWYzNDA0MjQzYmI2MWVkNDZmMGVmOWQwZDAzNDFiZTNkYmQ5N2QyMDdjYTM1Mjk5NjE3MGY4NzdjMDgzMGUwYyIsInN0YXR1cyI6Im1hdGNoZXNfYWNxdWlyZWRfYnl0ZXMifSwiZmlsaW5nIjp7ImJhbmtfdGlja2VyIjoiVEVTVCIsImtpbmQiOiJjb25zb2xpZGF0ZWQiLCJwZXJpb2QiOiIyMDI2UTEifSwicmV2aXNpb25zIjpbeyJhY3F1aXNpdGlvbl9zaGEyNTYiOiI3YzlhYzg2NjNjZjkwMDM2ZDM2YWE5YWQyZWY5N2NiMzZmYTRkZjI4YTYxOGJkY2JhNzExZjllYTA3Y2FlNzMxIiwiYnl0ZXMiOjI1MzAsImNoZWNrZWRfYXQiOiIyMDI2LTA5LTA2VDIwOjAwOjAwKzAwOjAwIiwia2V5IjoiZG9jdW1lbnQtY29ycHVzL3YxL29yaWdpbnMvVEVTVC8yMDI2UTEvY29uc29saWRhdGVkLzlmMzQwNDI0M2JiNjFlZDQ2ZjBlZjlkMGQwMzQxYmUzZGJkOTdkMjA3Y2EzNTI5OTYxNzBmODc3YzA4MzBlMGMuanNvbiIsInNoYTI1NiI6IjlmMzQwNDI0M2JiNjFlZDQ2ZjBlZjlkMGQwMzQxYmUzZGJkOTdkMjA3Y2EzNTI5OTYxNzBmODc3YzA4MzBlMGMiLCJzdGF0dXMiOiJtYXRjaGVzX2FjcXVpcmVkX2J5dGVzIn1dLCJzY2hlbWFfdmVyc2lvbiI6ImRvY3VtZW50LW9yaWdpbi1pbmRleC0xIiwic2VtYW50aWNhbGx5X3ZlcmlmaWVkIjpmYWxzZX0K"
+  }
+}

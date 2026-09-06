@@ -112,6 +112,15 @@ misleading and has been corrected in code (2026-09-06).
 | Agent roster (hand-authored, CI-gated) | `web/app/lib/agents-registry.ts` |
 | Agent list / dispatch endpoints | `web/app/api/admin/agents/{route,dispatch/route}.ts` |
 
+The report view also exposes an independent official-source comparison through
+`/api/admin/document-origin`: observation time, exact-byte agreement or revision
+difference, opening-page identity, missing acquisitions and related archive PDFs
+still awaiting capture. Links open the retained official PDF, raw HTTP response
+and comparison receipt. The reader checks receipt hashes, filing/source bindings
+and artifact checksums; anonymous access is forbidden. A source comparison can
+be read before core capture exists. A mismatch with the currently displayed source
+revision remains explicit. Byte agreement never clears semantic review.
+
 ### Managing audit reports (the intended workflow)
 
 Audit discovery and extraction run automatically each day during the quarterly filing

@@ -46,8 +46,14 @@ downloaded transport/PDF bytes with each registered acquisition. It retains exac
 versions, source identity observations, unavailable URLs and differences under
 separate origin indexes without replacing acquired PDFs. Local tests cover byte
 agreement with a wrong-period cover, changed revisions, archives, wrappers,
-missing sources, corrupted publication and complete grouped scope. Cloud source
-comparison is still pending; earlier stored-copy checks are not origin proof.
+missing sources, corrupted publication and complete grouped scope. Four cloud
+probes at `2d0bbf2` independently match retained transport/PDF bytes, opening-page
+spans and committed engine hashes. FIBA/Takasbank match acquired PDFs; Ziraat
+Dinamik/Anadolubank correctly report the two still-pending acquisitions. FIBA
+publication also matches the probe, with its old original object version unchanged.
+The full registered comparison has been dispatched. Earlier stored-copy checks
+alone are not origin proof. Admin source-comparison access is implemented with
+checksum and filing/source validation; deployment verification remains pending.
 
 The dedicated `build-document-corpus.yml` pipeline keeps immutable originals,
 versioned source evidence,
