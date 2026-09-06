@@ -46,8 +46,9 @@ reviews now supplement those observations. Eight use exact native-span witnesses
 the three new reviews use visually transcribed cover regions bound to exact PDF
 and source-page hashes. They identify scanned Kalkınma 2022Q4/2023Q4 consolidated
 covers and Takasbank 2022Q1's damaged text encoding. The latter reviews certify
-neither OCR accuracy nor report content; local binding/mutation tests pass and
-cloud review is pending. HALKB 2022Q2, BURGAN 2022Q2 and QNBFB 2023Q4
+neither OCR accuracy nor report content. All three bounded cloud reviews at
+`cbe9d3e` pass; retained witnesses match the independently inspected originals
+and exact committed review/registry hashes. Raw automatic findings stay unchanged. HALKB 2022Q2, BURGAN 2022Q2 and QNBFB 2023Q4
 consolidated covers mix consolidated/unconsolidated wording; their auditor
 introductions support consolidated statements. Those contradictions stay explicit.
 
@@ -79,8 +80,14 @@ reuse all three receipts and preserve 25 object versions. Takasbank's embedded
 font reading independently recovers 60/1,571 characters on pages 1/13 and matches
 four complete source text regions; the separate OCR İstanbul discrepancy stays
 visible. FIBA's source value 717.417 versus OCR 7.417 remains an explicit error.
-Header meaning, logical rows, cross-page tables and full prose order remain
-unverified beyond the bounded source annotations.
+A new table-context view preserves merged slots only when all cell rectangles
+fit one unambiguous grid. It links adjacent fragments only with an explicit
+continued title and identical ordered column identifiers, retaining competing
+matches without merging. QNB pages 47–48 were visually reviewed: the instrument
+columns 1/2 continue despite changed widths, with three/two full-width headings.
+Local source/mutation tests and admin rendering support pass; cloud capture is
+pending. Header meaning, logical rows and full prose order remain unverified
+beyond bounded source annotations.
 
 `review-document-origins.yml` independently downloads registered sources afresh,
 retains transport/PDF revisions and compares them with acquired bytes without

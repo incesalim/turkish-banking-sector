@@ -419,3 +419,10 @@ with the drill-down drawer). The per-row identities checked are TL+FC=Total,
 parent = Σ children, TOTAL = Σ roman sections, assets = liabilities+equity; the
 same `bank_audit_validation` data drives the ⚠ markers on `/banks/[ticker]`
 period columns.
+
+The complete-document viewer preserves merged ruled-table cells when the stored
+cell geometry supports one complete grid. It shows the source heading and,
+where an explicit continued title and ordered column identifiers agree, offers
+a link to the preceding physical fragment. Competing fragments remain labelled
+ambiguous. Continuation links are candidates for review and do not combine rows
+or approve header meanings, financial values or units.

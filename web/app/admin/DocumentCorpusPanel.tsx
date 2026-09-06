@@ -12,13 +12,18 @@ const id = (f: CorpusFiling) => `${f.bank_ticker}|${f.period}|${f.kind}`;
 const count = (v: number | null | undefined) => v == null ? "—" : nf(v, 0);
 const control = "border-b border-border bg-transparent px-1 py-1.5 text-xs text-foreground focus:outline-primary";
 
-type Cell = { text: string; col_index?: number | null; column?: number; placement?: string; word_ids: string[] };
+type Cell = { text: string | null; col_index?: number | null; column?: number; placement?: string; word_ids: string[] };
 type Table = { id: string; method: string; n_cols: number; row_count: number; col_labels?: string[]; word_view?: string;
   rows: { index: number; label?: string; cells: Cell[] }[] };
 type Narrative = { id: string; kind: string; text: string; span_ids: string[];
   heading_path: { id: string; text: string }[]; table_ids: string[] };
+type TableContext = { table_id: string; heading: { text: string } | null;
+  physical_grid: { anchors: { row: number; column: number; row_span: number; column_span: number }[];
+    covered_slots: { row: number; column: number; anchor: number[] }[] } | null };
 type PagePreview = { manifest: { sections: { title: string; page_start: number; page_end: number }[] };
   page: { page: number; text_blocks: { id: string; text: string }[]; tables: Table[];
+    table_context?: { tables: TableContext[]; continuations: { status: string; from_page: number;
+      from_table_ids: string[]; to_table_id: string; title: string; column_identifiers: string[] }[] };
     narrative_elements?: Narrative[]; issues: { kind: string; count?: number }[] } };
 
 async function fetchJson<T>(url: string, signal: AbortSignal): Promise<T> {
@@ -36,15 +41,18 @@ function status(row: CorpusFiling) {
   return row.acquisition_status === "missing" ? "Source missing" : "Not captured";
 }
 
-function TablePreview({ table }: { table: Table }) {
+function TablePreview({ table, context }: { table: Table; context?: TableContext }) {
   const positioned = table.method === "native_image_replacement_geometry";
   const numeric = table.method === "legacy_numeric_geometry" || positioned;
   const unplaced = table.rows.some((r) => r.cells.some((c) => c.placement === "unplaced"));
+  const grid = !numeric ? context?.physical_grid : null;
+  const covered = new Set(grid?.covered_slots.map((slot) => `${slot.row}:${slot.column}`));
   return <details className="border-b border-border py-3" open>
     <summary className="cursor-pointer text-xs font-medium">
       Candidate {table.id} · {table.row_count} rows · {table.n_cols} value/text columns
       <span className="ml-2 font-normal text-faint">{positioned ? "PDF-linked label positions" : numeric ? "Numeric layout" : "Ruled layout"} · unreviewed</span>
     </summary>
+    {context?.heading && <p className="mt-2 text-xs font-medium">{context.heading.text}</p>}
     <div className="mt-2 overflow-x-auto">
       <table className="w-full border-collapse text-[11px]">
         <thead><tr className="border-b border-border text-left text-muted-foreground">
@@ -54,10 +62,14 @@ function TablePreview({ table }: { table: Table }) {
         </tr></thead>
         <tbody>{table.rows.map((row) => <tr key={row.index} className="border-b border-border/60 align-top">
           {numeric && <td className="min-w-48 whitespace-pre-wrap p-2">{row.label}</td>}
-          {Array.from({ length: table.n_cols }, (_, c) => <td key={c} className="min-w-20 whitespace-pre-wrap p-2 font-mono">
+          {Array.from({ length: table.n_cols }, (_, c) => {
+            if (covered.has(`${row.index}:${c}`)) return null;
+            const anchor = grid?.anchors.find((a) => a.row === row.index && a.column === c);
+            return <td key={c} rowSpan={anchor?.row_span} colSpan={anchor?.column_span} className="min-w-20 whitespace-pre-wrap p-2 font-mono">
             {row.cells.filter((cell) => (numeric ? cell.placement === "data" && cell.col_index === c : cell.column === c))
               .map((cell, i) => <div key={i} title={`${positioned ? "Positioned source pieces" : "Source words"}: ${cell.word_ids.join(", ")}`}>{cell.text || "[empty source cell]"}</div>)}
-          </td>)}
+          </td>;
+          })}
           {unplaced && <td className="p-2 font-mono text-warning">{row.cells.filter((c) => c.placement === "unplaced").map((c) => c.text).join("\n")}</td>}
         </tr>)}</tbody>
       </table>
@@ -111,8 +123,14 @@ function FilingPreview({ filing }: { filing: CorpusFiling }) {
           <ul className="mt-2 list-disc pl-5">{preview.page.issues.map((issue, i) => <li key={i}>{issue.kind.replaceAll("_", " ")}{issue.count != null ? ` (${count(issue.count)})` : ""}</li>)}</ul>
         </details>}
         <DocumentRecoveryPanel filing={id(filing)} page={page} />
+        {preview.page.table_context?.continuations.map((link) => <div key={link.to_table_id} className="my-3 border-l border-border pl-3 text-xs">
+          <p>{link.status === "unique_source_evidence" ? "Source indicates a table continuation" : "Possible continuation has competing earlier tables"}: {link.title}</p>
+          <p className="mt-1 text-muted-foreground">Repeated column identifiers: {link.column_identifiers.join(" · ")}. Original fragments remain separate; association needs review.</p>
+          <button className="mt-1 text-primary hover:underline" onClick={() => setPage(link.from_page)}>Inspect earlier fragment on page {link.from_page}</button>
+        </div>)}
         <h4 className="border-b border-border py-2 text-xs font-semibold">Table candidates · {count(preview.page.tables.length)}</h4>
-        {preview.page.tables.map((table) => <TablePreview key={table.id} table={table} />)}
+        {preview.page.tables.map((table) => <TablePreview key={table.id} table={table}
+          context={preview.page.table_context?.tables.find((context) => context.table_id === table.id)} />)}
         {preview.page.tables.length === 0 && <p className="py-3 text-xs text-faint">No table detected. This does not establish that the source page contains no table.</p>}
         {preview.page.narrative_elements && <details className="mt-5" open>
           <summary className="cursor-pointer text-xs font-semibold">Paragraphs and headings · {count(preview.page.narrative_elements.length)} candidates</summary>

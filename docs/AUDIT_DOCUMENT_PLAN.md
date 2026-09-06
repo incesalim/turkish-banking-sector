@@ -493,3 +493,17 @@ of detected tables.
 - 2026-09-07: live admin attachment view independently shows the 96-page primary
   report, separate one-page declaration, source links, eight OCR blocks and both
   A.S./A.Ş. and ve/ile disagreements. CI/deploy at `979b169` and 733 web tests pass.
+
+- 2026-09-07: all three visual identity cloud reviews at `cbe9d3e` pass and match
+  independently inspected original witnesses, registry and review engine hashes.
+  CI `34061081094` and deploy `34061185039` pass; automatic unresolved findings
+  remain explicit. No transcription claim is presented as native text evidence.
+- 2026-09-07: visually reviewed QNB original pages 47–48 as a multi-page table
+  case. The debt-instrument columns 1/2 continue under an explicit title despite
+  changed widths. Added source-bound heading/header context, unambiguous grid
+  spans and continuation candidates, preserving all cells and physical fragments.
+  Tests reject swapped identifiers, missing markers/source words, intervening or
+  competing tables, shifted/overlapping grid cells and changed context packets.
+  The admin supports merged slots and prior-fragment navigation. A new independent
+  continuation annotation fails on the old structure and passes on the new view;
+  cloud capture/publication remain pending.

@@ -1700,3 +1700,13 @@ it does not independently prove the transcription. The result explicitly labels
 reviewer transcription, never creates native span references, and leaves automatic
 identity findings and semantic approval unchanged. Only an introduction witness
 is supported through this path; existing native cover contradictions stay intact.
+
+Structured pages may include `table_context` with source-heading witnesses,
+ordered column identifiers and physical merged-cell slots. A shared-grid result
+requires every cell rectangle and empty slot to agree; otherwise no span is
+inferred. Adjacent-page continuation candidates require an explicit continued
+heading and identical ordered column identifiers. Competing earlier fragments
+remain ambiguous; no rows, headings or original cells are dropped or merged.
+These derived contexts participate in the structure engine and are recomputed
+by validation. The admin displays merged slots and links to earlier fragments.
+No relationship certifies financial meaning, units or full table completeness.

@@ -1,0 +1,3782 @@
+{
+  "source": {
+    "bank_ticker": "QNBFB",
+    "byte_count": 4088161,
+    "kind": "unconsolidated",
+    "object_key": "qnbfb/QNBFB_2026Q1_unconsolidated.pdf",
+    "pdf_sha256": "cbe23222dcf88730fc8fe498f86dfa3c4805dba700c0270ec35c2d370749b6b2",
+    "period": "2026Q1",
+    "source_url": "https://www.qnb.com.tr/medium/document-file-4620.vsf"
+  },
+  "origin": "Retained source-linked structure; expected geometry/continuation independently reviewed against original PDF pages 47 and 48 on 2026-09-07. Not a whole-table transcription approval.",
+  "pages": [
+    {
+      "page": 47,
+      "tables": [
+        {
+          "bbox": [
+            127.69000244140625,
+            182.17999267578125,
+            785.1500244140625,
+            469.3600158691406
+          ],
+          "header_association_verified": false,
+          "header_external": false,
+          "header_names": [
+            "Information on debt instruments included in the calculation of equity",
+            null,
+            null
+          ],
+          "id": "p47:ruled0",
+          "image_rule_candidates": [
+            [
+              [
+                127.94,
+                191.4
+              ],
+              [
+                784.3,
+                191.4
+              ]
+            ],
+            [
+              [
+                127.94,
+                201.2
+              ],
+              [
+                784.3,
+                201.2
+              ]
+            ],
+            [
+              [
+                127.94,
+                210.9
+              ],
+              [
+                784.3,
+                210.9
+              ]
+            ],
+            [
+              [
+                127.94,
+                229.7
+              ],
+              [
+                784.3,
+                229.7
+              ]
+            ],
+            [
+              [
+                127.94,
+                248.7
+              ],
+              [
+                784.3,
+                248.7
+              ]
+            ],
+            [
+              [
+                127.94,
+                258.3
+              ],
+              [
+                784.3,
+                258.3
+              ]
+            ],
+            [
+              [
+                127.94,
+                268.0
+              ],
+              [
+                784.3,
+                268.0
+              ]
+            ],
+            [
+              [
+                127.94,
+                277.7
+              ],
+              [
+                784.3,
+                277.7
+              ]
+            ],
+            [
+              [
+                127.94,
+                287.4
+              ],
+              [
+                784.3,
+                287.4
+              ]
+            ],
+            [
+              [
+                127.94,
+                306.3
+              ],
+              [
+                784.3,
+                306.3
+              ]
+            ],
+            [
+              [
+                127.94,
+                316.0
+              ],
+              [
+                784.3,
+                316.0
+              ]
+            ],
+            [
+              [
+                127.94,
+                335.0
+              ],
+              [
+                784.3,
+                335.0
+              ]
+            ],
+            [
+              [
+                127.94,
+                344.7
+              ],
+              [
+                784.3,
+                344.7
+              ]
+            ],
+            [
+              [
+                127.94,
+                354.3
+              ],
+              [
+                784.3,
+                354.3
+              ]
+            ],
+            [
+              [
+                127.94,
+                364.0
+              ],
+              [
+                784.3,
+                364.0
+              ]
+            ],
+            [
+              [
+                127.94,
+                373.8
+              ],
+              [
+                784.3,
+                373.8
+              ]
+            ],
+            [
+              [
+                127.94,
+                383.5
+              ],
+              [
+                784.3,
+                383.5
+              ]
+            ],
+            [
+              [
+                127.94,
+                393.2
+              ],
+              [
+                784.3,
+                393.2
+              ]
+            ],
+            [
+              [
+                127.94,
+                402.9
+              ],
+              [
+                784.3,
+                402.9
+              ]
+            ],
+            [
+              [
+                127.94,
+                412.5
+              ],
+              [
+                784.3,
+                412.5
+              ]
+            ],
+            [
+              [
+                127.94,
+                440.7
+              ],
+              [
+                784.3,
+                440.7
+              ]
+            ],
+            [
+              [
+                127.94,
+                459.6
+              ],
+              [
+                784.3,
+                459.6
+              ]
+            ]
+          ],
+          "kind": "table_candidate",
+          "method": "pymupdf_lines_strict",
+          "n_cols": 3,
+          "review_status": "unreviewed",
+          "row_count": 23,
+          "rows": [
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    182.17999267578125,
+                    785.1500244140625,
+                    191.39999389648438
+                  ],
+                  "column": 0,
+                  "row": 0,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Information on debt instruments included in the calculation of equity",
+                  "word_ids": [
+                    55,
+                    56,
+                    57,
+                    58,
+                    59,
+                    60,
+                    61,
+                    62,
+                    63,
+                    64
+                  ]
+                },
+                {
+                  "bbox": null,
+                  "column": 1,
+                  "row": 0,
+                  "slot_status": "absent_or_merged",
+                  "source_text_matches": true,
+                  "text": null,
+                  "word_ids": []
+                },
+                {
+                  "bbox": null,
+                  "column": 2,
+                  "row": 0,
+                  "slot_status": "absent_or_merged",
+                  "source_text_matches": true,
+                  "text": null,
+                  "word_ids": []
+                }
+              ],
+              "index": 0
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    191.39999389648438,
+                    432.4100036621094,
+                    201.1999969482422
+                  ],
+                  "column": 0,
+                  "row": 1,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "",
+                  "word_ids": []
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    191.39999389648438,
+                    584.8300170898438,
+                    201.1999969482422
+                  ],
+                  "column": 1,
+                  "row": 1,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "1",
+                  "word_ids": [
+                    65
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    191.39999389648438,
+                    785.1500244140625,
+                    201.1999969482422
+                  ],
+                  "column": 2,
+                  "row": 1,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "2",
+                  "word_ids": [
+                    66
+                  ]
+                }
+              ],
+              "index": 1
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    201.1999969482422,
+                    432.4100036621094,
+                    210.89999389648438
+                  ],
+                  "column": 0,
+                  "row": 2,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Issuer",
+                  "word_ids": [
+                    67
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    201.1999969482422,
+                    584.8300170898438,
+                    210.89999389648438
+                  ],
+                  "column": 1,
+                  "row": 2,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "QATAR NATIONAL BANK Q.P.S.C.",
+                  "word_ids": [
+                    68,
+                    69,
+                    70,
+                    71
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    201.1999969482422,
+                    785.1500244140625,
+                    210.89999389648438
+                  ],
+                  "column": 2,
+                  "row": 2,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "QNB BANK A.Ş.",
+                  "word_ids": [
+                    72,
+                    73,
+                    74
+                  ]
+                }
+              ],
+              "index": 2
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    210.89999389648438,
+                    432.4100036621094,
+                    229.6999969482422
+                  ],
+                  "column": 0,
+                  "row": 3,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Unique identifier (e.g., CUSIP, ISIN)",
+                  "word_ids": [
+                    75,
+                    76,
+                    77,
+                    78,
+                    79
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    210.89999389648438,
+                    584.8300170898438,
+                    229.6999969482422
+                  ],
+                  "column": 1,
+                  "row": 3,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    80
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    210.89999389648438,
+                    785.1500244140625,
+                    229.6999969482422
+                  ],
+                  "column": 2,
+                  "row": 3,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "ISIN: XS2678233243\nCommon Code: 267823324",
+                  "word_ids": [
+                    81,
+                    82,
+                    83,
+                    84,
+                    85
+                  ]
+                }
+              ],
+              "index": 3
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    229.6999969482422,
+                    432.4100036621094,
+                    248.6999969482422
+                  ],
+                  "column": 0,
+                  "row": 4,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Governing law(s) of the instrument",
+                  "word_ids": [
+                    86,
+                    87,
+                    88,
+                    89,
+                    90
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    229.6999969482422,
+                    584.8300170898438,
+                    248.6999969482422
+                  ],
+                  "column": 1,
+                  "row": 4,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "BRSA",
+                  "word_ids": [
+                    91
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    229.6999969482422,
+                    785.1500244140625,
+                    248.6999969482422
+                  ],
+                  "column": 2,
+                  "row": 4,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "It is subject to English Law and, with respect to certain\narticles, to Turkish regulations (CMB-BRSA).",
+                  "word_ids": [
+                    92,
+                    93,
+                    94,
+                    95,
+                    96,
+                    97,
+                    98,
+                    99,
+                    100,
+                    101,
+                    102,
+                    103,
+                    104,
+                    105,
+                    106,
+                    107
+                  ]
+                }
+              ],
+              "index": 4
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    248.6999969482422,
+                    785.1500244140625,
+                    258.29998779296875
+                  ],
+                  "column": 0,
+                  "row": 5,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Regulatory treatment",
+                  "word_ids": [
+                    108,
+                    109
+                  ]
+                },
+                {
+                  "bbox": null,
+                  "column": 1,
+                  "row": 5,
+                  "slot_status": "absent_or_merged",
+                  "source_text_matches": true,
+                  "text": null,
+                  "word_ids": []
+                },
+                {
+                  "bbox": null,
+                  "column": 2,
+                  "row": 5,
+                  "slot_status": "absent_or_merged",
+                  "source_text_matches": true,
+                  "text": null,
+                  "word_ids": []
+                }
+              ],
+              "index": 5
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    258.29998779296875,
+                    432.4100036621094,
+                    268.0
+                  ],
+                  "column": 0,
+                  "row": 6,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Since 1.1.2015 10% reduction by being subject to the application",
+                  "word_ids": [
+                    110,
+                    111,
+                    112,
+                    113,
+                    114,
+                    115,
+                    116,
+                    117,
+                    118,
+                    119
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    258.29998779296875,
+                    584.8300170898438,
+                    268.0
+                  ],
+                  "column": 1,
+                  "row": 6,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "No",
+                  "word_ids": [
+                    120
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    258.29998779296875,
+                    785.1500244140625,
+                    268.0
+                  ],
+                  "column": 2,
+                  "row": 6,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "No",
+                  "word_ids": [
+                    121
+                  ]
+                }
+              ],
+              "index": 6
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    268.0,
+                    432.4100036621094,
+                    277.70001220703125
+                  ],
+                  "column": 0,
+                  "row": 7,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Eligible at stand-alone/consolidated",
+                  "word_ids": [
+                    122,
+                    123,
+                    124
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    268.0,
+                    584.8300170898438,
+                    277.70001220703125
+                  ],
+                  "column": 1,
+                  "row": 7,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Stand-alone - Consolidated",
+                  "word_ids": [
+                    125,
+                    126,
+                    127
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    268.0,
+                    785.1500244140625,
+                    277.70001220703125
+                  ],
+                  "column": 2,
+                  "row": 7,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Stand-alone-Consolidated",
+                  "word_ids": [
+                    128
+                  ]
+                }
+              ],
+              "index": 7
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    277.70001220703125,
+                    432.4100036621094,
+                    287.3999938964844
+                  ],
+                  "column": 0,
+                  "row": 8,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Instrument type",
+                  "word_ids": [
+                    129,
+                    130
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    277.70001220703125,
+                    584.8300170898438,
+                    287.3999938964844
+                  ],
+                  "column": 1,
+                  "row": 8,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Loan",
+                  "word_ids": [
+                    131
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    277.70001220703125,
+                    785.1500244140625,
+                    287.3999938964844
+                  ],
+                  "column": 2,
+                  "row": 8,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Subordinated debt instrument (Bond)",
+                  "word_ids": [
+                    132,
+                    133,
+                    134,
+                    135
+                  ]
+                }
+              ],
+              "index": 8
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    287.3999938964844,
+                    432.4100036621094,
+                    306.29998779296875
+                  ],
+                  "column": 0,
+                  "row": 9,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Amount recognized in regulatory capital (Currency in million, as of most recent reporting\ndate)",
+                  "word_ids": [
+                    136,
+                    137,
+                    138,
+                    139,
+                    140,
+                    141,
+                    142,
+                    143,
+                    144,
+                    145,
+                    146,
+                    147,
+                    148,
+                    149
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    287.3999938964844,
+                    584.8300170898438,
+                    306.29998779296875
+                  ],
+                  "column": 1,
+                  "row": 9,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "23,981",
+                  "word_ids": [
+                    150
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    287.3999938964844,
+                    785.1500244140625,
+                    306.29998779296875
+                  ],
+                  "column": 2,
+                  "row": 9,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "13,854",
+                  "word_ids": [
+                    151
+                  ]
+                }
+              ],
+              "index": 9
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    306.29998779296875,
+                    432.4100036621094,
+                    316.0
+                  ],
+                  "column": 0,
+                  "row": 10,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Par value of instrument (Currency in million)",
+                  "word_ids": [
+                    152,
+                    153,
+                    154,
+                    155,
+                    156,
+                    157,
+                    158
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    306.29998779296875,
+                    584.8300170898438,
+                    316.0
+                  ],
+                  "column": 1,
+                  "row": 10,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "23,981",
+                  "word_ids": [
+                    159
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    306.29998779296875,
+                    785.1500244140625,
+                    316.0
+                  ],
+                  "column": 2,
+                  "row": 10,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "13,854",
+                  "word_ids": [
+                    160
+                  ]
+                }
+              ],
+              "index": 10
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    316.0,
+                    432.4100036621094,
+                    335.0
+                  ],
+                  "column": 0,
+                  "row": 11,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Accounting classification",
+                  "word_ids": [
+                    161,
+                    162
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    316.0,
+                    584.8300170898438,
+                    335.0
+                  ],
+                  "column": 1,
+                  "row": 11,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Liability – Subordinated Loans- amortized\ncost",
+                  "word_ids": [
+                    163,
+                    164,
+                    165,
+                    166,
+                    167,
+                    168
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    316.0,
+                    785.1500244140625,
+                    335.0
+                  ],
+                  "column": 2,
+                  "row": 11,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Liability – Subordinated Debt Instruments- amortized cost",
+                  "word_ids": [
+                    169,
+                    170,
+                    171,
+                    172,
+                    173,
+                    174,
+                    175
+                  ]
+                }
+              ],
+              "index": 11
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    335.0,
+                    432.4100036621094,
+                    344.70001220703125
+                  ],
+                  "column": 0,
+                  "row": 12,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Original date of issuance",
+                  "word_ids": [
+                    176,
+                    177,
+                    178,
+                    179
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    335.0,
+                    584.8300170898438,
+                    344.70001220703125
+                  ],
+                  "column": 1,
+                  "row": 12,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "June 30, 2019",
+                  "word_ids": [
+                    180,
+                    181,
+                    182
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    335.0,
+                    785.1500244140625,
+                    344.70001220703125
+                  ],
+                  "column": 2,
+                  "row": 12,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Nov 15, 2023",
+                  "word_ids": [
+                    183,
+                    184,
+                    185
+                  ]
+                }
+              ],
+              "index": 12
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    344.70001220703125,
+                    432.4100036621094,
+                    354.29998779296875
+                  ],
+                  "column": 0,
+                  "row": 13,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Perpetual or dated",
+                  "word_ids": [
+                    186,
+                    187,
+                    188
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    344.70001220703125,
+                    584.8300170898438,
+                    354.29998779296875
+                  ],
+                  "column": 1,
+                  "row": 13,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Undated",
+                  "word_ids": [
+                    189
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    344.70001220703125,
+                    785.1500244140625,
+                    354.29998779296875
+                  ],
+                  "column": 2,
+                  "row": 13,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Dated",
+                  "word_ids": [
+                    190
+                  ]
+                }
+              ],
+              "index": 13
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    354.29998779296875,
+                    432.4100036621094,
+                    364.0
+                  ],
+                  "column": 0,
+                  "row": 14,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Original maturity date",
+                  "word_ids": [
+                    191,
+                    192,
+                    193
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    354.29998779296875,
+                    584.8300170898438,
+                    364.0
+                  ],
+                  "column": 1,
+                  "row": 14,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    194
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    354.29998779296875,
+                    785.1500244140625,
+                    364.0
+                  ],
+                  "column": 2,
+                  "row": 14,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Nov 15, 2033",
+                  "word_ids": [
+                    195,
+                    196,
+                    197
+                  ]
+                }
+              ],
+              "index": 14
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    364.0,
+                    432.4100036621094,
+                    373.79998779296875
+                  ],
+                  "column": 0,
+                  "row": 15,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Issuer call subject to prior BRSA approval",
+                  "word_ids": [
+                    198,
+                    199,
+                    200,
+                    201,
+                    202,
+                    203,
+                    204
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    364.0,
+                    584.8300170898438,
+                    373.79998779296875
+                  ],
+                  "column": 1,
+                  "row": 15,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Yes",
+                  "word_ids": [
+                    205
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    364.0,
+                    785.1500244140625,
+                    373.79998779296875
+                  ],
+                  "column": 2,
+                  "row": 15,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Yes",
+                  "word_ids": [
+                    206
+                  ]
+                }
+              ],
+              "index": 15
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    373.79998779296875,
+                    432.4100036621094,
+                    383.5
+                  ],
+                  "column": 0,
+                  "row": 16,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Optional call date, contingent call dates and redemption amount",
+                  "word_ids": [
+                    207,
+                    208,
+                    209,
+                    210,
+                    211,
+                    212,
+                    213,
+                    214,
+                    215
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    373.79998779296875,
+                    584.8300170898438,
+                    383.5
+                  ],
+                  "column": 1,
+                  "row": 16,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "June 29-29, USD 525,000,000",
+                  "word_ids": [
+                    216,
+                    217,
+                    218,
+                    219
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    373.79998779296875,
+                    785.1500244140625,
+                    383.5
+                  ],
+                  "column": 2,
+                  "row": 16,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "November 15-28, USD 300,000,000",
+                  "word_ids": [
+                    220,
+                    221,
+                    222,
+                    223
+                  ]
+                }
+              ],
+              "index": 16
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    383.5,
+                    432.4100036621094,
+                    393.20001220703125
+                  ],
+                  "column": 0,
+                  "row": 17,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Subsequent call dates, if applicable",
+                  "word_ids": [
+                    224,
+                    225,
+                    226,
+                    227,
+                    228
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    383.5,
+                    584.8300170898438,
+                    393.20001220703125
+                  ],
+                  "column": 1,
+                  "row": 17,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    229
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    383.5,
+                    785.1500244140625,
+                    393.20001220703125
+                  ],
+                  "column": 2,
+                  "row": 17,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    230
+                  ]
+                }
+              ],
+              "index": 17
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    393.20001220703125,
+                    785.1500244140625,
+                    402.8999938964844
+                  ],
+                  "column": 0,
+                  "row": 18,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Coupons/dividends",
+                  "word_ids": [
+                    231
+                  ]
+                },
+                {
+                  "bbox": null,
+                  "column": 1,
+                  "row": 18,
+                  "slot_status": "absent_or_merged",
+                  "source_text_matches": true,
+                  "text": null,
+                  "word_ids": []
+                },
+                {
+                  "bbox": null,
+                  "column": 2,
+                  "row": 18,
+                  "slot_status": "absent_or_merged",
+                  "source_text_matches": true,
+                  "text": null,
+                  "word_ids": []
+                }
+              ],
+              "index": 18
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    402.8999938964844,
+                    432.4100036621094,
+                    412.5
+                  ],
+                  "column": 0,
+                  "row": 19,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Fixed or floating dividend/coupon",
+                  "word_ids": [
+                    232,
+                    233,
+                    234,
+                    235
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    402.8999938964844,
+                    584.8300170898438,
+                    412.5
+                  ],
+                  "column": 1,
+                  "row": 19,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Fixed",
+                  "word_ids": [
+                    236
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    402.8999938964844,
+                    785.1500244140625,
+                    412.5
+                  ],
+                  "column": 2,
+                  "row": 19,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Fixed",
+                  "word_ids": [
+                    237
+                  ]
+                }
+              ],
+              "index": 19
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    412.5,
+                    432.4100036621094,
+                    440.70001220703125
+                  ],
+                  "column": 0,
+                  "row": 20,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Coupon rate and any related index",
+                  "word_ids": [
+                    238,
+                    239,
+                    240,
+                    241,
+                    242,
+                    243
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    412.5,
+                    584.8300170898438,
+                    440.70001220703125
+                  ],
+                  "column": 1,
+                  "row": 20,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "First 5 years fixed at 9.50%, next 5 years\nfixed at SOFR + 7.36%",
+                  "word_ids": [
+                    244,
+                    245,
+                    246,
+                    247,
+                    248,
+                    249,
+                    250,
+                    251,
+                    252,
+                    253,
+                    254,
+                    255,
+                    256,
+                    257
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    412.5,
+                    785.1500244140625,
+                    440.70001220703125
+                  ],
+                  "column": 2,
+                  "row": 20,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "10.75%",
+                  "word_ids": [
+                    258
+                  ]
+                }
+              ],
+              "index": 20
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    440.70001220703125,
+                    432.4100036621094,
+                    459.6000061035156
+                  ],
+                  "column": 0,
+                  "row": 21,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Existence of a dividend stopper",
+                  "word_ids": [
+                    259,
+                    260,
+                    261,
+                    262,
+                    263
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    440.70001220703125,
+                    584.8300170898438,
+                    459.6000061035156
+                  ],
+                  "column": 1,
+                  "row": 21,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "There will be no interest on the deducted\nvalue after the impairment",
+                  "word_ids": [
+                    264,
+                    265,
+                    266,
+                    267,
+                    268,
+                    269,
+                    270,
+                    271,
+                    272,
+                    273,
+                    274,
+                    275
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    440.70001220703125,
+                    785.1500244140625,
+                    459.6000061035156
+                  ],
+                  "column": 2,
+                  "row": 21,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    276
+                  ]
+                }
+              ],
+              "index": 21
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    127.69000244140625,
+                    459.6000061035156,
+                    432.4100036621094,
+                    469.3600158691406
+                  ],
+                  "column": 0,
+                  "row": 22,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Fully discretionary, partially discretionary or mandatory",
+                  "word_ids": [
+                    277,
+                    278,
+                    279,
+                    280,
+                    281,
+                    282
+                  ]
+                },
+                {
+                  "bbox": [
+                    432.4100036621094,
+                    459.6000061035156,
+                    584.8300170898438,
+                    469.3600158691406
+                  ],
+                  "column": 1,
+                  "row": 22,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Optional",
+                  "word_ids": [
+                    283
+                  ]
+                },
+                {
+                  "bbox": [
+                    584.8300170898438,
+                    459.6000061035156,
+                    785.1500244140625,
+                    469.3600158691406
+                  ],
+                  "column": 2,
+                  "row": 22,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    284
+                  ]
+                }
+              ],
+              "index": 22
+            }
+          ]
+        }
+      ],
+      "narrative_elements": [
+        {
+          "bbox": [
+            85.08,
+            113.5457,
+            595.12,
+            124.5714
+          ],
+          "font_size": 9.96,
+          "heading_context_scope": "page",
+          "heading_context_verified": false,
+          "heading_path": [],
+          "id": "p47:narrative4",
+          "kind": "heading_candidate",
+          "method": "source_line_spacing_and_style",
+          "review_status": "unreviewed",
+          "section_candidate": {
+            "number": 4,
+            "role": "risk",
+            "title": "Information Related to Financial Position and Risk Management of the Bank"
+          },
+          "source_lines": [
+            [
+              2,
+              0
+            ]
+          ],
+          "span_ids": [
+            8
+          ],
+          "table_ids": [],
+          "text": "INFORMATION RELATED TO FINANCIAL POSITION AND RISK MANAGEMENT OF THE BANK (Continued) "
+        },
+        {
+          "bbox": [
+            127.7,
+            136.5857,
+            285.02,
+            147.6114
+          ],
+          "font_size": 9.96,
+          "heading_context_scope": "page",
+          "heading_context_verified": false,
+          "heading_path": [],
+          "id": "p47:narrative6",
+          "kind": "heading_candidate",
+          "method": "source_line_spacing_and_style",
+          "review_status": "unreviewed",
+          "section_candidate": {
+            "number": 4,
+            "role": "risk",
+            "title": "Information Related to Financial Position and Risk Management of the Bank"
+          },
+          "source_lines": [
+            [
+              2,
+              3
+            ]
+          ],
+          "span_ids": [
+            11
+          ],
+          "table_ids": [],
+          "text": "Explanations on Equity (Continued) "
+        },
+        {
+          "bbox": [
+            127.7,
+            159.5056,
+            425.54,
+            170.5314
+          ],
+          "font_size": 9.96,
+          "heading_context_scope": "page",
+          "heading_context_verified": false,
+          "heading_path": [],
+          "id": "p47:narrative7",
+          "kind": "heading_candidate",
+          "method": "source_line_spacing_and_style",
+          "review_status": "unreviewed",
+          "section_candidate": {
+            "number": 4,
+            "role": "risk",
+            "title": "Information Related to Financial Position and Risk Management of the Bank"
+          },
+          "source_lines": [
+            [
+              3,
+              0
+            ]
+          ],
+          "span_ids": [
+            13
+          ],
+          "table_ids": [],
+          "text": "Information on debt instruments included in the calculation of equity "
+        }
+      ]
+    },
+    {
+      "page": 48,
+      "tables": [
+        {
+          "bbox": [
+            126.36737060546875,
+            184.52000427246094,
+            781.91259765625,
+            416.77001953125
+          ],
+          "header_association_verified": false,
+          "header_external": false,
+          "header_names": [
+            "",
+            "1",
+            "2"
+          ],
+          "id": "p48:ruled0",
+          "image_rule_candidates": [
+            [
+              [
+                126.62,
+                194.3
+              ],
+              [
+                780.7,
+                194.3
+              ]
+            ],
+            [
+              [
+                126.62,
+                204.1
+              ],
+              [
+                780.7,
+                204.1
+              ]
+            ],
+            [
+              [
+                126.62,
+                213.8
+              ],
+              [
+                780.7,
+                213.8
+              ]
+            ],
+            [
+              [
+                126.62,
+                223.4
+              ],
+              [
+                780.7,
+                223.4
+              ]
+            ],
+            [
+              [
+                126.62,
+                233.1
+              ],
+              [
+                780.7,
+                233.1
+              ]
+            ],
+            [
+              [
+                126.62,
+                245.1
+              ],
+              [
+                780.7,
+                245.1
+              ]
+            ],
+            [
+              [
+                126.62,
+                254.8
+              ],
+              [
+                780.7,
+                254.8
+              ]
+            ],
+            [
+              [
+                126.62,
+                264.5
+              ],
+              [
+                780.7,
+                264.5
+              ]
+            ],
+            [
+              [
+                126.62,
+                274.2
+              ],
+              [
+                780.7,
+                274.2
+              ]
+            ],
+            [
+              [
+                126.62,
+                284.0
+              ],
+              [
+                780.7,
+                284.0
+              ]
+            ],
+            [
+              [
+                126.62,
+                293.6
+              ],
+              [
+                780.7,
+                293.6
+              ]
+            ],
+            [
+              [
+                126.62,
+                321.8
+              ],
+              [
+                780.7,
+                321.8
+              ]
+            ],
+            [
+              [
+                126.62,
+                331.4
+              ],
+              [
+                780.7,
+                331.4
+              ]
+            ],
+            [
+              [
+                126.62,
+                341.1
+              ],
+              [
+                780.7,
+                341.1
+              ]
+            ],
+            [
+              [
+                126.62,
+                360.1
+              ],
+              [
+                780.7,
+                360.1
+              ]
+            ],
+            [
+              [
+                126.62,
+                378.9
+              ],
+              [
+                780.7,
+                378.9
+              ]
+            ],
+            [
+              [
+                126.62,
+                397.9
+              ],
+              [
+                780.7,
+                397.9
+              ]
+            ]
+          ],
+          "kind": "table_candidate",
+          "method": "pymupdf_lines_strict",
+          "n_cols": 3,
+          "review_status": "unreviewed",
+          "row_count": 18,
+          "rows": [
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    184.52000427246094,
+                    389.0899963378906,
+                    194.3000030517578
+                  ],
+                  "column": 0,
+                  "row": 0,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "",
+                  "word_ids": []
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    184.52000427246094,
+                    571.6300048828125,
+                    194.3000030517578
+                  ],
+                  "column": 1,
+                  "row": 0,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "1",
+                  "word_ids": [
+                    56
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    184.52000427246094,
+                    781.91259765625,
+                    194.3000030517578
+                  ],
+                  "column": 2,
+                  "row": 0,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "2",
+                  "word_ids": [
+                    57
+                  ]
+                }
+              ],
+              "index": 0
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    194.3000030517578,
+                    389.0899963378906,
+                    204.10000610351562
+                  ],
+                  "column": 0,
+                  "row": 1,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Existence of any incentive to redeem (e.g. interest rate step‑up)",
+                  "word_ids": [
+                    58,
+                    59,
+                    60,
+                    61,
+                    62,
+                    63,
+                    64,
+                    65,
+                    66,
+                    67
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    194.3000030517578,
+                    571.6300048828125,
+                    204.10000610351562
+                  ],
+                  "column": 1,
+                  "row": 1,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    68
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    194.3000030517578,
+                    781.91259765625,
+                    204.10000610351562
+                  ],
+                  "column": 2,
+                  "row": 1,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    69
+                  ]
+                }
+              ],
+              "index": 1
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    204.10000610351562,
+                    389.0899963378906,
+                    213.8000030517578
+                  ],
+                  "column": 0,
+                  "row": 2,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Cumulative or non-cumulative feature",
+                  "word_ids": [
+                    70,
+                    71,
+                    72,
+                    73
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    204.10000610351562,
+                    571.6300048828125,
+                    213.8000030517578
+                  ],
+                  "column": 1,
+                  "row": 2,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Noncumulative",
+                  "word_ids": [
+                    74
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    204.10000610351562,
+                    781.91259765625,
+                    213.8000030517578
+                  ],
+                  "column": 2,
+                  "row": 2,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Non-cumulative",
+                  "word_ids": [
+                    75
+                  ]
+                }
+              ],
+              "index": 2
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    213.8000030517578,
+                    781.91259765625,
+                    223.39999389648438
+                  ],
+                  "column": 0,
+                  "row": 3,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Convertible or non-convertible",
+                  "word_ids": [
+                    76,
+                    77,
+                    78
+                  ]
+                },
+                {
+                  "bbox": null,
+                  "column": 1,
+                  "row": 3,
+                  "slot_status": "absent_or_merged",
+                  "source_text_matches": true,
+                  "text": null,
+                  "word_ids": []
+                },
+                {
+                  "bbox": null,
+                  "column": 2,
+                  "row": 3,
+                  "slot_status": "absent_or_merged",
+                  "source_text_matches": true,
+                  "text": null,
+                  "word_ids": []
+                }
+              ],
+              "index": 3
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    223.39999389648438,
+                    389.0899963378906,
+                    233.10000610351562
+                  ],
+                  "column": 0,
+                  "row": 4,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "If convertible, conversion trigger event(s)",
+                  "word_ids": [
+                    79,
+                    80,
+                    81,
+                    82,
+                    83
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    223.39999389648438,
+                    571.6300048828125,
+                    233.10000610351562
+                  ],
+                  "column": 1,
+                  "row": 4,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    84
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    223.39999389648438,
+                    781.91259765625,
+                    233.10000610351562
+                  ],
+                  "column": 2,
+                  "row": 4,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    85
+                  ]
+                }
+              ],
+              "index": 4
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    233.10000610351562,
+                    389.0899963378906,
+                    245.10000610351562
+                  ],
+                  "column": 0,
+                  "row": 5,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "If convertible, full or partial conversion feature",
+                  "word_ids": [
+                    86,
+                    87,
+                    88,
+                    89,
+                    90,
+                    91,
+                    92
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    233.10000610351562,
+                    571.6300048828125,
+                    245.10000610351562
+                  ],
+                  "column": 1,
+                  "row": 5,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    93
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    233.10000610351562,
+                    781.91259765625,
+                    245.10000610351562
+                  ],
+                  "column": 2,
+                  "row": 5,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    94
+                  ]
+                }
+              ],
+              "index": 5
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    245.10000610351562,
+                    389.0899963378906,
+                    254.8000030517578
+                  ],
+                  "column": 0,
+                  "row": 6,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "If convertible, conversion rate",
+                  "word_ids": [
+                    95,
+                    96,
+                    97,
+                    98
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    245.10000610351562,
+                    571.6300048828125,
+                    254.8000030517578
+                  ],
+                  "column": 1,
+                  "row": 6,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    99
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    245.10000610351562,
+                    781.91259765625,
+                    254.8000030517578
+                  ],
+                  "column": 2,
+                  "row": 6,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    100
+                  ]
+                }
+              ],
+              "index": 6
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    254.8000030517578,
+                    389.0899963378906,
+                    264.5
+                  ],
+                  "column": 0,
+                  "row": 7,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "If convertible, mandatory or optional conversion",
+                  "word_ids": [
+                    101,
+                    102,
+                    103,
+                    104,
+                    105,
+                    106
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    254.8000030517578,
+                    571.6300048828125,
+                    264.5
+                  ],
+                  "column": 1,
+                  "row": 7,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    107
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    254.8000030517578,
+                    781.91259765625,
+                    264.5
+                  ],
+                  "column": 2,
+                  "row": 7,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    108
+                  ]
+                }
+              ],
+              "index": 7
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    264.5,
+                    389.0899963378906,
+                    274.20001220703125
+                  ],
+                  "column": 0,
+                  "row": 8,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "If convertible, types of instruments type convertible into equity",
+                  "word_ids": [
+                    109,
+                    110,
+                    111,
+                    112,
+                    113,
+                    114,
+                    115,
+                    116,
+                    117
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    264.5,
+                    571.6300048828125,
+                    274.20001220703125
+                  ],
+                  "column": 1,
+                  "row": 8,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    118
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    264.5,
+                    781.91259765625,
+                    274.20001220703125
+                  ],
+                  "column": 2,
+                  "row": 8,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    119
+                  ]
+                }
+              ],
+              "index": 8
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    274.20001220703125,
+                    389.0899963378906,
+                    284.0
+                  ],
+                  "column": 0,
+                  "row": 9,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "If convertible, issuer of the instrument to be converted",
+                  "word_ids": [
+                    120,
+                    121,
+                    122,
+                    123,
+                    124,
+                    125,
+                    126,
+                    127,
+                    128
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    274.20001220703125,
+                    571.6300048828125,
+                    284.0
+                  ],
+                  "column": 1,
+                  "row": 9,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    129
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    274.20001220703125,
+                    781.91259765625,
+                    284.0
+                  ],
+                  "column": 2,
+                  "row": 9,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    130
+                  ]
+                }
+              ],
+              "index": 9
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    284.0,
+                    781.91259765625,
+                    293.6000061035156
+                  ],
+                  "column": 0,
+                  "row": 10,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Write-down feature",
+                  "word_ids": [
+                    131,
+                    132
+                  ]
+                },
+                {
+                  "bbox": null,
+                  "column": 1,
+                  "row": 10,
+                  "slot_status": "absent_or_merged",
+                  "source_text_matches": true,
+                  "text": null,
+                  "word_ids": []
+                },
+                {
+                  "bbox": null,
+                  "column": 2,
+                  "row": 10,
+                  "slot_status": "absent_or_merged",
+                  "source_text_matches": true,
+                  "text": null,
+                  "word_ids": []
+                }
+              ],
+              "index": 10
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    293.6000061035156,
+                    389.0899963378906,
+                    321.79998779296875
+                  ],
+                  "column": 0,
+                  "row": 11,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "If write-down, write-down trigger(s)",
+                  "word_ids": [
+                    133,
+                    134,
+                    135,
+                    136
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    293.6000061035156,
+                    571.6300048828125,
+                    321.79998779296875
+                  ],
+                  "column": 1,
+                  "row": 11,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Non-existence of the core capital ratio is less than\n5.125%",
+                  "word_ids": [
+                    137,
+                    138,
+                    139,
+                    140,
+                    141,
+                    142,
+                    143,
+                    144,
+                    145,
+                    146
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    293.6000061035156,
+                    781.91259765625,
+                    321.79998779296875
+                  ],
+                  "column": 2,
+                  "row": 11,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "The occurrence of non-existence",
+                  "word_ids": [
+                    147,
+                    148,
+                    149,
+                    150
+                  ]
+                }
+              ],
+              "index": 11
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    321.79998779296875,
+                    389.0899963378906,
+                    331.3999938964844
+                  ],
+                  "column": 0,
+                  "row": 12,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "If write-down, full or partial",
+                  "word_ids": [
+                    151,
+                    152,
+                    153,
+                    154,
+                    155
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    321.79998779296875,
+                    571.6300048828125,
+                    331.3999938964844
+                  ],
+                  "column": 1,
+                  "row": 12,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Partially or fully",
+                  "word_ids": [
+                    156,
+                    157,
+                    158
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    321.79998779296875,
+                    781.91259765625,
+                    331.3999938964844
+                  ],
+                  "column": 2,
+                  "row": 12,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Partially or fully",
+                  "word_ids": [
+                    159,
+                    160,
+                    161
+                  ]
+                }
+              ],
+              "index": 12
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    331.3999938964844,
+                    389.0899963378906,
+                    341.1000061035156
+                  ],
+                  "column": 0,
+                  "row": 13,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "If write-down, permanent or temporary",
+                  "word_ids": [
+                    162,
+                    163,
+                    164,
+                    165,
+                    166
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    331.3999938964844,
+                    571.6300048828125,
+                    341.1000061035156
+                  ],
+                  "column": 1,
+                  "row": 13,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Temporary",
+                  "word_ids": [
+                    167
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    331.3999938964844,
+                    781.91259765625,
+                    341.1000061035156
+                  ],
+                  "column": 2,
+                  "row": 13,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Temporary",
+                  "word_ids": [
+                    168
+                  ]
+                }
+              ],
+              "index": 13
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    341.1000061035156,
+                    389.0899963378906,
+                    360.1000061035156
+                  ],
+                  "column": 0,
+                  "row": 14,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "If temporary write-down, description of write-up mechanism",
+                  "word_ids": [
+                    169,
+                    170,
+                    171,
+                    172,
+                    173,
+                    174,
+                    175
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    341.1000061035156,
+                    571.6300048828125,
+                    360.1000061035156
+                  ],
+                  "column": 1,
+                  "row": 14,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Disappearance of non-existence and higher core\ncapital ratio than 5.125 %",
+                  "word_ids": [
+                    176,
+                    177,
+                    178,
+                    179,
+                    180,
+                    181,
+                    182,
+                    183,
+                    184,
+                    185,
+                    186
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    341.1000061035156,
+                    781.91259765625,
+                    360.1000061035156
+                  ],
+                  "column": 2,
+                  "row": 14,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "-",
+                  "word_ids": [
+                    187
+                  ]
+                }
+              ],
+              "index": 14
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    360.1000061035156,
+                    389.0899963378906,
+                    378.8999938964844
+                  ],
+                  "column": 0,
+                  "row": 15,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Position in subordination hierarchy in liquidation (specify instrument type\nimmediately senior to instrument)",
+                  "word_ids": [
+                    188,
+                    189,
+                    190,
+                    191,
+                    192,
+                    193,
+                    194,
+                    195,
+                    196,
+                    197,
+                    198,
+                    199,
+                    200
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    360.1000061035156,
+                    571.6300048828125,
+                    378.8999938964844
+                  ],
+                  "column": 1,
+                  "row": 15,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "After debt instruments and additional tier 1 capital\ninstruments",
+                  "word_ids": [
+                    201,
+                    202,
+                    203,
+                    204,
+                    205,
+                    206,
+                    207,
+                    208,
+                    209
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    360.1000061035156,
+                    781.91259765625,
+                    378.8999938964844
+                  ],
+                  "column": 2,
+                  "row": 15,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "After debt instruments and additional tier 1 capital, ranking\npari passu with other additional tier 1 instruments",
+                  "word_ids": [
+                    210,
+                    211,
+                    212,
+                    213,
+                    214,
+                    215,
+                    216,
+                    217,
+                    218,
+                    219,
+                    220,
+                    221,
+                    222,
+                    223,
+                    224,
+                    225,
+                    226
+                  ]
+                }
+              ],
+              "index": 15
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    378.8999938964844,
+                    389.0899963378906,
+                    397.8999938964844
+                  ],
+                  "column": 0,
+                  "row": 16,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Incompliance with article number 7 and 8 of “Own fund regulation”",
+                  "word_ids": [
+                    227,
+                    228,
+                    229,
+                    230,
+                    231,
+                    232,
+                    233,
+                    234,
+                    235,
+                    236,
+                    237
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    378.8999938964844,
+                    571.6300048828125,
+                    397.8999938964844
+                  ],
+                  "column": 1,
+                  "row": 16,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "It complies with requirements specified in Article 7 of\nthe regulation on Bank’s equity.",
+                  "word_ids": [
+                    238,
+                    239,
+                    240,
+                    241,
+                    242,
+                    243,
+                    244,
+                    245,
+                    246,
+                    247,
+                    248,
+                    249,
+                    250,
+                    251
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    378.8999938964844,
+                    781.91259765625,
+                    397.8999938964844
+                  ],
+                  "column": 2,
+                  "row": 16,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "It complies with requirements specified in Article 8 of the\nregulation on Banks Equity’.",
+                  "word_ids": [
+                    252,
+                    253,
+                    254,
+                    255,
+                    256,
+                    257,
+                    258,
+                    259,
+                    260,
+                    261,
+                    262,
+                    263,
+                    264,
+                    265
+                  ]
+                }
+              ],
+              "index": 16
+            },
+            {
+              "cells": [
+                {
+                  "bbox": [
+                    126.36737060546875,
+                    397.8999938964844,
+                    389.0899963378906,
+                    416.77001953125
+                  ],
+                  "column": 0,
+                  "row": 17,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "Details of incompliances with article number 7 and 8 of “Own fund regulation”",
+                  "word_ids": [
+                    266,
+                    267,
+                    268,
+                    269,
+                    270,
+                    271,
+                    272,
+                    273,
+                    274,
+                    275,
+                    276,
+                    277,
+                    278
+                  ]
+                },
+                {
+                  "bbox": [
+                    389.0899963378906,
+                    397.8999938964844,
+                    571.6300048828125,
+                    416.77001953125
+                  ],
+                  "column": 1,
+                  "row": 17,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "It does not comply with the conditions laid down in\nArticle 8.",
+                  "word_ids": [
+                    279,
+                    280,
+                    281,
+                    282,
+                    283,
+                    284,
+                    285,
+                    286,
+                    287,
+                    288,
+                    289,
+                    290
+                  ]
+                },
+                {
+                  "bbox": [
+                    571.6300048828125,
+                    397.8999938964844,
+                    781.91259765625,
+                    416.77001953125
+                  ],
+                  "column": 2,
+                  "row": 17,
+                  "slot_status": "present",
+                  "source_text_matches": true,
+                  "text": "It does not comply with the conditions laid down in Article 7.",
+                  "word_ids": [
+                    291,
+                    292,
+                    293,
+                    294,
+                    295,
+                    296,
+                    297,
+                    298,
+                    299,
+                    300,
+                    301,
+                    302
+                  ]
+                }
+              ],
+              "index": 17
+            }
+          ]
+        }
+      ],
+      "narrative_elements": [
+        {
+          "bbox": [
+            85.08,
+            115.8257,
+            595.12,
+            126.8514
+          ],
+          "font_size": 9.96,
+          "heading_context_scope": "page",
+          "heading_context_verified": false,
+          "heading_path": [],
+          "id": "p48:narrative4",
+          "kind": "heading_candidate",
+          "method": "source_line_spacing_and_style",
+          "review_status": "unreviewed",
+          "section_candidate": {
+            "number": 4,
+            "role": "risk",
+            "title": "Information Related to Financial Position and Risk Management of the Bank"
+          },
+          "source_lines": [
+            [
+              2,
+              0
+            ]
+          ],
+          "span_ids": [
+            8
+          ],
+          "table_ids": [],
+          "text": "INFORMATION RELATED TO FINANCIAL POSITION AND RISK MANAGEMENT OF THE BANK (Continued) "
+        },
+        {
+          "bbox": [
+            127.7,
+            138.8657,
+            285.02,
+            149.8914
+          ],
+          "font_size": 9.96,
+          "heading_context_scope": "page",
+          "heading_context_verified": false,
+          "heading_path": [],
+          "id": "p48:narrative6",
+          "kind": "heading_candidate",
+          "method": "source_line_spacing_and_style",
+          "review_status": "unreviewed",
+          "section_candidate": {
+            "number": 4,
+            "role": "risk",
+            "title": "Information Related to Financial Position and Risk Management of the Bank"
+          },
+          "source_lines": [
+            [
+              2,
+              3
+            ]
+          ],
+          "span_ids": [
+            11
+          ],
+          "table_ids": [],
+          "text": "Explanations on Equity (Continued) "
+        },
+        {
+          "bbox": [
+            127.7,
+            161.7856,
+            479.68,
+            172.8114
+          ],
+          "font_size": 9.96,
+          "heading_context_scope": "page",
+          "heading_context_verified": false,
+          "heading_path": [],
+          "id": "p48:narrative7",
+          "kind": "heading_candidate",
+          "method": "source_line_spacing_and_style",
+          "review_status": "unreviewed",
+          "section_candidate": {
+            "number": 4,
+            "role": "risk",
+            "title": "Information Related to Financial Position and Risk Management of the Bank"
+          },
+          "source_lines": [
+            [
+              3,
+              0
+            ]
+          ],
+          "span_ids": [
+            13
+          ],
+          "table_ids": [],
+          "text": "Information on debt instruments included in the calculation of equity (Continued) "
+        }
+      ]
+    }
+  ],
+  "source_pages": [
+    {
+      "page": 47,
+      "spans": [
+        {
+          "bbox": [
+            85.08,
+            113.5457,
+            595.12,
+            124.5714
+          ],
+          "block": 2,
+          "direction": [
+            1.0,
+            0.0
+          ],
+          "flags": 20,
+          "font": "TimesNewRomanPS-BoldMT",
+          "id": 8,
+          "line": 0,
+          "size": 9.96,
+          "span": 0,
+          "text": "INFORMATION RELATED TO FINANCIAL POSITION AND RISK MANAGEMENT OF THE BANK (Continued) "
+        },
+        {
+          "bbox": [
+            127.7,
+            136.5857,
+            285.02,
+            147.6114
+          ],
+          "block": 2,
+          "direction": [
+            1.0,
+            0.0
+          ],
+          "flags": 20,
+          "font": "TimesNewRomanPS-BoldMT",
+          "id": 11,
+          "line": 3,
+          "size": 9.96,
+          "span": 0,
+          "text": "Explanations on Equity (Continued) "
+        },
+        {
+          "bbox": [
+            127.7,
+            159.5056,
+            425.54,
+            170.5314
+          ],
+          "block": 3,
+          "direction": [
+            1.0,
+            0.0
+          ],
+          "flags": 20,
+          "font": "TimesNewRomanPS-BoldMT",
+          "id": 13,
+          "line": 0,
+          "size": 9.96,
+          "span": 0,
+          "text": "Information on debt instruments included in the calculation of equity "
+        }
+      ],
+      "words": [
+        {
+          "bbox": [
+            345.65,
+            182.794,
+            384.8637,
+            191.163
+          ],
+          "block": 4,
+          "id": 55,
+          "line": 0,
+          "text": "Information",
+          "word": 0
+        },
+        {
+          "bbox": [
+            386.663,
+            182.794,
+            394.6992,
+            191.163
+          ],
+          "block": 4,
+          "id": 56,
+          "line": 0,
+          "text": "on",
+          "word": 1
+        },
+        {
+          "bbox": [
+            396.4985,
+            182.794,
+            410.7794,
+            191.163
+          ],
+          "block": 4,
+          "id": 57,
+          "line": 0,
+          "text": "debt",
+          "word": 2
+        },
+        {
+          "bbox": [
+            412.5711,
+            182.794,
+            450.8851,
+            191.163
+          ],
+          "block": 4,
+          "id": 58,
+          "line": 0,
+          "text": "instruments",
+          "word": 3
+        },
+        {
+          "bbox": [
+            452.7373,
+            182.794,
+            480.3389,
+            191.163
+          ],
+          "block": 4,
+          "id": 59,
+          "line": 0,
+          "text": "included",
+          "word": 4
+        },
+        {
+          "bbox": [
+            482.1306,
+            182.794,
+            488.4886,
+            191.163
+          ],
+          "block": 4,
+          "id": 60,
+          "line": 0,
+          "text": "in",
+          "word": 5
+        },
+        {
+          "bbox": [
+            490.2803,
+            182.794,
+            500.3578,
+            191.163
+          ],
+          "block": 4,
+          "id": 61,
+          "line": 0,
+          "text": "the",
+          "word": 6
+        },
+        {
+          "bbox": [
+            502.1495,
+            182.794,
+            537.175,
+            191.163
+          ],
+          "block": 4,
+          "id": 62,
+          "line": 0,
+          "text": "calculation",
+          "word": 7
+        },
+        {
+          "bbox": [
+            538.9744,
+            182.794,
+            545.3248,
+            191.163
+          ],
+          "block": 4,
+          "id": 63,
+          "line": 0,
+          "text": "of",
+          "word": 8
+        },
+        {
+          "bbox": [
+            547.1165,
+            182.794,
+            567.09,
+            191.163
+          ],
+          "block": 4,
+          "id": 64,
+          "line": 0,
+          "text": "equity",
+          "word": 9
+        },
+        {
+          "bbox": [
+            506.59,
+            192.0864,
+            510.61,
+            200.9866
+          ],
+          "block": 4,
+          "id": 65,
+          "line": 2,
+          "text": "1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            682.9,
+            192.0864,
+            686.92,
+            200.9866
+          ],
+          "block": 4,
+          "id": 66,
+          "line": 3,
+          "text": "2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            131.18,
+            201.8064,
+            150.2831,
+            210.7066
+          ],
+          "block": 4,
+          "id": 67,
+          "line": 4,
+          "text": "Issuer",
+          "word": 0
+        },
+        {
+          "bbox": [
+            445.85,
+            201.8064,
+            473.403,
+            210.7066
+          ],
+          "block": 4,
+          "id": 68,
+          "line": 6,
+          "text": "QATAR",
+          "word": 0
+        },
+        {
+          "bbox": [
+            475.4693,
+            201.8064,
+            516.6019,
+            210.7066
+          ],
+          "block": 4,
+          "id": 69,
+          "line": 6,
+          "text": "NATIONAL",
+          "word": 1
+        },
+        {
+          "bbox": [
+            518.644,
+            201.8064,
+            541.3571,
+            210.7066
+          ],
+          "block": 4,
+          "id": 70,
+          "line": 6,
+          "text": "BANK",
+          "word": 2
+        },
+        {
+          "bbox": [
+            543.55,
+            201.8064,
+            571.4568,
+            210.7066
+          ],
+          "block": 4,
+          "id": 71,
+          "line": 6,
+          "text": "Q.P.S.C.",
+          "word": 3
+        },
+        {
+          "bbox": [
+            656.02,
+            201.8064,
+            672.896,
+            210.7066
+          ],
+          "block": 4,
+          "id": 72,
+          "line": 7,
+          "text": "QNB",
+          "word": 0
+        },
+        {
+          "bbox": [
+            674.9623,
+            201.8064,
+            697.5547,
+            210.7066
+          ],
+          "block": 4,
+          "id": 73,
+          "line": 7,
+          "text": "BANK",
+          "word": 1
+        },
+        {
+          "bbox": [
+            699.6531,
+            201.8064,
+            713.892,
+            210.7066
+          ],
+          "block": 4,
+          "id": 74,
+          "line": 7,
+          "text": "A.Ş.",
+          "word": 2
+        }
+      ]
+    },
+    {
+      "page": 48,
+      "spans": [
+        {
+          "bbox": [
+            85.08,
+            115.8257,
+            595.12,
+            126.8514
+          ],
+          "block": 2,
+          "direction": [
+            1.0,
+            0.0
+          ],
+          "flags": 20,
+          "font": "TimesNewRomanPS-BoldMT",
+          "id": 8,
+          "line": 0,
+          "size": 9.96,
+          "span": 0,
+          "text": "INFORMATION RELATED TO FINANCIAL POSITION AND RISK MANAGEMENT OF THE BANK (Continued) "
+        },
+        {
+          "bbox": [
+            127.7,
+            138.8657,
+            285.02,
+            149.8914
+          ],
+          "block": 2,
+          "direction": [
+            1.0,
+            0.0
+          ],
+          "flags": 20,
+          "font": "TimesNewRomanPS-BoldMT",
+          "id": 11,
+          "line": 3,
+          "size": 9.96,
+          "span": 0,
+          "text": "Explanations on Equity (Continued) "
+        },
+        {
+          "bbox": [
+            127.7,
+            161.7856,
+            479.68,
+            172.8114
+          ],
+          "block": 3,
+          "direction": [
+            1.0,
+            0.0
+          ],
+          "flags": 20,
+          "font": "TimesNewRomanPS-BoldMT",
+          "id": 13,
+          "line": 0,
+          "size": 9.96,
+          "span": 0,
+          "text": "Information on debt instruments included in the calculation of equity (Continued) "
+        }
+      ],
+      "words": [
+        {
+          "bbox": [
+            478.39,
+            185.2464,
+            482.41,
+            194.1466
+          ],
+          "block": 4,
+          "id": 56,
+          "line": 1,
+          "text": "1",
+          "word": 0
+        },
+        {
+          "bbox": [
+            674.74,
+            185.2464,
+            678.76,
+            194.1466
+          ],
+          "block": 4,
+          "id": 57,
+          "line": 2,
+          "text": "2",
+          "word": 0
+        },
+        {
+          "bbox": [
+            129.86,
+            194.9664,
+            160.9989,
+            203.8666
+          ],
+          "block": 4,
+          "id": 58,
+          "line": 3,
+          "text": "Existence",
+          "word": 0
+        },
+        {
+          "bbox": [
+            162.9446,
+            194.9664,
+            169.6902,
+            203.8666
+          ],
+          "block": 4,
+          "id": 59,
+          "line": 3,
+          "text": "of",
+          "word": 1
+        },
+        {
+          "bbox": [
+            171.74,
+            194.9664,
+            183.2051,
+            203.8666
+          ],
+          "block": 4,
+          "id": 60,
+          "line": 3,
+          "text": "any",
+          "word": 2
+        },
+        {
+          "bbox": [
+            185.18,
+            194.9664,
+            214.5341,
+            203.8666
+          ],
+          "block": 4,
+          "id": 61,
+          "line": 3,
+          "text": "incentive",
+          "word": 3
+        },
+        {
+          "bbox": [
+            216.5923,
+            194.9664,
+            222.7751,
+            203.8666
+          ],
+          "block": 4,
+          "id": 62,
+          "line": 3,
+          "text": "to",
+          "word": 4
+        },
+        {
+          "bbox": [
+            224.8575,
+            194.9664,
+            248.3745,
+            203.8666
+          ],
+          "block": 4,
+          "id": 63,
+          "line": 3,
+          "text": "redeem",
+          "word": 5
+        },
+        {
+          "bbox": [
+            250.22,
+            194.9664,
+            264.4588,
+            203.8666
+          ],
+          "block": 4,
+          "id": 64,
+          "line": 3,
+          "text": "(e.g.",
+          "word": 6
+        },
+        {
+          "bbox": [
+            266.5171,
+            194.9664,
+            289.9697,
+            203.8666
+          ],
+          "block": 4,
+          "id": 65,
+          "line": 3,
+          "text": "interest",
+          "word": 7
+        },
+        {
+          "bbox": [
+            292.044,
+            194.9664,
+            304.0075,
+            203.8666
+          ],
+          "block": 4,
+          "id": 66,
+          "line": 3,
+          "text": "rate",
+          "word": 8
+        },
+        {
+          "bbox": [
+            306.0657,
+            194.9664,
+            332.2359,
+            203.8666
+          ],
+          "block": 4,
+          "id": 67,
+          "line": 3,
+          "text": "step‑up)",
+          "word": 9
+        },
+        {
+          "bbox": [
+            478.99,
+            194.9664,
+            481.6673,
+            203.8666
+          ],
+          "block": 4,
+          "id": 68,
+          "line": 4,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            675.46,
+            194.9664,
+            678.1373,
+            203.8666
+          ],
+          "block": 4,
+          "id": 69,
+          "line": 5,
+          "text": "-",
+          "word": 0
+        },
+        {
+          "bbox": [
+            129.86,
+            204.6864,
+            167.23,
+            213.5866
+          ],
+          "block": 4,
+          "id": 70,
+          "line": 6,
+          "text": "Cumulative",
+          "word": 0
+        },
+        {
+          "bbox": [
+            169.22,
+            204.6864,
+            175.9656,
+            213.5866
+          ],
+          "block": 4,
+          "id": 71,
+          "line": 6,
+          "text": "or",
+          "word": 1
+        },
+        {
+          "bbox": [
+            177.86,
+            204.6864,
+            228.0845,
+            213.5866
+          ],
+          "block": 4,
+          "id": 72,
+          "line": 6,
+          "text": "non-cumulative",
+          "word": 2
+        },
+        {
+          "bbox": [
+            230.18,
+            204.6864,
+            252.3302,
+            213.5866
+          ],
+          "block": 4,
+          "id": 73,
+          "line": 6,
+          "text": "feature",
+          "word": 3
+        },
+        {
+          "bbox": [
+            455.69,
+            204.6864,
+            505.0555,
+            213.5866
+          ],
+          "block": 4,
+          "id": 74,
+          "line": 7,
+          "text": "Noncumulative",
+          "word": 0
+        },
+        {
+          "bbox": [
+            650.71,
+            204.6864,
+            702.7631,
+            213.5866
+          ],
+          "block": 4,
+          "id": 75,
+          "line": 8,
+          "text": "Non-cumulative",
+          "word": 0
+        }
+      ]
+    }
+  ],
+  "source_witness_scope": "Only preserved heading spans and first-three-row word witnesses needed by the continuation benchmark; not complete page evidence."
+}

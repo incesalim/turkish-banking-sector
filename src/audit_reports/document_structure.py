@@ -23,6 +23,7 @@ from .document_sections import body_section_starts, document_contents
 from .document_rule_tables import grid_paths, underline_candidates
 from .document_narrative import narrative_candidates, verify_narrative
 from .document_positioned_text import positioned_text, verify_positioned_text
+from .document_table_context import table_context, verify_table_context
 from .prose import role_from_title
 
 STRUCTURE_VERSION = "document-structure-1"
@@ -36,6 +37,7 @@ def structure_engine() -> dict:
                  "document_evidence.py", "document_corpus.py", "document_rule_tables.py", "document_narrative.py",
                  "document_tagged.py",
                  "document_positioned_text.py",
+                 "document_table_context.py",
                  "prose.py", "extractor.py", "units.py"):
         path = Path(__file__).parent / name
         digest.update(path.name.encode())
@@ -364,6 +366,8 @@ def build_document_structure(pdf_path: Path, evidence: list[dict]) -> dict:
                           **({'positioned_text': positioned} if positioned is not None else {}),
                           "reading_order_verified": False})
     narrative_candidates(pages, evidence, sections)
+    for page, context in zip(pages, table_context(pages), strict=True):
+        page['table_context'] = context
     assert_source()
     result = {"schema_version": STRUCTURE_VERSION, "engine": structure_engine(),
               "source": source, "evidence_artifact_sha256": artifact_digest(evidence),
@@ -381,6 +385,7 @@ def build_document_structure(pdf_path: Path, evidence: list[dict]) -> dict:
 def verify_document_structure(structure: dict, evidence: list[dict]) -> dict:
     """Test source accounting and geometry; this does not certify interpretation."""
     errors = []
+    errors.extend(verify_table_context(structure['pages']))
     if structure.get("source") != evidence[0]["source"]:
         errors.append("source_identity_mismatch")
     if structure.get("evidence_artifact_sha256") != artifact_digest(evidence):

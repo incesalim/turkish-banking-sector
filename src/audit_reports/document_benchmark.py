@@ -22,6 +22,43 @@ def paragraph_digest(text: str) -> str:
     return hashlib.sha256(_text(text).encode("utf-8")).hexdigest()
 
 
+def _continuation_matches(case, pages, sources):
+    from .document_table_context import verify_table_context
+    if verify_table_context(list(pages.values())):
+        return []
+    context = pages[case['page']].get('table_context', {})
+    matches = []
+    for link in context.get('continuations', []):
+        if (link['status'] != 'unique_source_evidence' or link['from_page'] != case['from_page']
+                or link['title'] != case['title'] or link['column_identifiers'] != case['column_identifiers']):
+            continue
+        good = True
+        for number, table_id in [(link['from_page'], link['from_table_ids'][0]),
+                                  (link['to_page'], link['to_table_id'])]:
+            table_context = next(t for t in pages[number]['table_context']['tables'] if t['table_id'] == table_id)
+            heading = table_context['heading']
+            spans = {s['id']: s for s in sources[number]['spans']}
+            ids = heading['source_span_ids']
+            if (not ids or len(ids) != len(set(ids)) or any(i not in spans for i in ids)
+                    or _text(' '.join(spans[i]['text'] for i in ids)) != _text(heading['text'])):
+                good = False
+            elif heading['bbox'] != [min(spans[i]['bbox'][0] for i in ids), min(spans[i]['bbox'][1] for i in ids),
+                                     max(spans[i]['bbox'][2] for i in ids), max(spans[i]['bbox'][3] for i in ids)]:
+                good = False
+            words = {w['id']: w for w in sources[number]['words']}
+            for cell in table_context['column_identifiers']['cells']:
+                ids = cell['word_ids']
+                if (not ids or len(ids) != len(set(ids)) or any(i not in words for i in ids)
+                        or _text(' '.join(words[i]['text'] for i in ids)) != _text(cell['text'])):
+                    good = False
+                elif any(not (cell['bbox'][0] <= (words[i]['bbox'][0] + words[i]['bbox'][2]) / 2 <= cell['bbox'][2]
+                              and cell['bbox'][1] <= (words[i]['bbox'][1] + words[i]['bbox'][3]) / 2 <= cell['bbox'][3]) for i in ids):
+                    good = False
+        if good:
+            matches.append(link['to_table_id'])
+    return matches
+
+
 def _narrative_matches(case, page, sources, pages):
     elements = {e["id"]: (p["page"], e) for p in pages.values() for e in p.get("narrative_elements", [])}
 
@@ -84,6 +121,13 @@ def check_annotations(structure: dict, evidence: list[dict], annotation: dict) -
         prefix = {"case": case["id"], "page": case["page"]}
         if case["page"] not in pages or case["page"] not in sources:
             failures.append({**prefix, "kind": "missing_page"})
+            continue
+        if case.get('kind') == 'table_continuation':
+            matching = (_continuation_matches(case, pages, sources)
+                        if case['from_page'] in pages and case['from_page'] in sources else [])
+            if len(matching) != 1:
+                failures.append({**prefix, 'kind': 'table_continuation_source_mismatch',
+                                 'matching_candidates': len(matching)})
             continue
         if case.get("kind") in SOURCE_CASE_KINDS:
             source = sources[case["page"]]
