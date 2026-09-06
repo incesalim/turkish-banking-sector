@@ -161,6 +161,17 @@ or failed outcomes (87,258 pages). Group 3 remains active. Recovery receipt/tabl
 publishing samples `34043837019` (FIBA) and `34043838752` (ISCTR) are queued behind
 the older raw-recovery fleet; their cloud replay verification is still pending.
 
+A separate read-only quality review is implemented locally. The previous
+`detect_wrong_pdf` helper checked only cover-year presence, ignoring bank,
+quarter and basis. The new review records all three opening-page claims with
+source span references, leaves competing/missing claims unresolved and detects
+same-year quarter mismatches. It also verifies both PDF copies and retained page
+artifacts and reports suspicious text plus recovery gaps. The five checked
+original report covers support their registered identities; their retained
+text has no detected font-mapping signal. These are selected checks, not a
+legibility guarantee. `build-document-corpus.yml` exposes `quality_only=true`;
+full registered-corpus review and source-identity reconciliation remain pending.
+
 ## Data coverage in D1
 
 **Anomaly repair (2026-08-31–2026-09-01; completed):** The current-code

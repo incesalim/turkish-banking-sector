@@ -309,3 +309,14 @@ of detected tables.
   native fleet. Completed native groups 0/1/2 independently match 840 expected
   filings and 87,258 pages, with no omitted, duplicate, unexpected or failed
   outcomes. Group 3 and the older raw-recovery fleet remain active.
+
+- 2026-09-06: inspected the existing wrong-PDF helper: it tests only whether
+  the cover contains the year and does not use the bank or quarter. Added a
+  separate read-only source review with bank/date/basis claims and source span
+  references, exact PDF/evidence/structure byte and page checks, suspicious-text
+  signals and recovery gaps. Tests catch wrong quarters within the same year,
+  wrong banks/bases, competing claims, missing pages and changed source bytes.
+  Five retained original covers support their expected identity; a synthetic
+  damaged-font example is flagged without treating ordinary numbers as bad
+  text. The workflow quality mode never writes source or serving data. Fleet
+  quality review remains pending.

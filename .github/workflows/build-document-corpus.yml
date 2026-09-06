@@ -29,6 +29,10 @@ on:
         description: "Add source-linked tables, paragraphs and headings (unverified)"
         type: boolean
         default: true
+      quality_only:
+        description: "Read-only review of preserved PDF bytes, source identity, text legibility and recovery gaps"
+        type: boolean
+        default: false
       recheck_bytes:
         description: "Read every selected artifact again, bypassing unchanged-object receipts"
         type: boolean
@@ -63,7 +67,7 @@ permissions:
 concurrency:
   # Read-only probes can inspect new code while a source-preservation fleet runs.
   # All publishing runs still share one queue.
-  group: ${{ github.event_name == 'workflow_dispatch' && !inputs.publish && format('audit-document-probe-{0}', github.run_id) || 'audit-document-corpus' }}
+  group: ${{ github.event_name == 'workflow_dispatch' && (!inputs.publish || inputs.quality_only) && format('audit-document-probe-{0}', github.run_id) || 'audit-document-corpus' }}
   queue: max
   cancel-in-progress: false
 
@@ -92,6 +96,7 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
       - name: Preserve and verify source artifact bytes
+        if: ${{ !inputs.quality_only }}
         env:
           BANKS: ${{ inputs.banks || 'ALL' }}
           PERIOD: ${{ inputs.period }}
@@ -117,6 +122,21 @@ jobs:
           [ "$STRUCTURE" = "true" ] && args+=(--structure)
           [ "$RECHECK_BYTES" = "true" ] && args+=(--recheck-bytes)
           python scripts/build_document_corpus.py "${args[@]}"
+      - name: Review source identity, retained bytes and unresolved content
+        if: inputs.quality_only
+        env:
+          BANKS: ${{ inputs.banks || 'ALL' }}
+          PERIOD: ${{ inputs.period }}
+          KIND: ${{ inputs.kind || 'BOTH' }}
+          LIMIT: ${{ inputs.limit || 0 }}
+          SHARD_INDEX: ${{ matrix.shard }}
+          SHARD_COUNT: ${{ strategy.job-total }}
+        run: |
+          args=(--limit "$LIMIT" --shard-count "$SHARD_COUNT" --shard-index "$SHARD_INDEX")
+          [ "$BANKS" != "ALL" ] && args+=(--bank "$BANKS")
+          [ -n "$PERIOD" ] && args+=(--period "$PERIOD")
+          [ "$KIND" != "BOTH" ] && args+=(--kind "$KIND")
+          python scripts/review_document_corpus.py "${args[@]}"
       - name: Keep inventory and named outcomes, including failures
         if: always()
         uses: actions/upload-artifact@v7
@@ -125,10 +145,11 @@ jobs:
           path: |
             data/audit_capture/corpus-v1/inventory.json
             data/audit_capture/corpus-v1/capture-results.json
+            data/audit_capture/corpus-v1/quality-results.json
           if-no-files-found: warn
           retention-days: 30
       - name: Keep bounded read-only probe evidence for independent review
-        if: always() && github.event_name == 'workflow_dispatch' && !inputs.publish && inputs.limit > 0 && inputs.limit <= 4
+        if: always() && github.event_name == 'workflow_dispatch' && !inputs.quality_only && !inputs.publish && inputs.limit > 0 && inputs.limit <= 4
         uses: actions/upload-artifact@v7
         with:
           name: audit-document-probe-evidence

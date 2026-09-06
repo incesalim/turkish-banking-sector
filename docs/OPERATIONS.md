@@ -1486,6 +1486,22 @@ selected row/column associations. The native source-evidence fingerprint is
 unchanged; candidate structure has a new implementation identity and requires
 cloud sample validation before its next publication.
 
+For an independent read-only review, dispatch `build-document-corpus.yml` with
+`quality_only=true`. This mode ignores the publication input, has separate
+read-only concurrency and runs `scripts/review_document_corpus.py`; it never
+captures new data or writes R2/D1. Filters and stable filing groups work as in
+capture. The normal report artifacts include `quality-results.json` and inventory.
+The review hashes both the acquired and archived PDF copies, verifies the
+compressed evidence/structure artifacts and their page inventories, and records
+opening-page bank, quarter-end date and consolidation-basis claims with source
+span references. Only registered names and explicit configured aliases are
+matched. A missing name, image cover or competing dates remains unresolved or
+ambiguous. Findings do not establish semantic accuracy. Text-mapping signals and
+recovery selection/pending/failure counts are retained separately; a missing
+recovery index never means recovery is complete. Conflicting source identity or
+artifact failures fail the review run without changing source data. Local use
+requires `--limit 1..4`; full byte reviews belong in Actions.
+
 For a light local sample (no remote writes):
 
 ```powershell
