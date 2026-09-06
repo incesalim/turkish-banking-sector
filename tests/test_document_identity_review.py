@@ -4,6 +4,7 @@ import hashlib
 import pytest
 
 from src.audit_reports.document_identity_review import contextual_identity_review
+from src.audit_reports.document_evidence import _canonical_json
 from src.audit_reports.document_quality import bank_patterns
 
 
@@ -68,3 +69,60 @@ def test_a_cover_contradiction_is_preserved_and_requires_its_own_source_witness(
     result = contextual_identity_review(*reviewed)
     assert result['decision'] == 'supported_with_source_contradiction'
     assert 'basis_has_competing_source_claims' in result['witnesses'][1]['claim']['issues']
+
+
+@pytest.fixture
+def rendered_review(reviewed):
+    source, _pages, registry, patterns = reviewed
+    page = {'page': 1, 'width': 595, 'height': 842, 'coordinate_space': 'display',
+            'spans': [], 'images': [{'id': 0, 'digest': 'source-image'}]}
+    text = 'Test Bank consolidated financial statements as at 31 March 2026'
+    registry['reviews'][0]['witnesses'] = [
+        {'role': 'filing_introduction', 'page': 1, 'evidence_kind': 'rendered_source_region',
+         'source_page_sha256': hashlib.sha256(_canonical_json(page).encode()).hexdigest(),
+         'source_bbox': [10, 20, 400, 150], 'transcription': text,
+         'text_sha256': hashlib.sha256(text.encode()).hexdigest()}]
+    return source, [page], registry, patterns
+
+
+def test_rendered_review_never_invents_native_spans_or_automatic_reading(rendered_review):
+    result = contextual_identity_review(*rendered_review)
+    witness = result['witnesses'][0]
+    assert result['automatic_findings_preserved'] and result['semantic_verification'] == 'not_performed'
+    assert witness['claim']['status'] == 'supported_by_reviewed_transcription'
+    assert witness['claim']['automatic_reading_verified'] is False
+    assert 'source_span_ids' not in str(witness) and 'observed_text' not in witness
+    assert witness['claim']['observations'][0]['banks'][0]['bank_ticker'] == 'TEST'
+
+
+@pytest.mark.parametrize('change', ['image', 'page_geometry', 'page_hash', 'transcription',
+                                  'wrong_identity', 'outside', 'nan', 'reversed', 'invented_span',
+                                  'unknown_kind', 'cover_role'])
+def test_rendered_review_rejects_changed_or_unsupported_evidence(rendered_review, change):
+    _source, pages, registry, _patterns = rendered_review
+    witness = registry['reviews'][0]['witnesses'][0]
+    if change == 'image':
+        pages[0]['images'][0]['digest'] = 'different-image'
+    elif change == 'page_geometry':
+        pages[0]['width'] += 1
+    elif change == 'page_hash':
+        witness['source_page_sha256'] = 'b' * 64
+    elif change == 'transcription':
+        witness['transcription'] += ' changed'
+    elif change == 'wrong_identity':
+        witness['transcription'] = witness['transcription'].replace('2026', '2025')
+        witness['text_sha256'] = hashlib.sha256(witness['transcription'].encode()).hexdigest()
+    elif change == 'outside':
+        witness['source_bbox'][0] = -1
+    elif change == 'nan':
+        witness['source_bbox'][0] = float('nan')
+    elif change == 'reversed':
+        witness['source_bbox'][2] = 5
+    elif change == 'invented_span':
+        witness['source_span_ids'] = [0]
+    elif change == 'unknown_kind':
+        witness['evidence_kind'] = 'inferred_from_filename'
+    else:
+        witness['role'] = 'contradictory_cover'
+    with pytest.raises(ValueError):
+        contextual_identity_review(*rendered_review)

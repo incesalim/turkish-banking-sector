@@ -481,3 +481,15 @@ of detected tables.
   attachment relationship must fail. The reader now binds its PDF hash directly
   to the origin's raw member hash. Wrapped attachments need an explicit wrapper
   byte binding before admin access; the signed declaration is an ordinary PDF.
+
+- 2026-09-07: all four current quality groups pass for 1,146 sources and 119,772
+  pages; independently reconciled every PDF hash, copy and retained artifact.
+  Native identities: 1,140 supported, three unresolved and three ambiguous.
+  Visually inspected both scanned Kalkınma annual covers and the damaged-font
+  Takasbank cover. Added three PDF/page/region-bound visual transcription reviews,
+  separately labelled from native evidence; mutation checks reject changed pages,
+  images, transcriptions, invalid regions and invented native references. The
+  transcription itself remains a reviewer assertion. Cloud execution pending.
+- 2026-09-07: live admin attachment view independently shows the 96-page primary
+  report, separate one-page declaration, source links, eight OCR blocks and both
+  A.S./A.Ş. and ve/ile disagreements. CI/deploy at `979b169` and 733 web tests pass.

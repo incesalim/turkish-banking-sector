@@ -1691,3 +1691,12 @@ raw member hash retained by the origin review. A valid primary-report revision
 cannot be substituted under an attachment relationship. Wrapped related members
 whose canonical bytes differ from their raw member hash remain inaccessible until
 an explicit wrapper byte binding is verified; ordinary PDF members are supported.
+
+Rendered-source identity witnesses may supplement native-span reviews when a
+cover is scanned or has a damaged text encoding. Each binds the PDF hash, entire
+canonical source-page hash, display-space region and exact reviewed transcription.
+The reader verifies those bindings and the transcription's bank/date/basis claims;
+it does not independently prove the transcription. The result explicitly labels
+reviewer transcription, never creates native span references, and leaves automatic
+identity findings and semantic approval unchanged. Only an introduction witness
+is supported through this path; existing native cover contradictions stay intact.

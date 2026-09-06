@@ -403,6 +403,90 @@
           ]
         }
       ]
+    },
+    {
+      "filing": {
+        "bank_ticker": "KLNMA",
+        "period": "2023Q4",
+        "kind": "consolidated"
+      },
+      "pdf_sha256": "8df69ca105fa43c8cb7ccdc985e9ed4a95b65b1d0d394d77390d664990b5215b",
+      "decision": "supported_in_context",
+      "review_method": "Codex visual transcription of the rendered original PDF cover; source identity only",
+      "reviewed_on": "2026-09-07",
+      "note": "The scanned cover explicitly names the reporting bank, period and consolidated basis. Native leading pages contain no words; this review does not certify OCR or the rest of the report.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "evidence_kind": "rendered_source_region",
+          "page": 1,
+          "source_page_sha256": "391668ce72659c774ea352206a3c44c7c51541d36da1b94a81af2e2777617d2f",
+          "source_bbox": [
+            100,
+            300,
+            495,
+            425
+          ],
+          "transcription": "TÜRKİYE KALKINMA VE YATIRIM BANKASI A.Ş.\n31 Aralık 2023 Tarihinde Sona Eren\nHesap Dönemine Ait\nKonsolide Finansal Tablolar ve\nBağımsız Denetim Raporu",
+          "text_sha256": "472372ae7d817a104c4a897fdae74d28ba744d937d54599d8f8c2c3940427ba9"
+        }
+      ]
+    },
+    {
+      "filing": {
+        "bank_ticker": "KLNMA",
+        "period": "2022Q4",
+        "kind": "consolidated"
+      },
+      "pdf_sha256": "2688d7539851e6cd1720b6d02907e139e9092fbdc1ee1ef8c6251d1c5f8fb398",
+      "decision": "supported_in_context",
+      "review_method": "Codex visual transcription of the rendered original PDF cover; source identity only",
+      "reviewed_on": "2026-09-07",
+      "note": "The scanned cover explicitly names the reporting bank, period and consolidated basis. Native leading pages contain no words; this review does not certify OCR or the rest of the report.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "evidence_kind": "rendered_source_region",
+          "page": 1,
+          "source_page_sha256": "8369e497766da82da7dd60289f3bb23af998fd12c3b4c104f1ba653f91a5a777",
+          "source_bbox": [
+            100,
+            285,
+            495,
+            405
+          ],
+          "transcription": "TÜRKİYE KALKINMA VE YATIRIM BANKASI A.Ş.\n31 Aralık 2022 Tarihinde Sona Eren\nHesap Dönemine Ait\nKonsolide Finansal Tablolar ve\nBağımsız Denetim Raporu",
+          "text_sha256": "af0f7032508488ed434504a556ec016994ae6006553ab338ed0237071146497d"
+        }
+      ]
+    },
+    {
+      "filing": {
+        "bank_ticker": "TAKAS",
+        "period": "2022Q1",
+        "kind": "unconsolidated"
+      },
+      "pdf_sha256": "539d79512fff0909246d93c2f6d8f00b2b665fe76fbeead18b6d8d058936f6cf",
+      "decision": "supported_in_context",
+      "review_method": "Codex visual transcription of the rendered original PDF cover; source identity only",
+      "reviewed_on": "2026-09-07",
+      "note": "The cover explicitly names Istanbul Takas ve Saklama Bankasi, 31 March 2022 and unconsolidated statements. A damaged native Unicode map prevents automatic identity support. The separate embedded-font reading agrees with the visually reviewed bank name; raw native and OCR alternatives remain preserved.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "evidence_kind": "rendered_source_region",
+          "page": 1,
+          "source_page_sha256": "9d1e7602c2ca4e23ce93b9c11e29cfc8f9272b2cab5786ac5e546cdb1a2d84cb",
+          "source_bbox": [
+            135,
+            110,
+            455,
+            200
+          ],
+          "transcription": "İstanbul Takas ve Saklama Bankası\nAnonim Şirketi\n31 Mart 2022 Tarihinde Sona Eren Ara Hesap\nDönemine Ait Konsolide Olmayan Finansal Tablolar",
+          "text_sha256": "7fe941facbe1ce1349acd01f3844f8f1a79e1f5a74d8cc6e663e9d8a08dfa681"
+        }
+      ]
     }
   ]
 }

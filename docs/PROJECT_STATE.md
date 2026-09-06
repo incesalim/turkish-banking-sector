@@ -14,210 +14,108 @@ coverage or known issues change.
 
 ---
 
-## Complete audit document corpus (2026-09-06; implementation in progress)
+## Complete audit document corpus (2026-09-07; content verification in progress)
 
-The first scope is the existing 38 banks and 2022Q1–2026Q2. The initial R2
-inventory contained 1,117 acquired PDFs, while the explicit URL registry contained
-1,101 filings. Independent comparison with BDDK's current register found 45
-missing URL bindings: 16 already-acquired filings and 29 sources absent from R2.
-The registry now includes all 1,146, and every filing is acquired and has published
-native source/structure artifacts. The expanded run `34049704430` preserved
-1,144 reports; source-bound archive repairs `34051064505` and `34051067193`
-completed the other two. Their combined outcomes independently reconcile exactly
-against the registered scope: 119,772 pages, 308,126,554 native characters,
-2,241,656 physical text blocks and 197,883 table candidates. Both repaired PDFs
-and all 175 source/structure pages match the independently checked official
-bytes. These are preservation/candidate counts; zero whole filings are semantically
-verified. Full current quality and official-origin reviews remain in progress.
+The first scope is the existing 38 banks and 2022Q1–2026Q2. All **1,146
+registered filings** are acquired and have published native source/structure
+artifacts: **119,772 pages, 308,126,554 native characters, 2,241,656 physical text
+blocks and 197,883 table candidates**. These are preservation/candidate counts.
+**Zero whole filings are semantically verified; the analytical lanes are unchanged.**
 
-The repaired omissions included nine VakıfBank quarterly consolidated reports, sixteen
-Türkiye Kalkınma historical consolidated reports, Takasbank 2022Q1 solo, Ziraat
-Dinamik 2025Q2 solo, and Aktif/Anadolubank 2026Q2 consolidated. The old VakıfBank
-claim that Q1/Q3 reports were not published was wrong. BDDK and the bank's own
-archive list them; independently opened BDDK PDFs confirm the 2022Q1 and 2026Q1
-covers. Türkiye Kalkınma 2022Q1 and Ziraat Dinamik 2025Q2 covers also match.
-Takasbank's 78-page source is visually readable but its text mapping is damaged;
-that requires recovery, not exclusion. BDDK absence is never proof of nonpublication.
+The initial register had 1,101 explicit URLs and R2 had 1,117 acquired PDFs.
+Independent comparison against BDDK found 45 missing bindings, including 29
+unacquired reports. The old claim that VakıfBank Q1/Q3 consolidated reports were
+not published was wrong. Source-backed additions include nine VakıfBank quarterly
+reports, sixteen Kalkınma historical reports, Takasbank 2022Q1, Ziraat Dinamik
+2025Q2 and Aktif/Anadolubank 2026Q2. Absence from BDDK is never proof of
+nonpublication. Scope evidence is retained in the internal investigation folder.
 
-Full native source/structure run
-[34034440123](https://github.com/incesalim/Carthago/actions/runs/34034440123)
-completed successfully. All four named reports independently reconcile against
-the initial 1,117-object acquisition inventory, with no omitted, duplicated,
-unexpected or failed filing and no cross-filing duplicate PDF hash. It preserved
-116,503 pages, 300,442,272 native text characters and 2,183,570 physical text blocks,
-and produced 192,869 table candidates. Candidate counts are not a completeness
-denominator. **Zero whole filings are semantically verified.**
+Expanded capture [34049704430](https://github.com/incesalim/Carthago/actions/runs/34049704430)
+preserved 1,144 PDFs. Repairs `34051064505` and `34051067193` completed the
+remaining two after independent inspection of Ziraat Dinamik's serialized PDF
+wrapper and Anadolubank's two-member PDF archive. Every original baseline PDF
+hash is unchanged. The repaired PDF bytes and all 175 retained pages match the
+independently downloaded official sources. Full read-only review
+[34059243171](https://github.com/incesalim/Carthago/actions/runs/34059243171)
+passes for all 1,146 filings: every acquisition/original copy and source/structure
+artifact was byte-checked, and every filing hash matches the reconciled capture.
 
-A new independent `review-document-origins.yml` workflow compares fresh
-downloaded transport/PDF bytes with each registered acquisition. It retains exact
-versions, source identity observations, unavailable URLs and differences under
-separate origin indexes without replacing acquired PDFs. Local tests cover byte
-agreement with a wrong-period cover, changed revisions, archives, wrappers,
-missing sources, corrupted publication and complete grouped scope. Four cloud
-probes at `2d0bbf2` independently match retained transport/PDF bytes, opening-page
-spans and committed engine hashes. FIBA/Takasbank match acquired PDFs; Ziraat
-Dinamik/Anadolubank correctly report the two still-pending acquisitions. FIBA
-publication also matches the probe, with its old original object version unchanged.
-The full registered comparison has been dispatched. Earlier stored-copy checks
-alone are not origin proof. Admin source-comparison access is implemented with
-checksum and filing/source validation. CI/deploy at `00eede4` pass; live FIBA
-agreement and Anadolubank missing-acquisition/related-declaration displays are
-independently checked. `capture-related-documents.yml` now preserves Anadolubank's
-signed one-page declaration separately. Probe `34058889184` and publication
-`34059202689` match its independently rendered archive member, native image,
-source pixels, 155 OCR words/positions and candidate layout. Two of four source
-text passages disagree (`A.S.` versus `A.Ş.`, and `ve` versus `ile`); they remain
-explicit, unapproved observations. The attachment reader and page/recovery links
-are implemented in admin; 732 web tests, lint and type checks pass. An unchanged
-publication replay reuses raw OCR and leaves all eight observed object versions
-(including the primary filing index) unchanged. Live attachment-reader deployment
-verification remains pending.
+Leading native text supports 1,140 source identities; three remain automatically
+unresolved and three have actual cover contradictions. Eleven revision-bound
+reviews now supplement those observations. Eight use exact native-span witnesses;
+the three new reviews use visually transcribed cover regions bound to exact PDF
+and source-page hashes. They identify scanned Kalkınma 2022Q4/2023Q4 consolidated
+covers and Takasbank 2022Q1's damaged text encoding. The latter reviews certify
+neither OCR accuracy nor report content; local binding/mutation tests pass and
+cloud review is pending. HALKB 2022Q2, BURGAN 2022Q2 and QNBFB 2023Q4
+consolidated covers mix consolidated/unconsolidated wording; their auditor
+introductions support consolidated statements. Those contradictions stay explicit.
 
-The dedicated `build-document-corpus.yml` pipeline keeps immutable originals,
-versioned source evidence,
-candidate structure and failure history in R2 `document-corpus/v1/`. Each source
-is identified by its PDF bytes; artifacts include the implementation and runtime
-identity. Every native span, word occurrence, image/drawing region and native
-PDF structure is retained, including unbounded replacement text and a separate
-literal-glyph word view. The private admin reader links to original PDF pages,
-source references, alternate tables and unreviewed prose/heading candidates.
-Anonymous access returns 403. Core analytical lanes and their stored facts have
-not been replaced; the source-verified QNB countercyclical-buffer classification
-fix is in code, but existing stored wide rows have not been rebuilt.
+`build-document-corpus.yml` retains immutable originals, source evidence,
+structured candidates, source/runtime/implementation identities and named failures
+in R2 `document-corpus/v1/`. Every native span, word occurrence, image/drawing
+region and native PDF structure is retained, including unbounded replacement
+text and a separate literal-glyph view. Source-linked label positions use unique
+native image/text pairs and preserve alternatives. Independent probes at
+`5f6fd48` cover 543 retained pages, seven fresh source-page observations and 17
+selected table/prose/position cases. The expanded corpus uses that structure
+implementation; selected-case success does not approve complete tables.
 
-Independent probes exposed and repaired clipped replacement text, a missed
-single-row ownership table, a logo-distorted audit table, contaminated paragraph
-headings and replacement labels positioned at a preceding number's cursor.
-The latest source-linked label positions use only unique native image/text pairs
-and preserve both original observations. At `5f6fd48`, four cloud samples pass;
-independent downloaded checks cover 543 pages, seven freshly observed source
-pages and all 17 selected table/prose/source/position cases. Publishing sample
-[34045487439](https://github.com/incesalim/Carthago/actions/runs/34045487439)
-updates Akbank/Albaraka 2026Q1 solo (185 pages). R2 bytes match the independently
-reviewed probes, and the live admin shows Akbank's 86-row/six-value-column
-alternative with the correct source-linked label on the reviewed rows. The
-expanded capture now includes that newer structure implementation across the
-registered corpus. Selected-case success is not whole-table approval.
+`recover-document-corpus.yml` preserves source pixels, pinned-model OCR, physical
+text blocks, source-pixel table candidates and eligible embedded-font readings.
+Raw native/OCR/font alternatives and disagreements remain available. The original
+1,117-filing recovery run `34040878532` completed with 741 selected pages in 184
+filings and 289,865 OCR words; that older selector omitted damaged native font
+maps. The revised selector includes control-character/legibility signals. The
+current automatic run `34058889360` has an independently verified retained scope
+of exactly 1,144 successful PDF hashes from expanded capture; the two repaired
+filings follow separately. All four workers started; final page outcomes remain
+pending. Quality-only follow-ups have independently passed with empty recovery
+scope. Selection completion does not establish that every unreadable page was found.
 
-Raw image/outline recovery in `recover-document-corpus.yml`, run
-[34040878532](https://github.com/incesalim/Carthago/actions/runs/34040878532)
-completed across the original 1,117 filings: 184 filings had 741 selected pages,
-with 289,865 OCR words; 933 filings had no image/outline pages flagged. All filing
-and PDF-hash bindings match the independently reconciled native run, without
-omissions, duplicates or failed outcomes. This old selector does not cover damaged
-native character maps. Separate recovery artifacts retain source
-pixels, pinned-model OCR observations, source-transcribed glyph alternatives,
-disagreements and named failures. The later source-pixel table view passes four
-independently reconstructed FIBA/ISCTR pages and 59 selected method/region cell
-checks. FIBA/ISCTR and Takasbank table/receipt publications now pass independent
-R2 source/artifact bytes, pixels, raw observations and 75 selected cell checks
-across six pages. Replays reuse all three filing receipts; all 25 observed object
-versions remain unchanged. Automatic recovery follow-up is now configured to
-consume source-hash-bound published outcomes from capture reports, including
-successful filings in a partially failed run. Failed/read-only rows are excluded
-explicitly; quality-only runs trigger no recovery. Missing or changed PDFs fail
-by name. A live quality-only probe and its automatic follow-up pass: the retained
-scope is empty and recovery is skipped. A manual recovery probe also passes.
-The positive automatic scope is also cloud verified: run `34058889360` selects
-exactly the expanded capture's 1,144 successful PDF hashes, with the two missing
-outcomes explicitly excluded. All four recovery groups started; separate repair
-follow-ups are queued. Their page outcomes still require reconciliation.
+Six FIBA/ISCTR/Takasbank sample pages have independently verified source pixels,
+raw readings, physical tables and 75 selected cell checks. Their unchanged replays
+reuse all three receipts and preserve 25 object versions. Takasbank's embedded
+font reading independently recovers 60/1,571 characters on pages 1/13 and matches
+four complete source text regions; the separate OCR İstanbul discrepancy stays
+visible. FIBA's source value 717.417 versus OCR 7.417 remains an explicit error.
+Header meaning, logical rows, cross-page tables and full prose order remain
+unverified beyond the bounded source annotations.
 
-Native unchanged-object receipts have passed cloud no-write replays; changed
-source bytes, engines, per-filing annotations or artifact versions invalidate
-reuse. Source/structure capture automatically follows acquisition workflows and
-runs in four disjoint filing groups. The optional `acquire_missing=true` mode
-fills only explicit registry gaps: it keeps transport bytes and selected-PDF
-receipts, rejects ambiguous archives and conflicting covers, verifies readback,
-and never replaces an existing acquisition. Publishing sample `34049005525`
-acquired Takasbank and VakıfBank 2022Q1, preserved/captured 292 pages across
-three selected filings and left the existing VakıfBank solo PDF unchanged.
-Independent R2 transport, manifest, PDF-copy and retained-artifact checks pass;
-the two new PDFs match the separate official-source downloads. The following full run, `34049704430`, acquired another 25 sources; all four
-acquisition reports reconcile 1,146 named outcomes (1,119 unchanged, 25 acquired,
-two needing review). R2 now contains 1,144 acquired filings. Ziraat Dinamik
-2025Q2 has a serialized PDF wrapper inside its ZIP, and Anadolubank 2026Q2
-consolidated includes both a 96-page report and a one-page signed responsibility
-declaration. Both were independently opened. Nested-wrapper support and a
-filename/hash-bound Anadolubank selection are implemented; their publishing
-repairs are pending. The declaration remains retained in transport and explicitly
-awaits separate text capture. The four full capture groups are running. Acquisition
-groups now finish before any capture group reads its inventory, avoiding stale
-acquisition counts during parallel fills. This path writes no D1 data.
+`review-document-origins.yml` independently downloads registered sources afresh,
+retains transport/PDF revisions and compares them with acquired bytes without
+replacing acquisitions. Four cloud probes and publishing byte/receipt checks pass;
+full registered comparison `34058065551` remains running. Byte agreement does
+not clear conflicting cover claims. Origin indexes preserve unavailable/different
+observations and their timestamps; Anadolubank's early missing-acquisition
+observation predates its successful repair and needs a later comparison.
 
-A separate read-only quality review checks both acquired/archived PDF copies,
-source/structure artifacts and page inventories, leading-page bank/date/basis
-claims, text legibility signals and recovery gaps. The bounded Actions sample
-[34047708328](https://github.com/incesalim/Carthago/actions/runs/34047708328)
-passes for Akbank/Albaraka. Full review
-[34047832643](https://github.com/incesalim/Carthago/actions/runs/34047832643)
-completed over the original 1,117 sources. All four reports independently
-reconcile to the acquisition inventory and verify both PDF copies plus retained
-source/structure bytes for all 116,503 pages. Leading source text supports 1,050
-registered identities; 59 remain unresolved and eight have competing claims.
-No text-legibility signal is a readability approval.
+`capture-related-documents.yml` separately preserves every additional PDF member
+of a verified report archive. Anadolubank's one-page signed declaration has
+independently verified native capture, source pixels and 155 OCR words/positions
+(probe `34058889184`, publication/replay `34059202689`). Two of four complete
+source regions disagree: A.S./A.Ş. and ve/ile. The live authenticated admin shows
+the separate original, page, structured source, recovered blocks and both errors.
+At `979b169`, CI/deploy and all 733 web tests pass; attachment bindings reject a
+valid main-report revision substituted under a related-document relationship.
+The publication replay preserves eight object versions, including the parent
+index. Wrapped related members need explicit wrapper-byte binding before admin
+access; ordinary PDF members are supported.
 
-Follow-up identity review found readable bank names split across font spans;
-joining spans on their original physical line resolves the reviewed Emlak and
-Vakıf Katılım covers. The source-corroborated Ziraat legal-name alias resolves its
-reviewed cover. Takasbank exposes a different defect: printable text decodes to
-control characters, which the old legibility heuristic missed. Four source pages
-now trigger explicit control-character signals. The revised automatic recovery
-selector includes these text signals, binds its identity to the quality code and
-preserves raw text. Raw OCR engine identity is unchanged. Local source probes and
-regression tests pass. Cloud sample `34051061868` supports all four selected
-EMLAK/EXIM/VAKIFK/ZIRAAT identities; its exact review-code hashes were checked. Eight
-previously ambiguous cases now have a separate source-bound contextual
-review. The font-span join also restores cover wording on five of them, so their
-automatic identity now has support; three cover contradictions remain ambiguous. Five introductions support the registered identity while other sections
-mention QNB or earlier periods. Three English covers (HALKB 2022Q2, BURGAN
-2022Q2 and QNBFB 2023Q4 consolidated) themselves mix consolidated/unconsolidated
-wording; their auditor introductions support consolidated statements. The
-cover contradictions remain explicit. The eight reviews bind to exact PDF
-hashes, source span IDs, text digests and geometry; changed or missing witnesses
-cannot inherit a review. Four cloud probes at `77c37cea` and independent original
-PDF/witness/code-hash checks verify all eight reviews across 12 selected filings.
+The private admin links original pages, source references, candidate tables,
+prose and alternative readings. Anonymous access returns 403. No corpus work has
+written D1 or replaced settled analytical partitions. Unchanged-object receipts
+avoid repeated writes; byte, engine or annotation changes invalidate reuse.
+The source-verified QNB countercyclical-buffer classification repair is in code,
+but existing stored wide rows have not been rebuilt.
 
-Takasbank read-only recovery `34051059461` preserved the exact independently
-acquired original, source pixels and OCR observations for pages 1 and 13. It
-exposed a borderless balance sheet missed by the ruled-grid builder. A new
-repeated-amount alignment fallback yields a 54-row, seven-column physical grid;
-16 manually transcribed amount-region checks pass, including six liability
-totals and four negative figures. Wrapped labels remain separate physical rows;
-header, logical-row and financial associations are unverified. Empty cells stay
-unobserved, distinct from a disclosed zero or dash. Raw OCR punctuation remains.
-
-Recovery now retains OCR blocks, line/word references and table membership.
-Four complete source-text regions check the cover name/title, unit qualification
-and footer. Three match; the name comparison explicitly records OCR `Istanbul`
-against source `İstanbul`. A `source_disagreement` is retained and surfaced in
-quality review and the admin viewer, never converted into text approval. These
-new derived views reuse retained OCR. Cloud probe `34052077416` passes
-independent source-byte, pixel, word, derived-layout and exact committed-code
-checks. Publication `34052080469` passed independent stored-byte and derived-view
-checks; its unchanged replay preserves all observed object versions.
-
-A separate embedded-font candidate now repairs missing Unicode mappings only
-when a unique source font, glyph ID, original character and position agree.
-Known native characters remain intact; ambiguous non-whitespace glyph aliases
-and unmatched characters stay unresolved. Full font/program hashes, alternatives,
-raw characters and source references are retained. On independently reviewed
-Takasbank pages 1/13 it resolves 60/1,571 characters and matches all four complete
-source-transcribed regions, including dotted `İstanbul`. The OCR disagreement
-remains visible. Tests cover rotations, partial/missing maps, duplicate positions,
-font-name truncation and mutated evidence. The admin exposes both readings and
-physical text blocks. Cloud probe `34055586894` matches the independently acquired
-PDF, pixels, retained OCR, font view and all four source passages exactly while
-reusing raw OCR. Publication `34055751819` retains the identical reviewed packets;
-CI and deployment at `0b43b2ef` pass. Its replay reuses the filing receipt with
-all eight observed object versions unchanged. Live admin page 1 shows the correct
-font reading and keeps the OCR disagreement beside it.
-
-All-table coverage, row/header/unit/period meaning, cross-page continuations,
-reading order and unrecovered text remain active work. The source ledger is the
-foundation for later time-series mapping and analyst use, not a certification
-that current candidate tables are safe to publish as series. Evidence and the
-execution plan are linked from [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
+Remaining work: reconcile fresh-origin and revised recovery fleets; establish
+whole-document physical and semantic coverage with independently reviewed source
+benchmarks; verify table headers/units/row-column associations and continuations;
+verify prose structure/order and analyst retrieval. Older history and additional
+banks follow completion of this registered corpus. See
+[AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md) and internal evidence under
+`docs/knowledge/2026-09-06-document-corpus/`.
 
 ## Data coverage in D1
 
