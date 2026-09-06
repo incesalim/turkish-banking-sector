@@ -121,8 +121,15 @@ selector includes these text signals, binds its identity to the quality code and
 preserves raw text. Raw OCR engine identity is unchanged. Local source probes and
 regression tests pass. Cloud sample `34051061868` supports all four selected
 EMLAK/EXIM/VAKIFK/ZIRAAT identities; its exact review-code hashes were checked. Eight
-ambiguous cover cases still require source review; some covers themselves mix
-consolidated and unconsolidated wording, so they are not silently reclassified.
+automatically ambiguous cases now have a separate source-bound contextual
+review. Five introductions support the registered identity while other sections
+mention QNB or earlier periods. Three English covers (HALKB 2022Q2, BURGAN
+2022Q2 and QNBFB 2023Q4 consolidated) themselves mix consolidated/unconsolidated
+wording; their auditor introductions support consolidated statements. The
+cover contradictions remain explicit. The eight reviews bind to exact PDF
+hashes, source span IDs, text digests and geometry; changed or missing witnesses
+cannot inherit a review. Local independent source checks pass; cloud validation
+of the contextual-review path is pending.
 
 Takasbank read-only recovery `34051059461` preserved the exact independently
 acquired original, source pixels and OCR observations for pages 1 and 13. It
@@ -138,7 +145,10 @@ Four complete source-text regions check the cover name/title, unit qualification
 and footer. Three match; the name comparison explicitly records OCR `Istanbul`
 against source `İstanbul`. A `source_disagreement` is retained and surfaced in
 quality review and the admin viewer, never converted into text approval. These
-new derived views reuse retained OCR; cloud publication and live review are pending.
+new derived views reuse retained OCR. Cloud probe `34052077416` passes
+independent source-byte, pixel, word, derived-layout and exact committed-code
+checks. Publication `34052080469` is queued behind the older recovery fleet;
+live review remains pending.
 
 All-table coverage, row/header/unit/period meaning, cross-page continuations,
 reading order and unrecovered text remain active work. The source ledger is the

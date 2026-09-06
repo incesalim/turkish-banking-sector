@@ -1503,6 +1503,15 @@ recovery index never means recovery is complete. Conflicting source identity or
 artifact failures fail the review run without changing source data. Local use
 requires `--limit 1..4`; full byte reviews belong in Actions.
 
+Contextual identity reviews live in
+`data/banks/audit_document_identity_reviews.json`. The read-only review accepts
+`--identity-reviews` to select a registry and records its byte hash plus the
+review module's hash. Reviews apply only to the exact PDF revision and checked
+source spans/text/geometry. They add a separate `contextual_identity_review`
+field and summary; automatic findings are preserved. A contradictory cover
+requires its own source witness. This is source-binding evidence, never whole
+text, table or financial approval.
+
 Source-byte review verifies the acquired R2 PDF and retained copy. For older
 acquisitions, `source_url` is a configured lookup URL, not proof that the current
 HTTP response has the same bytes. New acquisition manifests retain the actual

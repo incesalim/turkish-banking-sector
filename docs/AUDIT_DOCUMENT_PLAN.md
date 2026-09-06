@@ -385,3 +385,12 @@ of detected tables.
   membership. Three of four source passages match; `İstanbul` versus OCR
   `Istanbul` stays explicitly different in the quality record and admin view.
   Recognition, whole-table structure and semantic coverage remain unapproved.
+
+- 2026-09-06: independently reviewed all eight automatically ambiguous source
+  identities against rendered originals. Five are contextual bank/prior-period
+  mentions; three English covers contain genuine consolidated/unconsolidated
+  contradictions while their auditor introductions identify consolidated reports.
+  Added revision-bound contextual reviews with exact source span/text/geometry
+  witnesses. They supplement automatic findings and cannot approve content or
+  silently clear source contradictions. Local checks of all eight originals pass;
+  cloud review-path validation remains pending.

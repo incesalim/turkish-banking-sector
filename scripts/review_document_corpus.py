@@ -49,7 +49,7 @@ def _artifact(store, key, expected_sha):
     return gzip.GzipFile(fileobj=io.BytesIO(body))
 
 
-def review_filing(store, filing: Filing, acquisition_key: str, patterns: dict) -> dict:
+def review_filing(store, filing: Filing, acquisition_key: str, patterns: dict, identity_reviews: dict | None = None) -> dict:
     index = store.read_index(filing)
     if not index or not index.get('current'):
         return {'filing': filing.as_dict(), 'status': 'capture_missing'}
@@ -102,6 +102,10 @@ def review_filing(store, filing: Filing, acquisition_key: str, patterns: dict) -
             or full_hash.hexdigest() != current['artifact_sha256'] or pages_hash.hexdigest() != manifest['pages_sha256']):
         raise ValueError('Source artifact inventory or content hash differs')
     identity = source_identity_review(filing, leading, patterns)
+    contextual_review = {'status': 'not_reviewed', 'semantic_verification': 'not_performed'}
+    if identity_reviews is not None:
+        from src.audit_reports.document_identity_review import contextual_identity_review
+        contextual_review = contextual_identity_review(source, leading, identity_reviews, patterns)
     structure = current.get('structure_current')
     issue_counts, issue_pages, examples = Counter(), Counter(), {}
     if structure:
@@ -153,6 +157,7 @@ def review_filing(store, filing: Filing, acquisition_key: str, patterns: dict) -
             'capture_last_attempt': index.get('last_attempt'),
             'evidence_engine': current['engine'], 'structure_engine': structure['engine'] if structure else None,
             'identity': identity, 'legibility_findings': legibility,
+            'contextual_identity_review': contextual_review,
             'structure_issues': {k: {'observations': n, 'pages': issue_pages[k], 'examples': examples[k]}
                                  for k, n in sorted(issue_counts.items())},
             'recovery': {'index_present': recovery is not None,
@@ -170,6 +175,7 @@ def review_filing(store, filing: Filing, acquisition_key: str, patterns: dict) -
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--config', type=Path, default=REPO / 'data/banks/audit_report_urls.json')
+    parser.add_argument('--identity-reviews', type=Path, default=REPO / 'data/banks/audit_document_identity_reviews.json')
     parser.add_argument('--output-dir', type=Path, default=REPO / 'data/audit_capture/corpus-v1')
     parser.add_argument('--bank')
     parser.add_argument('--period')
@@ -182,6 +188,8 @@ def main(argv=None):
             or os.environ.get('GITHUB_ACTIONS') != 'true' and not 1 <= args.limit <= 4):
         parser.error('Local reviews require --limit 1..4; full reviews belong in Actions')
     config = json.loads(args.config.read_text(encoding='utf-8'))
+    identity_review_bytes = args.identity_reviews.read_bytes()
+    identity_reviews = json.loads(identity_review_bytes)
     banks = {b.strip().upper() for b in args.bank.split(',')} if args.bank else None
     if banks is not None and banks - set(config['banks']):
         parser.error('Unknown registered bank')
@@ -200,6 +208,8 @@ def main(argv=None):
               'assigned_filings': len(assigned), 'shard_count': args.shard_count, 'shard_index': args.shard_index,
               'review_implementation_sha256': hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
               'quality_implementation_sha256': hashlib.sha256((REPO / 'src/audit_reports/document_quality.py').read_bytes()).hexdigest(),
+              'identity_review_implementation_sha256': hashlib.sha256((REPO / 'src/audit_reports/document_identity_review.py').read_bytes()).hexdigest(),
+              'identity_reviews_sha256': hashlib.sha256(identity_review_bytes).hexdigest(),
               'filings': [], 'semantic_verification': 'not_performed'}
     patterns = bank_patterns(config['banks'])
     for row in assigned:
@@ -207,12 +217,15 @@ def main(argv=None):
         try:
             if len(row['object_keys']) != 1:
                 raise ValueError('One unambiguous acquired source is required')
-            result = review_filing(store, filing, row['object_keys'][0], patterns)
+            result = review_filing(store, filing, row['object_keys'][0], patterns, identity_reviews)
         except Exception as error:
             result = {'filing': filing.as_dict(), 'status': 'failed', 'error': str(error)}
         report['filings'].append(result)
         report['summary'] = dict(Counter(r['status'] for r in report['filings']))
         report['identity_summary'] = dict(Counter(r['identity']['status'] for r in report['filings'] if 'identity' in r))
+        report['contextual_identity_summary'] = dict(Counter(
+            r['contextual_identity_review'].get('decision', r['contextual_identity_review']['status'])
+            for r in report['filings'] if 'contextual_identity_review' in r))
         _write_json(args.output_dir / 'quality-results.json', report)
         print(f"{filing.filename}: {result['status']}; identity={(result.get('identity') or {}).get('status', 'unavailable')}", flush=True)
     return int(any(r['status'] != 'reviewed' or r['identity']['status'] == 'source_text_conflict' for r in report['filings']))

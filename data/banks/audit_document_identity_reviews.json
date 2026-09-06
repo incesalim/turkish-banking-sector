@@ -1,0 +1,408 @@
+{
+  "schema_version": "audit-document-identity-reviews-1",
+  "scope": "source binding only; not text or financial-statement approval",
+  "reviews": [
+    {
+      "filing": {
+        "bank_ticker": "ENPARA",
+        "period": "2025Q4",
+        "kind": "unconsolidated"
+      },
+      "pdf_sha256": "6e68aea0539b9a028f7161b2977a2792ad2d0734d2bb75802baa302f22959707",
+      "decision": "supported_in_context",
+      "review_method": "Codex visual review of rendered original PDF cover and auditor introduction",
+      "reviewed_on": "2026-09-06",
+      "note": "The auditor introduction explicitly identifies Enpara and the current unconsolidated reporting period. QNB appears later in the qualification about the demerger; it is not the reporting bank. Any prior-period discussion is separately contextual.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "page": 2,
+          "source_span_ids": [
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "text_sha256": "dda43b24f6b48453445498b04bf989ce87e7d529a53fb844ac7c5e77f11fd29a",
+          "source_bbox": [
+            70.44,
+            193.5355,
+            524.7551,
+            315.6812
+          ]
+        }
+      ]
+    },
+    {
+      "filing": {
+        "bank_ticker": "ENPARA",
+        "period": "2025Q3",
+        "kind": "unconsolidated"
+      },
+      "pdf_sha256": "129976cfd93be4ebb615836397b86adec6cf26d947af0fb87c5583645a6367af",
+      "decision": "supported_in_context",
+      "review_method": "Codex visual review of rendered original PDF cover and auditor introduction",
+      "reviewed_on": "2026-09-06",
+      "note": "The auditor introduction explicitly identifies Enpara and the current unconsolidated reporting period. QNB appears later in the qualification about the demerger; it is not the reporting bank. Any prior-period discussion is separately contextual.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "page": 2,
+          "source_span_ids": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "text_sha256": "7763bfa13d9bb21191225ec8aad3afe9da49f55900337ae1616e6732e97e9c0a",
+          "source_bbox": [
+            85.08,
+            280.3257,
+            538.8821,
+            439.4312
+          ]
+        }
+      ]
+    },
+    {
+      "filing": {
+        "bank_ticker": "ENPARA",
+        "period": "2026Q2",
+        "kind": "unconsolidated"
+      },
+      "pdf_sha256": "60730224f4affe8c2e5e4f93d8fcbb1c2d9d76c888cba2d2a20911b5fb2d836b",
+      "decision": "supported_in_context",
+      "review_method": "Codex visual review of rendered original PDF cover and auditor introduction",
+      "reviewed_on": "2026-09-06",
+      "note": "The auditor introduction explicitly identifies Enpara and the current unconsolidated reporting period. QNB appears later in the qualification about the demerger; it is not the reporting bank. Any prior-period discussion is separately contextual.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "page": 2,
+          "source_span_ids": [
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17
+          ],
+          "text_sha256": "0344e547886fbb1565a52dad0314afa76434916c47b05b7773858ae5c466b1f2",
+          "source_bbox": [
+            70.92,
+            231.3354,
+            531.791,
+            390.321
+          ]
+        }
+      ]
+    },
+    {
+      "filing": {
+        "bank_ticker": "TOMK",
+        "period": "2024Q2",
+        "kind": "unconsolidated"
+      },
+      "pdf_sha256": "38bd9e45a8b71673b951596d7d756596d83ac9d70ad7d3c1f7833a10f55f467b",
+      "decision": "supported_in_context",
+      "review_method": "Codex visual review of rendered original PDF cover and auditor introduction",
+      "reviewed_on": "2026-09-06",
+      "note": "The auditor introduction explicitly identifies the bank and current unconsolidated reporting period. The later prior-period reference discusses comparative information or its earlier audit, not the current reporting date.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "page": 2,
+          "source_span_ids": [
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15
+          ],
+          "text_sha256": "f4a504acd02abea4ea7d15fef52279f59ff96781e0f5b686ecd16488c35f67a0",
+          "source_bbox": [
+            70.8,
+            215.1787,
+            524.6401,
+            374.1772
+          ]
+        }
+      ]
+    },
+    {
+      "filing": {
+        "bank_ticker": "VAKBN",
+        "period": "2024Q2",
+        "kind": "unconsolidated"
+      },
+      "pdf_sha256": "b51aefa32d10f5baa9cc44bde43d3c44f3efd9b0eef0c441800e95f89b419ca3",
+      "decision": "supported_in_context",
+      "review_method": "Codex visual review of rendered original PDF cover and auditor introduction",
+      "reviewed_on": "2026-09-06",
+      "note": "The auditor introduction explicitly identifies the bank and current unconsolidated reporting period. The later prior-period reference discusses comparative information or its earlier audit, not the current reporting date.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "page": 2,
+          "source_span_ids": [
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30,
+            31,
+            32
+          ],
+          "text_sha256": "9828e1b78ff406843ac4369b005c18bb82e421230a0748f1939e29eb9ea7bf3a",
+          "source_bbox": [
+            70.824,
+            235.1357,
+            527.01,
+            394.2414
+          ]
+        }
+      ]
+    },
+    {
+      "filing": {
+        "bank_ticker": "HALKB",
+        "period": "2022Q2",
+        "kind": "consolidated"
+      },
+      "pdf_sha256": "d1931ae5c8d23cfaf87f07faec0738c2c8ca790edbb12d0e6c6bdeebf85fedb0",
+      "decision": "supported_with_source_contradiction",
+      "review_method": "Codex visual review of rendered original PDF cover and auditor introduction",
+      "reviewed_on": "2026-09-06",
+      "note": "The English cover title identifies consolidated statements, but its convenience-translation wording says unconsolidated. The auditor introduction explicitly identifies the bank, current reporting date, consolidated statements and subsidiaries. Preserve the cover contradiction.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "page": 2,
+          "source_span_ids": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24
+          ],
+          "text_sha256": "c6bf821eab5b274c8f40e8b605fce973629f4748b158b824b9d4c4eb382dbb90",
+          "source_bbox": [
+            70.824,
+            220.8233,
+            527.2389,
+            410.1946
+          ]
+        },
+        {
+          "role": "contradictory_cover",
+          "page": 1,
+          "source_span_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23,
+            24,
+            25,
+            26,
+            27,
+            28,
+            29,
+            30
+          ],
+          "text_sha256": "f95f68fd566dea0c610f9241d2d900af20fa4b548f5923845b87458e181ac0d3",
+          "source_bbox": [
+            70.824,
+            31.4456,
+            548.23,
+            506.5746
+          ]
+        }
+      ]
+    },
+    {
+      "filing": {
+        "bank_ticker": "BURGAN",
+        "period": "2022Q2",
+        "kind": "consolidated"
+      },
+      "pdf_sha256": "2fc3857586e26d563242b2bb1ee7f4aec11f12d68ddbf3df9452727565581bd7",
+      "decision": "supported_with_source_contradiction",
+      "review_method": "Codex visual review of rendered original PDF cover and auditor introduction",
+      "reviewed_on": "2026-09-06",
+      "note": "The English cover title identifies consolidated statements, but its convenience-translation wording says unconsolidated. The auditor introduction explicitly identifies the bank, current reporting date, consolidated statements and subsidiaries. Preserve the cover contradiction.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "page": 3,
+          "source_span_ids": [
+            32,
+            33,
+            34,
+            35,
+            36,
+            37,
+            38,
+            39,
+            40,
+            41,
+            42,
+            43,
+            44,
+            45,
+            46
+          ],
+          "text_sha256": "8dd5e0d62b06ae76e45f43b5132a390cfbaff46040e87454ade9e3c27b420ded",
+          "source_bbox": [
+            67.584,
+            376.0133,
+            533.3948,
+            640.2846
+          ]
+        },
+        {
+          "role": "contradictory_cover",
+          "page": 1,
+          "source_span_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12
+          ],
+          "text_sha256": "6123b27c884b32bcd129208f93ad1135569ce9d6b27741c758a9b336b87600d7",
+          "source_bbox": [
+            133.22,
+            42.828,
+            447.19,
+            799.248
+          ]
+        }
+      ]
+    },
+    {
+      "filing": {
+        "bank_ticker": "QNBFB",
+        "period": "2023Q4",
+        "kind": "consolidated"
+      },
+      "pdf_sha256": "0a6007ff60567b2550d5fb6d37a8f687d14a0d3f6469fd3b66093f64b2f29fd8",
+      "decision": "supported_with_source_contradiction",
+      "review_method": "Codex visual review of rendered original PDF cover and auditor introduction",
+      "reviewed_on": "2026-09-06",
+      "note": "The English cover title identifies consolidated statements, but its convenience-translation wording says unconsolidated. The auditor introduction explicitly identifies the bank, current reporting date, consolidated statements and subsidiaries. Preserve the cover contradiction.",
+      "witnesses": [
+        {
+          "role": "filing_introduction",
+          "page": 2,
+          "source_span_ids": [
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20
+          ],
+          "text_sha256": "7b29e7477de5f49c3ef7f5f2d13ec7006fd5be9523cbd2f4cfc19cef821ed322",
+          "source_bbox": [
+            99.23,
+            319.5566,
+            565.8939,
+            417.8612
+          ]
+        },
+        {
+          "role": "contradictory_cover",
+          "page": 1,
+          "source_span_ids": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5
+          ],
+          "text_sha256": "85ba86a9f6078aa6a691beb7278db711efa88e1e19fedac56935ae16f820c73c",
+          "source_bbox": [
+            163.07,
+            171.0696,
+            487.7922,
+            278.7614
+          ]
+        }
+      ]
+    }
+  ]
+}
