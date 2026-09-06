@@ -1721,3 +1721,19 @@ selected page, PNG/pixel hashes, display geometry, engine identity and named
 failures. A failed page does not hide later pages and makes the capture fail.
 The existing `audit-document-probe-evidence` artifact retains the pack for seven
 days. These images are review inputs, never proof that content has been reviewed.
+
+`complete_physical_table` source annotations name an entire table region, every
+row/column slot (keeping null distinct from blank or zero), expected merged-cell
+spans and separate contextual text witnesses such as units. The benchmark checks
+every cell against its source-word occurrences and accounts for every source word
+inside the independently reviewed region; omissions, duplicate references,
+changed units and swapped identical-valued cells fail. This is bounded physical
+transcription/association evidence, not whole-filing or financial-series approval.
+
+A capture manifest's `source_url` is the registered locator supplied at capture
+time. For an older acquired object it is not, by itself, proof of the URL that
+originally delivered those bytes. Use the separately retained official-origin
+receipt and timestamp to establish a fresh download/byte relationship. Language
+editions and changed revisions remain separate evidence; do not overwrite an
+acquired English translation merely because the registered BDDK URL serves a
+Turkish PDF. Both exact originals must remain traceable.

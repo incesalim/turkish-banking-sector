@@ -1,0 +1,8762 @@
+{
+  "source": {
+    "bank_ticker": "TOMK",
+    "byte_count": 912865,
+    "kind": "unconsolidated",
+    "object_key": "tomk/TOMK_2023Q3_unconsolidated.pdf",
+    "pdf_sha256": "80dbb8e5a2b18675e84b2ed62fbbaf07c3dadebc5984ea36979ba0687b610c84",
+    "period": "2023Q3",
+    "source_url": "https://tombank.com.tr/assets/images/doc/denetim-raporlari/30092023.pdf"
+  },
+  "page": {
+    "page": 6,
+    "tables": [
+      {
+        "bbox": [
+          146.42,
+          493.171,
+          527.908,
+          589.444
+        ],
+        "block_id": 1,
+        "cell_count": 28,
+        "col_labels": [
+          "Eylül",
+          "",
+          "Aralık",
+          ""
+        ],
+        "col_x": [
+          308.240966796875,
+          381.41998799641925,
+          454.6609802246094,
+          527.8500061035156
+        ],
+        "first_line": 32,
+        "header_association_verified": false,
+        "heading": "",
+        "id": "p6:numeric1",
+        "inline_line_orders": [
+          33,
+          34
+        ],
+        "kind": "table_candidate",
+        "last_line": 40,
+        "legacy_n_cols": 4,
+        "method": "legacy_numeric_geometry",
+        "n_cols": 4,
+        "page": 6,
+        "physical_row_count": 7,
+        "review_status": "unreviewed",
+        "row_count": 6,
+        "rows": [
+          {
+            "cells": [
+              {
+                "bbox": [
+                  285.65,
+                  493.171,
+                  294.704,
+                  503.134
+                ],
+                "cell_index": 0,
+                "col_index": null,
+                "is_numeric": true,
+                "legacy_col_index": null,
+                "line_order": 32,
+                "placement": "label_text",
+                "source_text_matches": true,
+                "text": "30",
+                "value": 30.0,
+                "word_ids": [
+                  283
+                ],
+                "x0": 285.6499938964844,
+                "x1": 294.7039794921875
+              },
+              {
+                "bbox": [
+                  319.679,
+                  493.171,
+                  337.607,
+                  503.134
+                ],
+                "cell_index": 1,
+                "col_index": null,
+                "is_numeric": true,
+                "legacy_col_index": null,
+                "line_order": 32,
+                "placement": "label_text",
+                "source_text_matches": true,
+                "text": "2023",
+                "value": 2023.0,
+                "word_ids": [
+                  285
+                ],
+                "x0": 319.6789855957031,
+                "x1": 337.60699462890625
+              },
+              {
+                "bbox": [
+                  429.79,
+                  493.171,
+                  438.844,
+                  503.134
+                ],
+                "cell_index": 2,
+                "col_index": null,
+                "is_numeric": true,
+                "legacy_col_index": null,
+                "line_order": 32,
+                "placement": "unplaced",
+                "source_text_matches": true,
+                "text": "31",
+                "value": 31.0,
+                "word_ids": [
+                  286
+                ],
+                "x0": 429.7900085449219,
+                "x1": 438.843994140625
+              },
+              {
+                "bbox": [
+                  429.79,
+                  493.171,
+                  486.319,
+                  503.134
+                ],
+                "cell_index": 4,
+                "col_index": null,
+                "is_numeric": false,
+                "legacy_col_index": null,
+                "line_order": 32,
+                "placement": "unplaced",
+                "source_text_matches": true,
+                "text": "31 Aralık 2022",
+                "value": null,
+                "word_ids": [
+                  286,
+                  287,
+                  288
+                ],
+                "x0": 429.7900085449219,
+                "x1": 486.3190002441406
+              },
+              {
+                "bbox": [
+                  468.274,
+                  493.171,
+                  486.319,
+                  503.134
+                ],
+                "cell_index": 3,
+                "col_index": null,
+                "is_numeric": true,
+                "legacy_col_index": null,
+                "line_order": 32,
+                "placement": "unplaced",
+                "source_text_matches": true,
+                "text": "2022",
+                "value": 2022.0,
+                "word_ids": [
+                  288
+                ],
+                "x0": 468.2740173339844,
+                "x1": 486.3190002441406
+              },
+              {
+                "bbox": [
+                  272.21,
+                  525.211,
+                  308.228,
+                  535.174
+                ],
+                "cell_index": 0,
+                "col_index": 0,
+                "is_numeric": true,
+                "legacy_col_index": 0,
+                "line_order": 35,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "1.447.500",
+                "value": 1447500.0,
+                "word_ids": [
+                  300
+                ],
+                "x0": 272.2099914550781,
+                "x1": 308.22796630859375
+              },
+              {
+                "bbox": [
+                  365.71,
+                  525.211,
+                  381.478,
+                  535.174
+                ],
+                "cell_index": 1,
+                "col_index": 1,
+                "is_numeric": true,
+                "legacy_col_index": 1,
+                "line_order": 35,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "96,5",
+                "value": 96.5,
+                "word_ids": [
+                  301
+                ],
+                "x0": 365.7099914550781,
+                "x1": 381.47796630859375
+              },
+              {
+                "bbox": [
+                  418.63,
+                  525.211,
+                  454.648,
+                  535.174
+                ],
+                "cell_index": 2,
+                "col_index": 2,
+                "is_numeric": true,
+                "legacy_col_index": 2,
+                "line_order": 35,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "1.447.500",
+                "value": 1447500.0,
+                "word_ids": [
+                  302
+                ],
+                "x0": 418.6300048828125,
+                "x1": 454.6479797363281
+              },
+              {
+                "bbox": [
+                  512.14,
+                  525.211,
+                  527.908,
+                  535.174
+                ],
+                "cell_index": 3,
+                "col_index": 3,
+                "is_numeric": true,
+                "legacy_col_index": 3,
+                "line_order": 35,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "96,5",
+                "value": 96.5,
+                "word_ids": [
+                  303
+                ],
+                "x0": 512.1400146484375,
+                "x1": 527.9080200195312
+              }
+            ],
+            "index": 0,
+            "label": "30 Eylül 2023 Ahmet Yaşar AYDIN",
+            "line_orders": [
+              32,
+              35
+            ],
+            "review_status": "unreviewed"
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  283.49,
+                  536.131,
+                  308.249,
+                  546.094
+                ],
+                "cell_index": 0,
+                "col_index": 0,
+                "is_numeric": true,
+                "legacy_col_index": 0,
+                "line_order": 36,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "15.000",
+                "value": 15000.0,
+                "word_ids": [
+                  307
+                ],
+                "x0": 283.489990234375,
+                "x1": 308.24896240234375
+              },
+              {
+                "bbox": [
+                  376.87,
+                  536.131,
+                  381.37,
+                  546.094
+                ],
+                "cell_index": 1,
+                "col_index": 1,
+                "is_numeric": true,
+                "legacy_col_index": 1,
+                "line_order": 36,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "1",
+                "value": 1.0,
+                "word_ids": [
+                  308
+                ],
+                "x0": 376.8699951171875,
+                "x1": 381.3699951171875
+              },
+              {
+                "bbox": [
+                  429.91,
+                  536.131,
+                  454.669,
+                  546.094
+                ],
+                "cell_index": 2,
+                "col_index": 2,
+                "is_numeric": true,
+                "legacy_col_index": 2,
+                "line_order": 36,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "15.000",
+                "value": 15000.0,
+                "word_ids": [
+                  309
+                ],
+                "x0": 429.9100036621094,
+                "x1": 454.6689758300781
+              },
+              {
+                "bbox": [
+                  523.3,
+                  536.131,
+                  527.8,
+                  546.094
+                ],
+                "cell_index": 3,
+                "col_index": 3,
+                "is_numeric": true,
+                "legacy_col_index": 3,
+                "line_order": 36,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "1",
+                "value": 1.0,
+                "word_ids": [
+                  310
+                ],
+                "x0": 523.2999877929688,
+                "x1": 527.7999877929688
+              }
+            ],
+            "index": 1,
+            "label": "Ali Taha AYDIN",
+            "line_orders": [
+              36
+            ],
+            "review_status": "unreviewed"
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  283.49,
+                  546.961,
+                  308.249,
+                  556.924
+                ],
+                "cell_index": 0,
+                "col_index": 0,
+                "is_numeric": true,
+                "legacy_col_index": 0,
+                "line_order": 37,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "15.000",
+                "value": 15000.0,
+                "word_ids": [
+                  313
+                ],
+                "x0": 283.489990234375,
+                "x1": 308.24896240234375
+              },
+              {
+                "bbox": [
+                  376.87,
+                  546.961,
+                  381.37,
+                  556.924
+                ],
+                "cell_index": 1,
+                "col_index": 1,
+                "is_numeric": true,
+                "legacy_col_index": 1,
+                "line_order": 37,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "1",
+                "value": 1.0,
+                "word_ids": [
+                  314
+                ],
+                "x0": 376.8699951171875,
+                "x1": 381.3699951171875
+              },
+              {
+                "bbox": [
+                  429.91,
+                  546.961,
+                  454.669,
+                  556.924
+                ],
+                "cell_index": 2,
+                "col_index": 2,
+                "is_numeric": true,
+                "legacy_col_index": 2,
+                "line_order": 37,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "15.000",
+                "value": 15000.0,
+                "word_ids": [
+                  315
+                ],
+                "x0": 429.9100036621094,
+                "x1": 454.6689758300781
+              },
+              {
+                "bbox": [
+                  523.3,
+                  546.961,
+                  527.8,
+                  556.924
+                ],
+                "cell_index": 3,
+                "col_index": 3,
+                "is_numeric": true,
+                "legacy_col_index": 3,
+                "line_order": 37,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "1",
+                "value": 1.0,
+                "word_ids": [
+                  316
+                ],
+                "x0": 523.2999877929688,
+                "x1": 527.7999877929688
+              }
+            ],
+            "index": 2,
+            "label": "Can Ersöz",
+            "line_orders": [
+              37
+            ],
+            "review_status": "unreviewed"
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  283.49,
+                  557.881,
+                  308.249,
+                  567.844
+                ],
+                "cell_index": 0,
+                "col_index": 0,
+                "is_numeric": true,
+                "legacy_col_index": 0,
+                "line_order": 38,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "15.000",
+                "value": 15000.0,
+                "word_ids": [
+                  319
+                ],
+                "x0": 283.489990234375,
+                "x1": 308.24896240234375
+              },
+              {
+                "bbox": [
+                  376.87,
+                  557.881,
+                  381.37,
+                  567.844
+                ],
+                "cell_index": 1,
+                "col_index": 1,
+                "is_numeric": true,
+                "legacy_col_index": 1,
+                "line_order": 38,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "1",
+                "value": 1.0,
+                "word_ids": [
+                  320
+                ],
+                "x0": 376.8699951171875,
+                "x1": 381.3699951171875
+              },
+              {
+                "bbox": [
+                  429.91,
+                  557.881,
+                  454.669,
+                  567.844
+                ],
+                "cell_index": 2,
+                "col_index": 2,
+                "is_numeric": true,
+                "legacy_col_index": 2,
+                "line_order": 38,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "15.000",
+                "value": 15000.0,
+                "word_ids": [
+                  321
+                ],
+                "x0": 429.9100036621094,
+                "x1": 454.6689758300781
+              },
+              {
+                "bbox": [
+                  523.3,
+                  557.881,
+                  527.8,
+                  567.844
+                ],
+                "cell_index": 3,
+                "col_index": 3,
+                "is_numeric": true,
+                "legacy_col_index": 3,
+                "line_order": 38,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "1",
+                "value": 1.0,
+                "word_ids": [
+                  322
+                ],
+                "x0": 523.2999877929688,
+                "x1": 527.7999877929688
+              }
+            ],
+            "index": 3,
+            "label": "Erhan Bostan",
+            "line_orders": [
+              38
+            ],
+            "review_status": "unreviewed"
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  287.93,
+                  568.681,
+                  308.243,
+                  578.6439
+                ],
+                "cell_index": 0,
+                "col_index": 0,
+                "is_numeric": true,
+                "legacy_col_index": 0,
+                "line_order": 39,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "7.500",
+                "value": 7500.0,
+                "word_ids": [
+                  325
+                ],
+                "x0": 287.92999267578125,
+                "x1": 308.24298095703125
+              },
+              {
+                "bbox": [
+                  370.15,
+                  568.681,
+                  381.472,
+                  578.6439
+                ],
+                "cell_index": 1,
+                "col_index": 1,
+                "is_numeric": true,
+                "legacy_col_index": 1,
+                "line_order": 39,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "0,5",
+                "value": 0.5,
+                "word_ids": [
+                  326
+                ],
+                "x0": 370.1499938964844,
+                "x1": 381.47198486328125
+              },
+              {
+                "bbox": [
+                  434.35,
+                  568.681,
+                  454.663,
+                  578.6439
+                ],
+                "cell_index": 2,
+                "col_index": 2,
+                "is_numeric": true,
+                "legacy_col_index": 2,
+                "line_order": 39,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "7.500",
+                "value": 7500.0,
+                "word_ids": [
+                  327
+                ],
+                "x0": 434.3500061035156,
+                "x1": 454.6629943847656
+              },
+              {
+                "bbox": [
+                  516.58,
+                  568.681,
+                  527.902,
+                  578.6439
+                ],
+                "cell_index": 3,
+                "col_index": 3,
+                "is_numeric": true,
+                "legacy_col_index": 3,
+                "line_order": 39,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "0,5",
+                "value": 0.5,
+                "word_ids": [
+                  328
+                ],
+                "x0": 516.5800170898438,
+                "x1": 527.9020385742188
+              }
+            ],
+            "index": 4,
+            "label": "Tolga Akar",
+            "line_orders": [
+              39
+            ],
+            "review_status": "unreviewed"
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  272.21,
+                  579.481,
+                  308.228,
+                  589.444
+                ],
+                "cell_index": 0,
+                "col_index": 0,
+                "is_numeric": true,
+                "legacy_col_index": 0,
+                "line_order": 40,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "1.500.000",
+                "value": 1500000.0,
+                "word_ids": [
+                  330
+                ],
+                "x0": 272.2099914550781,
+                "x1": 308.22796630859375
+              },
+              {
+                "bbox": [
+                  356.71,
+                  579.481,
+                  381.46,
+                  589.444
+                ],
+                "cell_index": 1,
+                "col_index": 1,
+                "is_numeric": true,
+                "legacy_col_index": 1,
+                "line_order": 40,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "100,00",
+                "value": 100.0,
+                "word_ids": [
+                  331
+                ],
+                "x0": 356.7099914550781,
+                "x1": 381.4599914550781
+              },
+              {
+                "bbox": [
+                  418.63,
+                  579.481,
+                  454.648,
+                  589.444
+                ],
+                "cell_index": 2,
+                "col_index": 2,
+                "is_numeric": true,
+                "legacy_col_index": 2,
+                "line_order": 40,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "1.500.000",
+                "value": 1500000.0,
+                "word_ids": [
+                  332
+                ],
+                "x0": 418.6300048828125,
+                "x1": 454.6479797363281
+              },
+              {
+                "bbox": [
+                  503.14,
+                  579.481,
+                  527.89,
+                  589.444
+                ],
+                "cell_index": 3,
+                "col_index": 3,
+                "is_numeric": true,
+                "legacy_col_index": 3,
+                "line_order": 40,
+                "placement": "data",
+                "source_text_matches": true,
+                "text": "100,00",
+                "value": 100.0,
+                "word_ids": [
+                  333
+                ],
+                "x0": 503.1400146484375,
+                "x1": 527.8900146484375
+              }
+            ],
+            "index": 5,
+            "label": "Toplam",
+            "line_orders": [
+              40
+            ],
+            "review_status": "unreviewed"
+          }
+        ]
+      },
+      {
+        "bbox": [
+          142.913330078125,
+          492.489990234375,
+          531.4866333007812,
+          589.8200073242188
+        ],
+        "header_association_verified": false,
+        "header_external": false,
+        "header_names": [
+          "",
+          "30 Eylül 2023",
+          null,
+          "31 Aralık 2022",
+          null
+        ],
+        "id": "p6:ruled0",
+        "image_rule_candidates": [],
+        "kind": "table_candidate",
+        "method": "pymupdf_lines_strict",
+        "n_cols": 5,
+        "review_status": "unreviewed",
+        "row_count": 8,
+        "rows": [
+          {
+            "cells": [
+              {
+                "bbox": [
+                  142.913330078125,
+                  492.489990234375,
+                  238.489990234375,
+                  503.469970703125
+                ],
+                "column": 0,
+                "row": 0,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "",
+                "word_ids": []
+              },
+              {
+                "bbox": [
+                  238.489990234375,
+                  492.489990234375,
+                  384.9100341796875,
+                  503.469970703125
+                ],
+                "column": 1,
+                "row": 0,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "30 Eylül 2023",
+                "word_ids": [
+                  283,
+                  284,
+                  285
+                ]
+              },
+              {
+                "bbox": null,
+                "column": 2,
+                "row": 0,
+                "slot_status": "absent_or_merged",
+                "source_text_matches": true,
+                "text": null,
+                "word_ids": []
+              },
+              {
+                "bbox": [
+                  384.9100341796875,
+                  492.489990234375,
+                  531.4866333007812,
+                  503.469970703125
+                ],
+                "column": 3,
+                "row": 0,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "31 Aralık 2022",
+                "word_ids": [
+                  286,
+                  287,
+                  288
+                ]
+              },
+              {
+                "bbox": null,
+                "column": 4,
+                "row": 0,
+                "slot_status": "absent_or_merged",
+                "source_text_matches": true,
+                "text": null,
+                "word_ids": []
+              }
+            ],
+            "index": 0
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  142.913330078125,
+                  503.469970703125,
+                  238.489990234375,
+                  524.5899658203125
+                ],
+                "column": 0,
+                "row": 1,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "Hissedarların Adı",
+                "word_ids": [
+                  289,
+                  290
+                ]
+              },
+              {
+                "bbox": [
+                  238.489990234375,
+                  503.469970703125,
+                  311.69000244140625,
+                  524.5899658203125
+                ],
+                "column": 1,
+                "row": 1,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "Ödenmiş\nSermaye",
+                "word_ids": [
+                  291,
+                  292
+                ]
+              },
+              {
+                "bbox": [
+                  311.69000244140625,
+                  503.469970703125,
+                  384.9100341796875,
+                  524.5899658203125
+                ],
+                "column": 2,
+                "row": 1,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "%",
+                "word_ids": [
+                  293
+                ]
+              },
+              {
+                "bbox": [
+                  384.9100341796875,
+                  503.469970703125,
+                  458.1099853515625,
+                  524.5899658203125
+                ],
+                "column": 3,
+                "row": 1,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "Ödenmiş\nSermaye",
+                "word_ids": [
+                  294,
+                  295
+                ]
+              },
+              {
+                "bbox": [
+                  458.1099853515625,
+                  503.469970703125,
+                  531.4866333007812,
+                  524.5899658203125
+                ],
+                "column": 4,
+                "row": 1,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "%",
+                "word_ids": [
+                  296
+                ]
+              }
+            ],
+            "index": 1
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  142.913330078125,
+                  524.5899658203125,
+                  238.489990234375,
+                  535.510009765625
+                ],
+                "column": 0,
+                "row": 2,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "Ahmet Yaşar AYDIN",
+                "word_ids": [
+                  297,
+                  298,
+                  299
+                ]
+              },
+              {
+                "bbox": [
+                  238.489990234375,
+                  524.5899658203125,
+                  311.69000244140625,
+                  535.510009765625
+                ],
+                "column": 1,
+                "row": 2,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "1.447.500",
+                "word_ids": [
+                  300
+                ]
+              },
+              {
+                "bbox": [
+                  311.69000244140625,
+                  524.5899658203125,
+                  384.9100341796875,
+                  535.510009765625
+                ],
+                "column": 2,
+                "row": 2,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "96,5",
+                "word_ids": [
+                  301
+                ]
+              },
+              {
+                "bbox": [
+                  384.9100341796875,
+                  524.5899658203125,
+                  458.1099853515625,
+                  535.510009765625
+                ],
+                "column": 3,
+                "row": 2,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "1.447.500",
+                "word_ids": [
+                  302
+                ]
+              },
+              {
+                "bbox": [
+                  458.1099853515625,
+                  524.5899658203125,
+                  531.4866333007812,
+                  535.510009765625
+                ],
+                "column": 4,
+                "row": 2,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "96,5",
+                "word_ids": [
+                  303
+                ]
+              }
+            ],
+            "index": 2
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  142.913330078125,
+                  535.510009765625,
+                  238.489990234375,
+                  546.3099975585938
+                ],
+                "column": 0,
+                "row": 3,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "Ali Taha AYDIN",
+                "word_ids": [
+                  304,
+                  305,
+                  306
+                ]
+              },
+              {
+                "bbox": [
+                  238.489990234375,
+                  535.510009765625,
+                  311.69000244140625,
+                  546.3099975585938
+                ],
+                "column": 1,
+                "row": 3,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "15.000",
+                "word_ids": [
+                  307
+                ]
+              },
+              {
+                "bbox": [
+                  311.69000244140625,
+                  535.510009765625,
+                  384.9100341796875,
+                  546.3099975585938
+                ],
+                "column": 2,
+                "row": 3,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "1",
+                "word_ids": [
+                  308
+                ]
+              },
+              {
+                "bbox": [
+                  384.9100341796875,
+                  535.510009765625,
+                  458.1099853515625,
+                  546.3099975585938
+                ],
+                "column": 3,
+                "row": 3,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "15.000",
+                "word_ids": [
+                  309
+                ]
+              },
+              {
+                "bbox": [
+                  458.1099853515625,
+                  535.510009765625,
+                  531.4866333007812,
+                  546.3099975585938
+                ],
+                "column": 4,
+                "row": 3,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "1",
+                "word_ids": [
+                  310
+                ]
+              }
+            ],
+            "index": 3
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  142.913330078125,
+                  546.3099975585938,
+                  238.489990234375,
+                  557.1400146484375
+                ],
+                "column": 0,
+                "row": 4,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "Can Ersöz",
+                "word_ids": [
+                  311,
+                  312
+                ]
+              },
+              {
+                "bbox": [
+                  238.489990234375,
+                  546.3099975585938,
+                  311.69000244140625,
+                  557.1400146484375
+                ],
+                "column": 1,
+                "row": 4,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "15.000",
+                "word_ids": [
+                  313
+                ]
+              },
+              {
+                "bbox": [
+                  311.69000244140625,
+                  546.3099975585938,
+                  384.9100341796875,
+                  557.1400146484375
+                ],
+                "column": 2,
+                "row": 4,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "1",
+                "word_ids": [
+                  314
+                ]
+              },
+              {
+                "bbox": [
+                  384.9100341796875,
+                  546.3099975585938,
+                  458.1099853515625,
+                  557.1400146484375
+                ],
+                "column": 3,
+                "row": 4,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "15.000",
+                "word_ids": [
+                  315
+                ]
+              },
+              {
+                "bbox": [
+                  458.1099853515625,
+                  546.3099975585938,
+                  531.4866333007812,
+                  557.1400146484375
+                ],
+                "column": 4,
+                "row": 4,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "1",
+                "word_ids": [
+                  316
+                ]
+              }
+            ],
+            "index": 4
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  142.913330078125,
+                  557.1400146484375,
+                  238.489990234375,
+                  568.0599365234375
+                ],
+                "column": 0,
+                "row": 5,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "Erhan Bostan",
+                "word_ids": [
+                  317,
+                  318
+                ]
+              },
+              {
+                "bbox": [
+                  238.489990234375,
+                  557.1400146484375,
+                  311.69000244140625,
+                  568.0599365234375
+                ],
+                "column": 1,
+                "row": 5,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "15.000",
+                "word_ids": [
+                  319
+                ]
+              },
+              {
+                "bbox": [
+                  311.69000244140625,
+                  557.1400146484375,
+                  384.9100341796875,
+                  568.0599365234375
+                ],
+                "column": 2,
+                "row": 5,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "1",
+                "word_ids": [
+                  320
+                ]
+              },
+              {
+                "bbox": [
+                  384.9100341796875,
+                  557.1400146484375,
+                  458.1099853515625,
+                  568.0599365234375
+                ],
+                "column": 3,
+                "row": 5,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "15.000",
+                "word_ids": [
+                  321
+                ]
+              },
+              {
+                "bbox": [
+                  458.1099853515625,
+                  557.1400146484375,
+                  531.4866333007812,
+                  568.0599365234375
+                ],
+                "column": 4,
+                "row": 5,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "1",
+                "word_ids": [
+                  322
+                ]
+              }
+            ],
+            "index": 5
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  142.913330078125,
+                  568.0599365234375,
+                  238.489990234375,
+                  578.8599853515625
+                ],
+                "column": 0,
+                "row": 6,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "Tolga Akar",
+                "word_ids": [
+                  323,
+                  324
+                ]
+              },
+              {
+                "bbox": [
+                  238.489990234375,
+                  568.0599365234375,
+                  311.69000244140625,
+                  578.8599853515625
+                ],
+                "column": 1,
+                "row": 6,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "7.500",
+                "word_ids": [
+                  325
+                ]
+              },
+              {
+                "bbox": [
+                  311.69000244140625,
+                  568.0599365234375,
+                  384.9100341796875,
+                  578.8599853515625
+                ],
+                "column": 2,
+                "row": 6,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "0,5",
+                "word_ids": [
+                  326
+                ]
+              },
+              {
+                "bbox": [
+                  384.9100341796875,
+                  568.0599365234375,
+                  458.1099853515625,
+                  578.8599853515625
+                ],
+                "column": 3,
+                "row": 6,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "7.500",
+                "word_ids": [
+                  327
+                ]
+              },
+              {
+                "bbox": [
+                  458.1099853515625,
+                  568.0599365234375,
+                  531.4866333007812,
+                  578.8599853515625
+                ],
+                "column": 4,
+                "row": 6,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "0,5",
+                "word_ids": [
+                  328
+                ]
+              }
+            ],
+            "index": 6
+          },
+          {
+            "cells": [
+              {
+                "bbox": [
+                  142.913330078125,
+                  578.8599853515625,
+                  238.489990234375,
+                  589.8200073242188
+                ],
+                "column": 0,
+                "row": 7,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "Toplam",
+                "word_ids": [
+                  329
+                ]
+              },
+              {
+                "bbox": [
+                  238.489990234375,
+                  578.8599853515625,
+                  311.69000244140625,
+                  589.8200073242188
+                ],
+                "column": 1,
+                "row": 7,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "1.500.000",
+                "word_ids": [
+                  330
+                ]
+              },
+              {
+                "bbox": [
+                  311.69000244140625,
+                  578.8599853515625,
+                  384.9100341796875,
+                  589.8200073242188
+                ],
+                "column": 2,
+                "row": 7,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "100,00",
+                "word_ids": [
+                  331
+                ]
+              },
+              {
+                "bbox": [
+                  384.9100341796875,
+                  578.8599853515625,
+                  458.1099853515625,
+                  589.8200073242188
+                ],
+                "column": 3,
+                "row": 7,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "1.500.000",
+                "word_ids": [
+                  332
+                ]
+              },
+              {
+                "bbox": [
+                  458.1099853515625,
+                  578.8599853515625,
+                  531.4866333007812,
+                  589.8200073242188
+                ],
+                "column": 4,
+                "row": 7,
+                "slot_status": "present",
+                "source_text_matches": true,
+                "text": "100,00",
+                "word_ids": [
+                  333
+                ]
+              }
+            ],
+            "index": 7
+          }
+        ]
+      }
+    ],
+    "narrative_elements": [
+      {
+        "bbox": [
+          105.86,
+          40.6833,
+          274.49,
+          52.9046
+        ],
+        "font_size": 11.04,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative0",
+        "kind": "running_header_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            0,
+            0
+          ]
+        ],
+        "span_ids": [
+          0
+        ],
+        "table_ids": [],
+        "text": "T.O.M. KATILIM BANKASI A.Ş. "
+      },
+      {
+        "bbox": [
+          105.86,
+          66.6233,
+          441.67,
+          91.6846
+        ],
+        "font_size": 11.04,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative1",
+        "kind": "running_header_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "span_ids": [
+          1,
+          2
+        ],
+        "table_ids": [],
+        "text": "30 EYLÜL 2023 TARİHİ İTİBARIYLA KONSOLİDE OLMAYAN \nFİNANSAL TABLOLARA İLİŞKİN AÇIKLAMA VE DİPNOTLAR "
+      },
+      {
+        "bbox": [
+          105.86,
+          92.1487,
+          368.2,
+          101.5803
+        ],
+        "font_size": 8.52,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative2",
+        "kind": "running_header_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            1,
+            2
+          ]
+        ],
+        "span_ids": [
+          3
+        ],
+        "table_ids": [],
+        "text": "(Tutarlar aksi belirtilmedikçe Bin Türk Lirası (“TL”) olarak ifade edilmiştir.) "
+      },
+      {
+        "bbox": [
+          301.01,
+          788.1633,
+          309.29,
+          800.3846
+        ],
+        "font_size": 11.04,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative3",
+        "kind": "page_number_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            3,
+            0
+          ]
+        ],
+        "span_ids": [
+          5
+        ],
+        "table_ids": [],
+        "text": "1 "
+      },
+      {
+        "bbox": [
+          272.93,
+          114.521,
+          350.68,
+          124.484
+        ],
+        "font_size": 9.06965,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative4",
+        "kind": "heading_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            5,
+            0
+          ]
+        ],
+        "span_ids": [
+          8,
+          9
+        ],
+        "table_ids": [],
+        "text": "BİRİNCİ BÖLÜM "
+      },
+      {
+        "bbox": [
+          252.53,
+          135.761,
+          427.48,
+          145.724
+        ],
+        "font_size": 9.06965,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative5",
+        "kind": "heading_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            6,
+            0
+          ]
+        ],
+        "span_ids": [
+          11,
+          12
+        ],
+        "table_ids": [],
+        "text": "BANKA HAKKINDA GENEL BİLGİLER "
+      },
+      {
+        "bbox": [
+          105.86,
+          156.875,
+          114.3116,
+          166.964
+        ],
+        "font_size": 9.062100000000001,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [
+          {
+            "id": "p6:narrative5",
+            "text": "BANKA HAKKINDA GENEL BİLGİLER"
+          }
+        ],
+        "id": "p6:narrative6",
+        "kind": "list_item_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            7,
+            0
+          ]
+        ],
+        "span_ids": [
+          14,
+          15
+        ],
+        "table_ids": [],
+        "text": "I. "
+      },
+      {
+        "bbox": [
+          145.94,
+          157.001,
+          481.5802,
+          177.764
+        ],
+        "font_size": 9.1393,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative7",
+        "kind": "heading_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            7,
+            1
+          ],
+          [
+            7,
+            2
+          ]
+        ],
+        "span_ids": [
+          16,
+          17,
+          18
+        ],
+        "table_ids": [],
+        "text": "BANKA’NIN KURULUŞ TARİHİ, BAŞLANGIÇ STATÜSÜ, ANILAN STATÜDE \nMEYDANA GELEN DEĞİŞİKLİKLERİ İHTİVA EDEN TARİHÇESİ "
+      },
+      {
+        "bbox": [
+          145.94,
+          188.801,
+          518.3049,
+          274.034
+        ],
+        "font_size": 9.1486,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [
+          {
+            "id": "p6:narrative7",
+            "text": "BANKA’NIN KURULUŞ TARİHİ, BAŞLANGIÇ STATÜSÜ, ANILAN STATÜDE MEYDANA GELEN DEĞİŞİKLİKLERİ İHTİVA EDEN TARİHÇESİ"
+          }
+        ],
+        "id": "p6:narrative8",
+        "kind": "paragraph_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            8,
+            0
+          ],
+          [
+            8,
+            1
+          ],
+          [
+            8,
+            2
+          ],
+          [
+            8,
+            3
+          ],
+          [
+            8,
+            4
+          ],
+          [
+            8,
+            5
+          ],
+          [
+            8,
+            6
+          ],
+          [
+            8,
+            7
+          ]
+        ],
+        "span_ids": [
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30
+        ],
+        "table_ids": [],
+        "text": "T.O.M Katılım Bankası A.Ş. (“Banka”), Bankacılık Düzenleme ve Denetleme Kurulu’nun 12 \nAğustos 2022 tarih ve 31921 sayılı Resmi Gazete’de yayımlanan 4 Ağustos 2022 tarih ve 10282 \nsayılı kararıyla kuruluş izni almış olup, 12 Aralık 2022  tarihinde Ticaret Sicil Memurluğunca tescil \nişlemi gerçekleştirilerek tüzel kişilik oluşmuştur. Banka, Bankacılık Düzenleme ve Denetleme \nKurulu’nun  \n31 Mart 2023 tarih ve 32149 sayılı Resmi Gazetede yayımlanan 30 Mart 2022 tarih, 10561 sayılı \nkararı ile faaliyet izni almış olup, 27 Eylül 2023 tarihinde ilk müşteri kabulünü yaparak faaliyete \nbaşlamıştır. "
+      },
+      {
+        "bbox": [
+          145.94,
+          285.791,
+          518.4249,
+          361.034
+        ],
+        "font_size": 9.1486,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [
+          {
+            "id": "p6:narrative7",
+            "text": "BANKA’NIN KURULUŞ TARİHİ, BAŞLANGIÇ STATÜSÜ, ANILAN STATÜDE MEYDANA GELEN DEĞİŞİKLİKLERİ İHTİVA EDEN TARİHÇESİ"
+          }
+        ],
+        "id": "p6:narrative9",
+        "kind": "paragraph_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            9,
+            0
+          ],
+          [
+            9,
+            1
+          ],
+          [
+            9,
+            2
+          ],
+          [
+            9,
+            3
+          ],
+          [
+            9,
+            4
+          ],
+          [
+            9,
+            5
+          ],
+          [
+            9,
+            6
+          ]
+        ],
+        "span_ids": [
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ],
+        "table_ids": [],
+        "text": "Ana faaliyet alanı, Banka’nın kendi sermayesine ilaveten yurt içinden ve dışından “ Cari Hesaplar” \nve “Katılma Hesapları” yolu ile fon toplayıp piyasaya fon tahsis etmek,  29 Aralık 2021 tarih ve \n31704 sayılı Resmi Gazete’de yayımlanan “Dijital Bankaların Faaliyet Esasları İle Servis Modeli \nBankacılığı Hakkında Yönetmelik” çerçevesinde her türlü finansman faaliyetinde bulunmak, zirai, \nsinai ve ticari faaliyet ve hizmetlerle iştigal eden gerçek ve tüzel kişilerin yatırım faaliyetlerini teşvik \netmek, bu faaliyetlere iştirak etmek ve bütün bu hizmet ve faaliyetleri katılım bankacılığı \nprensiplerine uygun olarak yapmaktır. "
+      },
+      {
+        "bbox": [
+          145.94,
+          372.071,
+          517.9675,
+          403.534
+        ],
+        "font_size": 9.1486,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [
+          {
+            "id": "p6:narrative7",
+            "text": "BANKA’NIN KURULUŞ TARİHİ, BAŞLANGIÇ STATÜSÜ, ANILAN STATÜDE MEYDANA GELEN DEĞİŞİKLİKLERİ İHTİVA EDEN TARİHÇESİ"
+          }
+        ],
+        "id": "p6:narrative10",
+        "kind": "paragraph_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            10,
+            0
+          ],
+          [
+            10,
+            1
+          ],
+          [
+            10,
+            2
+          ]
+        ],
+        "span_ids": [
+          45,
+          46,
+          47,
+          48
+        ],
+        "table_ids": [],
+        "text": "Banka, Katılım Bankacılığı esasları çerçevesinde, Bankacılık Düzenleme ve Denetleme \nKurumu’nun (“BDDK”) verdiği izinler doğrultusunda her türlü bankacılık işlemleri, iktisadi, ticari \nve finansal işlemleri gerçekleştirebilir. "
+      },
+      {
+        "bbox": [
+          105.86,
+          415.165,
+          117.9116,
+          425.254
+        ],
+        "font_size": 9.062100000000001,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [
+          {
+            "id": "p6:narrative7",
+            "text": "BANKA’NIN KURULUŞ TARİHİ, BAŞLANGIÇ STATÜSÜ, ANILAN STATÜDE MEYDANA GELEN DEĞİŞİKLİKLERİ İHTİVA EDEN TARİHÇESİ"
+          }
+        ],
+        "id": "p6:narrative11",
+        "kind": "list_item_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            11,
+            0
+          ]
+        ],
+        "span_ids": [
+          50,
+          51
+        ],
+        "table_ids": [],
+        "text": "II. "
+      },
+      {
+        "bbox": [
+          145.94,
+          415.291,
+          518.3002,
+          457.414
+        ],
+        "font_size": 9.1393,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative12",
+        "kind": "heading_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            11,
+            1
+          ],
+          [
+            11,
+            2
+          ],
+          [
+            11,
+            3
+          ],
+          [
+            11,
+            4
+          ]
+        ],
+        "span_ids": [
+          52,
+          53,
+          54,
+          55,
+          56
+        ],
+        "table_ids": [],
+        "text": "BANKA’NIN SERMAYE YAPISI, YÖNETİM VE DENETİMİNİ DOĞRUDAN VEYA \nDOLAYLI OLARAK TEK BAŞINA VEYA BİRLİKTE ELİNDE BULUNDURAN \nORTAKLARI, VARSA BU HUSUSLARDA YIL İÇİNDEKİ DEĞİŞİKLİKLER İLE \nDAHİL OLDUĞU GRUBA İLİŞKİN AÇIKLAMA "
+      },
+      {
+        "bbox": [
+          145.94,
+          470.251,
+          503.47,
+          480.214
+        ],
+        "font_size": 9.0,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [
+          {
+            "id": "p6:narrative12",
+            "text": "BANKA’NIN SERMAYE YAPISI, YÖNETİM VE DENETİMİNİ DOĞRUDAN VEYA DOLAYLI OLARAK TEK BAŞINA VEYA BİRLİKTE ELİNDE BULUNDURAN ORTAKLARI, VARSA BU HUSUSLARDA YIL İÇİNDEKİ DEĞİŞİKLİKLER İLE DAHİL OLDUĞU GRUBA İLİŞKİN AÇIKLAMA"
+          }
+        ],
+        "id": "p6:narrative13",
+        "kind": "paragraph_candidate",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            12,
+            0
+          ]
+        ],
+        "span_ids": [
+          58
+        ],
+        "table_ids": [],
+        "text": "30 Eylül 2023 ve 31 Aralık 2022 tarihleri itibarıyla hissedarlar ve sermaye aşağıda belirtilmiştir: "
+      },
+      {
+        "bbox": [
+          285.65,
+          493.171,
+          488.59,
+          503.134
+        ],
+        "font_size": 9.0,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative14",
+        "kind": "table_text",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            13,
+            1
+          ],
+          [
+            13,
+            2
+          ]
+        ],
+        "span_ids": [
+          61,
+          62
+        ],
+        "table_ids": [
+          "p6:numeric1",
+          "p6:ruled0"
+        ],
+        "text": "30 Eylül 2023 \n31 Aralık 2022 "
+      },
+      {
+        "bbox": [
+          146.42,
+          514.411,
+          217.46,
+          524.374
+        ],
+        "font_size": 9.0,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative15",
+        "kind": "table_text",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            14,
+            0
+          ]
+        ],
+        "span_ids": [
+          63
+        ],
+        "table_ids": [
+          "p6:numeric1",
+          "p6:ruled0"
+        ],
+        "text": "Hissedarların Adı "
+      },
+      {
+        "bbox": [
+          273.65,
+          504.091,
+          310.433,
+          514.054
+        ],
+        "font_size": 9.0,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative16",
+        "kind": "table_text",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            15,
+            0
+          ]
+        ],
+        "span_ids": [
+          64
+        ],
+        "table_ids": [
+          "p6:numeric1",
+          "p6:ruled0"
+        ],
+        "text": "Ödenmiş "
+      },
+      {
+        "bbox": [
+          274.73,
+          514.411,
+          383.68,
+          524.374
+        ],
+        "font_size": 9.0,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative17",
+        "kind": "table_text",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            16,
+            0
+          ],
+          [
+            16,
+            1
+          ]
+        ],
+        "span_ids": [
+          65,
+          66
+        ],
+        "table_ids": [
+          "p6:numeric1",
+          "p6:ruled0"
+        ],
+        "text": "Sermaye \n% "
+      },
+      {
+        "bbox": [
+          420.07,
+          504.091,
+          456.853,
+          514.054
+        ],
+        "font_size": 9.0,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative18",
+        "kind": "table_text",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            17,
+            0
+          ]
+        ],
+        "span_ids": [
+          67
+        ],
+        "table_ids": [
+          "p6:numeric1",
+          "p6:ruled0"
+        ],
+        "text": "Ödenmiş "
+      },
+      {
+        "bbox": [
+          146.42,
+          514.411,
+          530.11,
+          589.444
+        ],
+        "font_size": 9.0,
+        "heading_context_scope": "page",
+        "heading_context_verified": false,
+        "heading_path": [],
+        "id": "p6:narrative19",
+        "kind": "table_text",
+        "method": "source_line_spacing_and_style",
+        "review_status": "unreviewed",
+        "section_candidate": null,
+        "source_lines": [
+          [
+            18,
+            0
+          ],
+          [
+            18,
+            1
+          ],
+          [
+            18,
+            2
+          ],
+          [
+            18,
+            3
+          ],
+          [
+            18,
+            4
+          ],
+          [
+            18,
+            5
+          ],
+          [
+            18,
+            6
+          ],
+          [
+            18,
+            7
+          ],
+          [
+            18,
+            8
+          ],
+          [
+            18,
+            9
+          ],
+          [
+            18,
+            10
+          ],
+          [
+            18,
+            11
+          ],
+          [
+            18,
+            12
+          ],
+          [
+            18,
+            13
+          ],
+          [
+            18,
+            14
+          ],
+          [
+            18,
+            15
+          ],
+          [
+            18,
+            16
+          ],
+          [
+            18,
+            17
+          ],
+          [
+            18,
+            18
+          ],
+          [
+            18,
+            19
+          ],
+          [
+            18,
+            20
+          ],
+          [
+            18,
+            21
+          ],
+          [
+            18,
+            22
+          ],
+          [
+            18,
+            23
+          ],
+          [
+            18,
+            24
+          ],
+          [
+            18,
+            25
+          ],
+          [
+            18,
+            26
+          ],
+          [
+            18,
+            27
+          ],
+          [
+            18,
+            28
+          ],
+          [
+            18,
+            29
+          ],
+          [
+            18,
+            30
+          ],
+          [
+            18,
+            31
+          ]
+        ],
+        "span_ids": [
+          68,
+          69,
+          70,
+          71,
+          72,
+          73,
+          74,
+          75,
+          76,
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83,
+          84,
+          85,
+          86,
+          87,
+          88,
+          89,
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96,
+          97,
+          98,
+          99
+        ],
+        "table_ids": [
+          "p6:numeric1",
+          "p6:ruled0"
+        ],
+        "text": "Sermaye \n% \nAhmet Yaşar AYDIN \n1.447.500 \n96,5 \n1.447.500 \n96,5 \nAli Taha AYDIN \n15.000 \n1 \n15.000 \n1 \nCan Ersöz \n15.000 \n1 \n15.000 \n1 \nErhan Bostan \n15.000 \n1 \n15.000 \n1 \nTolga Akar \n7.500 \n0,5 \n7.500 \n0,5 \nToplam \n1.500.000 \n100,00 \n1.500.000 \n100,00 "
+      }
+    ]
+  },
+  "source_page": {
+    "page": 6,
+    "words": [
+      {
+        "bbox": [
+          105.86,
+          40.6833,
+          140.5146,
+          52.9046
+        ],
+        "block": 0,
+        "id": 0,
+        "line": 0,
+        "text": "T.O.M.",
+        "word": 0
+      },
+      {
+        "bbox": [
+          144.38,
+          40.6833,
+          194.4795,
+          52.9046
+        ],
+        "block": 0,
+        "id": 1,
+        "line": 0,
+        "text": "KATILIM",
+        "word": 1
+      },
+      {
+        "bbox": [
+          198.29,
+          40.6833,
+          248.4226,
+          52.9046
+        ],
+        "block": 0,
+        "id": 2,
+        "line": 0,
+        "text": "BANKASI",
+        "word": 2
+      },
+      {
+        "bbox": [
+          252.29,
+          40.6833,
+          271.8639,
+          52.9046
+        ],
+        "block": 0,
+        "id": 3,
+        "line": 0,
+        "text": "A.Ş.",
+        "word": 3
+      },
+      {
+        "bbox": [
+          105.86,
+          66.6233,
+          116.9,
+          78.8446
+        ],
+        "block": 1,
+        "id": 4,
+        "line": 0,
+        "text": "30",
+        "word": 0
+      },
+      {
+        "bbox": [
+          119.66,
+          66.6233,
+          157.518,
+          78.8446
+        ],
+        "block": 1,
+        "id": 5,
+        "line": 0,
+        "text": "EYLÜL",
+        "word": 1
+      },
+      {
+        "bbox": [
+          160.22,
+          66.6233,
+          182.3,
+          78.8446
+        ],
+        "block": 1,
+        "id": 6,
+        "line": 0,
+        "text": "2023",
+        "word": 2
+      },
+      {
+        "bbox": [
+          185.06,
+          66.6233,
+          225.4554,
+          78.8446
+        ],
+        "block": 1,
+        "id": 7,
+        "line": 0,
+        "text": "TARİHİ",
+        "word": 3
+      },
+      {
+        "bbox": [
+          228.2154,
+          66.6233,
+          294.8859,
+          78.8446
+        ],
+        "block": 1,
+        "id": 8,
+        "line": 0,
+        "text": "İTİBARIYLA",
+        "word": 4
+      },
+      {
+        "bbox": [
+          297.5907,
+          66.6233,
+          364.195,
+          78.8446
+        ],
+        "block": 1,
+        "id": 9,
+        "line": 0,
+        "text": "KONSOLİDE",
+        "word": 5
+      },
+      {
+        "bbox": [
+          366.9108,
+          66.6233,
+          425.0254,
+          78.8446
+        ],
+        "block": 1,
+        "id": 10,
+        "line": 0,
+        "text": "OLMAYAN",
+        "word": 6
+      },
+      {
+        "bbox": [
+          105.86,
+          79.4633,
+          162.0536,
+          91.6846
+        ],
+        "block": 1,
+        "id": 11,
+        "line": 1,
+        "text": "FİNANSAL",
+        "word": 0
+      },
+      {
+        "bbox": [
+          166.1,
+          79.4633,
+          235.8397,
+          91.6846
+        ],
+        "block": 1,
+        "id": 12,
+        "line": 1,
+        "text": "TABLOLARA",
+        "word": 1
+      },
+      {
+        "bbox": [
+          239.93,
+          79.4633,
+          282.9087,
+          91.6846
+        ],
+        "block": 1,
+        "id": 13,
+        "line": 1,
+        "text": "İLİŞKİN",
+        "word": 2
+      },
+      {
+        "bbox": [
+          286.97,
+          79.4633,
+          349.2687,
+          91.6846
+        ],
+        "block": 1,
+        "id": 14,
+        "line": 1,
+        "text": "AÇIKLAMA",
+        "word": 3
+      },
+      {
+        "bbox": [
+          353.35,
+          79.4633,
+          368.7537,
+          91.6846
+        ],
+        "block": 1,
+        "id": 15,
+        "line": 1,
+        "text": "VE",
+        "word": 4
+      },
+      {
+        "bbox": [
+          373.03,
+          79.4633,
+          439.0602,
+          91.6846
+        ],
+        "block": 1,
+        "id": 16,
+        "line": 1,
+        "text": "DİPNOTLAR",
+        "word": 5
+      },
+      {
+        "bbox": [
+          105.86,
+          92.1487,
+          136.1486,
+          101.5803
+        ],
+        "block": 1,
+        "id": 17,
+        "line": 2,
+        "text": "(Tutarlar",
+        "word": 0
+      },
+      {
+        "bbox": [
+          137.9,
+          92.1487,
+          151.6513,
+          101.5803
+        ],
+        "block": 1,
+        "id": 18,
+        "line": 2,
+        "text": "aksi",
+        "word": 1
+      },
+      {
+        "bbox": [
+          153.5,
+          92.1487,
+          204.8926,
+          101.5803
+        ],
+        "block": 1,
+        "id": 19,
+        "line": 2,
+        "text": "belirtilmedikçe",
+        "word": 2
+      },
+      {
+        "bbox": [
+          206.93,
+          92.1487,
+          219.1136,
+          101.5803
+        ],
+        "block": 1,
+        "id": 20,
+        "line": 2,
+        "text": "Bin",
+        "word": 3
+      },
+      {
+        "bbox": [
+          220.97,
+          92.1487,
+          237.4647,
+          101.5803
+        ],
+        "block": 1,
+        "id": 21,
+        "line": 2,
+        "text": "Türk",
+        "word": 4
+      },
+      {
+        "bbox": [
+          239.45,
+          92.1487,
+          259.2079,
+          101.5803
+        ],
+        "block": 1,
+        "id": 22,
+        "line": 2,
+        "text": "Lirası",
+        "word": 5
+      },
+      {
+        "bbox": [
+          261.17,
+          92.1487,
+          284.7618,
+          101.5803
+        ],
+        "block": 1,
+        "id": 23,
+        "line": 2,
+        "text": "(“TL”)",
+        "word": 6
+      },
+      {
+        "bbox": [
+          286.49,
+          92.1487,
+          307.7729,
+          101.5803
+        ],
+        "block": 1,
+        "id": 24,
+        "line": 2,
+        "text": "olarak",
+        "word": 7
+      },
+      {
+        "bbox": [
+          309.65,
+          92.1487,
+          326.6218,
+          101.5803
+        ],
+        "block": 1,
+        "id": 25,
+        "line": 2,
+        "text": "ifade",
+        "word": 8
+      },
+      {
+        "bbox": [
+          328.51,
+          92.1487,
+          366.1003,
+          101.5803
+        ],
+        "block": 1,
+        "id": 26,
+        "line": 2,
+        "text": "edilmiştir.)",
+        "word": 9
+      },
+      {
+        "bbox": [
+          301.01,
+          788.1633,
+          306.53,
+          800.3846
+        ],
+        "block": 3,
+        "id": 27,
+        "line": 0,
+        "text": "1",
+        "word": 0
+      },
+      {
+        "bbox": [
+          272.93,
+          114.521,
+          310.5729,
+          124.484
+        ],
+        "block": 5,
+        "id": 28,
+        "line": 0,
+        "text": "BİRİNCİ",
+        "word": 0
+      },
+      {
+        "bbox": [
+          312.65,
+          114.521,
+          348.2512,
+          124.484
+        ],
+        "block": 5,
+        "id": 29,
+        "line": 0,
+        "text": "BÖLÜM",
+        "word": 1
+      },
+      {
+        "bbox": [
+          252.53,
+          135.761,
+          286.4328,
+          145.724
+        ],
+        "block": 6,
+        "id": 30,
+        "line": 0,
+        "text": "BANKA",
+        "word": 0
+      },
+      {
+        "bbox": [
+          288.53,
+          135.761,
+          341.3749,
+          145.724
+        ],
+        "block": 6,
+        "id": 31,
+        "line": 0,
+        "text": "HAKKINDA",
+        "word": 1
+      },
+      {
+        "bbox": [
+          343.51,
+          135.761,
+          376.4291,
+          145.724
+        ],
+        "block": 6,
+        "id": 32,
+        "line": 0,
+        "text": "GENEL",
+        "word": 2
+      },
+      {
+        "bbox": [
+          378.43,
+          135.761,
+          425.0289,
+          145.724
+        ],
+        "block": 6,
+        "id": 33,
+        "line": 0,
+        "text": "BİLGİLER",
+        "word": 3
+      },
+      {
+        "bbox": [
+          105.86,
+          157.001,
+          111.59,
+          166.964
+        ],
+        "block": 7,
+        "id": 34,
+        "line": 0,
+        "text": "I.",
+        "word": 0
+      },
+      {
+        "bbox": [
+          145.94,
+          157.001,
+          200.3348,
+          166.964
+        ],
+        "block": 7,
+        "id": 35,
+        "line": 1,
+        "text": "BANKA’NIN",
+        "word": 0
+      },
+      {
+        "bbox": [
+          202.49,
+          157.001,
+          248.3929,
+          166.964
+        ],
+        "block": 7,
+        "id": 36,
+        "line": 1,
+        "text": "KURULUŞ",
+        "word": 1
+      },
+      {
+        "bbox": [
+          250.49,
+          157.001,
+          287.3441,
+          166.964
+        ],
+        "block": 7,
+        "id": 37,
+        "line": 1,
+        "text": "TARİHİ,",
+        "word": 2
+      },
+      {
+        "bbox": [
+          289.37,
+          157.001,
+          345.4447,
+          166.964
+        ],
+        "block": 7,
+        "id": 38,
+        "line": 1,
+        "text": "BAŞLANGIÇ",
+        "word": 3
+      },
+      {
+        "bbox": [
+          347.59,
+          157.001,
+          393.2887,
+          166.964
+        ],
+        "block": 7,
+        "id": 39,
+        "line": 1,
+        "text": "STATÜSÜ,",
+        "word": 4
+      },
+      {
+        "bbox": [
+          395.47,
+          157.001,
+          432.6118,
+          166.964
+        ],
+        "block": 7,
+        "id": 40,
+        "line": 1,
+        "text": "ANILAN",
+        "word": 5
+      },
+      {
+        "bbox": [
+          434.71,
+          157.001,
+          479.128,
+          166.964
+        ],
+        "block": 7,
+        "id": 41,
+        "line": 1,
+        "text": "STATÜDE",
+        "word": 6
+      },
+      {
+        "bbox": [
+          145.94,
+          167.801,
+          195.0726,
+          177.764
+        ],
+        "block": 7,
+        "id": 42,
+        "line": 2,
+        "text": "MEYDANA",
+        "word": 0
+      },
+      {
+        "bbox": [
+          195.41,
+          167.801,
+          228.2269,
+          177.764
+        ],
+        "block": 7,
+        "id": 43,
+        "line": 2,
+        "text": "GELEN",
+        "word": 1
+      },
+      {
+        "bbox": [
+          230.69,
+          167.801,
+          311.3494,
+          177.764
+        ],
+        "block": 7,
+        "id": 44,
+        "line": 2,
+        "text": "DEĞİŞİKLİKLERİ",
+        "word": 2
+      },
+      {
+        "bbox": [
+          313.73,
+          167.801,
+          348.2361,
+          177.764
+        ],
+        "block": 7,
+        "id": 45,
+        "line": 2,
+        "text": "İHTİVA",
+        "word": 3
+      },
+      {
+        "bbox": [
+          350.71,
+          167.801,
+          376.6963,
+          177.764
+        ],
+        "block": 7,
+        "id": 46,
+        "line": 2,
+        "text": "EDEN",
+        "word": 4
+      },
+      {
+        "bbox": [
+          379.27,
+          167.801,
+          432.1428,
+          177.764
+        ],
+        "block": 7,
+        "id": 47,
+        "line": 2,
+        "text": "TARİHÇESİ",
+        "word": 5
+      },
+      {
+        "bbox": [
+          145.94,
+          188.801,
+          171.4584,
+          198.764
+        ],
+        "block": 8,
+        "id": 48,
+        "line": 0,
+        "text": "T.O.M",
+        "word": 0
+      },
+      {
+        "bbox": [
+          175.5409,
+          188.801,
+          204.3328,
+          198.764
+        ],
+        "block": 8,
+        "id": 49,
+        "line": 0,
+        "text": "Katılım",
+        "word": 1
+      },
+      {
+        "bbox": [
+          208.49,
+          188.801,
+          238.7791,
+          198.764
+        ],
+        "block": 8,
+        "id": 50,
+        "line": 0,
+        "text": "Bankası",
+        "word": 2
+      },
+      {
+        "bbox": [
+          242.93,
+          188.801,
+          259.6602,
+          198.764
+        ],
+        "block": 8,
+        "id": 51,
+        "line": 0,
+        "text": "A.Ş.",
+        "word": 3
+      },
+      {
+        "bbox": [
+          263.69,
+          188.801,
+          304.7016,
+          198.764
+        ],
+        "block": 8,
+        "id": 52,
+        "line": 0,
+        "text": "(“Banka”),",
+        "word": 4
+      },
+      {
+        "bbox": [
+          308.93,
+          188.801,
+          349.6441,
+          198.764
+        ],
+        "block": 8,
+        "id": 53,
+        "line": 0,
+        "text": "Bankacılık",
+        "word": 5
+      },
+      {
+        "bbox": [
+          353.7359,
+          188.801,
+          396.5703,
+          198.764
+        ],
+        "block": 8,
+        "id": 54,
+        "line": 0,
+        "text": "Düzenleme",
+        "word": 6
+      },
+      {
+        "bbox": [
+          400.4762,
+          188.801,
+          409.3946,
+          198.764
+        ],
+        "block": 8,
+        "id": 55,
+        "line": 0,
+        "text": "ve",
+        "word": 7
+      },
+      {
+        "bbox": [
+          413.4213,
+          188.801,
+          454.2191,
+          198.764
+        ],
+        "block": 8,
+        "id": 56,
+        "line": 0,
+        "text": "Denetleme",
+        "word": 8
+      },
+      {
+        "bbox": [
+          458.2458,
+          188.801,
+          502.0473,
+          198.764
+        ],
+        "block": 8,
+        "id": 57,
+        "line": 0,
+        "text": "Kurulu’nun",
+        "word": 9
+      },
+      {
+        "bbox": [
+          506.5,
+          188.801,
+          515.8297,
+          198.764
+        ],
+        "block": 8,
+        "id": 58,
+        "line": 0,
+        "text": "12",
+        "word": 10
+      },
+      {
+        "bbox": [
+          145.94,
+          199.601,
+          176.7592,
+          209.564
+        ],
+        "block": 8,
+        "id": 59,
+        "line": 1,
+        "text": "Ağustos",
+        "word": 0
+      },
+      {
+        "bbox": [
+          179.66,
+          199.601,
+          198.5895,
+          209.564
+        ],
+        "block": 8,
+        "id": 60,
+        "line": 1,
+        "text": "2022",
+        "word": 1
+      },
+      {
+        "bbox": [
+          201.53,
+          199.601,
+          218.753,
+          209.564
+        ],
+        "block": 8,
+        "id": 61,
+        "line": 1,
+        "text": "tarih",
+        "word": 2
+      },
+      {
+        "bbox": [
+          221.6452,
+          199.601,
+          230.5637,
+          209.564
+        ],
+        "block": 8,
+        "id": 62,
+        "line": 1,
+        "text": "ve",
+        "word": 3
+      },
+      {
+        "bbox": [
+          233.45,
+          199.601,
+          257.0155,
+          209.564
+        ],
+        "block": 8,
+        "id": 63,
+        "line": 1,
+        "text": "31921",
+        "word": 4
+      },
+      {
+        "bbox": [
+          259.97,
+          199.601,
+          280.3922,
+          209.564
+        ],
+        "block": 8,
+        "id": 64,
+        "line": 1,
+        "text": "sayılı",
+        "word": 5
+      },
+      {
+        "bbox": [
+          283.37,
+          199.601,
+          307.4097,
+          209.564
+        ],
+        "block": 8,
+        "id": 65,
+        "line": 1,
+        "text": "Resmi",
+        "word": 6
+      },
+      {
+        "bbox": [
+          310.25,
+          199.601,
+          348.3136,
+          209.564
+        ],
+        "block": 8,
+        "id": 66,
+        "line": 1,
+        "text": "Gazete’de",
+        "word": 7
+      },
+      {
+        "bbox": [
+          351.19,
+          199.601,
+          395.1403,
+          209.564
+        ],
+        "block": 8,
+        "id": 67,
+        "line": 1,
+        "text": "yayımlanan",
+        "word": 8
+      },
+      {
+        "bbox": [
+          397.87,
+          199.601,
+          402.5198,
+          209.564
+        ],
+        "block": 8,
+        "id": 68,
+        "line": 1,
+        "text": "4",
+        "word": 9
+      },
+      {
+        "bbox": [
+          405.43,
+          199.601,
+          436.3515,
+          209.564
+        ],
+        "block": 8,
+        "id": 69,
+        "line": 1,
+        "text": "Ağustos",
+        "word": 10
+      },
+      {
+        "bbox": [
+          438.91,
+          199.601,
+          457.7197,
+          209.564
+        ],
+        "block": 8,
+        "id": 70,
+        "line": 1,
+        "text": "2022",
+        "word": 11
+      },
+      {
+        "bbox": [
+          460.54,
+          199.601,
+          477.7631,
+          209.564
+        ],
+        "block": 8,
+        "id": 71,
+        "line": 1,
+        "text": "tarih",
+        "word": 12
+      },
+      {
+        "bbox": [
+          480.58,
+          199.601,
+          489.5087,
+          209.564
+        ],
+        "block": 8,
+        "id": 72,
+        "line": 1,
+        "text": "ve",
+        "word": 13
+      },
+      {
+        "bbox": [
+          492.22,
+          199.601,
+          515.7854,
+          209.564
+        ],
+        "block": 8,
+        "id": 73,
+        "line": 1,
+        "text": "10282",
+        "word": 14
+      },
+      {
+        "bbox": [
+          145.94,
+          210.281,
+          166.2505,
+          220.244
+        ],
+        "block": 8,
+        "id": 74,
+        "line": 2,
+        "text": "sayılı",
+        "word": 0
+      },
+      {
+        "bbox": [
+          168.26,
+          210.281,
+          201.7296,
+          220.244
+        ],
+        "block": 8,
+        "id": 75,
+        "line": 2,
+        "text": "kararıyla",
+        "word": 1
+      },
+      {
+        "bbox": [
+          203.69,
+          210.281,
+          232.0273,
+          220.244
+        ],
+        "block": 8,
+        "id": 76,
+        "line": 2,
+        "text": "kuruluş",
+        "word": 2
+      },
+      {
+        "bbox": [
+          234.05,
+          210.281,
+          248.1391,
+          220.244
+        ],
+        "block": 8,
+        "id": 77,
+        "line": 2,
+        "text": "izni",
+        "word": 3
+      },
+      {
+        "bbox": [
+          250.3431,
+          210.281,
+          270.7466,
+          220.244
+        ],
+        "block": 8,
+        "id": 78,
+        "line": 2,
+        "text": "almış",
+        "word": 4
+      },
+      {
+        "bbox": [
+          272.69,
+          210.281,
+          291.652,
+          220.244
+        ],
+        "block": 8,
+        "id": 79,
+        "line": 2,
+        "text": "olup,",
+        "word": 5
+      },
+      {
+        "bbox": [
+          293.69,
+          210.281,
+          303.1398,
+          220.244
+        ],
+        "block": 8,
+        "id": 80,
+        "line": 2,
+        "text": "12",
+        "word": 6
+      },
+      {
+        "bbox": [
+          305.21,
+          210.281,
+          329.1567,
+          220.244
+        ],
+        "block": 8,
+        "id": 81,
+        "line": 2,
+        "text": "Aralık",
+        "word": 7
+      },
+      {
+        "bbox": [
+          331.27,
+          210.281,
+          350.0797,
+          220.244
+        ],
+        "block": 8,
+        "id": 82,
+        "line": 2,
+        "text": "2022",
+        "word": 8
+      },
+      {
+        "bbox": [
+          352.39,
+          210.281,
+          385.9805,
+          220.244
+        ],
+        "block": 8,
+        "id": 83,
+        "line": 2,
+        "text": "tarihinde",
+        "word": 9
+      },
+      {
+        "bbox": [
+          388.15,
+          210.281,
+          414.7134,
+          220.244
+        ],
+        "block": 8,
+        "id": 84,
+        "line": 2,
+        "text": "Ticaret",
+        "word": 10
+      },
+      {
+        "bbox": [
+          416.95,
+          210.281,
+          434.0415,
+          220.244
+        ],
+        "block": 8,
+        "id": 85,
+        "line": 2,
+        "text": "Sicil",
+        "word": 11
+      },
+      {
+        "bbox": [
+          436.27,
+          210.281,
+          493.9489,
+          220.244
+        ],
+        "block": 8,
+        "id": 86,
+        "line": 2,
+        "text": "Memurluğunca",
+        "word": 12
+      },
+      {
+        "bbox": [
+          495.94,
+          210.281,
+          516.0087,
+          220.244
+        ],
+        "block": 8,
+        "id": 87,
+        "line": 2,
+        "text": "tescil",
+        "word": 13
+      },
+      {
+        "bbox": [
+          145.94,
+          221.081,
+          168.78,
+          231.044
+        ],
+        "block": 8,
+        "id": 88,
+        "line": 3,
+        "text": "işlemi",
+        "word": 0
+      },
+      {
+        "bbox": [
+          173.1416,
+          221.081,
+          238.5278,
+          231.044
+        ],
+        "block": 8,
+        "id": 89,
+        "line": 3,
+        "text": "gerçekleştirilerek",
+        "word": 1
+      },
+      {
+        "bbox": [
+          242.7406,
+          221.081,
+          261.0238,
+          231.044
+        ],
+        "block": 8,
+        "id": 90,
+        "line": 3,
+        "text": "tüzel",
+        "word": 2
+      },
+      {
+        "bbox": [
+          265.2645,
+          221.081,
+          288.709,
+          231.044
+        ],
+        "block": 8,
+        "id": 91,
+        "line": 3,
+        "text": "kişilik",
+        "word": 3
+      },
+      {
+        "bbox": [
+          292.9218,
+          221.081,
+          337.1418,
+          231.044
+        ],
+        "block": 8,
+        "id": 92,
+        "line": 3,
+        "text": "oluşmuştur.",
+        "word": 4
+      },
+      {
+        "bbox": [
+          341.429,
+          221.081,
+          367.7285,
+          231.044
+        ],
+        "block": 8,
+        "id": 93,
+        "line": 3,
+        "text": "Banka,",
+        "word": 5
+      },
+      {
+        "bbox": [
+          371.9877,
+          221.081,
+          412.8134,
+          231.044
+        ],
+        "block": 8,
+        "id": 94,
+        "line": 3,
+        "text": "Bankacılık",
+        "word": 6
+      },
+      {
+        "bbox": [
+          417.67,
+          221.081,
+          458.611,
+          231.044
+        ],
+        "block": 8,
+        "id": 95,
+        "line": 3,
+        "text": "Düzenleme",
+        "word": 7
+      },
+      {
+        "bbox": [
+          463.54,
+          221.081,
+          472.096,
+          231.044
+        ],
+        "block": 8,
+        "id": 96,
+        "line": 3,
+        "text": "ve",
+        "word": 8
+      },
+      {
+        "bbox": [
+          476.98,
+          221.081,
+          515.878,
+          231.044
+        ],
+        "block": 8,
+        "id": 97,
+        "line": 3,
+        "text": "Denetleme",
+        "word": 9
+      },
+      {
+        "bbox": [
+          145.94,
+          231.791,
+          187.979,
+          241.754
+        ],
+        "block": 8,
+        "id": 98,
+        "line": 4,
+        "text": "Kurulu’nun",
+        "word": 0
+      },
+      {
+        "bbox": [
+          145.94,
+          242.591,
+          155.0,
+          252.554
+        ],
+        "block": 8,
+        "id": 99,
+        "line": 5,
+        "text": "31",
+        "word": 0
+      },
+      {
+        "bbox": [
+          159.02,
+          242.591,
+          176.522,
+          252.554
+        ],
+        "block": 8,
+        "id": 100,
+        "line": 5,
+        "text": "Mart",
+        "word": 1
+      },
+      {
+        "bbox": [
+          180.5,
+          242.591,
+          198.44,
+          252.554
+        ],
+        "block": 8,
+        "id": 101,
+        "line": 5,
+        "text": "2023",
+        "word": 2
+      },
+      {
+        "bbox": [
+          202.85,
+          242.591,
+          219.23,
+          252.554
+        ],
+        "block": 8,
+        "id": 102,
+        "line": 5,
+        "text": "tarih",
+        "word": 3
+      },
+      {
+        "bbox": [
+          223.37,
+          242.591,
+          231.926,
+          252.554
+        ],
+        "block": 8,
+        "id": 103,
+        "line": 5,
+        "text": "ve",
+        "word": 4
+      },
+      {
+        "bbox": [
+          235.97,
+          242.591,
+          258.452,
+          252.554
+        ],
+        "block": 8,
+        "id": 104,
+        "line": 5,
+        "text": "32149",
+        "word": 5
+      },
+      {
+        "bbox": [
+          262.25,
+          242.591,
+          281.7801,
+          252.554
+        ],
+        "block": 8,
+        "id": 105,
+        "line": 5,
+        "text": "sayılı",
+        "word": 6
+      },
+      {
+        "bbox": [
+          285.77,
+          242.591,
+          308.675,
+          252.554
+        ],
+        "block": 8,
+        "id": 106,
+        "line": 5,
+        "text": "Resmi",
+        "word": 7
+      },
+      {
+        "bbox": [
+          312.77,
+          242.591,
+          346.1509,
+          252.554
+        ],
+        "block": 8,
+        "id": 107,
+        "line": 5,
+        "text": "Gazetede",
+        "word": 8
+      },
+      {
+        "bbox": [
+          350.23,
+          242.591,
+          392.269,
+          252.554
+        ],
+        "block": 8,
+        "id": 108,
+        "line": 5,
+        "text": "yayımlanan",
+        "word": 9
+      },
+      {
+        "bbox": [
+          395.47,
+          242.591,
+          404.53,
+          252.554
+        ],
+        "block": 8,
+        "id": 109,
+        "line": 5,
+        "text": "30",
+        "word": 10
+      },
+      {
+        "bbox": [
+          407.59,
+          242.591,
+          425.092,
+          252.554
+        ],
+        "block": 8,
+        "id": 110,
+        "line": 5,
+        "text": "Mart",
+        "word": 11
+      },
+      {
+        "bbox": [
+          428.11,
+          242.591,
+          446.17,
+          252.554
+        ],
+        "block": 8,
+        "id": 111,
+        "line": 5,
+        "text": "2022",
+        "word": 12
+      },
+      {
+        "bbox": [
+          449.23,
+          242.591,
+          467.9231,
+          252.554
+        ],
+        "block": 8,
+        "id": 112,
+        "line": 5,
+        "text": "tarih,",
+        "word": 13
+      },
+      {
+        "bbox": [
+          470.98,
+          242.591,
+          493.462,
+          252.554
+        ],
+        "block": 8,
+        "id": 113,
+        "line": 5,
+        "text": "10561",
+        "word": 14
+      },
+      {
+        "bbox": [
+          496.66,
+          242.591,
+          516.0731,
+          252.554
+        ],
+        "block": 8,
+        "id": 114,
+        "line": 5,
+        "text": "sayılı",
+        "word": 15
+      },
+      {
+        "bbox": [
+          145.94,
+          253.271,
+          166.91,
+          263.234
+        ],
+        "block": 8,
+        "id": 115,
+        "line": 6,
+        "text": "kararı",
+        "word": 0
+      },
+      {
+        "bbox": [
+          170.645,
+          253.271,
+          179.672,
+          263.234
+        ],
+        "block": 8,
+        "id": 116,
+        "line": 6,
+        "text": "ile",
+        "word": 1
+      },
+      {
+        "bbox": [
+          183.344,
+          253.271,
+          210.308,
+          263.234
+        ],
+        "block": 8,
+        "id": 117,
+        "line": 6,
+        "text": "faaliyet",
+        "word": 2
+      },
+      {
+        "bbox": [
+          214.034,
+          253.271,
+          227.57,
+          263.234
+        ],
+        "block": 8,
+        "id": 118,
+        "line": 6,
+        "text": "izni",
+        "word": 3
+      },
+      {
+        "bbox": [
+          231.296,
+          253.271,
+          250.763,
+          263.234
+        ],
+        "block": 8,
+        "id": 119,
+        "line": 6,
+        "text": "almış",
+        "word": 4
+      },
+      {
+        "bbox": [
+          254.444,
+          253.271,
+          272.759,
+          263.234
+        ],
+        "block": 8,
+        "id": 120,
+        "line": 6,
+        "text": "olup,",
+        "word": 5
+      },
+      {
+        "bbox": [
+          276.485,
+          253.271,
+          285.59,
+          263.234
+        ],
+        "block": 8,
+        "id": 121,
+        "line": 6,
+        "text": "27",
+        "word": 6
+      },
+      {
+        "bbox": [
+          289.37,
+          253.271,
+          308.909,
+          263.234
+        ],
+        "block": 8,
+        "id": 122,
+        "line": 6,
+        "text": "Eylül",
+        "word": 7
+      },
+      {
+        "bbox": [
+          312.53,
+          253.271,
+          330.59,
+          263.234
+        ],
+        "block": 8,
+        "id": 123,
+        "line": 6,
+        "text": "2023",
+        "word": 8
+      },
+      {
+        "bbox": [
+          334.39,
+          253.271,
+          366.331,
+          263.234
+        ],
+        "block": 8,
+        "id": 124,
+        "line": 6,
+        "text": "tarihinde",
+        "word": 9
+      },
+      {
+        "bbox": [
+          370.003,
+          253.271,
+          379.5341,
+          263.234
+        ],
+        "block": 8,
+        "id": 125,
+        "line": 6,
+        "text": "ilk",
+        "word": 10
+      },
+      {
+        "bbox": [
+          383.23,
+          253.271,
+          410.203,
+          263.234
+        ],
+        "block": 8,
+        "id": 126,
+        "line": 6,
+        "text": "müşteri",
+        "word": 11
+      },
+      {
+        "bbox": [
+          413.938,
+          253.271,
+          447.454,
+          263.234
+        ],
+        "block": 8,
+        "id": 127,
+        "line": 6,
+        "text": "kabulünü",
+        "word": 12
+      },
+      {
+        "bbox": [
+          451.216,
+          253.271,
+          479.5839,
+          263.234
+        ],
+        "block": 8,
+        "id": 128,
+        "line": 6,
+        "text": "yaparak",
+        "word": 13
+      },
+      {
+        "bbox": [
+          483.7,
+          253.271,
+          515.9979,
+          263.234
+        ],
+        "block": 8,
+        "id": 129,
+        "line": 6,
+        "text": "faaliyete",
+        "word": 14
+      },
+      {
+        "bbox": [
+          145.94,
+          264.071,
+          189.5835,
+          274.034
+        ],
+        "block": 8,
+        "id": 130,
+        "line": 7,
+        "text": "başlamıştır.",
+        "word": 0
+      },
+      {
+        "bbox": [
+          145.94,
+          285.791,
+          161.5821,
+          295.754
+        ],
+        "block": 9,
+        "id": 131,
+        "line": 0,
+        "text": "Ana",
+        "word": 0
+      },
+      {
+        "bbox": [
+          163.5723,
+          285.791,
+          191.7969,
+          295.754
+        ],
+        "block": 9,
+        "id": 132,
+        "line": 0,
+        "text": "faaliyet",
+        "word": 1
+      },
+      {
+        "bbox": [
+          194.0009,
+          285.791,
+          214.5346,
+          295.754
+        ],
+        "block": 9,
+        "id": 133,
+        "line": 0,
+        "text": "alanı,",
+        "word": 2
+      },
+      {
+        "bbox": [
+          216.6364,
+          285.791,
+          255.7974,
+          295.754
+        ],
+        "block": 9,
+        "id": 134,
+        "line": 0,
+        "text": "Banka’nın",
+        "word": 3
+      },
+      {
+        "bbox": [
+          257.8526,
+          285.791,
+          278.7583,
+          295.754
+        ],
+        "block": 9,
+        "id": 135,
+        "line": 0,
+        "text": "kendi",
+        "word": 4
+      },
+      {
+        "bbox": [
+          280.8414,
+          285.791,
+          327.5073,
+          295.754
+        ],
+        "block": 9,
+        "id": 136,
+        "line": 0,
+        "text": "sermayesine",
+        "word": 5
+      },
+      {
+        "bbox": [
+          329.4974,
+          285.791,
+          359.2006,
+          295.754
+        ],
+        "block": 9,
+        "id": 137,
+        "line": 0,
+        "text": "ilaveten",
+        "word": 6
+      },
+      {
+        "bbox": [
+          361.3767,
+          285.791,
+          376.3957,
+          295.754
+        ],
+        "block": 9,
+        "id": 138,
+        "line": 0,
+        "text": "yurt",
+        "word": 7
+      },
+      {
+        "bbox": [
+          378.4974,
+          285.791,
+          406.2755,
+          295.754
+        ],
+        "block": 9,
+        "id": 139,
+        "line": 0,
+        "text": "içinden",
+        "word": 8
+      },
+      {
+        "bbox": [
+          408.3307,
+          285.791,
+          417.2491,
+          295.754
+        ],
+        "block": 9,
+        "id": 140,
+        "line": 0,
+        "text": "ve",
+        "word": 9
+      },
+      {
+        "bbox": [
+          419.2393,
+          285.791,
+          451.193,
+          295.754
+        ],
+        "block": 9,
+        "id": 141,
+        "line": 0,
+        "text": "dışından",
+        "word": 10
+      },
+      {
+        "bbox": [
+          453.2482,
+          285.791,
+          457.3772,
+          295.754
+        ],
+        "block": 9,
+        "id": 142,
+        "line": 0,
+        "text": "“",
+        "word": 11
+      },
+      {
+        "bbox": [
+          459.4883,
+          285.791,
+          475.6046,
+          295.754
+        ],
+        "block": 9,
+        "id": 143,
+        "line": 0,
+        "text": "Cari",
+        "word": 12
+      },
+      {
+        "bbox": [
+          477.7064,
+          285.791,
+          515.3608,
+          295.754
+        ],
+        "block": 9,
+        "id": 144,
+        "line": 0,
+        "text": "Hesaplar”",
+        "word": 13
+      },
+      {
+        "bbox": [
+          145.94,
+          296.711,
+          154.7489,
+          306.674
+        ],
+        "block": 9,
+        "id": 145,
+        "line": 1,
+        "text": "ve",
+        "word": 0
+      },
+      {
+        "bbox": [
+          154.94,
+          296.711,
+          189.4977,
+          306.674
+        ],
+        "block": 9,
+        "id": 146,
+        "line": 1,
+        "text": "“Katılma",
+        "word": 1
+      },
+      {
+        "bbox": [
+          192.5573,
+          296.711,
+          232.8715,
+          306.674
+        ],
+        "block": 9,
+        "id": 147,
+        "line": 1,
+        "text": "Hesapları”",
+        "word": 2
+      },
+      {
+        "bbox": [
+          235.8195,
+          296.711,
+          252.559,
+          306.674
+        ],
+        "block": 9,
+        "id": 148,
+        "line": 1,
+        "text": "yolu",
+        "word": 3
+      },
+      {
+        "bbox": [
+          255.5721,
+          296.711,
+          264.9648,
+          306.674
+        ],
+        "block": 9,
+        "id": 149,
+        "line": 1,
+        "text": "ile",
+        "word": 4
+      },
+      {
+        "bbox": [
+          268.0244,
+          296.711,
+          280.4674,
+          306.674
+        ],
+        "block": 9,
+        "id": 150,
+        "line": 1,
+        "text": "fon",
+        "word": 5
+      },
+      {
+        "bbox": [
+          283.4805,
+          296.711,
+          314.3462,
+          306.674
+        ],
+        "block": 9,
+        "id": 151,
+        "line": 1,
+        "text": "toplayıp",
+        "word": 6
+      },
+      {
+        "bbox": [
+          317.3593,
+          296.711,
+          350.3545,
+          306.674
+        ],
+        "block": 9,
+        "id": 152,
+        "line": 1,
+        "text": "piyasaya",
+        "word": 7
+      },
+      {
+        "bbox": [
+          353.3025,
+          296.711,
+          365.8478,
+          306.674
+        ],
+        "block": 9,
+        "id": 153,
+        "line": 1,
+        "text": "fon",
+        "word": 8
+      },
+      {
+        "bbox": [
+          368.8609,
+          296.711,
+          390.3339,
+          306.674
+        ],
+        "block": 9,
+        "id": 154,
+        "line": 1,
+        "text": "tahsis",
+        "word": 9
+      },
+      {
+        "bbox": [
+          393.4214,
+          296.711,
+          418.6421,
+          306.674
+        ],
+        "block": 9,
+        "id": 155,
+        "line": 1,
+        "text": "etmek,",
+        "word": 10
+      },
+      {
+        "bbox": [
+          425.23,
+          296.711,
+          434.6692,
+          306.674
+        ],
+        "block": 9,
+        "id": 156,
+        "line": 1,
+        "text": "29",
+        "word": 11
+      },
+      {
+        "bbox": [
+          437.6823,
+          296.711,
+          461.7313,
+          306.674
+        ],
+        "block": 9,
+        "id": 157,
+        "line": 1,
+        "text": "Aralık",
+        "word": 12
+      },
+      {
+        "bbox": [
+          464.7444,
+          296.711,
+          483.5204,
+          306.674
+        ],
+        "block": 9,
+        "id": 158,
+        "line": 1,
+        "text": "2021",
+        "word": 13
+      },
+      {
+        "bbox": [
+          486.5335,
+          296.711,
+          503.7659,
+          306.674
+        ],
+        "block": 9,
+        "id": 159,
+        "line": 1,
+        "text": "tarih",
+        "word": 14
+      },
+      {
+        "bbox": [
+          506.8906,
+          296.711,
+          515.809,
+          306.674
+        ],
+        "block": 9,
+        "id": 160,
+        "line": 1,
+        "text": "ve",
+        "word": 15
+      },
+      {
+        "bbox": [
+          145.94,
+          307.511,
+          169.3846,
+          317.474
+        ],
+        "block": 9,
+        "id": 161,
+        "line": 2,
+        "text": "31704",
+        "word": 0
+      },
+      {
+        "bbox": [
+          171.6816,
+          307.511,
+          191.9922,
+          317.474
+        ],
+        "block": 9,
+        "id": 162,
+        "line": 2,
+        "text": "sayılı",
+        "word": 1
+      },
+      {
+        "bbox": [
+          194.42,
+          307.511,
+          218.4597,
+          317.474
+        ],
+        "block": 9,
+        "id": 163,
+        "line": 2,
+        "text": "Resmi",
+        "word": 2
+      },
+      {
+        "bbox": [
+          220.73,
+          307.511,
+          258.896,
+          317.474
+        ],
+        "block": 9,
+        "id": 164,
+        "line": 2,
+        "text": "Gazete’de",
+        "word": 3
+      },
+      {
+        "bbox": [
+          261.17,
+          307.511,
+          305.0087,
+          317.474
+        ],
+        "block": 9,
+        "id": 165,
+        "line": 2,
+        "text": "yayımlanan",
+        "word": 4
+      },
+      {
+        "bbox": [
+          307.37,
+          307.511,
+          337.1384,
+          317.474
+        ],
+        "block": 9,
+        "id": 166,
+        "line": 2,
+        "text": "“Dijital",
+        "word": 5
+      },
+      {
+        "bbox": [
+          339.4633,
+          307.511,
+          381.8327,
+          317.474
+        ],
+        "block": 9,
+        "id": 167,
+        "line": 2,
+        "text": "Bankaların",
+        "word": 6
+      },
+      {
+        "bbox": [
+          384.1297,
+          307.511,
+          415.3395,
+          317.474
+        ],
+        "block": 9,
+        "id": 168,
+        "line": 2,
+        "text": "Faaliyet",
+        "word": 7
+      },
+      {
+        "bbox": [
+          417.6644,
+          307.511,
+          449.1439,
+          317.474
+        ],
+        "block": 9,
+        "id": 169,
+        "line": 2,
+        "text": "Esasları",
+        "word": 8
+      },
+      {
+        "bbox": [
+          451.4502,
+          307.511,
+          461.3265,
+          317.474
+        ],
+        "block": 9,
+        "id": 170,
+        "line": 2,
+        "text": "İle",
+        "word": 9
+      },
+      {
+        "bbox": [
+          463.5584,
+          307.511,
+          486.5937,
+          317.474
+        ],
+        "block": 9,
+        "id": 171,
+        "line": 2,
+        "text": "Servis",
+        "word": 10
+      },
+      {
+        "bbox": [
+          488.8535,
+          307.511,
+          515.5251,
+          317.474
+        ],
+        "block": 9,
+        "id": 172,
+        "line": 2,
+        "text": "Modeli",
+        "word": 11
+      },
+      {
+        "bbox": [
+          145.94,
+          318.431,
+          189.2487,
+          328.394
+        ],
+        "block": 9,
+        "id": 173,
+        "line": 3,
+        "text": "Bankacılığı",
+        "word": 0
+      },
+      {
+        "bbox": [
+          192.5222,
+          318.431,
+          229.0515,
+          328.394
+        ],
+        "block": 9,
+        "id": 174,
+        "line": 3,
+        "text": "Hakkında",
+        "word": 1
+      },
+      {
+        "bbox": [
+          232.1761,
+          318.431,
+          279.4,
+          328.394
+        ],
+        "block": 9,
+        "id": 175,
+        "line": 3,
+        "text": "Yönetmelik”",
+        "word": 2
+      },
+      {
+        "bbox": [
+          282.77,
+          318.431,
+          331.4724,
+          328.394
+        ],
+        "block": 9,
+        "id": 176,
+        "line": 3,
+        "text": "çerçevesinde",
+        "word": 3
+      },
+      {
+        "bbox": [
+          334.532,
+          318.431,
+          346.5007,
+          328.394
+        ],
+        "block": 9,
+        "id": 177,
+        "line": 3,
+        "text": "her",
+        "word": 4
+      },
+      {
+        "bbox": [
+          349.6347,
+          318.431,
+          367.4529,
+          328.394
+        ],
+        "block": 9,
+        "id": 178,
+        "line": 3,
+        "text": "türlü",
+        "word": 5
+      },
+      {
+        "bbox": [
+          370.75,
+          318.431,
+          408.235,
+          328.394
+        ],
+        "block": 9,
+        "id": 179,
+        "line": 3,
+        "text": "finansman",
+        "word": 6
+      },
+      {
+        "bbox": [
+          411.277,
+          318.431,
+          453.874,
+          328.394
+        ],
+        "block": 9,
+        "id": 180,
+        "line": 3,
+        "text": "faaliyetinde",
+        "word": 7
+      },
+      {
+        "bbox": [
+          456.709,
+          318.431,
+          494.932,
+          328.394
+        ],
+        "block": 9,
+        "id": 181,
+        "line": 3,
+        "text": "bulunmak,",
+        "word": 8
+      },
+      {
+        "bbox": [
+          497.938,
+          318.431,
+          516.01,
+          328.394
+        ],
+        "block": 9,
+        "id": 182,
+        "line": 3,
+        "text": "zirai,",
+        "word": 9
+      },
+      {
+        "bbox": [
+          145.94,
+          329.231,
+          162.95,
+          339.194
+        ],
+        "block": 9,
+        "id": 183,
+        "line": 4,
+        "text": "sinai",
+        "word": 0
+      },
+      {
+        "bbox": [
+          165.236,
+          329.231,
+          173.786,
+          339.194
+        ],
+        "block": 9,
+        "id": 184,
+        "line": 4,
+        "text": "ve",
+        "word": 1
+      },
+      {
+        "bbox": [
+          176.018,
+          329.231,
+          194.468,
+          339.194
+        ],
+        "block": 9,
+        "id": 185,
+        "line": 4,
+        "text": "ticari",
+        "word": 2
+      },
+      {
+        "bbox": [
+          196.763,
+          329.231,
+          223.727,
+          339.194
+        ],
+        "block": 9,
+        "id": 186,
+        "line": 4,
+        "text": "faaliyet",
+        "word": 3
+      },
+      {
+        "bbox": [
+          225.905,
+          329.231,
+          234.455,
+          339.194
+        ],
+        "block": 9,
+        "id": 187,
+        "line": 4,
+        "text": "ve",
+        "word": 4
+      },
+      {
+        "bbox": [
+          236.687,
+          329.231,
+          277.007,
+          339.194
+        ],
+        "block": 9,
+        "id": 188,
+        "line": 4,
+        "text": "hizmetlerle",
+        "word": 5
+      },
+      {
+        "bbox": [
+          279.257,
+          329.231,
+          301.3161,
+          339.194
+        ],
+        "block": 9,
+        "id": 189,
+        "line": 4,
+        "text": "iştigal",
+        "word": 6
+      },
+      {
+        "bbox": [
+          303.6021,
+          329.231,
+          320.5761,
+          339.194
+        ],
+        "block": 9,
+        "id": 190,
+        "line": 4,
+        "text": "eden",
+        "word": 7
+      },
+      {
+        "bbox": [
+          322.7811,
+          329.231,
+          346.7121,
+          339.194
+        ],
+        "block": 9,
+        "id": 191,
+        "line": 4,
+        "text": "gerçek",
+        "word": 8
+      },
+      {
+        "bbox": [
+          349.0341,
+          329.231,
+          357.584,
+          339.194
+        ],
+        "block": 9,
+        "id": 192,
+        "line": 4,
+        "text": "ve",
+        "word": 9
+      },
+      {
+        "bbox": [
+          359.708,
+          329.231,
+          377.204,
+          339.194
+        ],
+        "block": 9,
+        "id": 193,
+        "line": 4,
+        "text": "tüzel",
+        "word": 10
+      },
+      {
+        "bbox": [
+          379.75,
+          329.231,
+          410.5041,
+          339.194
+        ],
+        "block": 9,
+        "id": 194,
+        "line": 4,
+        "text": "kişilerin",
+        "word": 11
+      },
+      {
+        "bbox": [
+          412.99,
+          329.231,
+          440.2289,
+          339.194
+        ],
+        "block": 9,
+        "id": 195,
+        "line": 4,
+        "text": "yatırım",
+        "word": 12
+      },
+      {
+        "bbox": [
+          442.75,
+          329.231,
+          490.8481,
+          339.194
+        ],
+        "block": 9,
+        "id": 196,
+        "line": 4,
+        "text": "faaliyetlerini",
+        "word": 13
+      },
+      {
+        "bbox": [
+          493.42,
+          329.231,
+          516.0416,
+          339.194
+        ],
+        "block": 9,
+        "id": 197,
+        "line": 4,
+        "text": "teşvik",
+        "word": 14
+      },
+      {
+        "bbox": [
+          145.94,
+          340.151,
+          171.1608,
+          350.114
+        ],
+        "block": 9,
+        "id": 198,
+        "line": 5,
+        "text": "etmek,",
+        "word": 0
+      },
+      {
+        "bbox": [
+          176.54,
+          340.151,
+          185.8697,
+          350.114
+        ],
+        "block": 9,
+        "id": 199,
+        "line": 5,
+        "text": "bu",
+        "word": 1
+      },
+      {
+        "bbox": [
+          191.18,
+          340.151,
+          233.5309,
+          350.114
+        ],
+        "block": 9,
+        "id": 200,
+        "line": 5,
+        "text": "faaliyetlere",
+        "word": 2
+      },
+      {
+        "bbox": [
+          238.85,
+          340.151,
+          262.3038,
+          350.114
+        ],
+        "block": 9,
+        "id": 201,
+        "line": 5,
+        "text": "iştirak",
+        "word": 3
+      },
+      {
+        "bbox": [
+          267.77,
+          340.151,
+          290.6472,
+          350.114
+        ],
+        "block": 9,
+        "id": 202,
+        "line": 5,
+        "text": "etmek",
+        "word": 4
+      },
+      {
+        "bbox": [
+          295.97,
+          340.151,
+          304.8987,
+          350.114
+        ],
+        "block": 9,
+        "id": 203,
+        "line": 5,
+        "text": "ve",
+        "word": 5
+      },
+      {
+        "bbox": [
+          310.13,
+          340.151,
+          331.5379,
+          350.114
+        ],
+        "block": 9,
+        "id": 204,
+        "line": 5,
+        "text": "bütün",
+        "word": 6
+      },
+      {
+        "bbox": [
+          336.7085,
+          340.151,
+          346.0268,
+          350.114
+        ],
+        "block": 9,
+        "id": 205,
+        "line": 5,
+        "text": "bu",
+        "word": 7
+      },
+      {
+        "bbox": [
+          351.1974,
+          340.151,
+          376.7901,
+          350.114
+        ],
+        "block": 9,
+        "id": 206,
+        "line": 5,
+        "text": "hizmet",
+        "word": 8
+      },
+      {
+        "bbox": [
+          381.9887,
+          340.151,
+          390.9071,
+          350.114
+        ],
+        "block": 9,
+        "id": 207,
+        "line": 5,
+        "text": "ve",
+        "word": 9
+      },
+      {
+        "bbox": [
+          396.0126,
+          340.151,
+          436.7918,
+          350.114
+        ],
+        "block": 9,
+        "id": 208,
+        "line": 5,
+        "text": "faaliyetleri",
+        "word": 10
+      },
+      {
+        "bbox": [
+          442.0089,
+          340.151,
+          468.6433,
+          350.114
+        ],
+        "block": 9,
+        "id": 209,
+        "line": 5,
+        "text": "katılım",
+        "word": 11
+      },
+      {
+        "bbox": [
+          473.7581,
+          340.151,
+          515.6347,
+          350.114
+        ],
+        "block": 9,
+        "id": 210,
+        "line": 5,
+        "text": "bankacılığı",
+        "word": 12
+      },
+      {
+        "bbox": [
+          145.94,
+          351.071,
+          195.1076,
+          361.034
+        ],
+        "block": 9,
+        "id": 211,
+        "line": 6,
+        "text": "prensiplerine",
+        "word": 0
+      },
+      {
+        "bbox": [
+          197.4511,
+          351.071,
+          221.0166,
+          361.034
+        ],
+        "block": 9,
+        "id": 212,
+        "line": 6,
+        "text": "uygun",
+        "word": 1
+      },
+      {
+        "bbox": [
+          223.61,
+          351.071,
+          247.0732,
+          361.034
+        ],
+        "block": 9,
+        "id": 213,
+        "line": 6,
+        "text": "olarak",
+        "word": 2
+      },
+      {
+        "bbox": [
+          249.53,
+          351.071,
+          290.0488,
+          361.034
+        ],
+        "block": 9,
+        "id": 214,
+        "line": 6,
+        "text": "yapmaktır.",
+        "word": 3
+      },
+      {
+        "bbox": [
+          145.94,
+          372.071,
+          172.2303,
+          382.034
+        ],
+        "block": 10,
+        "id": 215,
+        "line": 0,
+        "text": "Banka,",
+        "word": 0
+      },
+      {
+        "bbox": [
+          179.6049,
+          372.071,
+          208.3968,
+          382.034
+        ],
+        "block": 10,
+        "id": 216,
+        "line": 0,
+        "text": "Katılım",
+        "word": 1
+      },
+      {
+        "bbox": [
+          215.6691,
+          372.071,
+          258.9778,
+          382.034
+        ],
+        "block": 10,
+        "id": 217,
+        "line": 0,
+        "text": "Bankacılığı",
+        "word": 2
+      },
+      {
+        "bbox": [
+          266.3339,
+          372.071,
+          294.4376,
+          382.034
+        ],
+        "block": 10,
+        "id": 218,
+        "line": 0,
+        "text": "esasları",
+        "word": 3
+      },
+      {
+        "bbox": [
+          301.8122,
+          372.071,
+          352.7931,
+          382.034
+        ],
+        "block": 10,
+        "id": 219,
+        "line": 0,
+        "text": "çerçevesinde,",
+        "word": 4
+      },
+      {
+        "bbox": [
+          360.1677,
+          372.071,
+          400.9841,
+          382.034
+        ],
+        "block": 10,
+        "id": 220,
+        "line": 0,
+        "text": "Bankacılık",
+        "word": 5
+      },
+      {
+        "bbox": [
+          408.3123,
+          372.071,
+          451.1466,
+          382.034
+        ],
+        "block": 10,
+        "id": 221,
+        "line": 0,
+        "text": "Düzenleme",
+        "word": 6
+      },
+      {
+        "bbox": [
+          458.4097,
+          372.071,
+          467.2072,
+          382.034
+        ],
+        "block": 10,
+        "id": 222,
+        "line": 0,
+        "text": "ve",
+        "word": 7
+      },
+      {
+        "bbox": [
+          474.4702,
+          372.071,
+          515.3796,
+          382.034
+        ],
+        "block": 10,
+        "id": 223,
+        "line": 0,
+        "text": "Denetleme",
+        "word": 8
+      },
+      {
+        "bbox": [
+          145.94,
+          382.871,
+          194.5682,
+          392.834
+        ],
+        "block": 10,
+        "id": 224,
+        "line": 1,
+        "text": "Kurumu’nun",
+        "word": 0
+      },
+      {
+        "bbox": [
+          196.73,
+          382.871,
+          238.1602,
+          392.834
+        ],
+        "block": 10,
+        "id": 225,
+        "line": 1,
+        "text": "(“BDDK”)",
+        "word": 1
+      },
+      {
+        "bbox": [
+          240.2247,
+          382.871,
+          266.8777,
+          392.834
+        ],
+        "block": 10,
+        "id": 226,
+        "line": 1,
+        "text": "verdiği",
+        "word": 2
+      },
+      {
+        "bbox": [
+          269.0817,
+          382.871,
+          293.0284,
+          392.834
+        ],
+        "block": 10,
+        "id": 227,
+        "line": 1,
+        "text": "izinler",
+        "word": 3
+      },
+      {
+        "bbox": [
+          295.37,
+          382.871,
+          349.3268,
+          392.834
+        ],
+        "block": 10,
+        "id": 228,
+        "line": 1,
+        "text": "doğrultusunda",
+        "word": 4
+      },
+      {
+        "bbox": [
+          351.3169,
+          382.871,
+          363.2856,
+          392.834
+        ],
+        "block": 10,
+        "id": 229,
+        "line": 1,
+        "text": "her",
+        "word": 5
+      },
+      {
+        "bbox": [
+          365.3501,
+          382.871,
+          383.1683,
+          392.834
+        ],
+        "block": 10,
+        "id": 230,
+        "line": 1,
+        "text": "türlü",
+        "word": 6
+      },
+      {
+        "bbox": [
+          385.3445,
+          382.871,
+          424.4868,
+          392.834
+        ],
+        "block": 10,
+        "id": 231,
+        "line": 1,
+        "text": "bankacılık",
+        "word": 7
+      },
+      {
+        "bbox": [
+          426.5421,
+          382.871,
+          461.9367,
+          392.834
+        ],
+        "block": 10,
+        "id": 232,
+        "line": 1,
+        "text": "işlemleri,",
+        "word": 8
+      },
+      {
+        "bbox": [
+          464.0385,
+          382.871,
+          494.0207,
+          392.834
+        ],
+        "block": 10,
+        "id": 233,
+        "line": 1,
+        "text": "iktisadi,",
+        "word": 9
+      },
+      {
+        "bbox": [
+          496.1224,
+          382.871,
+          515.4751,
+          392.834
+        ],
+        "block": 10,
+        "id": 234,
+        "line": 1,
+        "text": "ticari",
+        "word": 10
+      },
+      {
+        "bbox": [
+          145.94,
+          393.571,
+          154.7375,
+          403.534
+        ],
+        "block": 10,
+        "id": 235,
+        "line": 2,
+        "text": "ve",
+        "word": 0
+      },
+      {
+        "bbox": [
+          157.0811,
+          393.571,
+          186.8587,
+          403.534
+        ],
+        "block": 10,
+        "id": 236,
+        "line": 2,
+        "text": "finansal",
+        "word": 1
+      },
+      {
+        "bbox": [
+          189.38,
+          393.571,
+          222.3939,
+          403.534
+        ],
+        "block": 10,
+        "id": 237,
+        "line": 2,
+        "text": "işlemleri",
+        "word": 2
+      },
+      {
+        "bbox": [
+          224.81,
+          393.571,
+          291.0797,
+          403.534
+        ],
+        "block": 10,
+        "id": 238,
+        "line": 2,
+        "text": "gerçekleştirebilir.",
+        "word": 3
+      },
+      {
+        "bbox": [
+          105.86,
+          415.291,
+          115.202,
+          425.254
+        ],
+        "block": 11,
+        "id": 239,
+        "line": 0,
+        "text": "II.",
+        "word": 0
+      },
+      {
+        "bbox": [
+          145.94,
+          415.291,
+          200.3348,
+          425.254
+        ],
+        "block": 11,
+        "id": 240,
+        "line": 1,
+        "text": "BANKA’NIN",
+        "word": 0
+      },
+      {
+        "bbox": [
+          205.25,
+          415.291,
+          252.183,
+          425.254
+        ],
+        "block": 11,
+        "id": 241,
+        "line": 1,
+        "text": "SERMAYE",
+        "word": 1
+      },
+      {
+        "bbox": [
+          257.09,
+          415.291,
+          291.3083,
+          425.254
+        ],
+        "block": 11,
+        "id": 242,
+        "line": 1,
+        "text": "YAPISI,",
+        "word": 2
+      },
+      {
+        "bbox": [
+          296.21,
+          415.291,
+          342.1221,
+          425.254
+        ],
+        "block": 11,
+        "id": 243,
+        "line": 1,
+        "text": "YÖNETİM",
+        "word": 3
+      },
+      {
+        "bbox": [
+          346.99,
+          415.291,
+          360.0203,
+          425.254
+        ],
+        "block": 11,
+        "id": 244,
+        "line": 1,
+        "text": "VE",
+        "word": 4
+      },
+      {
+        "bbox": [
+          364.87,
+          415.291,
+          423.9702,
+          425.254
+        ],
+        "block": 11,
+        "id": 245,
+        "line": 1,
+        "text": "DENETİMİNİ",
+        "word": 5
+      },
+      {
+        "bbox": [
+          428.83,
+          415.291,
+          484.1808,
+          425.254
+        ],
+        "block": 11,
+        "id": 246,
+        "line": 1,
+        "text": "DOĞRUDAN",
+        "word": 6
+      },
+      {
+        "bbox": [
+          489.1,
+          415.291,
+          515.8102,
+          425.254
+        ],
+        "block": 11,
+        "id": 247,
+        "line": 1,
+        "text": "VEYA",
+        "word": 7
+      },
+      {
+        "bbox": [
+          145.94,
+          425.971,
+          189.8103,
+          435.934
+        ],
+        "block": 11,
+        "id": 248,
+        "line": 2,
+        "text": "DOLAYLI",
+        "word": 0
+      },
+      {
+        "bbox": [
+          197.45,
+          425.971,
+          238.7124,
+          435.934
+        ],
+        "block": 11,
+        "id": 249,
+        "line": 2,
+        "text": "OLARAK",
+        "word": 1
+      },
+      {
+        "bbox": [
+          246.29,
+          425.971,
+          266.0859,
+          435.934
+        ],
+        "block": 11,
+        "id": 250,
+        "line": 2,
+        "text": "TEK",
+        "word": 2
+      },
+      {
+        "bbox": [
+          273.77,
+          425.971,
+          309.2319,
+          435.934
+        ],
+        "block": 11,
+        "id": 251,
+        "line": 2,
+        "text": "BAŞINA",
+        "word": 3
+      },
+      {
+        "bbox": [
+          316.85,
+          425.971,
+          343.4488,
+          435.934
+        ],
+        "block": 11,
+        "id": 252,
+        "line": 2,
+        "text": "VEYA",
+        "word": 4
+      },
+      {
+        "bbox": [
+          350.95,
+          425.971,
+          397.5211,
+          435.934
+        ],
+        "block": 11,
+        "id": 253,
+        "line": 2,
+        "text": "BİRLİKTE",
+        "word": 5
+      },
+      {
+        "bbox": [
+          405.07,
+          425.971,
+          441.2095,
+          435.934
+        ],
+        "block": 11,
+        "id": 254,
+        "line": 2,
+        "text": "ELİNDE",
+        "word": 6
+      },
+      {
+        "bbox": [
+          448.75,
+          425.971,
+          515.739,
+          435.934
+        ],
+        "block": 11,
+        "id": 255,
+        "line": 2,
+        "text": "BULUNDURAN",
+        "word": 7
+      },
+      {
+        "bbox": [
+          145.94,
+          436.771,
+          206.2652,
+          446.734
+        ],
+        "block": 11,
+        "id": 256,
+        "line": 3,
+        "text": "ORTAKLARI,",
+        "word": 0
+      },
+      {
+        "bbox": [
+          212.5762,
+          436.771,
+          245.0404,
+          446.734
+        ],
+        "block": 11,
+        "id": 257,
+        "line": 3,
+        "text": "VARSA",
+        "word": 1
+      },
+      {
+        "bbox": [
+          251.2864,
+          436.771,
+          264.2146,
+          446.734
+        ],
+        "block": 11,
+        "id": 258,
+        "line": 3,
+        "text": "BU",
+        "word": 2
+      },
+      {
+        "bbox": [
+          270.77,
+          436.771,
+          335.6058,
+          446.734
+        ],
+        "block": 11,
+        "id": 259,
+        "line": 3,
+        "text": "HUSUSLARDA",
+        "word": 3
+      },
+      {
+        "bbox": [
+          341.8517,
+          436.771,
+          358.483,
+          446.734
+        ],
+        "block": 11,
+        "id": 260,
+        "line": 3,
+        "text": "YIL",
+        "word": 4
+      },
+      {
+        "bbox": [
+          364.7382,
+          436.771,
+          409.8151,
+          446.734
+        ],
+        "block": 11,
+        "id": 261,
+        "line": 3,
+        "text": "İÇİNDEKİ",
+        "word": 5
+      },
+      {
+        "bbox": [
+          416.0332,
+          436.771,
+          492.9525,
+          446.734
+        ],
+        "block": 11,
+        "id": 262,
+        "line": 3,
+        "text": "DEĞİŞİKLİKLER",
+        "word": 6
+      },
+      {
+        "bbox": [
+          499.3191,
+          436.771,
+          515.4492,
+          446.734
+        ],
+        "block": 11,
+        "id": 263,
+        "line": 3,
+        "text": "İLE",
+        "word": 7
+      },
+      {
+        "bbox": [
+          145.94,
+          447.451,
+          176.7059,
+          457.414
+        ],
+        "block": 11,
+        "id": 264,
+        "line": 4,
+        "text": "DAHİL",
+        "word": 0
+      },
+      {
+        "bbox": [
+          179.3,
+          447.451,
+          220.5253,
+          457.414
+        ],
+        "block": 11,
+        "id": 265,
+        "line": 4,
+        "text": "OLDUĞU",
+        "word": 1
+      },
+      {
+        "bbox": [
+          223.13,
+          447.451,
+          257.0421,
+          457.414
+        ],
+        "block": 11,
+        "id": 266,
+        "line": 4,
+        "text": "GRUBA",
+        "word": 2
+      },
+      {
+        "bbox": [
+          259.49,
+          447.451,
+          296.1398,
+          457.414
+        ],
+        "block": 11,
+        "id": 267,
+        "line": 4,
+        "text": "İLİŞKİN",
+        "word": 3
+      },
+      {
+        "bbox": [
+          298.5528,
+          447.451,
+          351.8803,
+          457.414
+        ],
+        "block": 11,
+        "id": 268,
+        "line": 4,
+        "text": "AÇIKLAMA",
+        "word": 4
+      },
+      {
+        "bbox": [
+          145.94,
+          470.251,
+          155.0,
+          480.214
+        ],
+        "block": 12,
+        "id": 269,
+        "line": 0,
+        "text": "30",
+        "word": 0
+      },
+      {
+        "bbox": [
+          157.94,
+          470.251,
+          177.47,
+          480.214
+        ],
+        "block": 12,
+        "id": 270,
+        "line": 0,
+        "text": "Eylül",
+        "word": 1
+      },
+      {
+        "bbox": [
+          180.02,
+          470.251,
+          197.948,
+          480.214
+        ],
+        "block": 12,
+        "id": 271,
+        "line": 0,
+        "text": "2023",
+        "word": 2
+      },
+      {
+        "bbox": [
+          200.93,
+          470.251,
+          209.486,
+          480.214
+        ],
+        "block": 12,
+        "id": 272,
+        "line": 0,
+        "text": "ve",
+        "word": 3
+      },
+      {
+        "bbox": [
+          212.09,
+          470.251,
+          221.03,
+          480.214
+        ],
+        "block": 12,
+        "id": 273,
+        "line": 0,
+        "text": "31",
+        "word": 4
+      },
+      {
+        "bbox": [
+          224.09,
+          470.251,
+          247.058,
+          480.214
+        ],
+        "block": 12,
+        "id": 274,
+        "line": 0,
+        "text": "Aralık",
+        "word": 5
+      },
+      {
+        "bbox": [
+          249.89,
+          470.251,
+          267.818,
+          480.214
+        ],
+        "block": 12,
+        "id": 275,
+        "line": 0,
+        "text": "2022",
+        "word": 6
+      },
+      {
+        "bbox": [
+          270.77,
+          470.251,
+          299.3181,
+          480.214
+        ],
+        "block": 12,
+        "id": 276,
+        "line": 0,
+        "text": "tarihleri",
+        "word": 7
+      },
+      {
+        "bbox": [
+          302.09,
+          470.251,
+          334.6071,
+          480.214
+        ],
+        "block": 12,
+        "id": 277,
+        "line": 0,
+        "text": "itibarıyla",
+        "word": 8
+      },
+      {
+        "bbox": [
+          337.27,
+          470.251,
+          376.267,
+          480.214
+        ],
+        "block": 12,
+        "id": 278,
+        "line": 0,
+        "text": "hissedarlar",
+        "word": 9
+      },
+      {
+        "bbox": [
+          379.27,
+          470.251,
+          387.826,
+          480.214
+        ],
+        "block": 12,
+        "id": 279,
+        "line": 0,
+        "text": "ve",
+        "word": 10
+      },
+      {
+        "bbox": [
+          390.79,
+          470.251,
+          420.706,
+          480.214
+        ],
+        "block": 12,
+        "id": 280,
+        "line": 0,
+        "text": "sermaye",
+        "word": 11
+      },
+      {
+        "bbox": [
+          423.67,
+          470.251,
+          450.697,
+          480.214
+        ],
+        "block": 12,
+        "id": 281,
+        "line": 0,
+        "text": "aşağıda",
+        "word": 12
+      },
+      {
+        "bbox": [
+          453.67,
+          470.251,
+          501.2532,
+          480.214
+        ],
+        "block": 12,
+        "id": 282,
+        "line": 0,
+        "text": "belirtilmiştir:",
+        "word": 13
+      },
+      {
+        "bbox": [
+          285.65,
+          493.171,
+          294.704,
+          503.134
+        ],
+        "block": 13,
+        "id": 283,
+        "line": 1,
+        "text": "30",
+        "word": 0
+      },
+      {
+        "bbox": [
+          297.026,
+          493.171,
+          317.51,
+          503.134
+        ],
+        "block": 13,
+        "id": 284,
+        "line": 1,
+        "text": "Eylül",
+        "word": 1
+      },
+      {
+        "bbox": [
+          319.679,
+          493.171,
+          337.607,
+          503.134
+        ],
+        "block": 13,
+        "id": 285,
+        "line": 1,
+        "text": "2023",
+        "word": 2
+      },
+      {
+        "bbox": [
+          429.79,
+          493.171,
+          438.844,
+          503.134
+        ],
+        "block": 13,
+        "id": 286,
+        "line": 2,
+        "text": "31",
+        "word": 0
+      },
+      {
+        "bbox": [
+          441.166,
+          493.171,
+          466.069,
+          503.134
+        ],
+        "block": 13,
+        "id": 287,
+        "line": 2,
+        "text": "Aralık",
+        "word": 1
+      },
+      {
+        "bbox": [
+          468.274,
+          493.171,
+          486.319,
+          503.134
+        ],
+        "block": 13,
+        "id": 288,
+        "line": 2,
+        "text": "2022",
+        "word": 2
+      },
+      {
+        "bbox": [
+          146.42,
+          514.411,
+          198.899,
+          524.374
+        ],
+        "block": 14,
+        "id": 289,
+        "line": 0,
+        "text": "Hissedarların",
+        "word": 0
+      },
+      {
+        "bbox": [
+          201.212,
+          514.411,
+          215.216,
+          524.374
+        ],
+        "block": 14,
+        "id": 290,
+        "line": 0,
+        "text": "Adı",
+        "word": 1
+      },
+      {
+        "bbox": [
+          273.65,
+          504.091,
+          308.183,
+          514.054
+        ],
+        "block": 15,
+        "id": 291,
+        "line": 0,
+        "text": "Ödenmiş",
+        "word": 0
+      },
+      {
+        "bbox": [
+          274.73,
+          514.411,
+          308.336,
+          524.374
+        ],
+        "block": 16,
+        "id": 292,
+        "line": 0,
+        "text": "Sermaye",
+        "word": 0
+      },
+      {
+        "bbox": [
+          372.43,
+          514.411,
+          381.43,
+          524.374
+        ],
+        "block": 16,
+        "id": 293,
+        "line": 1,
+        "text": "%",
+        "word": 0
+      },
+      {
+        "bbox": [
+          420.07,
+          504.091,
+          454.603,
+          514.054
+        ],
+        "block": 17,
+        "id": 294,
+        "line": 0,
+        "text": "Ödenmiş",
+        "word": 0
+      },
+      {
+        "bbox": [
+          421.15,
+          514.411,
+          454.756,
+          524.374
+        ],
+        "block": 18,
+        "id": 295,
+        "line": 0,
+        "text": "Sermaye",
+        "word": 0
+      },
+      {
+        "bbox": [
+          518.86,
+          514.411,
+          527.86,
+          524.374
+        ],
+        "block": 18,
+        "id": 296,
+        "line": 1,
+        "text": "%",
+        "word": 0
+      },
+      {
+        "bbox": [
+          146.42,
+          525.211,
+          170.873,
+          535.174
+        ],
+        "block": 18,
+        "id": 297,
+        "line": 2,
+        "text": "Ahmet",
+        "word": 0
+      },
+      {
+        "bbox": [
+          173.159,
+          525.211,
+          194.039,
+          535.174
+        ],
+        "block": 18,
+        "id": 298,
+        "line": 2,
+        "text": "Yaşar",
+        "word": 1
+      },
+      {
+        "bbox": [
+          196.316,
+          525.211,
+          225.269,
+          535.174
+        ],
+        "block": 18,
+        "id": 299,
+        "line": 2,
+        "text": "AYDIN",
+        "word": 2
+      },
+      {
+        "bbox": [
+          272.21,
+          525.211,
+          308.228,
+          535.174
+        ],
+        "block": 18,
+        "id": 300,
+        "line": 3,
+        "text": "1.447.500",
+        "word": 0
+      },
+      {
+        "bbox": [
+          365.71,
+          525.211,
+          381.478,
+          535.174
+        ],
+        "block": 18,
+        "id": 301,
+        "line": 4,
+        "text": "96,5",
+        "word": 0
+      },
+      {
+        "bbox": [
+          418.63,
+          525.211,
+          454.648,
+          535.174
+        ],
+        "block": 18,
+        "id": 302,
+        "line": 5,
+        "text": "1.447.500",
+        "word": 0
+      },
+      {
+        "bbox": [
+          512.14,
+          525.211,
+          527.908,
+          535.174
+        ],
+        "block": 18,
+        "id": 303,
+        "line": 6,
+        "text": "96,5",
+        "word": 0
+      },
+      {
+        "bbox": [
+          146.42,
+          536.131,
+          157.922,
+          546.094
+        ],
+        "block": 18,
+        "id": 304,
+        "line": 7,
+        "text": "Ali",
+        "word": 0
+      },
+      {
+        "bbox": [
+          160.208,
+          536.131,
+          178.235,
+          546.094
+        ],
+        "block": 18,
+        "id": 305,
+        "line": 7,
+        "text": "Taha",
+        "word": 1
+      },
+      {
+        "bbox": [
+          180.467,
+          536.131,
+          209.42,
+          546.094
+        ],
+        "block": 18,
+        "id": 306,
+        "line": 7,
+        "text": "AYDIN",
+        "word": 2
+      },
+      {
+        "bbox": [
+          283.49,
+          536.131,
+          308.249,
+          546.094
+        ],
+        "block": 18,
+        "id": 307,
+        "line": 8,
+        "text": "15.000",
+        "word": 0
+      },
+      {
+        "bbox": [
+          376.87,
+          536.131,
+          381.37,
+          546.094
+        ],
+        "block": 18,
+        "id": 308,
+        "line": 9,
+        "text": "1",
+        "word": 0
+      },
+      {
+        "bbox": [
+          429.91,
+          536.131,
+          454.669,
+          546.094
+        ],
+        "block": 18,
+        "id": 309,
+        "line": 10,
+        "text": "15.000",
+        "word": 0
+      },
+      {
+        "bbox": [
+          523.3,
+          536.131,
+          527.8,
+          546.094
+        ],
+        "block": 18,
+        "id": 310,
+        "line": 11,
+        "text": "1",
+        "word": 0
+      },
+      {
+        "bbox": [
+          146.42,
+          546.961,
+          160.883,
+          556.924
+        ],
+        "block": 18,
+        "id": 311,
+        "line": 12,
+        "text": "Can",
+        "word": 0
+      },
+      {
+        "bbox": [
+          163.205,
+          546.961,
+          183.752,
+          556.924
+        ],
+        "block": 18,
+        "id": 312,
+        "line": 12,
+        "text": "Ersöz",
+        "word": 1
+      },
+      {
+        "bbox": [
+          283.49,
+          546.961,
+          308.249,
+          556.924
+        ],
+        "block": 18,
+        "id": 313,
+        "line": 13,
+        "text": "15.000",
+        "word": 0
+      },
+      {
+        "bbox": [
+          376.87,
+          546.961,
+          381.37,
+          556.924
+        ],
+        "block": 18,
+        "id": 314,
+        "line": 14,
+        "text": "1",
+        "word": 0
+      },
+      {
+        "bbox": [
+          429.91,
+          546.961,
+          454.669,
+          556.924
+        ],
+        "block": 18,
+        "id": 315,
+        "line": 15,
+        "text": "15.000",
+        "word": 0
+      },
+      {
+        "bbox": [
+          523.3,
+          546.961,
+          527.8,
+          556.924
+        ],
+        "block": 18,
+        "id": 316,
+        "line": 16,
+        "text": "1",
+        "word": 0
+      },
+      {
+        "bbox": [
+          146.42,
+          557.881,
+          167.948,
+          567.844
+        ],
+        "block": 18,
+        "id": 317,
+        "line": 17,
+        "text": "Erhan",
+        "word": 0
+      },
+      {
+        "bbox": [
+          170.27,
+          557.881,
+          195.164,
+          567.844
+        ],
+        "block": 18,
+        "id": 318,
+        "line": 17,
+        "text": "Bostan",
+        "word": 1
+      },
+      {
+        "bbox": [
+          283.49,
+          557.881,
+          308.249,
+          567.844
+        ],
+        "block": 18,
+        "id": 319,
+        "line": 18,
+        "text": "15.000",
+        "word": 0
+      },
+      {
+        "bbox": [
+          376.87,
+          557.881,
+          381.37,
+          567.844
+        ],
+        "block": 18,
+        "id": 320,
+        "line": 19,
+        "text": "1",
+        "word": 0
+      },
+      {
+        "bbox": [
+          429.91,
+          557.881,
+          454.669,
+          567.844
+        ],
+        "block": 18,
+        "id": 321,
+        "line": 20,
+        "text": "15.000",
+        "word": 0
+      },
+      {
+        "bbox": [
+          523.3,
+          557.881,
+          527.8,
+          567.844
+        ],
+        "block": 18,
+        "id": 322,
+        "line": 21,
+        "text": "1",
+        "word": 0
+      },
+      {
+        "bbox": [
+          146.42,
+          568.681,
+          167.561,
+          578.6439
+        ],
+        "block": 18,
+        "id": 323,
+        "line": 22,
+        "text": "Tolga",
+        "word": 0
+      },
+      {
+        "bbox": [
+          169.793,
+          568.681,
+          187.667,
+          578.6439
+        ],
+        "block": 18,
+        "id": 324,
+        "line": 22,
+        "text": "Akar",
+        "word": 1
+      },
+      {
+        "bbox": [
+          287.93,
+          568.681,
+          308.243,
+          578.6439
+        ],
+        "block": 18,
+        "id": 325,
+        "line": 23,
+        "text": "7.500",
+        "word": 0
+      },
+      {
+        "bbox": [
+          370.15,
+          568.681,
+          381.472,
+          578.6439
+        ],
+        "block": 18,
+        "id": 326,
+        "line": 24,
+        "text": "0,5",
+        "word": 0
+      },
+      {
+        "bbox": [
+          434.35,
+          568.681,
+          454.663,
+          578.6439
+        ],
+        "block": 18,
+        "id": 327,
+        "line": 25,
+        "text": "7.500",
+        "word": 0
+      },
+      {
+        "bbox": [
+          516.58,
+          568.681,
+          527.902,
+          578.6439
+        ],
+        "block": 18,
+        "id": 328,
+        "line": 26,
+        "text": "0,5",
+        "word": 0
+      },
+      {
+        "bbox": [
+          146.42,
+          579.481,
+          176.453,
+          589.444
+        ],
+        "block": 18,
+        "id": 329,
+        "line": 27,
+        "text": "Toplam",
+        "word": 0
+      },
+      {
+        "bbox": [
+          272.21,
+          579.481,
+          308.228,
+          589.444
+        ],
+        "block": 18,
+        "id": 330,
+        "line": 28,
+        "text": "1.500.000",
+        "word": 0
+      },
+      {
+        "bbox": [
+          356.71,
+          579.481,
+          381.46,
+          589.444
+        ],
+        "block": 18,
+        "id": 331,
+        "line": 29,
+        "text": "100,00",
+        "word": 0
+      },
+      {
+        "bbox": [
+          418.63,
+          579.481,
+          454.648,
+          589.444
+        ],
+        "block": 18,
+        "id": 332,
+        "line": 30,
+        "text": "1.500.000",
+        "word": 0
+      },
+      {
+        "bbox": [
+          503.14,
+          579.481,
+          527.89,
+          589.444
+        ],
+        "block": 18,
+        "id": 333,
+        "line": 31,
+        "text": "100,00",
+        "word": 0
+      }
+    ],
+    "spans": [
+      {
+        "bbox": [
+          105.86,
+          40.6833,
+          274.49,
+          52.9046
+        ],
+        "block": 0,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 0,
+        "line": 0,
+        "size": 11.04,
+        "span": 0,
+        "text": "T.O.M. KATILIM BANKASI A.Ş. "
+      },
+      {
+        "bbox": [
+          105.86,
+          66.6233,
+          427.87,
+          78.8446
+        ],
+        "block": 1,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 1,
+        "line": 0,
+        "size": 11.04,
+        "span": 0,
+        "text": "30 EYLÜL 2023 TARİHİ İTİBARIYLA KONSOLİDE OLMAYAN "
+      },
+      {
+        "bbox": [
+          105.86,
+          79.4633,
+          441.67,
+          91.6846
+        ],
+        "block": 1,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 2,
+        "line": 1,
+        "size": 11.04,
+        "span": 0,
+        "text": "FİNANSAL TABLOLARA İLİŞKİN AÇIKLAMA VE DİPNOTLAR "
+      },
+      {
+        "bbox": [
+          105.86,
+          92.1487,
+          368.2,
+          101.5803
+        ],
+        "block": 1,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 3,
+        "line": 2,
+        "size": 8.52,
+        "span": 0,
+        "text": "(Tutarlar aksi belirtilmedikçe Bin Türk Lirası (“TL”) olarak ifade edilmiştir.) "
+      },
+      {
+        "bbox": [
+          47.04,
+          32.1656,
+          49.53,
+          43.1913
+        ],
+        "block": 2,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 4,
+        "line": 0,
+        "size": 9.96,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          301.01,
+          788.1633,
+          309.29,
+          800.3846
+        ],
+        "block": 3,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 5,
+        "line": 0,
+        "size": 11.04,
+        "span": 0,
+        "text": "1 "
+      },
+      {
+        "bbox": [
+          47.04,
+          792.1256,
+          49.53,
+          803.1514
+        ],
+        "block": 3,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 6,
+        "line": 1,
+        "size": 9.96,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          47.04,
+          102.451,
+          49.68,
+          114.1409
+        ],
+        "block": 4,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 7,
+        "line": 0,
+        "size": 10.56,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          272.93,
+          114.521,
+          348.2512,
+          124.484
+        ],
+        "block": 5,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 8,
+        "line": 0,
+        "size": 9.1393,
+        "span": 0,
+        "text": "BİRİNCİ BÖLÜM"
+      },
+      {
+        "bbox": [
+          348.43,
+          114.521,
+          350.68,
+          124.484
+        ],
+        "block": 5,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 9,
+        "line": 0,
+        "size": 9.0,
+        "span": 1,
+        "text": " "
+      },
+      {
+        "bbox": [
+          47.04,
+          124.8933,
+          49.41,
+          135.3876
+        ],
+        "block": 5,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 10,
+        "line": 1,
+        "size": 9.48,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          252.53,
+          135.761,
+          425.0289,
+          145.724
+        ],
+        "block": 6,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 11,
+        "line": 0,
+        "size": 9.1393,
+        "span": 0,
+        "text": "BANKA HAKKINDA GENEL BİLGİLER"
+      },
+      {
+        "bbox": [
+          425.23,
+          135.761,
+          427.48,
+          145.724
+        ],
+        "block": 6,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 12,
+        "line": 0,
+        "size": 9.0,
+        "span": 1,
+        "text": " "
+      },
+      {
+        "bbox": [
+          47.04,
+          146.1333,
+          49.41,
+          156.6276
+        ],
+        "block": 6,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 13,
+        "line": 1,
+        "size": 9.48,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          105.86,
+          157.001,
+          111.59,
+          166.964
+        ],
+        "block": 7,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 14,
+        "line": 0,
+        "size": 9.0,
+        "span": 0,
+        "text": "I."
+      },
+      {
+        "bbox": [
+          111.74,
+          156.875,
+          114.3116,
+          166.91
+        ],
+        "block": 7,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 16,
+        "font": "Arial-BoldMT",
+        "id": 15,
+        "line": 0,
+        "size": 9.1242,
+        "span": 1,
+        "text": " "
+      },
+      {
+        "bbox": [
+          145.94,
+          157.001,
+          481.5802,
+          166.964
+        ],
+        "block": 7,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 16,
+        "line": 1,
+        "size": 9.1393,
+        "span": 0,
+        "text": "BANKA’NIN KURULUŞ TARİHİ, BAŞLANGIÇ STATÜSÜ, ANILAN STATÜDE "
+      },
+      {
+        "bbox": [
+          145.94,
+          167.801,
+          432.1428,
+          177.764
+        ],
+        "block": 7,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 17,
+        "line": 2,
+        "size": 9.1393,
+        "span": 0,
+        "text": "MEYDANA GELEN DEĞİŞİKLİKLERİ İHTİVA EDEN TARİHÇESİ"
+      },
+      {
+        "bbox": [
+          432.31,
+          167.801,
+          434.56,
+          177.764
+        ],
+        "block": 7,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 18,
+        "line": 2,
+        "size": 9.0,
+        "span": 1,
+        "text": " "
+      },
+      {
+        "bbox": [
+          47.04,
+          178.481,
+          49.29,
+          188.444
+        ],
+        "block": 7,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 19,
+        "line": 3,
+        "size": 9.0,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          145.94,
+          188.801,
+          518.3049,
+          198.764
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 20,
+        "line": 0,
+        "size": 9.1486,
+        "span": 0,
+        "text": "T.O.M Katılım Bankası A.Ş. (“Banka”), Bankacılık Düzenleme ve Denetleme Kurulu’nun 12 "
+      },
+      {
+        "bbox": [
+          145.94,
+          199.601,
+          518.3049,
+          209.564
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 21,
+        "line": 1,
+        "size": 9.1486,
+        "span": 0,
+        "text": "Ağustos 2022 tarih ve 31921 sayılı Resmi Gazete’de yayımlanan 4 Ağustos 2022 tarih ve 10282 "
+      },
+      {
+        "bbox": [
+          145.94,
+          210.281,
+          518.2686,
+          220.244
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 22,
+        "line": 2,
+        "size": 9.1486,
+        "span": 0,
+        "text": "sayılı kararıyla kuruluş izni almış olup, 12 Aralık 2022  tarihinde Ticaret Sicil Memurluğunca tescil "
+      },
+      {
+        "bbox": [
+          145.94,
+          221.081,
+          415.7949,
+          231.044
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 23,
+        "line": 3,
+        "size": 9.1486,
+        "span": 0,
+        "text": "işlemi gerçekleştirilerek tüzel kişilik oluşmuştur. Banka, Bankacılık "
+      },
+      {
+        "bbox": [
+          417.67,
+          221.081,
+          518.23,
+          231.044
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 24,
+        "line": 3,
+        "size": 9.0,
+        "span": 1,
+        "text": "Düzenleme ve Denetleme "
+      },
+      {
+        "bbox": [
+          145.94,
+          231.791,
+          193.07,
+          241.754
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 25,
+        "line": 4,
+        "size": 9.0,
+        "span": 0,
+        "text": "Kurulu’nun  "
+      },
+      {
+        "bbox": [
+          145.94,
+          242.591,
+          518.2241,
+          252.554
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 26,
+        "line": 5,
+        "size": 9.0,
+        "span": 0,
+        "text": "31 Mart 2023 tarih ve 32149 sayılı Resmi Gazetede yayımlanan 30 Mart 2022 tarih, 10561 sayılı "
+      },
+      {
+        "bbox": [
+          145.94,
+          253.271,
+          479.5839,
+          263.234
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 27,
+        "line": 6,
+        "size": 9.0,
+        "span": 0,
+        "text": "kararı ile faaliyet izni almış olup, 27 Eylül 2023 tarihinde ilk müşteri kabulünü yaparak"
+      },
+      {
+        "bbox": [
+          479.74,
+          253.271,
+          518.2763,
+          263.234
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 28,
+        "line": 6,
+        "size": 9.1486,
+        "span": 1,
+        "text": " faaliyete "
+      },
+      {
+        "bbox": [
+          145.94,
+          264.071,
+          189.5835,
+          274.034
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 29,
+        "line": 7,
+        "size": 9.1486,
+        "span": 0,
+        "text": "başlamıştır."
+      },
+      {
+        "bbox": [
+          189.74,
+          264.071,
+          191.99,
+          274.034
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 30,
+        "line": 7,
+        "size": 9.0,
+        "span": 1,
+        "text": " "
+      },
+      {
+        "bbox": [
+          47.04,
+          274.8033,
+          49.41,
+          285.2977
+        ],
+        "block": 8,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 31,
+        "line": 8,
+        "size": 9.48,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          145.94,
+          285.791,
+          517.7694,
+          295.754
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 32,
+        "line": 0,
+        "size": 9.1486,
+        "span": 0,
+        "text": "Ana faaliyet alanı, Banka’nın kendi sermayesine ilaveten yurt içinden ve dışından “ Cari Hesaplar” "
+      },
+      {
+        "bbox": [
+          145.94,
+          296.711,
+          518.199,
+          306.674
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 33,
+        "line": 1,
+        "size": 9.1486,
+        "span": 0,
+        "text": "ve “Katılma Hesapları” yolu ile fon toplayıp piyasaya fon tahsis etmek,  29 Aralık 2021 tarih ve "
+      },
+      {
+        "bbox": [
+          145.94,
+          307.511,
+          307.4149,
+          317.474
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 34,
+        "line": 2,
+        "size": 9.1486,
+        "span": 0,
+        "text": "31704 sayılı Resmi Gazete’de yayımlanan "
+      },
+      {
+        "bbox": [
+          307.37,
+          307.511,
+          518.0175,
+          317.474
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 6,
+        "font": "TimesNewRomanPS-ItalicMT",
+        "id": 35,
+        "line": 2,
+        "size": 9.1486,
+        "span": 1,
+        "text": "“Dijital Bankaların Faaliyet Esasları İle Servis Modeli "
+      },
+      {
+        "bbox": [
+          145.94,
+          318.431,
+          281.7249,
+          328.394
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 6,
+        "font": "TimesNewRomanPS-ItalicMT",
+        "id": 36,
+        "line": 3,
+        "size": 9.1486,
+        "span": 0,
+        "text": "Bankacılığı Hakkında Yönetmelik” "
+      },
+      {
+        "bbox": [
+          282.77,
+          318.431,
+          369.9549,
+          328.394
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 37,
+        "line": 3,
+        "size": 9.1486,
+        "span": 1,
+        "text": "çerçevesinde her türlü "
+      },
+      {
+        "bbox": [
+          370.75,
+          318.431,
+          518.188,
+          328.394
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 38,
+        "line": 3,
+        "size": 9.0,
+        "span": 2,
+        "text": "finansman faaliyetinde bulunmak, zirai, "
+      },
+      {
+        "bbox": [
+          145.94,
+          329.231,
+          379.72,
+          339.194
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 39,
+        "line": 4,
+        "size": 9.0,
+        "span": 0,
+        "text": "sinai ve ticari faaliyet ve hizmetlerle iştigal eden gerçek ve tüzel "
+      },
+      {
+        "bbox": [
+          379.75,
+          329.231,
+          518.4249,
+          339.194
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 40,
+        "line": 4,
+        "size": 9.1486,
+        "span": 1,
+        "text": "kişilerin yatırım faaliyetlerini teşvik "
+      },
+      {
+        "bbox": [
+          145.94,
+          340.151,
+          518.0062,
+          350.114
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 41,
+        "line": 5,
+        "size": 9.1486,
+        "span": 0,
+        "text": "etmek, bu faaliyetlere iştirak etmek ve bütün bu hizmet ve faaliyetleri katılım bankacılığı "
+      },
+      {
+        "bbox": [
+          145.94,
+          351.071,
+          290.0488,
+          361.034
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 42,
+        "line": 6,
+        "size": 9.1486,
+        "span": 0,
+        "text": "prensiplerine uygun olarak yapmaktır."
+      },
+      {
+        "bbox": [
+          290.21,
+          351.071,
+          292.46,
+          361.034
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 43,
+        "line": 6,
+        "size": 9.0,
+        "span": 1,
+        "text": " "
+      },
+      {
+        "bbox": [
+          47.04,
+          361.751,
+          49.29,
+          371.714
+        ],
+        "block": 9,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 44,
+        "line": 7,
+        "size": 9.0,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          145.94,
+          372.071,
+          517.7697,
+          382.034
+        ],
+        "block": 10,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 45,
+        "line": 0,
+        "size": 9.1486,
+        "span": 0,
+        "text": "Banka, Katılım Bankacılığı esasları çerçevesinde, Bankacılık Düzenleme ve Denetleme "
+      },
+      {
+        "bbox": [
+          145.94,
+          382.871,
+          517.9675,
+          392.834
+        ],
+        "block": 10,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 46,
+        "line": 1,
+        "size": 9.1486,
+        "span": 0,
+        "text": "Kurumu’nun (“BDDK”) verdiği izinler doğrultusunda her türlü bankacılık işlemleri, iktisadi, ticari "
+      },
+      {
+        "bbox": [
+          145.94,
+          393.571,
+          291.0797,
+          403.534
+        ],
+        "block": 10,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 47,
+        "line": 2,
+        "size": 9.1486,
+        "span": 0,
+        "text": "ve finansal işlemleri gerçekleştirebilir."
+      },
+      {
+        "bbox": [
+          291.29,
+          393.571,
+          293.54,
+          403.534
+        ],
+        "block": 10,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 48,
+        "line": 2,
+        "size": 9.0,
+        "span": 1,
+        "text": " "
+      },
+      {
+        "bbox": [
+          47.04,
+          404.4233,
+          49.41,
+          414.9177
+        ],
+        "block": 10,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 49,
+        "line": 3,
+        "size": 9.48,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          105.86,
+          415.291,
+          115.202,
+          425.254
+        ],
+        "block": 11,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 50,
+        "line": 0,
+        "size": 9.0,
+        "span": 0,
+        "text": "II."
+      },
+      {
+        "bbox": [
+          115.34,
+          415.165,
+          117.9116,
+          425.2
+        ],
+        "block": 11,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 16,
+        "font": "Arial-BoldMT",
+        "id": 51,
+        "line": 0,
+        "size": 9.1242,
+        "span": 1,
+        "text": " "
+      },
+      {
+        "bbox": [
+          145.94,
+          415.291,
+          518.3002,
+          425.254
+        ],
+        "block": 11,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 52,
+        "line": 1,
+        "size": 9.1393,
+        "span": 0,
+        "text": "BANKA’NIN SERMAYE YAPISI, YÖNETİM VE DENETİMİNİ DOĞRUDAN VEYA "
+      },
+      {
+        "bbox": [
+          145.94,
+          425.971,
+          518.3002,
+          435.934
+        ],
+        "block": 11,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 53,
+        "line": 2,
+        "size": 9.1393,
+        "span": 0,
+        "text": "DOLAYLI OLARAK TEK BAŞINA VEYA BİRLİKTE ELİNDE BULUNDURAN "
+      },
+      {
+        "bbox": [
+          145.94,
+          436.771,
+          517.9271,
+          446.734
+        ],
+        "block": 11,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 54,
+        "line": 3,
+        "size": 9.1393,
+        "span": 0,
+        "text": "ORTAKLARI, VARSA BU HUSUSLARDA YIL İÇİNDEKİ DEĞİŞİKLİKLER İLE "
+      },
+      {
+        "bbox": [
+          145.94,
+          447.451,
+          351.8803,
+          457.414
+        ],
+        "block": 11,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 55,
+        "line": 4,
+        "size": 9.1393,
+        "span": 0,
+        "text": "DAHİL OLDUĞU GRUBA İLİŞKİN AÇIKLAMA"
+      },
+      {
+        "bbox": [
+          352.15,
+          447.451,
+          354.4,
+          457.414
+        ],
+        "block": 11,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 56,
+        "line": 4,
+        "size": 9.0,
+        "span": 1,
+        "text": " "
+      },
+      {
+        "bbox": [
+          47.04,
+          458.181,
+          49.68,
+          469.871
+        ],
+        "block": 11,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 57,
+        "line": 5,
+        "size": 10.56,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          145.94,
+          470.251,
+          503.47,
+          480.214
+        ],
+        "block": 12,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 58,
+        "line": 0,
+        "size": 9.0,
+        "span": 0,
+        "text": "30 Eylül 2023 ve 31 Aralık 2022 tarihleri itibarıyla hissedarlar ve sermaye aşağıda belirtilmiştir: "
+      },
+      {
+        "bbox": [
+          47.04,
+          480.621,
+          49.68,
+          492.3109
+        ],
+        "block": 12,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 59,
+        "line": 1,
+        "size": 10.56,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          189.5,
+          493.171,
+          194.03,
+          503.134
+        ],
+        "block": 13,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 60,
+        "line": 0,
+        "size": 9.0,
+        "span": 0,
+        "text": "  "
+      },
+      {
+        "bbox": [
+          285.65,
+          493.171,
+          339.88,
+          503.134
+        ],
+        "block": 13,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 61,
+        "line": 1,
+        "size": 9.0,
+        "span": 0,
+        "text": "30 Eylül 2023 "
+      },
+      {
+        "bbox": [
+          429.79,
+          493.171,
+          488.59,
+          503.134
+        ],
+        "block": 13,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 62,
+        "line": 2,
+        "size": 9.0,
+        "span": 0,
+        "text": "31 Aralık 2022 "
+      },
+      {
+        "bbox": [
+          146.42,
+          514.411,
+          217.46,
+          524.374
+        ],
+        "block": 14,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 63,
+        "line": 0,
+        "size": 9.0,
+        "span": 0,
+        "text": "Hissedarların Adı "
+      },
+      {
+        "bbox": [
+          273.65,
+          504.091,
+          310.433,
+          514.054
+        ],
+        "block": 15,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 64,
+        "line": 0,
+        "size": 9.0,
+        "span": 0,
+        "text": "Ödenmiş "
+      },
+      {
+        "bbox": [
+          274.73,
+          514.411,
+          310.46,
+          524.374
+        ],
+        "block": 16,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 65,
+        "line": 0,
+        "size": 9.0,
+        "span": 0,
+        "text": "Sermaye "
+      },
+      {
+        "bbox": [
+          372.43,
+          514.411,
+          383.68,
+          524.374
+        ],
+        "block": 16,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 66,
+        "line": 1,
+        "size": 9.0,
+        "span": 0,
+        "text": "% "
+      },
+      {
+        "bbox": [
+          420.07,
+          504.091,
+          456.853,
+          514.054
+        ],
+        "block": 17,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 67,
+        "line": 0,
+        "size": 9.0,
+        "span": 0,
+        "text": "Ödenmiş "
+      },
+      {
+        "bbox": [
+          421.15,
+          514.411,
+          456.88,
+          524.374
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 68,
+        "line": 0,
+        "size": 9.0,
+        "span": 0,
+        "text": "Sermaye "
+      },
+      {
+        "bbox": [
+          518.86,
+          514.411,
+          530.11,
+          524.374
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 69,
+        "line": 1,
+        "size": 9.0,
+        "span": 0,
+        "text": "% "
+      },
+      {
+        "bbox": [
+          146.42,
+          525.211,
+          227.66,
+          535.174
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 70,
+        "line": 2,
+        "size": 9.0,
+        "span": 0,
+        "text": "Ahmet Yaşar AYDIN "
+      },
+      {
+        "bbox": [
+          272.21,
+          525.211,
+          310.46,
+          535.174
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 71,
+        "line": 3,
+        "size": 9.0,
+        "span": 0,
+        "text": "1.447.500 "
+      },
+      {
+        "bbox": [
+          365.71,
+          525.211,
+          383.68,
+          535.174
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 72,
+        "line": 4,
+        "size": 9.0,
+        "span": 0,
+        "text": "96,5 "
+      },
+      {
+        "bbox": [
+          418.63,
+          525.211,
+          456.88,
+          535.174
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 73,
+        "line": 5,
+        "size": 9.0,
+        "span": 0,
+        "text": "1.447.500 "
+      },
+      {
+        "bbox": [
+          512.14,
+          525.211,
+          530.11,
+          535.174
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 74,
+        "line": 6,
+        "size": 9.0,
+        "span": 0,
+        "text": "96,5 "
+      },
+      {
+        "bbox": [
+          146.42,
+          536.131,
+          211.7,
+          546.094
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 75,
+        "line": 7,
+        "size": 9.0,
+        "span": 0,
+        "text": "Ali Taha AYDIN "
+      },
+      {
+        "bbox": [
+          283.49,
+          536.131,
+          310.46,
+          546.094
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 76,
+        "line": 8,
+        "size": 9.0,
+        "span": 0,
+        "text": "15.000 "
+      },
+      {
+        "bbox": [
+          376.87,
+          536.131,
+          383.68,
+          546.094
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 77,
+        "line": 9,
+        "size": 9.0,
+        "span": 0,
+        "text": "1 "
+      },
+      {
+        "bbox": [
+          429.91,
+          536.131,
+          456.88,
+          546.094
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 78,
+        "line": 10,
+        "size": 9.0,
+        "span": 0,
+        "text": "15.000 "
+      },
+      {
+        "bbox": [
+          523.3,
+          536.131,
+          530.11,
+          546.094
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 79,
+        "line": 11,
+        "size": 9.0,
+        "span": 0,
+        "text": "1 "
+      },
+      {
+        "bbox": [
+          146.42,
+          546.961,
+          185.87,
+          556.924
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 80,
+        "line": 12,
+        "size": 9.0,
+        "span": 0,
+        "text": "Can Ersöz "
+      },
+      {
+        "bbox": [
+          283.49,
+          546.961,
+          310.46,
+          556.924
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 81,
+        "line": 13,
+        "size": 9.0,
+        "span": 0,
+        "text": "15.000 "
+      },
+      {
+        "bbox": [
+          376.87,
+          546.961,
+          383.68,
+          556.924
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 82,
+        "line": 14,
+        "size": 9.0,
+        "span": 0,
+        "text": "1 "
+      },
+      {
+        "bbox": [
+          429.91,
+          546.961,
+          456.88,
+          556.924
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 83,
+        "line": 15,
+        "size": 9.0,
+        "span": 0,
+        "text": "15.000 "
+      },
+      {
+        "bbox": [
+          523.3,
+          546.961,
+          530.11,
+          556.924
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 84,
+        "line": 16,
+        "size": 9.0,
+        "span": 0,
+        "text": "1 "
+      },
+      {
+        "bbox": [
+          146.42,
+          557.881,
+          197.42,
+          567.844
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 85,
+        "line": 17,
+        "size": 9.0,
+        "span": 0,
+        "text": "Erhan Bostan "
+      },
+      {
+        "bbox": [
+          283.49,
+          557.881,
+          310.46,
+          567.844
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 86,
+        "line": 18,
+        "size": 9.0,
+        "span": 0,
+        "text": "15.000 "
+      },
+      {
+        "bbox": [
+          376.87,
+          557.881,
+          383.68,
+          567.844
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 87,
+        "line": 19,
+        "size": 9.0,
+        "span": 0,
+        "text": "1 "
+      },
+      {
+        "bbox": [
+          429.91,
+          557.881,
+          456.88,
+          567.844
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 88,
+        "line": 20,
+        "size": 9.0,
+        "span": 0,
+        "text": "15.000 "
+      },
+      {
+        "bbox": [
+          523.3,
+          557.881,
+          530.11,
+          567.844
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 89,
+        "line": 21,
+        "size": 9.0,
+        "span": 0,
+        "text": "1 "
+      },
+      {
+        "bbox": [
+          146.42,
+          568.681,
+          189.95,
+          578.6439
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 90,
+        "line": 22,
+        "size": 9.0,
+        "span": 0,
+        "text": "Tolga Akar "
+      },
+      {
+        "bbox": [
+          287.93,
+          568.681,
+          310.46,
+          578.6439
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 91,
+        "line": 23,
+        "size": 9.0,
+        "span": 0,
+        "text": "7.500 "
+      },
+      {
+        "bbox": [
+          370.15,
+          568.681,
+          383.68,
+          578.6439
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 92,
+        "line": 24,
+        "size": 9.0,
+        "span": 0,
+        "text": "0,5 "
+      },
+      {
+        "bbox": [
+          434.35,
+          568.681,
+          456.88,
+          578.6439
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 93,
+        "line": 25,
+        "size": 9.0,
+        "span": 0,
+        "text": "7.500 "
+      },
+      {
+        "bbox": [
+          516.58,
+          568.681,
+          530.11,
+          578.6439
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 94,
+        "line": 26,
+        "size": 9.0,
+        "span": 0,
+        "text": "0,5 "
+      },
+      {
+        "bbox": [
+          146.42,
+          579.481,
+          178.67,
+          589.444
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 95,
+        "line": 27,
+        "size": 9.0,
+        "span": 0,
+        "text": "Toplam "
+      },
+      {
+        "bbox": [
+          272.21,
+          579.481,
+          310.46,
+          589.444
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 96,
+        "line": 28,
+        "size": 9.0,
+        "span": 0,
+        "text": "1.500.000 "
+      },
+      {
+        "bbox": [
+          356.71,
+          579.481,
+          383.68,
+          589.444
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 97,
+        "line": 29,
+        "size": 9.0,
+        "span": 0,
+        "text": "100,00 "
+      },
+      {
+        "bbox": [
+          418.63,
+          579.481,
+          456.88,
+          589.444
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 98,
+        "line": 30,
+        "size": 9.0,
+        "span": 0,
+        "text": "1.500.000 "
+      },
+      {
+        "bbox": [
+          503.14,
+          579.481,
+          530.11,
+          589.444
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 20,
+        "font": "TimesNewRomanPS-BoldMT",
+        "id": 99,
+        "line": 31,
+        "size": 9.0,
+        "span": 0,
+        "text": "100,00 "
+      },
+      {
+        "bbox": [
+          47.04,
+          590.194,
+          48.54,
+          596.836
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 100,
+        "line": 32,
+        "size": 6.0,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          47.04,
+          597.034,
+          48.54,
+          603.676
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 101,
+        "line": 33,
+        "size": 6.0,
+        "span": 0,
+        "text": " "
+      },
+      {
+        "bbox": [
+          191.06,
+          597.034,
+          192.56,
+          603.676
+        ],
+        "block": 18,
+        "direction": [
+          1.0,
+          0.0
+        ],
+        "flags": 4,
+        "font": "TimesNewRomanPSMT",
+        "id": 102,
+        "line": 34,
+        "size": 6.0,
+        "span": 0,
+        "text": " "
+      }
+    ]
+  },
+  "scope": "Retained real source/candidate page for the independent full-table regression. Not complete document evidence."
+}

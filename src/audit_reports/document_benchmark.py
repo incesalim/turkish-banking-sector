@@ -8,6 +8,7 @@ from __future__ import annotations
 import unicodedata
 import json
 import hashlib
+from collections import Counter
 from pathlib import Path
 
 SOURCE_CASE_KINDS = frozenset({"source_span", "source_word"})
@@ -56,6 +57,56 @@ def _continuation_matches(case, pages, sources):
                     good = False
         if good:
             matches.append(link['to_table_id'])
+    return matches
+
+
+def _complete_table_matches(case, page, source):
+    """Check every annotated slot and every source word in a reviewed region."""
+    from .document_table_context import table_context
+    contexts = {t['table_id']: t for t in table_context([page])[0]['tables']}
+    bounds, expected = case['bbox'], case['rows']
+    words = {w['id']: w for w in source['words']}
+
+    def inside(box, region):
+        return region[0] <= (box[0] + box[2]) / 2 <= region[2] and region[1] <= (box[1] + box[3]) / 2 <= region[3]
+
+    expected_words = Counter(w['id'] for w in source['words'] if inside(w['bbox'], bounds))
+    for region in case.get('source_text_regions', []):
+        selected = [s for s in source['spans'] if inside(s['bbox'], region['bbox'])]
+        if not selected or _text(' '.join(s['text'] for s in selected)) != _text(region['text']):
+            return []
+    matches = []
+    for table in page['tables']:
+        if (table['method'] != case['method'] or table['row_count'] != len(expected)
+                or table['n_cols'] != len(expected[0]) or len(table['rows']) != len(expected)):
+            continue
+        grid = contexts[table['id']]['physical_grid']
+        if grid is None or [a for a in grid['anchors'] if a['row_span'] > 1 or a['column_span'] > 1] != case['spans']:
+            continue
+        actual_words, good = Counter(), True
+        for r, (row, texts) in enumerate(zip(table['rows'], expected, strict=True)):
+            if row['index'] != r or len(row['cells']) != len(texts):
+                good = False
+                break
+            for c, (cell, text) in enumerate(zip(row['cells'], texts, strict=True)):
+                refs = cell['word_ids']
+                if (cell['column'] != c or (cell['text'] is None) != (text is None)
+                        or _text(cell['text']) != _text(text) or any(i not in words for i in refs)):
+                    good = False
+                    break
+                if text is None:
+                    if cell['bbox'] is not None or refs:
+                        good = False
+                    continue
+                box = cell['bbox']
+                if (box is None or not (bounds[0] <= box[0] <= box[2] <= bounds[2]
+                                       and bounds[1] <= box[1] <= box[3] <= bounds[3])
+                        or _text(' '.join(words[i]['text'] for i in refs)) != _text(text)
+                        or any(not inside(words[i]['bbox'], box) for i in refs)):
+                    good = False
+                actual_words.update(refs)
+        if good and actual_words == expected_words:
+            matches.append(table['id'])
     return matches
 
 
@@ -127,6 +178,12 @@ def check_annotations(structure: dict, evidence: list[dict], annotation: dict) -
                         if case['from_page'] in pages and case['from_page'] in sources else [])
             if len(matching) != 1:
                 failures.append({**prefix, 'kind': 'table_continuation_source_mismatch',
+                                 'matching_candidates': len(matching)})
+            continue
+        if case.get('kind') == 'complete_physical_table':
+            matching = _complete_table_matches(case, pages[case['page']], sources[case['page']])
+            if len(matching) != 1:
+                failures.append({**prefix, 'kind': 'complete_table_source_mismatch',
                                  'matching_candidates': len(matching)})
             continue
         if case.get("kind") in SOURCE_CASE_KINDS:

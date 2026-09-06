@@ -1,0 +1,107 @@
+{
+  "schema_version": "document-annotations-1",
+  "filing": {
+    "bank_ticker": "TOMK",
+    "period": "2023Q3",
+    "kind": "unconsolidated"
+  },
+  "pdf_sha256": "80dbb8e5a2b18675e84b2ed62fbbaf07c3dadebc5984ea36979ba0687b610c84",
+  "annotation_method": "Independently read every slot and both merged period headings in the rendered original PDF page6 (printed1) on2026-09-07. Complete physical-table text/geometry comparison; not whole-document or financial-interpretation approval. Unit qualification is a separate source-text witness.",
+  "cases": [
+    {
+      "id": "complete_shareholder_table_two_reporting_dates",
+      "kind": "complete_physical_table",
+      "page": 6,
+      "method": "pymupdf_lines_strict",
+      "bbox": [
+        141,
+        491,
+        533,
+        591
+      ],
+      "rows": [
+        [
+          "",
+          "30 Eylül 2023",
+          null,
+          "31 Aralık 2022",
+          null
+        ],
+        [
+          "Hissedarların Adı",
+          "Ödenmiş Sermaye",
+          "%",
+          "Ödenmiş Sermaye",
+          "%"
+        ],
+        [
+          "Ahmet Yaşar AYDIN",
+          "1.447.500",
+          "96,5",
+          "1.447.500",
+          "96,5"
+        ],
+        [
+          "Ali Taha AYDIN",
+          "15.000",
+          "1",
+          "15.000",
+          "1"
+        ],
+        [
+          "Can Ersöz",
+          "15.000",
+          "1",
+          "15.000",
+          "1"
+        ],
+        [
+          "Erhan Bostan",
+          "15.000",
+          "1",
+          "15.000",
+          "1"
+        ],
+        [
+          "Tolga Akar",
+          "7.500",
+          "0,5",
+          "7.500",
+          "0,5"
+        ],
+        [
+          "Toplam",
+          "1.500.000",
+          "100,00",
+          "1.500.000",
+          "100,00"
+        ]
+      ],
+      "spans": [
+        {
+          "row": 0,
+          "column": 1,
+          "row_span": 1,
+          "column_span": 2
+        },
+        {
+          "row": 0,
+          "column": 3,
+          "row_span": 1,
+          "column_span": 2
+        }
+      ],
+      "source_text_regions": [
+        {
+          "bbox": [
+            104,
+            90,
+            535,
+            103
+          ],
+          "text": "(Tutarlar aksi belirtilmedikçe Bin Türk Lirası (“TL”) olarak ifade edilmiştir.)"
+        }
+      ]
+    }
+  ]
+}

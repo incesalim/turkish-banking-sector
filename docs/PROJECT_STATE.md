@@ -88,7 +88,10 @@ columns 1/2 continue despite changed widths, with three/two full-width headings.
 Cloud capture `34061799667` passes. Independent checks verify all 108 retained
 pages, freshly reobserve original pages 47–48, reproduce the new context from
 prior retained structure, and match five source annotations and committed engine
-hashes. Publication and live merged-cell/continuation checks remain pending. Header meaning, logical rows and full prose order remain unverified
+hashes. Publication `34062058387` matches the independently verified probe. Its full-byte
+replay leaves all five observed source/capture object versions unchanged. The
+admin session expired before live merged-cell/continuation inspection; sign-in
+renewal is pending. Header meaning, logical rows and full prose order remain unverified
 beyond bounded source annotations.
 
 `review-document-origins.yml` independently downloads registered sources afresh,
@@ -97,7 +100,14 @@ replacing acquisitions. Four cloud probes and publishing byte/receipt checks pas
 full registered comparison `34058065551` remains running. Byte agreement does
 not clear conflicting cover claims. Origin indexes preserve unavailable/different
 observations and their timestamps; Anadolubank's early missing-acquisition
-observation predates its successful repair and needs a later comparison.
+observation predates its successful repair; follow-up `34062651771` is queued.
+The first completed origin group covers 289 filings: 250 byte matches, five
+different PDFs, 14 non-PDF/unclear downloads, 19 unavailable sources and that one
+historical missing observation. Independently inspected Albaraka 2026Q2
+consolidated and Eximbank 2026Q1 solo differences are English/Turkish editions:
+the acquired covers explicitly declare convenience translations, while the fresh
+BDDK covers are Turkish. Full content equivalence is not established. Both
+versions remain preserved; the other differences still require investigation.
 
 `capture-related-documents.yml` separately preserves every additional PDF member
 of a verified report archive. Anadolubank's one-page signed declaration has
@@ -121,7 +131,14 @@ but existing stored wide rows have not been rebuilt.
 A read-only visual review pack is now implemented in the existing capture
 workflow: render selected pages, or a whole single filing in Actions, with exact
 PDF/pixel bindings and named per-page failures. This supports independent
-whole-document review; cloud preparation is pending.
+whole-document review. Cloud pack `34062146313` contains all 51 TOMK 2023Q3
+solo pages; PNG bytes, source/engine hashes, four fresh original-pixel probes and
+all retained native/structure pages pass independent checks. Visual review of
+pages 1–12 found footer reading order, separated bullet markers and split
+signatory roles. A complete physical-table benchmark now checks all 40 slots,
+both merged period headings, every source word in the region and the unit
+qualification of page 6's shareholder table. Local mutation/source checks pass;
+this does not approve the whole report or financial interpretation.
 
 Remaining work: reconcile fresh-origin and revised recovery fleets; establish
 whole-document physical and semantic coverage with independently reviewed source

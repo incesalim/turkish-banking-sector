@@ -519,3 +519,25 @@ of detected tables.
   rendered originals. Tests cover rotation, exact pixels, changed source bytes,
   invalid/omitted selections and a middle-page failure followed by successful
   later rendering. Cloud whole-document preparation pending.
+
+- 2026-09-07: QNB publication `34062058387` matches the independently verified
+  source/structure probe; full-byte replay leaves all five object versions
+  unchanged. Live table-context inspection awaits renewal of the expired admin
+  session. No authentication bypass or serving-data change was introduced.
+- 2026-09-07: TOMK 2023Q3 whole-source review pack `34062146313` passes source,
+  engine and all 51 PNG byte checks, four fresh original-pixel probes and full
+  native/structure retention checks. Visually reviewed pages 1–12. Found footer
+  order, separate bullet markers and fragmented signatory roles; numerical
+  statement rows are retained but their ruled header/body fragments need logical
+  association. Added a complete physical-table source benchmark for all 40 slots
+  in the shareholder table, both merged date headings and the unit statement.
+  Local mutation checks reject dropped/duplicated slots/rows, swapped periods,
+  identical values with the wrong source, changed units and unaccounted source
+  words. It approves neither the whole report nor financial interpretation.
+- 2026-09-07: fresh-origin group 1 completed with five byte-different PDFs,
+  33 unavailable/non-PDF downloads and one pre-repair Anadolubank observation.
+  Independently opened Albaraka/Eximbank paired covers; acquired copies explicitly
+  identify English translations, while current BDDK copies are Turkish. Preserve
+  both editions and investigate remaining differences. Capture-time registered
+  locators are not retroactive download provenance. Full origin/recovery fleets
+  and later Anadolubank comparison remain outstanding.
