@@ -33,6 +33,7 @@ def structure_engine() -> dict:
     digest = hashlib.sha256()
     for name in ("document_structure.py", "document_capture.py", "document_sections.py",
                  "document_evidence.py", "document_corpus.py", "document_rule_tables.py", "document_narrative.py",
+                 "document_tagged.py",
                  "prose.py", "extractor.py", "units.py"):
         path = Path(__file__).parent / name
         digest.update(path.name.encode())
@@ -310,6 +311,11 @@ def build_document_structure(pdf_path: Path, evidence: list[dict]) -> dict:
             if observed["replacement_character_count"]:
                 issues.append({"kind": "replacement_characters",
                                "count": observed["replacement_character_count"]})
+            if observed.get("actualtext_changes_word_view"):
+                issues.append({"kind": "actualtext_geometry_unverified"})
+            if (observed.get("native_structure") or {}).get("unmapped_nonblank_spans"):
+                issues.append({"kind": "native_text_span_unresolved",
+                               "count": observed["native_structure"]["unmapped_nonblank_spans"]})
             span_blocks = _physical_blocks(observed)
             pages.append({"page": observed["page"], "text_blocks": span_blocks,
                           "candidate_lines": lines, "tables": tables,

@@ -70,7 +70,7 @@ def main(argv: list[str] | None = None) -> int:
         parser.error("--limit cannot be negative")
     if args.structure and not args.capture:
         parser.error("--structure requires --capture")
-    if args.structure and not args.annotations_dir.is_dir():
+    if args.capture and not args.annotations_dir.is_dir():
         parser.error("Source annotation directory is missing")
     if args.publish and not (args.from_r2 and args.capture and os.environ.get("GITHUB_ACTIONS") == "true"):
         parser.error("--publish requires --from-r2 --capture in Actions")
@@ -157,6 +157,8 @@ def main(argv: list[str] | None = None) -> int:
             result = {**filing.as_dict(), "status": "failed"}
             identity, original_key = None, None
             try:
+                source_annotation_hash = (annotation_identity(args.annotations_dir, filing, source_only=True)
+                                          if store else None)
                 annotation_hash = (annotation_identity(args.annotations_dir, filing)
                                    if store and args.structure else "not_requested")
                 source_url = row["source_urls"][0] if len(row["source_urls"]) == 1 else None
@@ -164,7 +166,8 @@ def main(argv: list[str] | None = None) -> int:
                     cached = unchanged_index(store, filing, row["object_keys"][0], source_url,
                                              evidence_engine=engine_identity(),
                                              structure_engine=structure_engine() if args.structure else None,
-                                             annotation_hash=annotation_hash)
+                                             annotation_hash=annotation_hash,
+                                             source_annotation_hash=source_annotation_hash)
                     if cached:
                         saved = cached["current"]
                         structured = saved.get("structure_current") if args.structure else None
@@ -176,6 +179,7 @@ def main(argv: list[str] | None = None) -> int:
                                       reuse_check="verified_object_versions_unchanged",
                                       semantic_verification="not_performed",
                                       benchmark=cached["resume_receipt"]["benchmark"])
+                        result["source_benchmark"] = cached["resume_receipt"].get("source_benchmark")
                         if structured:
                             result.update({key: structured[key] for key in
                                            ("table_candidates", "text_blocks", "pages_with_issues")})
@@ -214,6 +218,11 @@ def main(argv: list[str] | None = None) -> int:
                     artifact = (args.output_dir / "sources" / manifest["source"]["pdf_sha256"]
                                 / f"{artifact_digest(records)}.jsonl.gz")
                     changed = save_evidence(records, artifact)
+                    from src.audit_reports.document_benchmark import check_source_annotations
+                    source_benchmark = check_source_annotations(records, args.annotations_dir)
+                    result["source_benchmark"] = source_benchmark
+                    if source_benchmark["status"] == "failed":
+                        raise ValueError(f"Source-text regression failed: {source_benchmark['checks']}")
                     if store:
                         store.publish(records, original, artifact)
                     result.update(source=manifest["source"],
@@ -252,7 +261,8 @@ def main(argv: list[str] | None = None) -> int:
                         result["status"] = "structured_candidates"
                     if store:
                         record_receipt(store, filing, acquisition, annotation_hash, result.get("benchmark"),
-                                       structure=args.structure)
+                                       structure=args.structure, source_annotation_hash=source_annotation_hash,
+                                       source_benchmark=source_benchmark)
                     if args.discard_published:
                         # These exact files are under this command's own output root.
                         # Their read-back-verified R2 copies and filing index now exist.

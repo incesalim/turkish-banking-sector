@@ -114,3 +114,26 @@ def test_source_only_resume_does_not_depend_on_table_annotations(published):
     receipt(published)
     assert unchanged_index(store, filing, token["key"], None, evidence_engine=engine,
                             structure_engine=None, annotation_hash="changed-but-not-requested") is not None
+
+
+def test_source_annotation_changes_invalidate_source_only_resume(published):
+    store, _client, filing, token, engine, _structure_engine = published
+    record_receipt(store, filing, token, "tables", None, structure=False, source_annotation_hash="source-v1")
+    args = dict(evidence_engine=engine, structure_engine=None, annotation_hash="different-table-case")
+    assert unchanged_index(store, filing, token["key"], None, **args, source_annotation_hash="source-v1")
+    assert unchanged_index(store, filing, token["key"], None, **args, source_annotation_hash="source-v2") is None
+
+
+def test_source_annotation_identity_excludes_table_case_changes(tmp_path):
+    filing = Filing("ONE", "2026Q1", "consolidated")
+    annotation = {"filing": filing.as_dict(), "cases": [
+        {"kind": "source_span", "text_sha256": "a" * 64}, {"kind": "table", "cells": [1]}]}
+    path = tmp_path / "one.json"
+    path.write_text(json.dumps(annotation))
+    before = annotation_identity(tmp_path, filing, source_only=True)
+    annotation["cases"][1]["cells"] = [2]
+    path.write_text(json.dumps(annotation))
+    assert annotation_identity(tmp_path, filing, source_only=True) == before
+    annotation["cases"][0]["text_sha256"] = "b" * 64
+    path.write_text(json.dumps(annotation))
+    assert annotation_identity(tmp_path, filing, source_only=True) != before

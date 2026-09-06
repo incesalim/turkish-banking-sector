@@ -39,6 +39,10 @@ their stored manifest. A missing connection, missing artifact or invalid checksu
 is an unavailable/error state, never zero coverage. Large full-report artifacts
 are streamed as downloads. Older captures remain downloadable but need a new
 capture before page previews are available.
+New source evidence also retains PDF-declared structure and a separate literal
+glyph word view when image replacement text changes extraction. These are in the
+page evidence JSON. Replacement-text coordinates and native table boundaries
+remain unverified; the source's table tags can describe only column fragments.
 
 The audit vitals label is **Audit core statements / Loaded**: it reports the
 balance-sheet and income-statement extraction flag. It does not certify all

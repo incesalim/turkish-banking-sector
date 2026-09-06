@@ -10,6 +10,8 @@ import json
 import hashlib
 from pathlib import Path
 
+SOURCE_CASE_KINDS = frozenset({"source_span", "source_word"})
+
 
 def _text(value):
     return " ".join(unicodedata.normalize("NFKC", value or "").split())
@@ -83,6 +85,20 @@ def check_annotations(structure: dict, evidence: list[dict], annotation: dict) -
         if case["page"] not in pages or case["page"] not in sources:
             failures.append({**prefix, "kind": "missing_page"})
             continue
+        if case.get("kind") in SOURCE_CASE_KINDS:
+            source = sources[case["page"]]
+            if case["kind"] == "source_span":
+                matching = [s for s in source["spans"] if paragraph_digest(s["text"]) == case["text_sha256"]]
+            else:
+                words = source.get(case.get("view", "words")) or []
+                bounds = case["bbox"]
+                matching = [w for w in words if _text(w["text"]) == _text(case["text"])
+                            and bounds[0] <= w["bbox"][0] <= w["bbox"][2] <= bounds[2]
+                            and bounds[1] <= w["bbox"][1] <= w["bbox"][3] <= bounds[3]]
+            if len(matching) != 1:
+                failures.append({**prefix, "kind": "source_text_occurrence_mismatch",
+                                 "matching_candidates": len(matching)})
+            continue
         if case.get("kind") == "narrative":
             matching = _narrative_matches(case, pages[case["page"]], sources, pages)
             if len(matching) != 1:
@@ -137,13 +153,18 @@ def check_annotations(structure: dict, evidence: list[dict], annotation: dict) -
             "cases_checked": len(annotation["cases"]), "scope": "annotated_cases_only"}
 
 
-def check_registered_annotations(structure: dict, evidence: list[dict], directory: Path) -> dict:
+def check_registered_annotations(structure: dict, evidence: list[dict], directory: Path, *,
+                                 source_only: bool = False) -> dict:
     source = evidence[0]["source"]
     matches, checks = [], []
     for path in sorted(directory.glob("*.json")):
         annotation = json.loads(path.read_text(encoding="utf-8"))
         if not all(source.get(k) == v for k, v in annotation["filing"].items()):
             continue
+        if source_only:
+            annotation["cases"] = [c for c in annotation["cases"] if c.get("kind") in SOURCE_CASE_KINDS]
+            if not annotation["cases"]:
+                continue
         matches.append(path.name)
         if annotation["pdf_sha256"] == source["pdf_sha256"]:
             checks.append({"annotation": path.name, **check_annotations(structure, evidence, annotation)})
@@ -152,3 +173,8 @@ def check_registered_annotations(structure: dict, evidence: list[dict], director
                 "checks": [], "scope": "annotated_cases_only"}
     return {"status": "passed" if all(c["passed"] for c in checks) else "failed",
             "checks": checks, "scope": "annotated_cases_only"}
+
+
+def check_source_annotations(evidence: list[dict], directory: Path) -> dict:
+    source_only = {"source": evidence[0]["source"], "pages": [{"page": p["page"]} for p in evidence[1:]]}
+    return check_registered_annotations(source_only, evidence, directory, source_only=True)

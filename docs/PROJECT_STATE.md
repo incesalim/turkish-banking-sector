@@ -33,16 +33,21 @@ left all ten then-stored objects byte- and metadata-identical. A private admin
 catalog and source-page viewer are deployed at commit `8020250c`; live review
 confirmed the 23×3 QNB solo page-47 table, source text, filing switches and the
 explicit zero-verified status. Anonymous catalog/PDF requests return 403.
-The source-only registered fleet is running in Actions
-([34029735843](https://github.com/incesalim/Carthago/actions/runs/34029735843)).
+The source-only registered fleet
+([34029735843](https://github.com/incesalim/Carthago/actions/runs/34029735843))
+was stopped after 242 successful named outcomes when an independent Akbank
+page-9 check exposed truncated replacement text under default page clipping.
+Original PDFs are intact. The revised source engine preserves unbounded text,
+literal glyph words and native PDF structure; cloud validation is pending.
 The initial structure fleet was stopped after independent probes found a missed
 Akbank single-row table and a Garanti audit-table border corrupted by logo-path
 snapping. Repairs pass source annotations locally. Paragraph/heading candidates
 also pass four full-passage source checks on Albaraka's qualified opinion;
-the cloud probe caught cover typography leaking into its heading context, now
-repaired against the saved cloud output and awaiting replay. Akbank, Garanti, QNB and
-TOMK's selected cases passed in Actions. Fleet structure publication will resume after
-those checks. Existing analytical lanes and their stored data have
+the cloud probe caught cover typography leaking into its heading context.
+The repair passes the unchanged four cases in cloud replay `34031695563` and an
+independent download check. Akbank, Garanti, QNB and TOMK's seven selected table
+cases also passed in Actions. The new source-fidelity revision adds two Akbank
+text cases; fleet publication remains pending its cloud check. Existing analytical lanes and their stored data have
 not been replaced. The source-verified QNB countercyclical-buffer classification
 fix is in code; existing stored wide rows have not been rebuilt.
 

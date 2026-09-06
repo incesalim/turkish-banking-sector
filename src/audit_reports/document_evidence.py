@@ -20,6 +20,7 @@ from pathlib import Path
 import fitz
 
 from .document_corpus import Filing, source_identity
+from .document_tagged import capture_tagged_structure, verify_tagged_structure
 
 EVIDENCE_VERSION = "source-evidence-1"
 
@@ -28,7 +29,7 @@ EVIDENCE_VERSION = "source-evidence-1"
 def engine_identity() -> dict:
     """Cache identity includes implementation bytes, not a manually bumped label."""
     implementation = hashlib.sha256()
-    for filename in ("document_evidence.py", "document_corpus.py"):
+    for filename in ("document_evidence.py", "document_corpus.py", "document_tagged.py"):
         implementation.update((Path(__file__).parent / filename).read_bytes())
     return {"pymupdf": fitz.VersionBind, "mupdf": fitz.VersionFitz,
             "implementation_sha256": implementation.hexdigest()}
@@ -57,7 +58,10 @@ def text_characters(text: str) -> Counter:
 def page_evidence(page) -> dict:
     """Observe a page directly; never ask the legacy detector what should count."""
     matrix = page.rotation_matrix
-    raw = page.get_text("dict", flags=fitz.TEXTFLAGS_DICT & ~fitz.TEXT_PRESERVE_IMAGES)
+    # ActualText can be positioned at a prior text cursor outside the page even
+    # when its corresponding image is visible. Do not clip away that wording.
+    raw = page.get_text("dict", flags=fitz.TEXTFLAGS_DICT & ~fitz.TEXT_PRESERVE_IMAGES,
+                        clip=fitz.INFINITE_RECT())
     spans = []
     for block_index, block in enumerate(raw.get("blocks", [])):
         if block["type"] != 0:
@@ -74,7 +78,11 @@ def page_evidence(page) -> dict:
                 })
     words = [{"id": i, "text": w[4], "bbox": _box(w[:4], matrix),
               "block": w[5], "line": w[6], "word": w[7]}
-             for i, w in enumerate(page.get_text("words"))]
+             for i, w in enumerate(page.get_text("words", clip=fitz.INFINITE_RECT()))]
+    literal = [{"id": i, "text": w[4], "bbox": _box(w[:4], matrix),
+                "block": w[5], "line": w[6], "word": w[7]}
+               for i, w in enumerate(page.get_text("words", clip=fitz.INFINITE_RECT(),
+                                                   flags=fitz.TEXTFLAGS_WORDS | fitz.TEXT_IGNORE_ACTUALTEXT))]
     images = []
     for i, info in enumerate(page.get_image_info(hashes=True)):
         images.append({"id": i, "bbox": _box(info["bbox"], matrix),
@@ -85,13 +93,18 @@ def page_evidence(page) -> dict:
                  "type": drawing["type"], "path_items": len(drawing["items"])}
                 for i, drawing in enumerate(page.get_drawings())]
     text = "\n".join(s["text"] for s in spans)
-    return {"type": "source_page", "page": page.number + 1,
+    result = {"type": "source_page", "page": page.number + 1,
             "width": page.rect.width, "height": page.rect.height,
             "rotation": page.rotation, "coordinate_space": "display",
             "spans": spans, "words": words, "images": images, "drawings": drawings,
             "text_sha256": hashlib.sha256(text.encode("utf-8")).hexdigest(),
             "text_character_count": sum(text_characters(text).values()),
-            "replacement_character_count": text.count("\ufffd")}
+            "replacement_character_count": text.count("\ufffd"),
+            "text_clip": "unbounded", "text_geometry_verified": False,
+            "actualtext_changes_word_view": words != literal,
+            "literal_glyph_words": literal if words != literal else None}
+    result["native_structure"] = capture_tagged_structure(page, spans, images)
+    return result
 
 
 def compare_page_text(evidence: dict, captured_lines: list[str]) -> dict:
@@ -142,6 +155,10 @@ def verify_evidence_records(records: list[dict], *, expected_source: dict | None
         errors.append("page_inventory_mismatch")
     for p in pages:
         pg = p.get("page")
+        errors.extend(f"page_{pg}:{error}" for error in verify_tagged_structure(p))
+        literal = p.get("literal_glyph_words")
+        if literal is not None and [w["id"] for w in literal] != list(range(len(literal))):
+            errors.append(f"page_{pg}:literal_word_identity_mismatch")
         if p.get("type") != "source_page":
             errors.append(f"page_{pg}:invalid_record_type")
         for collection in ("spans", "words", "images", "drawings"):

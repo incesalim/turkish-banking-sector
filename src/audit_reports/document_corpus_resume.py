@@ -20,24 +20,33 @@ def metadata(key: str, response: dict) -> dict:
             "modified": modified.isoformat()}
 
 
-def annotation_identity(directory: Path, filing: Filing | None = None) -> str:
+def annotation_identity(directory: Path, filing: Filing | None = None, *, source_only: bool = False) -> str:
     if not directory.is_dir():
         raise ValueError("Source annotation directory is missing")
+    from . import document_benchmark
     paths = []
     for path in sorted(directory.glob("*.json")):
-        if filing is not None:
+        annotation = None
+        if filing is not None or source_only:
             annotation = json.loads(path.read_text(encoding="utf-8"))
-            if Filing(**annotation["filing"]) != filing:
+            if filing is not None and Filing(**annotation["filing"]) != filing:
                 continue
-        paths.append(path)
-    if filing is not None and not paths:
+        if source_only:
+            annotation["cases"] = [c for c in annotation["cases"]
+                                   if c.get("kind") in document_benchmark.SOURCE_CASE_KINDS]
+            if not annotation["cases"]:
+                continue
+            payload = json.dumps(annotation, ensure_ascii=False, sort_keys=True).encode("utf-8")
+        else:
+            payload = path.read_bytes()
+        paths.append((path, payload))
+    if (filing is not None or source_only) and not paths:
         return "no_registered_cases"
     digest = hashlib.sha256()
-    from . import document_benchmark
     digest.update(Path(document_benchmark.__file__).read_bytes())
-    for path in paths:
+    for path, payload in paths:
         digest.update(path.name.encode("utf-8"))
-        digest.update(path.read_bytes())
+        digest.update(payload)
     return digest.hexdigest()
 
 
@@ -70,7 +79,8 @@ def expected_artifacts(current: dict, structure: bool) -> dict[str, str]:
 
 
 def record_receipt(store, filing: Filing, acquisition: dict, annotation_hash: str,
-                   benchmark: dict | None, *, structure: bool) -> None:
+                   benchmark: dict | None, *, structure: bool,
+                   source_annotation_hash: str | None = None, source_benchmark: dict | None = None) -> None:
     """Read back exact bytes once, then remember their storage versions.
 
     Receipts live in the existing conditional filing index. No timestamp is
@@ -98,6 +108,7 @@ def record_receipt(store, filing: Filing, acquisition: dict, annotation_hash: st
         tokens.append(metadata(key, response))
     receipt = {"schema_version": "corpus-receipt-1", "acquisition": acquisition,
                "artifacts": tokens, "annotation_sha256": annotation_hash, "benchmark": benchmark,
+               "source_annotation_sha256": source_annotation_hash, "source_benchmark": source_benchmark,
                "evidence_artifact_sha256": current["artifact_sha256"],
                "structure_artifact_sha256": current["structure_current"]["artifact_sha256"] if structure else None}
 
@@ -110,7 +121,7 @@ def record_receipt(store, filing: Filing, acquisition: dict, annotation_hash: st
 
 def unchanged_index(store, filing: Filing, acquisition_key: str, source_url: str | None, *,
                     evidence_engine: dict, structure_engine: dict | None,
-                    annotation_hash: str) -> dict | None:
+                    annotation_hash: str, source_annotation_hash: str | None = None) -> dict | None:
     index = store.read_index(filing)
     if not index:
         return None
@@ -122,6 +133,8 @@ def unchanged_index(store, filing: Filing, acquisition_key: str, source_url: str
             or current["source"]["object_key"] != acquisition_key
             or current["source"].get("source_url") != source_url
             or current["engine"] != evidence_engine
+            or (source_annotation_hash is not None
+                and receipt.get("source_annotation_sha256") != source_annotation_hash)
             or receipt["evidence_artifact_sha256"] != current["artifact_sha256"]
             or structure_engine is not None and receipt["annotation_sha256"] != annotation_hash):
         return None

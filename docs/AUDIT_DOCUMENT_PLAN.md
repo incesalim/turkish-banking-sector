@@ -168,3 +168,22 @@ of detected tables.
   context retained separately. The unchanged source annotations then pass.
   Cross-page paragraph/heading continuation remains an explicit later task;
   relative font size alone is insufficient evidence for that relationship.
+- 2026-09-06: Albaraka replay `34031695563` passes all four unchanged paragraph
+  annotations; independently checked its downloaded artifact. Across the cloud
+  probes, all seven selected table cases and four prose cases now pass.
+- 2026-09-06: stopped source-only fleet `34029735843` after 242 successful named
+  outcomes. A further Akbank page-9 source check found that default page clipping
+  truncates image replacement text (PDF ActualText), including the final footnote.
+  Replacement geometry can also glue a heading to the preceding amount. Original
+  PDFs remain intact. Source evidence now preserves an unbounded text view, a
+  separate literal-glyph word view when they differ, and PDF-declared structure
+  with source-span links and image regions. Native `Table` tags can be column
+  strips, so they remain source metadata rather than assumed visual tables.
+  Two new source cases gate both source-only capture and structured capture;
+  their changes invalidate source receipts independently of table cases.
+  The new evidence engine needs cloud validation before the fleet resumes.
+- 2026-09-06: read-only source-format probes on FIBA 2025Q3 and ISCTR 2025Q1
+  completed. They flag 40 unreadable pages in each FIBA filing and five in ISCTR
+  consolidated (none in solo). These are detector flags, not a completed source
+  review. Original images/vectors are preserved; OCR recovery and independent
+  transcription checks remain outstanding.

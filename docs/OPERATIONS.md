@@ -1294,6 +1294,12 @@ lines and span occurrences; styles and spacing suggest boundaries and page-local
 heading context without certifying them. Document section context is separate;
 font-size comparisons do not establish cross-page heading relationships.
 The source remains independently accessible.
+Source text uses an unbounded extraction region: replacement text associated
+with images can have synthetic coordinates outside the page, so ordinary page
+clipping can discard visible wording. A separate literal-glyph word view is
+retained when ActualText changes the observation. PDF-declared structure keeps
+native containers, source-span links and image regions; native table tags may
+describe column fragments. None of these tags or coordinates certifies meaning.
 `publish=true` writes only `document-corpus/v1/`; no D1, acquired source object or
 analytical snapshot is modified. Originals are preserved even when decoding
 fails. Artifact uploads are read back, filing indexes use conditional updates,
@@ -1328,7 +1334,9 @@ retains original PDFs and capture artifacts for seven days as
 `audit-document-probe-evidence`, enabling independent review of the runner's
 output. The compact inventory/outcome report remains available for 30 days.
 Annotation reuse is scoped to the filing; another bank's new test does not
-invalidate that filing. Source-only reuse does not depend on structure tests.
+invalidate that filing. Source-text cases gate source-only capture before its
+evidence is published. Source receipts bind their separate annotation identity;
+table-case changes do not invalidate an otherwise unchanged source-only receipt.
 
 For a light local sample (no remote writes):
 

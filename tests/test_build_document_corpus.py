@@ -58,6 +58,27 @@ def test_read_only_structure_probe_cannot_silently_skip_a_missing_benchmark(tmp_
                                      "--annotations-dir", str(tmp_path / "missing-benchmark")])
 
 
+def test_source_only_capture_runs_source_annotations_and_retains_a_failed_original(tmp_path):
+    import hashlib
+    from src.audit_reports.document_benchmark import paragraph_digest
+    path = tmp_path / "TEST_2026Q1_consolidated.pdf"
+    with fitz.open() as pdf:
+        pdf.new_page().insert_text((40, 80), "A disclosed value of zero.")
+        pdf.save(path)
+    annotations = tmp_path / "annotations"
+    annotations.mkdir()
+    case = {"filing": {"bank_ticker": "TEST", "period": "2026Q1", "kind": "consolidated"},
+            "pdf_sha256": hashlib.sha256(path.read_bytes()).hexdigest(), "cases": [
+                {"id": "complete_footnote", "kind": "source_span", "page": 1,
+                 "text_sha256": paragraph_digest("A disclosed value of zero. Missing qualification.")}]}
+    (annotations / "case.json").write_text(json.dumps(case))
+    args = _args(tmp_path) + ["--capture", "--bank", "TEST", "--annotations-dir", str(annotations)]
+    assert build.main(args) == 1
+    result = json.loads((tmp_path / "out/capture-results.json").read_text())["filings"][0]
+    assert result["source_benchmark"]["status"] == "failed"
+    assert (tmp_path / "out" / result["original"]).read_bytes() == path.read_bytes()
+
+
 def test_password_protected_pdf_is_preserved_even_when_capture_fails(tmp_path):
     with fitz.open() as doc:
         doc.new_page().insert_text((40, 50), "Protected original")
