@@ -177,4 +177,16 @@ def test_ocr_probe_scope_is_bounded_and_read_only(tmp_path, extra):
 def test_vector_probe_scope_is_bounded_and_read_only(tmp_path, extra):
     with pytest.raises(SystemExit):
         build.main(_args(tmp_path) + ["--capture", "--bank", "TEST"] + extra)
+
+
+@pytest.mark.parametrize('extra', [[], ['--publish'], ['--limit', '5'], ['--review-pages', '0'],
+                                  ['--review-pages', '2,1'], ['--review-pages', '1,1'],
+                                  ['--review-pages', 'ALL']])
+def test_visual_review_scope_stays_bounded_and_read_only(tmp_path, extra, monkeypatch):
+    monkeypatch.delenv('GITHUB_ACTIONS', raising=False)
+    args = _args(tmp_path) + ['--capture', '--bank', 'TEST', '--review-pages', '1']
+    if extra:
+        args += ['--limit', '1', *extra]
+    with pytest.raises(SystemExit):
+        build.main(args)
     assert not (tmp_path / "out/inventory.json").exists()

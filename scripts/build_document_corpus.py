@@ -88,6 +88,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--vector-pages", default="", help="bounded read-only outline probe: PDF page numbers")
     parser.add_argument("--vector-reference", type=Path, help="local PDF used by the source-transcribed character atlas")
     parser.add_argument("--vector-annotations-dir", type=Path, default=REPO / "tests/fixtures/document_vector_annotations")
+    parser.add_argument('--review-pages', default='', help='read-only visual review: up to four pages, or ALL for one filing in Actions')
     args = parser.parse_args(argv)
     if args.limit < 0:
         parser.error("--limit cannot be negative")
@@ -114,6 +115,22 @@ def main(argv: list[str] | None = None) -> int:
         parser.error("Vector probes require --capture, --limit 1..4, and no --publish")
     if vector_pages and not args.vector_annotations_dir.is_dir():
         parser.error("Vector source annotation directory is missing")
+    review_pages = []
+    if args.review_pages:
+        if not args.capture or args.publish or not 1 <= args.limit <= 4:
+            parser.error('Visual review packs require --capture, --limit 1..4, and no --publish')
+        if args.review_pages == 'ALL':
+            if args.limit != 1 or os.environ.get('GITHUB_ACTIONS') != 'true':
+                parser.error('Whole-document rendering requires --limit 1 in Actions')
+            review_pages = None
+        else:
+            try:
+                review_pages = [int(value.strip()) for value in args.review_pages.split(',')]
+                if (not 1 <= len(review_pages) <= 4 or review_pages != sorted(set(review_pages))
+                        or any(n < 1 for n in review_pages)):
+                    raise ValueError()
+            except ValueError:
+                parser.error('Visual review requires one to four ordered, distinct positive PDF pages or ALL')
     if args.structure and not args.capture:
         parser.error("--structure requires --capture")
     if args.capture and not args.annotations_dir.is_dir():
@@ -265,6 +282,12 @@ def main(argv: list[str] | None = None) -> int:
                     original = args.output_dir / "sources" / identity["pdf_sha256"] / "original.pdf"
                     preserve_original(pdf, original, identity)
                     result.update(source=identity, original=str(original.relative_to(args.output_dir)))
+                    if args.review_pages:
+                        from src.audit_reports.document_review_pack import render_review_pack
+                        pack = render_review_pack(original, identity, original.parent / 'review-pages', review_pages)
+                        result['visual_review'] = pack
+                        if pack['status'] != 'rendered':
+                            raise ValueError('Source visual review rendering has named failures')
                     if store:
                         original_key = store.archive_source(identity, original)
                     records = store.cached_evidence(identity, engine_identity()) if store else None

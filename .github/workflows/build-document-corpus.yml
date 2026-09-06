@@ -64,6 +64,10 @@ on:
         description: "Read-only outline probe: up to four PDF pages; requires publish=false and limit=1..4"
         type: string
         default: ""
+      review_pages:
+        description: "Visual source review: up to four ordered PDF pages, or ALL for limit=1; requires publish=false"
+        type: string
+        default: ""
 
 permissions:
   contents: read
@@ -151,6 +155,11 @@ jobs:
         run: |
           echo 'Missing-source acquisition requires a publishing capture, not a read-only review.'
           exit 1
+      - name: Validate visual review scope
+        if: github.event_name == 'workflow_dispatch' && inputs.review_pages != '' && (inputs.publish || inputs.quality_only)
+        run: |
+          echo 'Visual source review requires a read-only capture, not publication or quality-only review.'
+          exit 1
       - name: Preserve and verify source artifact bytes
         if: ${{ !inputs.quality_only }}
         env:
@@ -167,6 +176,7 @@ jobs:
           OCR_DPI: ${{ inputs.ocr_dpi || '300' }}
           OCR_LANGUAGE: ${{ inputs.ocr_language || 'eng+tur' }}
           VECTOR_PAGES: ${{ inputs.vector_pages }}
+          REVIEW_PAGES: ${{ inputs.review_pages }}
         run: |
           args=(--from-r2 --capture --limit "$LIMIT" --shard-count "$SHARD_COUNT" --shard-index "$SHARD_INDEX")
           [ "$BANKS" != "ALL" ] && args+=(--bank "$BANKS")
@@ -174,6 +184,7 @@ jobs:
           [ "$KIND" != "BOTH" ] && args+=(--kind "$KIND")
           [ -n "$OCR_PAGES" ] && args+=(--ocr-pages "$OCR_PAGES" --ocr-dpi "$OCR_DPI" --ocr-language "$OCR_LANGUAGE")
           [ -n "$VECTOR_PAGES" ] && args+=(--vector-pages "$VECTOR_PAGES")
+          [ -n "$REVIEW_PAGES" ] && args+=(--review-pages "$REVIEW_PAGES")
           [ "$PUBLISH" = "true" ] && args+=(--publish --discard-published)
           [ "$STRUCTURE" = "true" ] && args+=(--structure)
           [ "$RECHECK_BYTES" = "true" ] && args+=(--recheck-bytes)

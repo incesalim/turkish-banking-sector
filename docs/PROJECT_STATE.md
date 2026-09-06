@@ -85,8 +85,10 @@ fit one unambiguous grid. It links adjacent fragments only with an explicit
 continued title and identical ordered column identifiers, retaining competing
 matches without merging. QNB pages 47–48 were visually reviewed: the instrument
 columns 1/2 continue despite changed widths, with three/two full-width headings.
-Local source/mutation tests and admin rendering support pass; cloud capture is
-pending. Header meaning, logical rows and full prose order remain unverified
+Cloud capture `34061799667` passes. Independent checks verify all 108 retained
+pages, freshly reobserve original pages 47–48, reproduce the new context from
+prior retained structure, and match five source annotations and committed engine
+hashes. Publication and live merged-cell/continuation checks remain pending. Header meaning, logical rows and full prose order remain unverified
 beyond bounded source annotations.
 
 `review-document-origins.yml` independently downloads registered sources afresh,
@@ -115,6 +117,11 @@ written D1 or replaced settled analytical partitions. Unchanged-object receipts
 avoid repeated writes; byte, engine or annotation changes invalidate reuse.
 The source-verified QNB countercyclical-buffer classification repair is in code,
 but existing stored wide rows have not been rebuilt.
+
+A read-only visual review pack is now implemented in the existing capture
+workflow: render selected pages, or a whole single filing in Actions, with exact
+PDF/pixel bindings and named per-page failures. This supports independent
+whole-document review; cloud preparation is pending.
 
 Remaining work: reconcile fresh-origin and revised recovery fleets; establish
 whole-document physical and semantic coverage with independently reviewed source

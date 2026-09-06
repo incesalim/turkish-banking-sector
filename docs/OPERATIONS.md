@@ -1710,3 +1710,14 @@ remain ambiguous; no rows, headings or original cells are dropped or merged.
 These derived contexts participate in the structure engine and are recomputed
 by validation. The admin displays merged slots and links to earlier fragments.
 No relationship certifies financial meaning, units or full table completeness.
+
+For independent visual review, `build-document-corpus.yml` accepts
+`review_pages` (passed as `REVIEW_PAGES` / `--review-pages`): up to four ordered
+page numbers with `limit=1..4`, or `ALL` with `limit=1` in Actions. This requires
+`publish=false` and `quality_only=false`. The source is checked against its PDF
+hash and byte count, then rendered at 150 dpi without OCR or text extraction.
+`review-pages/review-manifest.json` inside each source folder records every
+selected page, PNG/pixel hashes, display geometry, engine identity and named
+failures. A failed page does not hide later pages and makes the capture fail.
+The existing `audit-document-probe-evidence` artifact retains the pack for seven
+days. These images are review inputs, never proof that content has been reviewed.

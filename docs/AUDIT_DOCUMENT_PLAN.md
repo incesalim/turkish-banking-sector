@@ -507,3 +507,15 @@ of detected tables.
   The admin supports merged slots and prior-fragment navigation. A new independent
   continuation annotation fails on the old structure and passes on the new view;
   cloud capture/publication remain pending.
+
+- 2026-09-07: QNB table-context cloud probe `34061799667` passes. Independent
+  checks verify original bytes, all 108 retained pages, fresh source pages 47–48,
+  five source annotations, context derived from the earlier retained structure
+  and exact committed structure-engine hashes. Publication/live context pending.
+- 2026-09-07: added read-only rendered-source review packs to the existing capture
+  workflow. Each selected page has a named outcome and PDF/PNG/pixel/geometry
+  binding. Whole-document rendering is limited to one filing in Actions; local
+  probes remain at most four pages. No OCR or inferred text is used for the
+  rendered originals. Tests cover rotation, exact pixels, changed source bytes,
+  invalid/omitted selections and a middle-page failure followed by successful
+  later rendering. Cloud whole-document preparation pending.
