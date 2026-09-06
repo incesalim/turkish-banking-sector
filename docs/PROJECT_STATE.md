@@ -52,10 +52,12 @@ Actions. Published sample `34033192250` covers four Akbank/Albaraka filings
 (374 pages); independently downloaded originals, evidence and structure match
 their source hashes and committed engines and pass integrity/annotation checks.
 The live admin shows the recovered Akbank footnote and separated Albaraka audit
-passages. Its catalog has 242 preserved sources, 18 structured candidates and
+passages. Before the full run, its catalog had 242 preserved sources, 18 structured candidates and
 238 stale captures awaiting the new engine; zero filings are fully verified.
 Full-scope runs now use four stable, disjoint filing groups, with independent
-named outcomes and conditional catalog merging. Fleet publication is pending.
+named outcomes and conditional catalog merging. Commit `b4fd60c9` passed CI;
+sample replay `34034349723` reused all four filings and left all 21 checked
+objects unchanged. Full source/structure run `34034440123` is active in four groups.
 Existing analytical lanes and their stored data have
 not been replaced. The source-verified QNB countercyclical-buffer classification
 fix is in code; existing stored wide rows have not been rebuilt.
@@ -65,6 +67,15 @@ remain active work. Metadata-based incremental resume passed cloud replay with
 all 15 then-stored objects unchanged; automatic follow-up after acquisition is
 deployed. See
 [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
+
+Bounded read-only OCR probes now retain the rendered source image, image-bearing
+OCR PDF and raw words/spans, with pinned English/Turkish model hashes and native
+runtime identity. Local probes on FIBA 2025Q3 solo page 10 and ISCTR 2025Q1
+consolidated page 11 pass retention checks and 12 transcribed amount-token/region
+checks. This is not cell approval: an isolated-cell comparison misread FIBA's
+`37.237.474` as `37.137.474`, while full-page OCR read it correctly, and table
+borders sometimes become punctuation. OCR remains probe evidence; cloud checks,
+agreement handling, cell structure and production integration are pending.
 
 ## Data coverage in D1
 

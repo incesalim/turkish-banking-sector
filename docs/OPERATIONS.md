@@ -1350,6 +1350,30 @@ invalidate that filing. Source-text cases gate source-only capture before its
 evidence is published. Source receipts bind their separate annotation identity;
 table-case changes do not invalidate an otherwise unchanged source-only receipt.
 
+Manual `kind=BOTH|consolidated|unconsolidated` narrows the filing basis. A bounded
+visual-text probe also accepts `ocr_pages` (one to four distinct, one-based PDF
+pages), `ocr_dpi=300|450|600` and `ocr_language=eng+tur|tur+eng|eng|tur`. It requires
+`publish=false` and `limit=1..4`; it cannot write recovery candidates to R2 or D1.
+The CLI equivalents are `--ocr-pages`, `--ocr-dpi` and `--ocr-language`.
+The probe downloads only the English/Turkish model files pinned by revision,
+size and SHA-256 in `src/audit_reports/document_ocr_models.json`. Cached or
+downloaded bytes with a different hash are rejected. The cache is local to the
+output directory and is not included in the retained evidence artifact.
+
+For each selected page, PyMuPDF renders the original and uses its bundled OCR
+to create an image-bearing derivative PDF. The adjacent `.ocr.json` keeps raw
+word/span occurrences in original display coordinates, source and pixel hashes,
+derivative hash, resolution, language/model identities and native runtime hashes.
+Retention checks re-read that PDF and compare its embedded image to a fresh
+source render. These checks reject missing/changed words, wrong sources and
+changed pixels; they do not certify recognition accuracy. OCR candidates remain
+separate from native source evidence and structured tables. Both files are kept
+inside the existing `audit-document-probe-evidence` artifact for independent review.
+`tests/fixtures/document_ocr_annotations/` gates only explicitly transcribed
+tokens in their source regions; punctuation and sign/association questions remain
+visible, and a matching token is never full-cell approval. A failed token check
+retains the probe evidence, names the failure and fails the run.
+
 For a light local sample (no remote writes):
 
 ```powershell

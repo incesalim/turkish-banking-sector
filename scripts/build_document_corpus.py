@@ -28,6 +28,10 @@ from src.audit_reports.document_corpus import (  # noqa: E402
 def _write_json(path: Path, value) -> None:
     """Atomic, content-idempotent reports: an interrupted write leaves the last one."""
     payload = (json.dumps(value, ensure_ascii=False, indent=2, sort_keys=True) + "\n").encode("utf-8")
+    _write_bytes(path, payload)
+
+
+def _write_bytes(path: Path, payload: bytes) -> None:
     if path.exists() and path.read_bytes() == payload:
         return
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -77,11 +81,25 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--shard-count", type=int, default=1,
                         help="divide the selected scope into this many stable, disjoint groups")
     parser.add_argument("--shard-index", type=int, default=0, help="zero-based group to process")
+    parser.add_argument("--ocr-pages", default="", help="bounded read-only probe: comma-separated PDF pages")
+    parser.add_argument("--ocr-dpi", type=int, choices=(300, 450, 600), default=300)
+    parser.add_argument("--ocr-language", choices=("eng", "tur", "eng+tur", "tur+eng"), default="eng+tur")
+    parser.add_argument("--ocr-annotations-dir", type=Path, default=REPO / "tests/fixtures/document_ocr_annotations")
     args = parser.parse_args(argv)
     if args.limit < 0:
         parser.error("--limit cannot be negative")
     if args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
         parser.error("--shard-count must be positive and 0 <= --shard-index < --shard-count")
+    try:
+        ocr_pages = [int(value.strip()) for value in args.ocr_pages.split(",")] if args.ocr_pages else []
+        if any(value < 1 for value in ocr_pages) or len(ocr_pages) > 4 or len(set(ocr_pages)) != len(ocr_pages):
+            raise ValueError()
+    except ValueError:
+        parser.error("--ocr-pages must name one to four distinct positive PDF page numbers")
+    if ocr_pages and (not args.capture or args.publish or not 1 <= args.limit <= 4):
+        parser.error("OCR probes require --capture, --limit 1..4, and no --publish")
+    if ocr_pages and not args.ocr_annotations_dir.is_dir():
+        parser.error("OCR source annotation directory is missing")
     if args.structure and not args.capture:
         parser.error("--structure requires --capture")
     if args.capture and not args.annotations_dir.is_dir():
@@ -273,6 +291,29 @@ def main(argv: list[str] | None = None) -> int:
                                       table_candidates=sum(len(p["tables"]) for p in structure["pages"]),
                                       text_blocks=sum(len(p["text_blocks"]) for p in structure["pages"]),
                                       pages_with_issues=sum(bool(p["issues"]) for p in structure["pages"]))
+                    if ocr_pages:
+                        from src.audit_reports.document_ocr import capture_ocr_page, check_ocr_annotations, verify_ocr_page
+                        result["text_recovery"] = []
+                        for number in ocr_pages:
+                            recovery, derivative = capture_ocr_page(
+                                pdf, filing, number, args.output_dir / "ocr-models",
+                                dpi=args.ocr_dpi, language=args.ocr_language, **provenance)
+                            check = verify_ocr_page(recovery, derivative, pdf)
+                            if not check["valid"]:
+                                raise ValueError(f"OCR artifact retention failed: {check['errors']}")
+                            base = artifact.parent / f"p{number}.{recovery['ocr_pdf_sha256']}"
+                            observation_path, derivative_path = Path(str(base) + ".ocr.json"), Path(str(base) + ".ocr.pdf")
+                            _write_json(observation_path, recovery)
+                            _write_bytes(derivative_path, derivative)
+                            benchmark = check_ocr_annotations(recovery, args.ocr_annotations_dir)
+                            result["text_recovery"].append({"page": number, "status": "ocr_candidates",
+                                "observation": str(observation_path.relative_to(args.output_dir)),
+                                "derivative": str(derivative_path.relative_to(args.output_dir)),
+                                "word_count": len(recovery["words"]), "retention_check": check,
+                                "benchmark": benchmark,
+                                "recognition_verified": False})
+                            if benchmark["status"] == "failed":
+                                raise ValueError(f"OCR source-token regression failed: {benchmark['checks']}")
                     result.update(status="source_preserved", source=manifest["source"],
                                   page_count=manifest["page_count"],
                                   text_characters=manifest["text_characters"],

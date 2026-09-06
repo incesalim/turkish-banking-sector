@@ -1,0 +1,83 @@
+{
+  "filing": {
+    "bank_ticker": "FIBA",
+    "period": "2025Q3",
+    "kind": "unconsolidated"
+  },
+  "pdf_sha256": "7f87ed53ead58816393a1498fd98dbd97cf20ac893d6288a51e6dbccfc49e992",
+  "annotation_method": "Transcribed from the original PDF render; regions checked against enlarged source crops. Tokens and regions only, not full cell or table approval.",
+  "cases": [
+    {
+      "id": "total_assets_current_tp",
+      "kind": "token_in_region",
+      "page": 10,
+      "source_bbox": [
+        349.5,
+        610.5,
+        383.5,
+        618.5
+      ],
+      "token": "117.480.982"
+    },
+    {
+      "id": "total_assets_current_fc",
+      "kind": "token_in_region",
+      "page": 10,
+      "source_bbox": [
+        385.5,
+        610.5,
+        419.5,
+        618.5
+      ],
+      "token": "50.017.379"
+    },
+    {
+      "id": "total_assets_current_total",
+      "kind": "token_in_region",
+      "page": 10,
+      "source_bbox": [
+        421.5,
+        610.5,
+        455.5,
+        618.5
+      ],
+      "token": "167.498.361"
+    },
+    {
+      "id": "total_assets_prior_tp",
+      "kind": "token_in_region",
+      "page": 10,
+      "source_bbox": [
+        457.5,
+        610.5,
+        491.5,
+        618.5
+      ],
+      "token": "92.350.996"
+    },
+    {
+      "id": "total_assets_prior_fc",
+      "kind": "token_in_region",
+      "page": 10,
+      "source_bbox": [
+        493.5,
+        610.5,
+        527.5,
+        618.5
+      ],
+      "token": "37.237.474"
+    },
+    {
+      "id": "total_assets_prior_total",
+      "kind": "token_in_region",
+      "page": 10,
+      "source_bbox": [
+        529.5,
+        610.5,
+        563.5,
+        618.5
+      ],
+      "token": "129.588.470"
+    }
+  ]
+}

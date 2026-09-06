@@ -1,0 +1,83 @@
+{
+  "filing": {
+    "bank_ticker": "ISCTR",
+    "period": "2025Q1",
+    "kind": "consolidated"
+  },
+  "pdf_sha256": "1602df24b624bab15e59c32d51c608293830f34134cc0e3516621d967707e1e5",
+  "annotation_method": "Transcribed from the original PDF render; regions checked against enlarged source crops. Tokens and regions only, not full cell or table approval.",
+  "cases": [
+    {
+      "id": "total_assets_current_tp",
+      "kind": "token_in_region",
+      "page": 11,
+      "source_bbox": [
+        292.0,
+        516.8,
+        332.0,
+        521.7
+      ],
+      "token": "2,499,800,546"
+    },
+    {
+      "id": "total_assets_current_fc",
+      "kind": "token_in_region",
+      "page": 11,
+      "source_bbox": [
+        334.0,
+        516.8,
+        377.0,
+        521.7
+      ],
+      "token": "1,774,077,461"
+    },
+    {
+      "id": "total_assets_current_total",
+      "kind": "token_in_region",
+      "page": 11,
+      "source_bbox": [
+        379.0,
+        516.8,
+        418.0,
+        521.7
+      ],
+      "token": "4,273,878,007"
+    },
+    {
+      "id": "total_assets_prior_tp",
+      "kind": "token_in_region",
+      "page": 11,
+      "source_bbox": [
+        420.0,
+        516.8,
+        460.0,
+        521.7
+      ],
+      "token": "2,333,548,782"
+    },
+    {
+      "id": "total_assets_prior_fc",
+      "kind": "token_in_region",
+      "page": 11,
+      "source_bbox": [
+        462.0,
+        516.8,
+        501.0,
+        521.7
+      ],
+      "token": "1,527,149,539"
+    },
+    {
+      "id": "total_assets_prior_total",
+      "kind": "token_in_region",
+      "page": 11,
+      "source_bbox": [
+        503.0,
+        516.8,
+        543.0,
+        521.7
+      ],
+      "token": "3,860,698,321"
+    }
+  ]
+}

@@ -33,6 +33,25 @@ on:
         description: "Read every selected artifact again, bypassing unchanged-object receipts"
         type: boolean
         default: false
+      kind:
+        description: "Filing basis"
+        type: choice
+        options: [BOTH, consolidated, unconsolidated]
+        default: BOTH
+      ocr_pages:
+        description: "Read-only OCR probe: up to four PDF pages; requires publish=false and limit=1..4"
+        type: string
+        default: ""
+      ocr_dpi:
+        description: "OCR probe rendering resolution"
+        type: choice
+        options: ["300", "450", "600"]
+        default: "300"
+      ocr_language:
+        description: "OCR probe languages (pinned model files)"
+        type: choice
+        options: [eng+tur, tur+eng, eng, tur]
+        default: eng+tur
 
 permissions:
   contents: read
@@ -78,10 +97,16 @@ jobs:
           RECHECK_BYTES: ${{ inputs.recheck_bytes || false }}
           SHARD_INDEX: ${{ matrix.shard }}
           SHARD_COUNT: ${{ strategy.job-total }}
+          KIND: ${{ inputs.kind || 'BOTH' }}
+          OCR_PAGES: ${{ inputs.ocr_pages }}
+          OCR_DPI: ${{ inputs.ocr_dpi || '300' }}
+          OCR_LANGUAGE: ${{ inputs.ocr_language || 'eng+tur' }}
         run: |
           args=(--from-r2 --capture --limit "$LIMIT" --shard-count "$SHARD_COUNT" --shard-index "$SHARD_INDEX")
           [ "$BANKS" != "ALL" ] && args+=(--bank "$BANKS")
           [ -n "$PERIOD" ] && args+=(--period "$PERIOD")
+          [ "$KIND" != "BOTH" ] && args+=(--kind "$KIND")
+          [ -n "$OCR_PAGES" ] && args+=(--ocr-pages "$OCR_PAGES" --ocr-dpi "$OCR_DPI" --ocr-language "$OCR_LANGUAGE")
           [ "$PUBLISH" = "true" ] && args+=(--publish --discard-published)
           [ "$STRUCTURE" = "true" ] && args+=(--structure)
           [ "$RECHECK_BYTES" = "true" ] && args+=(--recheck-bytes)

@@ -198,3 +198,19 @@ of detected tables.
   exhaustive/disjoint assignment, global limit handling, explicit empty groups
   and safe catalog merging after three competing writers. This changes execution
   only; the source and structure engine fingerprints remain unchanged.
+- 2026-09-06: CI for `b4fd60c9` passed. Bounded sample replay `34034349723`
+  reused all four filings; independently checked all 21 source/corpus object
+  versions were unchanged. Full run `34034440123` is active in four disjoint
+  groups. The catalog retains its full 1,117-filing denominator and zero fully
+  verified status while stale captures are replaced.
+- 2026-09-06: visually confirmed FIBA 2025Q3 solo page 10's vector-only balance
+  sheet and ISCTR 2025Q1 consolidated page 11's raster balance sheet. Full-page
+  OCR recovered all 12 selected total-assets tokens in their correct regions.
+  An isolated-cell probe read FIBA's 37.237.474 as 37.137.474; both disagreement
+  and the row's arithmetic expose the error. Borders also become punctuation.
+  Added separate, image-bearing OCR observations with pinned model and runtime
+  identities, source-pixel verification and complete retained word/span checks.
+  Local source probes and 12 token-region annotations pass, without approving
+  cell signs, wording or whole tables. The workflow exposes only bounded,
+  read-only OCR probes at this stage; cloud verification and production recovery
+  integration remain outstanding.
