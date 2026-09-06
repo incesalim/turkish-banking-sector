@@ -298,3 +298,14 @@ of detected tables.
   confirm display coordinates are transformed only once at all four rotations.
   Candidate structure and the admin table reader are integrated locally; source
   evidence stays unchanged. Cloud validation/publication remain pending.
+
+- 2026-09-06: the four `5f6fd48` source-positioning cloud samples pass, as do
+  CI and deployment. Independent downloaded bytes/source accounting verify
+  543 retained pages and all 17 selected cases. Seven source pages are freshly
+  observed from their original PDFs; the 82 Akbank page-9 position candidates
+  and its alternative table rebuild identically. The cloud structure hash is
+  checked against the committed files; local line-ending differences are
+  recorded separately. Publishing sample `34045487439` is queued behind the
+  native fleet. Completed native groups 0/1/2 independently match 840 expected
+  filings and 87,258 pages, with no omitted, duplicate, unexpected or failed
+  outcomes. Group 3 and the older raw-recovery fleet remain active.

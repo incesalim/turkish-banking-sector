@@ -145,8 +145,21 @@ remain unresolved. Akbank 2026Q1 solo page 9 yields 82 paired labels and a separ
 86-row/six-value-column table. Three independently transcribed rows (18 amounts)
 and the complete footnote position now have regression cases; all six page-9
 source/association cases pass locally. Rotation tests cover 0/90/180/270 degrees.
-This is an additional unverified table view; cloud validation and publication
-are pending, and original source text and legacy candidates remain available.
+Read-only cloud runs `34044923037`, `34044924976`, `34044926410` and
+`34044928170` pass at `5f6fd48`, as do CI and deployment. Independent downloaded
+originals, evidence and structure pass byte/source accounting across 543 retained
+pages and all 17 annotated cases. Seven selected pages were freshly observed
+from the original PDFs; Akbank page 9's 82 positions and alternative table also
+rebuild identically. The cloud structure fingerprint matches committed source;
+three local dependencies differ only in Windows line endings. This remains an
+unverified candidate view. Publishing sample `34045487439` is queued behind
+the native fleet, and original text and legacy candidates remain available.
+
+Native fleet groups 0/1/2 have completed and independently reconcile to all
+840 expected filings in their stable assignments, with no omissions, duplicates
+or failed outcomes (87,258 pages). Group 3 remains active. Recovery receipt/table
+publishing samples `34043837019` (FIBA) and `34043838752` (ISCTR) are queued behind
+the older raw-recovery fleet; their cloud replay verification is still pending.
 
 ## Data coverage in D1
 
