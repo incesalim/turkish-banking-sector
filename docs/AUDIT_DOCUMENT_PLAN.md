@@ -320,3 +320,27 @@ of detected tables.
   damaged-font example is flagged without treating ordinary numbers as bad
   text. The workflow quality mode never writes source or serving data. Fleet
   quality review remains pending.
+
+- 2026-09-06: all four native groups completed and independently reconcile
+  1,117 sources/116,503 pages without omissions, duplicates, unexpected outcomes
+  or failures. Published Akbank/Albaraka positioned views match the independent
+  probes byte-for-byte and pass live-admin review. Full read-only quality review
+  34047832643 is active; three completed groups byte-verify 850 filings.
+- 2026-09-06: independent BDDK register comparison across all 38 existing banks
+  and 2022Q1–2026Q2 found 45 missing explicit URL bindings, including 29 PDFs not
+  yet acquired. Corrected the registry to 1,146 filings without changing any
+  existing URL. Opened official VakıfBank, Türkiye Kalkınma, Ziraat Dinamik and
+  Takasbank source probes; the latter has a readable 78-page original and a
+  damaged text layer. Added a separate optional missing-source acquisition step
+  within the corpus workflow. It preserves original transport and PDF bytes,
+  rejects ambiguous archive selection or conflicting cover identity, verifies
+  conditional source creation, and leaves existing acquisitions unchanged.
+  Eighteen acquisition tests cover failures, races, scope and no-write replay.
+  Cloud publication and acquisition of the 29 gaps remain pending.
+
+- 2026-09-06: full quality run 34047832643 completed. All four group reports
+  independently match the original 1,117 acquired bindings and source hashes;
+  both PDF copies and retained artifacts verify for all 116,503 pages. Leading
+  source text supports 1,050 identities; 59 unresolved and eight ambiguous
+  cases remain for review. These checks certify stored bytes and named source
+  claims, not every printed character or table meaning.

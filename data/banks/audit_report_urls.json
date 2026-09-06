@@ -1,6 +1,6 @@
 {
-  "_doc": "Direct PDF URLs for quarterly BRSA Financial Reports per Turkish bank. Sourced from each bank's investor relations site. Filenames are heterogeneous; future quarters need re-scraping (see README).",
-  "_updated": "2026-08-17",
+  "_doc": "Explicit quarterly BRSA report URLs from bank investor relations and the official BDDK BdrUyg register. Acquisition, retained source bytes and complete-content verification are separate statuses.",
+  "_updated": "2026-09-06",
   "banks": {
     "AKBNK": {
       "name": "Akbank T.A.Ş.",
@@ -116,7 +116,8 @@
           "2025Q2": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2025/T-Halk-Bankasi-AS-Consolidated-Report-30-06-2025.pdf",
           "2025Q3": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2025/T-Halk-Bankasi-AS-Consolidated-Reportt-30-09-2025.pdf",
           "2025Q4": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2025/T-Halk-Bankasi-AS-Consolidated-Report-31-12-2025.pdf",
-          "2026Q1": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2026/Turkiye-Halk-Bankas%C4%B1-AS-Consolidated-Report-31-03-2026.pdf"
+          "2026Q1": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2026/Turkiye-Halk-Bankas%C4%B1-AS-Consolidated-Report-31-03-2026.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-012-KONSOLIDE-2026-06.zip"
         },
         "unconsolidated": {
           "2022Q1": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2022/1q2022unconexplanations.pdf",
@@ -135,24 +136,34 @@
           "2025Q2": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2025/T-Halk-Bankasi-AS-Unconsolidated-Report-30-06-2025.pdf",
           "2025Q3": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2025/T-Halk-Bankasi-AS-Unconsolidated-Report-30-09-2025.pdf",
           "2025Q4": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2025/T-Halk-Bankasi-AS-Unconsolidated-Report-31-12-2025.pdf",
-          "2026Q1": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2026/Turkiye-Halk-Bankas%C4%B1-AS-Unconsolidated-Report-31-03-2026.pdf"
+          "2026Q1": "https://www.halkbank.com.tr/content/dam/corporate-website/en/documents/investor-relations/financial-reports/2026/Turkiye-Halk-Bankas%C4%B1-AS-Unconsolidated-Report-31-03-2026.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-012-SOLO-2026-06.zip"
         }
       }
     },
     "VAKBN": {
       "name": "Türkiye Vakıflar Bankası T.A.O.",
       "ir_page": "https://www.vakifbank.com.tr/tr/bankamiz/yatirimci-iliskileri/finansal-bilgiler",
-      "_note": "Solo files come as ZIPs containing PDF+XLSX. Q1/Q3 consolidated NOT published.",
+      "_note": "Solo bank-site sources are ZIPs containing PDF+XLSX. All Q1/Q3 consolidated reports for 2022..2026Q1 are published in the official BDDK register and the bank consolidated-report archive; their omission was a registry error. Missing quarterly sources added from BDDK code 015 on 2026-09-06.",
       "urls": {
         "consolidated": {
+          "2022Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-015-KONSOLIDE-2022-03.zip",
           "2022Q2": "https://www.vakifbank.com.tr/documents/bankamiz/yatirimci-iliskileri/finansal-bilgiler/konsolide-raporlar/haziran-2022-konsolide-raporlar.zip",
+          "2022Q3": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-015-KONSOLIDE-2022-09.zip",
           "2022Q4": "https://www.vakifbank.com.tr/documents/bankamiz/yatirimci-iliskileri/finansal-bilgiler/konsolide-raporlar/aralik-2022-konsolide-raporlar.zip",
+          "2023Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-015-KONSOLIDE-2023-03.zip",
           "2023Q2": "https://www.vakifbank.com.tr/documents/bankamiz/yatirimci-iliskileri/finansal-bilgiler/konsolide-raporlar/haziran-2023-konsolide-raporlar.zip",
+          "2023Q3": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-015-KONSOLIDE-2023-09.zip",
           "2023Q4": "https://www.vakifbank.com.tr/documents/bankamiz/yatirimci-iliskileri/finansal-bilgiler/konsolide-raporlar/aralik-2023-konsolide-raporlar.zip",
+          "2024Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-015-KONSOLIDE-2024-03.zip",
           "2024Q2": "https://www.vakifbank.com.tr/documents/bankamiz/yatirimci-iliskileri/finansal-bilgiler/konsolide-raporlar/haziran-2024-konsolide-raporlar.zip",
+          "2024Q3": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-015-KONSOLIDE-2024-09.zip",
           "2024Q4": "https://www.vakifbank.com.tr/documents/bankamiz/yatirimci-iliskileri/finansal-bilgiler/konsolide-raporlar/aralik-2024-konsolide-raporlar.zip",
+          "2025Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-015-KONSOLIDE-2025-03.zip",
           "2025Q2": "https://www.vakifbank.com.tr/documents/bankamiz/yatirimci-iliskileri/finansal-bilgiler/konsolide-raporlar/haziran-2025-konsolide-raporlar.zip",
+          "2025Q3": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-015-KONSOLIDE-2025-09.zip",
           "2025Q4": "https://www.vakifbank.com.tr/documents/bankamiz/yatirimci-iliskileri/finansal-bilgiler/konsolide-raporlar/aralik-2025-konsolide-raporlar.zip",
+          "2026Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-015-KONSOLIDE-2026-03.zip",
           "2026Q2": "https://www.vakifbank.com.tr/documents/bankamiz/yatirimci-iliskileri/finansal-bilgiler/konsolide-raporlar/haziran-2026-konsolide-raporlar.zip"
         },
         "unconsolidated_zip": {
@@ -338,7 +349,8 @@
           "2025Q2": "https://www.albaraka.com.tr/documents/investor-relations/independent-audit-reports/consolidated/albaraka-turk-30.06.2025-ing-kons_final-imzasiz.pdf",
           "2025Q3": "https://www.albaraka.com.tr/documents/investor-relations/independent-audit-reports/consolidated/albaraka-turk-30.09.2025-ing-kons-final.pdf",
           "2025Q4": "https://www.albaraka.com.tr/documents/yatirimci-iliskileri/bagimsiz-denetim-raporlari/konsolide/2026-2030/albaraka-turk-31.12.2025-eng-kons.pdf",
-          "2026Q1": "https://www.albaraka.com.tr/documents/yatirimci-iliskileri/bagimsiz-denetim-raporlari/konsolide/2026-2030/albaraka-turk-31.03.2026_consolidated-financial-statements.pdf"
+          "2026Q1": "https://www.albaraka.com.tr/documents/yatirimci-iliskileri/bagimsiz-denetim-raporlari/konsolide/2026-2030/albaraka-turk-31.03.2026_consolidated-financial-statements.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-203-KONSOLIDE-2026-06.zip"
         },
         "unconsolidated": {
           "2022Q1": "https://www.albaraka.com.tr/documents/investor-relations/independent-audit-reports/unconsolidated/31-03-2022-solo.pdf",
@@ -357,14 +369,15 @@
           "2025Q2": "https://www.albaraka.com.tr/documents/investor-relations/independent-audit-reports/unconsolidated/albaraka-turk-30.06.2025-ing-solo_final-imzasiz.pdf",
           "2025Q3": "https://www.albaraka.com.tr/documents/investor-relations/independent-audit-reports/unconsolidated/albaraka-turk-30.09.2025-ing-solo-final.pdf",
           "2025Q4": "https://www.albaraka.com.tr/documents/yatirimci-iliskileri/bagimsiz-denetim-raporlari/konsolide-olmayan/2026-2030/albaraka-turk-31.12.2025-eng-solo.pdf",
-          "2026Q1": "https://www.albaraka.com.tr/documents/yatirimci-iliskileri/bagimsiz-denetim-raporlari/konsolide-olmayan/2026-2030/albaraka-turk-31.03.2026_unconsolidated-financial-statements.pdf"
+          "2026Q1": "https://www.albaraka.com.tr/documents/yatirimci-iliskileri/bagimsiz-denetim-raporlari/konsolide-olmayan/2026-2030/albaraka-turk-31.03.2026_unconsolidated-financial-statements.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-203-SOLO-2026-06.zip"
         }
       }
     },
     "KLNMA": {
       "name": "Türkiye Kalkınma ve Yatırım Bankası A.Ş.",
       "ir_page": "https://kalkinma.com.tr/yatirimci-iliskileri/finansal-raporlar/denetim-raporlari",
-      "_note": "Hash-based filenames. Only unconsolidated URLs collected by research agent.",
+      "_note": "Bank-site filenames are hashes. The prior registry collected only unconsolidated historical reports; BDDK code 017 also lists consolidated reports for every quarter of 2022..2025. Those missing sources were registered on 2026-09-06.",
       "urls": {
         "unconsolidated": {
           "2022Q1": "https://kalkinma.com.tr/uploads/file/3cf16217d62a7aee95ab5da0df44cdc7-1765648459854.pdf",
@@ -387,6 +400,22 @@
           "2026Q2": "https://kalkinma.com.tr/uploads/file/99068d4284910280670e6793d519e7fe-1785321898641.pdf"
         },
         "consolidated": {
+          "2022Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2022-03.zip",
+          "2022Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2022-06.zip",
+          "2022Q3": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2022-09.zip",
+          "2022Q4": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2022-12.zip",
+          "2023Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2023-03.zip",
+          "2023Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2023-06.zip",
+          "2023Q3": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2023-09.zip",
+          "2023Q4": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2023-12.zip",
+          "2024Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2024-03.zip",
+          "2024Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2024-06.zip",
+          "2024Q3": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2024-09.zip",
+          "2024Q4": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2024-12.zip",
+          "2025Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2025-03.zip",
+          "2025Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2025-06.zip",
+          "2025Q3": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2025-09.zip",
+          "2025Q4": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-017-KONSOLIDE-2025-12.zip",
           "2026Q1": "https://kalkinma.com.tr/uploads/file/301d41cf7cd17b6e4dec27efa0d68b5b-1778135732340.pdf",
           "2026Q2": "https://kalkinma.com.tr/uploads/file/0ac98d192e2c5384f41dcf727280a87a-1785321892727.pdf"
         }
@@ -506,7 +535,8 @@
           "2025Q2": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/konsolide-denetim-30062025.pdf",
           "2025Q3": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB-KONSOLIDE-30092025.pdf",
           "2025Q4": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB-KONSOLIDE-31122025.pdf",
-          "2026Q1": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB-Konsolide-31032026.pdf"
+          "2026Q1": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB-Konsolide-31032026.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-010-KONSOLIDE-2026-06.zip"
         },
         "unconsolidated": {
           "2022Q1": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB_KONSOLIDE_OLMAYAN_31032022_denetim-raporu.pdf",
@@ -525,7 +555,8 @@
           "2025Q2": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/konsolide-olmayan-denetim-30062025.pdf",
           "2025Q3": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB-KONSOLIDE-OLMAYAN-30092025.pdf",
           "2025Q4": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB-KONSOLIDE-OLMAYAN-31122025.pdf",
-          "2026Q1": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB-Konsolide-Olmayan-31032026.pdf"
+          "2026Q1": "https://www.ziraatbank.com.tr/tr/yatirimci-iliskileri-ZB/finansal-bilgiler/DenetimRaporuMaliTablo/TCZB-Konsolide-Olmayan-31032026.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-010-SOLO-2026-06.zip"
         }
       }
     },
@@ -596,7 +627,8 @@
           "2025Q2": "https://www.teb.com.tr/UPLOAD/PDF/2025/TEBNK_Konsolide_30.06.2025.pdf",
           "2025Q3": "https://www.teb.com.tr/UPLOAD/PDF/2025/TEBNK_Konsolide_30.09.2025.pdf",
           "2025Q4": "https://www.teb.com.tr/UPLOAD/PDF/2025/Denetim-Raporlari/TEBNK_Konsolide_31.12.2025.pdf",
-          "2026Q1": "https://www.teb.com.tr/UPLOAD/PDF/2026/Denetim-Raporlari/TEBNK_Konsolide_31.03.2026.pdf"
+          "2026Q1": "https://www.teb.com.tr/UPLOAD/PDF/2026/Denetim-Raporlari/TEBNK_Konsolide_31.03.2026.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-032-KONSOLIDE-2026-06.zip"
         },
         "unconsolidated": {
           "2022Q1": "https://www.teb.com.tr/UPLOAD/PDF/2022/TEBNK_Solo_31.03.2022.pdf",
@@ -615,7 +647,8 @@
           "2025Q2": "https://www.teb.com.tr/UPLOAD/PDF/2025/TEBNK_Solo_30.06.2025.pdf",
           "2025Q3": "https://www.teb.com.tr/UPLOAD/PDF/2025/TEBNK_Solo_30.09.2025.pdf",
           "2025Q4": "https://www.teb.com.tr/UPLOAD/PDF/2025/Denetim-Raporlari/TEBNK_Solo_31.12.2025.pdf",
-          "2026Q1": "https://www.teb.com.tr/UPLOAD/PDF/2026/Denetim-Raporlari/TEBNK_Solo_31.03.2026.pdf"
+          "2026Q1": "https://www.teb.com.tr/UPLOAD/PDF/2026/Denetim-Raporlari/TEBNK_Solo_31.03.2026.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-032-SOLO-2026-06.zip"
         }
       }
     },
@@ -640,7 +673,8 @@
           "2025Q2": "https://www.ing.com.tr/F/Documents/pdf/Yatirimci_iliskileri/Bagimsiz_Denetim_Raporlari/Konsolide/ING_Konsolide_Finansal_Tablo_ve_Dipnotlar_30.06.2025.pdf",
           "2025Q3": "https://www.ing.com.tr/F/Documents/pdf/ING_Konsolide_Finansal_Tablo_ve_Dipnotlar_30.09.2025.pdf",
           "2025Q4": "https://www.ing.com.tr/F/Documents/pdf/Yatirimci_iliskileri/Bagimsiz_Denetim_Raporlari/ING_Konsolide_Finansal_Tablo_ve_Dipnotlar_31122025.pdf",
-          "2026Q1": "https://www.ing.com.tr/F/Documents/pdf/Yatirimci_iliskileri/Bagimsiz_Denetim_Raporlari/ING_Bank_A.S._Consolidated_Financial_Statements_31.03.2026.pdf"
+          "2026Q1": "https://www.ing.com.tr/F/Documents/pdf/Yatirimci_iliskileri/Bagimsiz_Denetim_Raporlari/ING_Bank_A.S._Consolidated_Financial_Statements_31.03.2026.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-099-KONSOLIDE-2026-06.zip"
         },
         "unconsolidated": {
           "2022Q1": "https://www.ing.com.tr/F/Documents/pdf/Yatirimci_iliskileri/Bagimsiz_Denetim_Raporlari/Konsolide_Olmayan/2022/ING_Bank-Konsolide_Olmayan_Finansal_Tablo_ve_Dipnotlar_31032022_Final.pdf",
@@ -659,7 +693,8 @@
           "2025Q2": "https://www.ing.com.tr/F/Documents/pdf/Yatirimci_iliskileri/Bagimsiz_Denetim_Raporlari/Konsolide_Olmayan/ING_Konsolide_Olmayan_Finansal_Tablo_ve_Dipnotlar_30.06.2025.pdf",
           "2025Q3": "https://www.ing.com.tr/F/Documents/pdf/ING_Konsolide_Olmayan_Finansal_Tablo_ve_Dipnotlar_30.09.2025.pdf",
           "2025Q4": "https://www.ing.com.tr/F/Documents/pdf/Yatirimci_iliskileri/Bagimsiz_Denetim_Raporlari/ING_Konsolide_Olmayan_Finansal_Tablo_ve_Dipnotlar_31122025.pdf",
-          "2026Q1": "https://www.ing.com.tr/F/Documents/pdf/Yatirimci_iliskileri/Bagimsiz_Denetim_Raporlari/ING_Bank_A.S._Unconsolidated_Financial_Statements_31.03.2026.pdf"
+          "2026Q1": "https://www.ing.com.tr/F/Documents/pdf/Yatirimci_iliskileri/Bagimsiz_Denetim_Raporlari/ING_Bank_A.S._Unconsolidated_Financial_Statements_31.03.2026.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-099-SOLO-2026-06.zip"
         }
       }
     },
@@ -684,7 +719,8 @@
           "2025Q2": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olan/fibabanka-bddk-konsolide-dipnotlar-30062025-final.pdf?sfvrsn=98e136dd_4",
           "2025Q3": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olan/fibabanka-konsolide-bddk-dipnotlar-30092025-final.pdf?sfvrsn=5df7f56f_4",
           "2025Q4": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olan/fibabanka-konsolide-bddk-dipnotlar-31122025_final.pdf?sfvrsn=95bc8749_3",
-          "2026Q1": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olan/fibabanka-konsolide-bddk-dipnotlar-31032026_final.pdf?sfvrsn=9c01e0_3"
+          "2026Q1": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olan/fibabanka-konsolide-bddk-dipnotlar-31032026_final.pdf?sfvrsn=9c01e0_3",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-103-KONSOLIDE-2026-06.zip"
         },
         "unconsolidated": {
           "2022Q1": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olmayan/mart-2022.pdf?sfvrsn=f33674db_4",
@@ -703,7 +739,8 @@
           "2025Q2": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olmayan/fibabanka-bddk-dipnotlar-30062025-final.pdf?sfvrsn=9d75dd4e_5",
           "2025Q3": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olmayan/fibabanka-bddk-dipnotlar-30092025---final.pdf?sfvrsn=36a92b3f_5",
           "2025Q4": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olmayan/fibabanka-bddk-dipnotlar-31122025---final.pdf?sfvrsn=2251ecba_3",
-          "2026Q1": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olmayan/fibabanka-bddk-dipnotlar-31032026---final.pdf?sfvrsn=ec743fe2_3"
+          "2026Q1": "https://www.fibabanka.com.tr/docs/default-source/mali-tablolar/bddk-mali-tablolar/konsolide-olmayan/fibabanka-bddk-dipnotlar-31032026---final.pdf?sfvrsn=ec743fe2_3",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-103-SOLO-2026-06.zip"
         }
       }
     },
@@ -939,7 +976,8 @@
           "2025Q2": "https://www.vakifkatilim.com.tr/documents/vakif-katilim-bankasi_30_06_2025_tr_konsolide_final.pdf",
           "2025Q3": "https://www.vakifkatilim.com.tr/documents/final-vakif-katilim-bankasi_30_09_2025_tr_konsolide_final.pdf",
           "2025Q4": "https://www.vakifkatilim.com.tr/documents/vakif-katilim-bankasi_31_12_2025.pdf",
-          "2026Q1": "https://www.vakifkatilim.com.tr/documents/vakif-katilim-bankasi_31_03_2026_tr_konsolide.pdf"
+          "2026Q1": "https://www.vakifkatilim.com.tr/documents/vakif-katilim-bankasi_31_03_2026_tr_konsolide.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-210-KONSOLIDE-2026-06.zip"
         },
         "unconsolidated": {
           "2022Q1": "https://www.vakifkatilim.com.tr/documents/UluslararasiBankacilik/BagimsizDenetimRaporu/vakifkatilimbankasi_31_03_2022_tr_solo.pdf",
@@ -1077,9 +1115,14 @@
           "2025Q2": "https://www.eximbank.gov.tr/content/files/79d82758-6d48-41ef-91be-48a81d998c36/brsa-20250630",
           "2025Q3": "https://www.eximbank.gov.tr/content/files/8063f9cb-53cb-45b1-8add-fc3771db6de9/brsa-20250930",
           "2025Q4": "https://www.eximbank.gov.tr/content/files/bac23ced-bb92-4b83-981d-3d64b6fe7cfb/brsa-20251231",
+          "2026Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-016-SOLO-2026-03.zip",
           "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-016-SOLO-2026-06.zip"
         }
-      }
+      },
+      "source_names": [
+        "Türkiye İhracat Kredi Bankası A.Ş."
+      ],
+      "_source_names_reference": "https://www.eximbank.gov.tr/tr/hakkimizda/kurumsal/bankamiz-hakkinda"
     },
     "AKTIF": {
       "name": "Aktif Yatırım Bankası A.Ş.",
@@ -1102,7 +1145,8 @@
           "2025Q2": "https://www.aktifbank.com.tr/uploads/20250819082347887.pdf",
           "2025Q3": "https://www.aktifbank.com.tr/uploads/2025112008332980.pdf",
           "2025Q4": "https://www.aktifbank.com.tr/uploads/20260312104631551.pdf",
-          "2026Q1": "https://www.aktifbank.com.tr/uploads/20260521111045987.pdf"
+          "2026Q1": "https://www.aktifbank.com.tr/uploads/20260521111045987.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-143-KONSOLIDE-2026-06.zip"
         },
         "unconsolidated": {
           "2022Q1": "https://www.aktifbank.com.tr/Documents/aktif-%20yatirim-%20bankasi-solo-%2031-03-2022.pdf",
@@ -1148,7 +1192,8 @@
           "2025Q2": "https://www.pashabank.com.tr/tr/images/pdf/yatirimci-iliskileri/20253006-bagimsiz-denetim-raporu.pdf",
           "2025Q3": "https://www.pashabank.com.tr/tr/images/pdf/raporlar/20250930-bagimsiz-denetim-raporu.pdf",
           "2025Q4": "https://www.pashabank.com.tr/tr/images/pdf/yatirimci-iliskileri/20260217-bagimsiz-denetim-raporu.pdf",
-          "2026Q1": "https://www.pashabank.com.tr/tr/images/pdf/yatirimci-iliskileri/202603-konsolide-olmayan-bagimsiz-denetim-raporu.pdf"
+          "2026Q1": "https://www.pashabank.com.tr/tr/images/pdf/yatirimci-iliskileri/202603-konsolide-olmayan-bagimsiz-denetim-raporu.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-116-SOLO-2026-06.zip"
         }
       }
     },
@@ -1219,7 +1264,8 @@
           "2025Q2": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-Konsolide-30062025.pdf",
           "2025Q3": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-Konsolide-30092025.pdf",
           "2025Q4": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-Konsolide-31122025.pdf",
-          "2026Q1": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-Konsolide-31032026.pdf"
+          "2026Q1": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-Konsolide-31032026.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-135-KONSOLIDE-2026-06.zip"
         },
         "unconsolidated": {
           "2022Q1": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank_Solo_31.03.2022_Raporu.pdf",
@@ -1238,7 +1284,8 @@
           "2025Q2": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-AS-30062025-Solo-Rapor.pdf",
           "2025Q3": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-AS-30092025-Solo-Rapor.pdf",
           "2025Q4": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-AS-31122025-Solo-Rapor.pdf",
-          "2026Q1": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-AS-31032026-Solo-Rapor.pdf"
+          "2026Q1": "https://www.anadolubank.com.tr/images/uploads/files/Anadolubank-AS-31032026-Solo-Rapor.pdf",
+          "2026Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-135-SOLO-2026-06.zip"
         }
       }
     },
@@ -1369,9 +1416,10 @@
     "ZIRAATD": {
       "name": "Ziraat Dinamik Banka A.Ş.",
       "ir_page": "https://www.ziraatdinamik.com.tr/tr/yatirimci-iliskileri/finansal-bilgiler/denetim-raporu-ve-mali-tablolar",
-      "_note": "Full report = 'bagimsiz-denetim-raporu' file (~75pp); 'mali-tablolar' is a 7pp summary. 2025Q2 source PDF is corrupt on the IR site (served a non-PDF blob); 2024Q4/2025Q1 are KAP-only. Those three deferred — series starts 2025Q3.",
+      "_note": "Full bank-site report is the bagimsiz-denetim-raporu file; mali-tablolar is a short summary. The 2025Q2 report is available from BDDK code 160 (79 pages, cover independently checked on 2026-09-06), despite the earlier failed bank-site download. 2024Q4/2025Q1 availability still needs a direct KAP/source review.",
       "urls": {
         "unconsolidated": {
+          "2025Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-160-SOLO-2025-06.zip",
           "2025Q3": "https://www.ziraatdinamik.com.tr/tr/hakkimizda-zb/Documents/ziraat-dinamik-banka-bagimsiz-denetim-raporu-30-09-2025.pdf",
           "2025Q4": "https://www.ziraatdinamik.com.tr/tr/hakkimizda-zb/Documents/ziraat-dinamik-banka-bagimsiz-denetim-raporu-31-12-2025.pdf",
           "2026Q1": "https://www.ziraatdinamik.com.tr/tr/hakkimizda-zb/Documents/ziraat-dinamik-banka-bagimsiz-denetim-raporu-31-03-2026.pdf",
@@ -1461,9 +1509,10 @@
     "TAKAS": {
       "name": "İstanbul Takas ve Saklama Bankası A.Ş. (Takasbank)",
       "ir_page": "https://www.takasbank.com.tr/tr/hakkimizda/yatirimci-iliskileri/finansal-raporlar",
-      "_note": "Sourced from BDDK's BdrUyg registry (institution code 132), NOT the bank's own IR site — takasbank.com.tr sits behind an F5 WAF that rejects non-browser requests (CI would fail). BdrUyg serves a ZIP (kind unconsolidated_zip) bundling the financial report WITH an interim activity report; fetch_pdf_bytes prefers the non-'faaliyet' PDF. BDDK omits its GlobalSign intermediate cert, so fetch_pdf_bytes verifies via src/scrapers/_http.bddk_verify() (full verification, not a bypass). BdrUyg confirms SOLO-only filings, 2022-03..2026-03 — there is no consolidated report. 2022Q1 is OMITTED: its PDF has a broken font cmap (text layer returns raw glyph codes, a constant -29 shift, e.g. ')ø1$16$/ 9$5/,./$5' = 'FİNANSAL VARLIKLAR'), so the page anchors can't match; numbers are intact but labels are mojibake. PEER-EXCLUDED from ranking/market-share/HHI — see PEER_EXCLUDED_TICKERS in bank_names.ts.",
+      "_note": "Sources are BDDK BdrUyg code 132. ZIPs bundle the financial report and an interim activity report, which must be distinguished explicitly. The bank site has rejected automated requests. 2022Q1 is included: its 78-page source PDF is visually readable but portions of its text layer have broken character mappings. That requires text recovery and review, not exclusion. SOLO-only in the checked BDDK register; excluded from lending-peer ranking/market-share/HHI by PEER_EXCLUDED_TICKERS.",
       "urls": {
         "unconsolidated_zip": {
+          "2022Q1": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-132-SOLO-2022-03.zip",
           "2022Q2": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-132-SOLO-2022-06.zip",
           "2022Q3": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-132-SOLO-2022-09.zip",
           "2022Q4": "https://www.bddk.org.tr/BdrUyg/Home/DosyaIndir?raporUrl=~%2FDosya%2FBDREki-132-SOLO-2022-12.zip",
@@ -1484,5 +1533,16 @@
         }
       }
     }
+  },
+  "_registry_review": {
+    "date": "2026-09-06",
+    "source": "https://www.bddk.org.tr/BdrUyg/Home/SorguSonuc?eftkodu=0&kurulusturu=1&raportipi=konsolide",
+    "source_html_sha256": "182e592e7b7c8da293277cfc85dda3118e19a84c042685443eb922a735cf0fc4",
+    "registered_banks": 38,
+    "period_start": "2022Q1",
+    "period_end": "2026Q2",
+    "explicit_urls_added": 45,
+    "of_these_not_acquired_at_review": 29,
+    "absence_does_not_establish_nonpublication": true
   }
 }

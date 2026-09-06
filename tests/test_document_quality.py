@@ -4,6 +4,15 @@ from src.audit_reports.document_corpus import Filing
 from src.audit_reports.document_quality import bank_patterns, source_identity_review, text_legibility_signals
 
 
+def test_corroborated_legal_name_is_an_explicit_alias_without_changing_display_name():
+    from src.audit_reports.document_quality import bank_patterns, fold
+    patterns = bank_patterns({'EXIM': {'name': 'Türk Eximbank',
+                                      'source_names': ['Türkiye İhracat Kredi Bankası A.Ş.']}})
+    assert any(p.search(fold('TÜRKİYE İHRACAT KREDİ BANKASI ANONİM ŞİRKETİ')) for p in patterns['EXIM'])
+    assert any(p.search(fold('Türk Eximbank')) for p in patterns['EXIM'])
+    assert not any(p.search(fold('Türkiye Kalkınma ve Yatırım Bankası')) for p in patterns['EXIM'])
+
+
 def page(*texts, number=1):
     return {'page': number, 'spans': [{'id': i, 'text': t} for i, t in enumerate(texts)],
             'words': [{'id': i, 'text': t} for i, t in enumerate(' '.join(texts).split())]}

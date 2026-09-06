@@ -38,6 +38,7 @@ def bank_patterns(banks: dict) -> dict[str, list[re.Pattern]]:
         name = fold(info['name'])
         aliases = [re.sub(r'\([^)]*\)', '', name).strip()]
         aliases.extend(re.sub(r'^formerly\s+', '', a).strip() for a in re.findall(r'\(([^()]*)\)', name))
+        aliases.extend(fold(alias) for alias in info.get('source_names', []))
         patterns = []
         for alias in aliases:
             alias = re.sub(r'\s+(?:anonim\s+sirketi?|[at]\s*\.\s*[as]\s*\.\s*[os]?\s*\.?|a\s*\.\s*s\s*\.?)\s*$', '', alias)

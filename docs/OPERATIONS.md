@@ -1483,8 +1483,9 @@ in the observed source image. Ambiguous pairs remain issues. Additional
 views do not move the original source spans or certify visual/semantic accuracy.
 Retention and source-annotation checks recompute the pair links before checking
 selected row/column associations. The native source-evidence fingerprint is
-unchanged; candidate structure has a new implementation identity and requires
-cloud sample validation before its next publication.
+unchanged; candidate structure has a new implementation identity. The 5f6fd48
+cloud samples and Akbank/Albaraka publishing sample pass independent byte,
+source-association and live-admin checks. The remaining fleet awaits that version.
 
 For an independent read-only review, dispatch `build-document-corpus.yml` with
 `quality_only=true`. This mode ignores the publication input, has separate
@@ -1501,6 +1502,20 @@ recovery selection/pending/failure counts are retained separately; a missing
 recovery index never means recovery is complete. Conflicting source identity or
 artifact failures fail the review run without changing source data. Local use
 requires `--limit 1..4`; full byte reviews belong in Actions.
+
+To fill explicitly registered source gaps, dispatch the same workflow with
+`acquire_missing=true` and `publish=true` (not `quality_only`). This runs
+`scripts/acquire_document_corpus.py` before capture, with the same bank, period,
+basis, limit and stable filing groups. It only downloads missing acquisition
+keys. It retains transport bytes, selected originals and content-addressed
+acquisition manifests under `document-corpus/v1/`, rejects ambiguous multi-PDF
+archives and conflicting leading-page claims, and uses conditional creation plus
+byte readback for the acquisition key. An unresolved or damaged cover remains
+explicitly unresolved; it is not excluded or silently approved. Existing source
+keys are never overwritten. No D1 writes, analytical extraction or notifications
+occur. Successful acquisitions are captured even if another source needs review;
+the run then reports the acquisition failure. `acquisition-results.json` retains
+each named outcome in the normal Actions report artifact. This CLI is Actions-only.
 
 For a light local sample (no remote writes):
 

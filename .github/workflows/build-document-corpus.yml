@@ -33,6 +33,10 @@ on:
         description: "Read-only review of preserved PDF bytes, source identity, text legibility and recovery gaps"
         type: boolean
         default: false
+      acquire_missing:
+        description: "Fill only missing explicit registry sources before capture; requires publish=true"
+        type: boolean
+        default: false
       recheck_bytes:
         description: "Read every selected artifact again, bypassing unchanged-object receipts"
         type: boolean
@@ -95,6 +99,28 @@ jobs:
           cache: pip
       - name: Install dependencies
         run: pip install -r requirements.txt
+      - name: Validate acquisition scope
+        if: inputs.acquire_missing && (!inputs.publish || inputs.quality_only)
+        run: |
+          echo 'Missing-source acquisition requires a publishing capture, not a read-only review.'
+          exit 1
+      - name: Acquire only missing registered sources
+        id: acquire
+        if: inputs.acquire_missing && inputs.publish && !inputs.quality_only
+        continue-on-error: true
+        env:
+          BANKS: ${{ inputs.banks || 'ALL' }}
+          PERIOD: ${{ inputs.period }}
+          KIND: ${{ inputs.kind || 'BOTH' }}
+          LIMIT: ${{ inputs.limit || 0 }}
+          SHARD_INDEX: ${{ matrix.shard }}
+          SHARD_COUNT: ${{ strategy.job-total }}
+        run: |
+          args=(--limit "$LIMIT" --shard-count "$SHARD_COUNT" --shard-index "$SHARD_INDEX")
+          [ "$BANKS" != "ALL" ] && args+=(--bank "$BANKS")
+          [ -n "$PERIOD" ] && args+=(--period "$PERIOD")
+          [ "$KIND" != "BOTH" ] && args+=(--kind "$KIND")
+          python scripts/acquire_document_corpus.py "${args[@]}"
       - name: Preserve and verify source artifact bytes
         if: ${{ !inputs.quality_only }}
         env:
@@ -146,8 +172,12 @@ jobs:
             data/audit_capture/corpus-v1/inventory.json
             data/audit_capture/corpus-v1/capture-results.json
             data/audit_capture/corpus-v1/quality-results.json
+            data/audit_capture/corpus-v1/acquisition-results.json
           if-no-files-found: warn
           retention-days: 30
+      - name: Keep acquisition problems visible after preserving successful sources
+        if: always() && steps.acquire.outcome == 'failure'
+        run: exit 1
       - name: Keep bounded read-only probe evidence for independent review
         if: always() && github.event_name == 'workflow_dispatch' && !inputs.quality_only && !inputs.publish && inputs.limit > 0 && inputs.limit <= 4
         uses: actions/upload-artifact@v7

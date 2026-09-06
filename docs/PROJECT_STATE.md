@@ -16,161 +16,92 @@ coverage or known issues change.
 
 ## Complete audit document corpus (2026-09-06; implementation in progress)
 
-The registered corpus is the first scope, before older history or more banks.
-Read-only R2 reconciliation found 1,117 acquired PDFs across 38 banks and
-2022Q1–2026Q2; all 1,101 explicitly configured filings have a corresponding
-acquired PDF. These are acquisition counts, not completeness or accuracy claims.
+The first scope is the existing 38 banks and 2022Q1–2026Q2. The initial R2
+inventory contained 1,117 acquired PDFs, while the explicit URL registry contained
+1,101 filings. Independent comparison with BDDK's current register found 45
+missing URL bindings: 16 already-acquired filings and 29 sources absent from R2.
+The registry now includes all 1,146. Those 29 additions require acquisition and
+source verification; this is a correction within the existing bank/date scope.
 
-`build-document-corpus.yml` and its dedicated builder preserve immutable original
-PDFs, versioned page evidence and candidate document structure under the separate
-R2 `document-corpus/v1/` prefix. A source hash and engine identity bind each
-artifact. Failed attempts remain visible and previous revisions survive. This
-implementation has passed an Actions sample for both QNB 2026Q1 filings (218
-pages). The eight stored R2 objects were independently downloaded and verified;
-four source-annotated solo cases pass. An identical replay at commit `8977e619`
-([34027268957](https://github.com/incesalim/Carthago/actions/runs/34027268957))
-left all ten then-stored objects byte- and metadata-identical. A private admin
-catalog and source-page viewer are deployed at commit `8020250c`; live review
-confirmed the 23×3 QNB solo page-47 table, source text, filing switches and the
-explicit zero-verified status. Anonymous catalog/PDF requests return 403.
-The source-only registered fleet
-([34029735843](https://github.com/incesalim/Carthago/actions/runs/34029735843))
-was stopped after 242 successful named outcomes when an independent Akbank
-page-9 check exposed truncated replacement text under default page clipping.
-Original PDFs are intact. The revised source engine preserves unbounded text,
-literal glyph words and native PDF structure; its selected cloud cases now pass.
-The initial structure fleet was stopped after independent probes found a missed
-Akbank single-row table and a Garanti audit-table border corrupted by logo-path
-snapping. Repairs pass source annotations locally. Paragraph/heading candidates
-also pass four full-passage source checks on Albaraka's qualified opinion;
-the cloud probe caught cover typography leaking into its heading context.
-The repair passes the unchanged four cases in cloud replay `34031695563` and an
-independent download check. Akbank, Garanti, QNB and TOMK's seven selected table
-cases also passed in Actions. The new source-fidelity revision adds two Akbank
-text cases. At `9b1d9b84`, all 13 selected table/prose/source cases pass in
-Actions. Published sample `34033192250` covers four Akbank/Albaraka filings
-(374 pages); independently downloaded originals, evidence and structure match
-their source hashes and committed engines and pass integrity/annotation checks.
-The live admin shows the recovered Akbank footnote and separated Albaraka audit
-passages. Before the full run, its catalog had 242 preserved sources, 18 structured candidates and
-238 stale captures awaiting the new engine; zero filings are fully verified.
-Full-scope runs now use four stable, disjoint filing groups, with independent
-named outcomes and conditional catalog merging. Commit `b4fd60c9` passed CI;
-sample replay `34034349723` reused all four filings and left all 21 checked
-objects unchanged. Full source/structure run `34034440123` is active in four groups.
-Existing analytical lanes and their stored data have
-not been replaced. The source-verified QNB countercyclical-buffer classification
-fix is in code; existing stored wide rows have not been rebuilt.
+The omissions include nine VakıfBank quarterly consolidated reports, sixteen
+Türkiye Kalkınma historical consolidated reports, Takasbank 2022Q1 solo, Ziraat
+Dinamik 2025Q2 solo, and Aktif/Anadolubank 2026Q2 consolidated. The old VakıfBank
+claim that Q1/Q3 reports were not published was wrong. BDDK and the bank's own
+archive list them; independently opened BDDK PDFs confirm the 2022Q1 and 2026Q1
+covers. Türkiye Kalkınma 2022Q1 and Ziraat Dinamik 2025Q2 covers also match.
+Takasbank's 78-page source is visually readable but its text mapping is damaged;
+that requires recovery, not exclusion. BDDK absence is never proof of nonpublication.
 
-Table/prose association, unreadable image/vector content and corpus verification
-remain active work. Metadata-based incremental resume passed cloud replay with
-all 15 then-stored objects unchanged; automatic follow-up after acquisition is
-deployed. See
-[AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
+Full native source/structure run
+[34034440123](https://github.com/incesalim/Carthago/actions/runs/34034440123)
+completed successfully. All four named reports independently reconcile against
+the initial 1,117-object acquisition inventory, with no omitted, duplicated,
+unexpected or failed filing and no cross-filing duplicate PDF hash. It preserved
+116,503 pages, 300,442,272 native text characters and 2,183,570 physical text blocks,
+and produced 192,869 table candidates. Candidate counts are not a completeness
+denominator. **Zero whole filings are semantically verified.**
 
-Bounded read-only OCR probes now retain the rendered source image, image-bearing
-OCR PDF and raw words/spans, with pinned English/Turkish model hashes and native
-runtime identity. Local probes on FIBA 2025Q3 solo page 10 and ISCTR 2025Q1
-consolidated page 11 pass retention checks and 12 transcribed amount-token/region
-checks. Actions probes `34035657812` and `34035660589` and independent downloads
-pass the same retention and token checks. This is not cell approval: an isolated-cell comparison misread FIBA's
-`37.237.474` as `37.137.474`, while full-page OCR read it correctly, and table
-borders sometimes become punctuation. Local and Actions OCR also differ on
-other labels and amounts. OCR remains an unverified observation. The separate
-recovery run described below now persists it and exposes raw-reader differences;
-cell structure and recognition accuracy remain pending.
+The dedicated pipeline keeps immutable originals, versioned source evidence,
+candidate structure and failure history in R2 `document-corpus/v1/`. Each source
+is identified by its PDF bytes; artifacts include the implementation and runtime
+identity. Every native span, word occurrence, image/drawing region and native
+PDF structure is retained, including unbounded replacement text and a separate
+literal-glyph word view. The private admin reader links to original PDF pages,
+source references, alternate tables and unreviewed prose/heading candidates.
+Anonymous access returns 403. Core analytical lanes and their stored facts have
+not been replaced; the source-verified QNB countercyclical-buffer classification
+fix is in code, but existing stored wide rows have not been rebuilt.
 
-A separate outline-reader probe rebuilds numeric character templates from
-transcribed regions of the hash-bound FIBA PDF. It reads all 182 numbers and
-100 printed dashes in page 10's 47-row numeric body; all 38 identities containing
-three explicit numbers balance. Actions probe `34037621029` and an independent
-download/reconstruction pass the original 26 word/region/abstention checks.
-Numeric glyphs still come only from page 10. Additional source seeds teach only
-parentheses from page 11 and a decimal comma from page 13. The expanded local
-benchmark passes all 46 selected words, including eight signed page-11 amounts
-and 20 separately transcribed page-13 P&L values. Region checks now require full
-shape containment, excluding large background paths whose centers happen to
-fall inside an annotated cell. No matching tolerance was relaxed. Labels, full
-table semantics and broader source formats remain unverified. The bounded
-workflow probe retains the atlas, reference PDF and source-linked observations;
-cloud replay `34038991010` and an independent source reconstruction pass all 46
-checks. Recovery publication and admin viewing are now implemented locally, with
-separate per-source/page revision indexes, retained image-bearing OCR PDFs and
-explicit OCR/outline disagreements, through manual `recover-document-corpus.yml`.
-Published samples at `4ccc6316` (`34039939707`, FIBA pages 10/11/13;
-`34039941630`, ISCTR page 11) pass. Independently downloaded source-bound artifacts,
-rendered pixels, atlas, retained observations and matching annotations pass; the
-live admin shows both reports' recovery and anonymous requests return 403.
-FIBA has 21/4/2 OCR-outline differences on those pages, including a source-checked
-`717.417` read by OCR as `7.417`. Raw alternatives remain visible. A new regression
-adds this printed amount to the vector checks. Local selector repairs avoid
-rotating display-page bounds twice and count native text inside image regions;
-tests cover all four rotations. Recovery reuse now rebuilds changed derived views
-from verified raw observations without needlessly repeating OCR. The cloud
-refinement and unchanged replays are described below. Core capture fingerprints
-and served data are unchanged.
+Independent probes exposed and repaired clipped replacement text, a missed
+single-row ownership table, a logo-distorted audit table, contaminated paragraph
+headings and replacement labels positioned at a preceding number's cursor.
+The latest source-linked label positions use only unique native image/text pairs
+and preserve both original observations. At `5f6fd48`, four cloud samples pass;
+independent downloaded checks cover 543 pages, seven freshly observed source
+pages and all 17 selected table/prose/source/position cases. Publishing sample
+[34045487439](https://github.com/incesalim/Carthago/actions/runs/34045487439)
+updates Akbank/Albaraka 2026Q1 solo (185 pages). R2 bytes match the independently
+reviewed probes, and the live admin shows Akbank's 86-row/six-value-column
+alternative with the correct source-linked label on the reviewed rows. The
+remaining 1,115 candidate structures need the newer implementation; their
+preserved source evidence is current. Selected-case success is not whole-table approval.
 
-Recovery refinement replay `34040563636` reused all three selected OCR pages.
-An unchanged replay (`34040764985`) reused them again and left all 12 checked
-object versions unchanged. Full recovery run `34040878532` is active in four
-groups at `8cb6b60`, independently of the native capture fleet. A local layout
-extension reconstructs source-pixel grids on the four tested pages: FIBA has
-47×8, 47×8 and 64×6 candidates, and ISCTR 48×8. All 59 selected method/region
-checks pass (53 annotated source locations; six are checked through both readers).
-This checks selected cell associations, not entire tables. Raw OCR errors,
-unresolved glyphs and unverified headers remain explicit. Read-only cloud runs
-`34042466701` and `34042468735` pass at `7cd0cf88`.
-Independent downloads reproduce the retained source pixels, raw observations,
-source-built atlas and all four grids, and pass all 59 cell-association checks.
-NumPy differs between Actions (2.5.2) and Windows (1.26.4), but the reconstructed
-grids are identical; committed code hashes are checked separately. Layout
-publication awaits completion of the older raw-recovery fleet.
+Raw image/outline recovery in `recover-document-corpus.yml`, run
+[34040878532](https://github.com/incesalim/Carthago/actions/runs/34040878532)
+is active; groups 0, 1 and 2 completed. Separate recovery artifacts retain source
+pixels, pinned-model OCR observations, source-transcribed glyph alternatives,
+disagreements and named failures. The later source-pixel table view passes four
+independently reconstructed FIBA/ISCTR pages and 59 selected method/region cell
+checks. Publishing samples with those tables and filing resume receipts are
+queued behind the older raw-recovery run. Their publication and no-op receipt
+replay still need cloud proof before automatic recovery follow-up is enabled.
 
-Read-only catalog reconciliation during the active native fleet now finds 960
-source-preserved/structured candidates out of 1,117 acquired PDFs, zero stale
-captures and zero recorded failures; semantic verification remains zero.
-Recovery filing receipts are implemented locally: source/artifact byte readback
-precedes a metadata shortcut, and source, runtime, code, annotation, recovery
-index or artifact changes invalidate it. End-to-end tests confirm unchanged
-replay performs no PDF processing or writes and explicit recheck reuses OCR.
-Cloud validation of these receipts and automatic recovery follow-up are pending.
+Native unchanged-object receipts have passed cloud no-write replays; changed
+source bytes, engines, per-filing annotations or artifact versions invalidate
+reuse. Source/structure capture automatically follows acquisition workflows and
+runs in four disjoint filing groups. The optional `acquire_missing=true` mode
+fills only explicit registry gaps: it keeps transport bytes and selected-PDF
+receipts, rejects ambiguous archives and conflicting covers, verifies readback,
+and never replaces an existing acquisition. It has local failure/race/identity
+checks but still needs its first publishing sample. It writes no D1 data.
 
-A new Akbank source check exposes a separate layout problem: image replacement
-text can appear at the preceding numeric cursor. The original spans and literal
-glyphs are preserved, but a legacy table can attach the next section heading to
-the prior row. A local alternative joins only unique image/text siblings in the
-PDF's declared structure, retaining native node, span and image references.
-Clipped image regions must fit their observed source image; ambiguous links
-remain unresolved. Akbank 2026Q1 solo page 9 yields 82 paired labels and a separate
-86-row/six-value-column table. Three independently transcribed rows (18 amounts)
-and the complete footnote position now have regression cases; all six page-9
-source/association cases pass locally. Rotation tests cover 0/90/180/270 degrees.
-Read-only cloud runs `34044923037`, `34044924976`, `34044926410` and
-`34044928170` pass at `5f6fd48`, as do CI and deployment. Independent downloaded
-originals, evidence and structure pass byte/source accounting across 543 retained
-pages and all 17 annotated cases. Seven selected pages were freshly observed
-from the original PDFs; Akbank page 9's 82 positions and alternative table also
-rebuild identically. The cloud structure fingerprint matches committed source;
-three local dependencies differ only in Windows line endings. This remains an
-unverified candidate view. Publishing sample `34045487439` is queued behind
-the native fleet, and original text and legacy candidates remain available.
+A separate read-only quality review checks both acquired/archived PDF copies,
+source/structure artifacts and page inventories, leading-page bank/date/basis
+claims, text legibility signals and recovery gaps. The bounded Actions sample
+[34047708328](https://github.com/incesalim/Carthago/actions/runs/34047708328)
+passes for Akbank/Albaraka. Full review
+[34047832643](https://github.com/incesalim/Carthago/actions/runs/34047832643)
+completed over the original 1,117 sources. All four reports independently
+reconcile to the acquisition inventory and verify both PDF copies plus retained
+source/structure bytes for all 116,503 pages. Leading source text supports 1,050
+registered identities; 59 remain unresolved and eight have competing claims.
+No text-legibility signal is a readability approval.
 
-Native fleet groups 0/1/2 have completed and independently reconcile to all
-840 expected filings in their stable assignments, with no omissions, duplicates
-or failed outcomes (87,258 pages). Group 3 remains active. Recovery receipt/table
-publishing samples `34043837019` (FIBA) and `34043838752` (ISCTR) are queued behind
-the older raw-recovery fleet; their cloud replay verification is still pending.
-
-A separate read-only quality review is implemented locally. The previous
-`detect_wrong_pdf` helper checked only cover-year presence, ignoring bank,
-quarter and basis. The new review records all three opening-page claims with
-source span references, leaves competing/missing claims unresolved and detects
-same-year quarter mismatches. It also verifies both PDF copies and retained page
-artifacts and reports suspicious text plus recovery gaps. The five checked
-original report covers support their registered identities; their retained
-text has no detected font-mapping signal. These are selected checks, not a
-legibility guarantee. `build-document-corpus.yml` exposes `quality_only=true`;
-full registered-corpus review and source-identity reconciliation remain pending.
+All-table coverage, row/header/unit/period meaning, cross-page continuations,
+reading order and unrecovered text remain active work. The source ledger is the
+foundation for later time-series mapping and analyst use, not a certification
+that current candidate tables are safe to publish as series. Evidence and the
+execution plan are linked from [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
 
 ## Data coverage in D1
 
