@@ -344,3 +344,11 @@ of detected tables.
   source text supports 1,050 identities; 59 unresolved and eight ambiguous
   cases remain for review. These checks certify stored bytes and named source
   claims, not every printed character or table meaning.
+
+- 2026-09-06: missing-source publishing sample 34049005525 passes. Takasbank and
+  VakıfBank 2022Q1 newly acquired PDFs match separate official downloads; the
+  existing VakıfBank solo acquisition retains its earlier hash/version. R2
+  transport/manifest/PDF/evidence/structure bytes independently verify across
+  292 selected pages. There are now 1,119 acquired filings and 27 registered
+  gaps. Added an acquisition-before-capture job dependency so parallel groups
+  cannot freeze different acquisition inventories while sources are arriving.

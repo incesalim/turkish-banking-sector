@@ -83,8 +83,14 @@ reuse. Source/structure capture automatically follows acquisition workflows and
 runs in four disjoint filing groups. The optional `acquire_missing=true` mode
 fills only explicit registry gaps: it keeps transport bytes and selected-PDF
 receipts, rejects ambiguous archives and conflicting covers, verifies readback,
-and never replaces an existing acquisition. It has local failure/race/identity
-checks but still needs its first publishing sample. It writes no D1 data.
+and never replaces an existing acquisition. Publishing sample `34049005525`
+acquired Takasbank and VakıfBank 2022Q1, preserved/captured 292 pages across
+three selected filings and left the existing VakıfBank solo PDF unchanged.
+Independent R2 transport, manifest, PDF-copy and retained-artifact checks pass;
+the two new PDFs match the separate official-source downloads. R2 now contains
+1,119 acquired filings; 27 registered sources remain to acquire. Acquisition
+groups now finish before any capture group reads its inventory, avoiding stale
+acquisition counts during parallel fills. This path writes no D1 data.
 
 A separate read-only quality review checks both acquired/archived PDF copies,
 source/structure artifacts and page inventories, leading-page bank/date/basis
