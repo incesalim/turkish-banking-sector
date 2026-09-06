@@ -47,6 +47,12 @@ concurrency:
 jobs:
   capture:
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.head_repository.full_name == github.repository
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        # Full scope uses disjoint filing hashes. Bounded probes stay one job.
+        shard: ${{ fromJSON((github.event_name != 'workflow_dispatch' || ((inputs.banks == 'ALL' || inputs.banks == '') && inputs.limit == 0)) && '[0,1,2,3]' || '[0]') }}
     runs-on: ubuntu-latest
     timeout-minutes: 360
     env:
@@ -70,8 +76,10 @@ jobs:
           PUBLISH: ${{ github.event_name != 'workflow_dispatch' || inputs.publish }}
           STRUCTURE: ${{ github.event_name != 'workflow_dispatch' || inputs.structure }}
           RECHECK_BYTES: ${{ inputs.recheck_bytes || false }}
+          SHARD_INDEX: ${{ matrix.shard }}
+          SHARD_COUNT: ${{ strategy.job-total }}
         run: |
-          args=(--from-r2 --capture --limit "$LIMIT")
+          args=(--from-r2 --capture --limit "$LIMIT" --shard-count "$SHARD_COUNT" --shard-index "$SHARD_INDEX")
           [ "$BANKS" != "ALL" ] && args+=(--bank "$BANKS")
           [ -n "$PERIOD" ] && args+=(--period "$PERIOD")
           [ "$PUBLISH" = "true" ] && args+=(--publish --discard-published)
@@ -82,7 +90,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v7
         with:
-          name: audit-document-corpus-report
+          name: ${{ strategy.job-total > 1 && format('audit-document-corpus-report-{0}', matrix.shard) || 'audit-document-corpus-report' }}
           path: |
             data/audit_capture/corpus-v1/inventory.json
             data/audit_capture/corpus-v1/capture-results.json

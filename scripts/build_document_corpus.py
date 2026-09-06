@@ -10,6 +10,7 @@ namespace. It never writes D1, legacy databases, or acquisition objects.
 from __future__ import annotations
 
 import argparse
+import hashlib
 import json
 import os
 import sys
@@ -43,6 +44,14 @@ def _write_json(path: Path, value) -> None:
             temporary.unlink()
 
 
+def filing_shard(row: dict, count: int) -> int:
+    """Stable assignment: adding or reordering inventory entries cannot move a filing."""
+    if count < 1:
+        raise ValueError("Shard count must be positive")
+    name = Filing(row["bank_ticker"], row["period"], row["kind"]).filename
+    return int.from_bytes(hashlib.sha256(name.encode("utf-8")).digest(), "big") % count
+
+
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--config", type=Path, default=REPO / "data/banks/audit_report_urls.json")
@@ -65,9 +74,14 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--period", help="one YYYYQn")
     parser.add_argument("--kind", choices=["consolidated", "unconsolidated"])
     parser.add_argument("--limit", type=int, default=0)
+    parser.add_argument("--shard-count", type=int, default=1,
+                        help="divide the selected scope into this many stable, disjoint groups")
+    parser.add_argument("--shard-index", type=int, default=0, help="zero-based group to process")
     args = parser.parse_args(argv)
     if args.limit < 0:
         parser.error("--limit cannot be negative")
+    if args.shard_count < 1 or not 0 <= args.shard_index < args.shard_count:
+        parser.error("--shard-count must be positive and 0 <= --shard-index < --shard-count")
     if args.structure and not args.capture:
         parser.error("--structure requires --capture")
     if args.capture and not args.annotations_dir.is_dir():
@@ -132,6 +146,16 @@ def main(argv: list[str] | None = None) -> int:
         targets = targets[:args.limit]
     if not targets:
         parser.error("No registered/acquired filing matches the requested scope")
+    scope = {"banks": sorted(banks) if banks is not None else "ALL", "period": args.period,
+             "kind": args.kind, "limit": args.limit, "selected_filings": len(targets),
+             "shard_count": args.shard_count, "shard_index": args.shard_index}
+    targets = [row for row in targets if filing_shard(row, args.shard_count) == args.shard_index]
+    scope["assigned_filings"] = len(targets)
+    inventory["run_scope"] = scope
+    _write_json(args.output_dir / "inventory.json", inventory)
+    _write_json(args.output_dir / "capture-results.json", {"run_scope": scope, "filings": []})
+    print(f"Group {args.shard_index + 1}/{args.shard_count}: {len(targets)}/"
+          f"{scope['selected_filings']} selected filings", flush=True)
     if store:
         store.update_catalog(inventory, [], evidence_engine=engine_identity(),
                              structure_engine=structure_engine())
@@ -140,7 +164,7 @@ def main(argv: list[str] | None = None) -> int:
 
     def finish(filing, result):
         results.append(result)
-        _write_json(args.output_dir / "capture-results.json", {"filings": results})
+        _write_json(args.output_dir / "capture-results.json", {"run_scope": scope, "filings": results})
         print(f"{filing.filename}: {result['status']}", flush=True)
         if store:
             index = store.read_index(filing)

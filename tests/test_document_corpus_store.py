@@ -266,3 +266,40 @@ def test_cli_publication_and_restart_use_verified_cache_without_any_rewrite(corp
     assert build.main(args + ["--recheck-bytes"]) == 0
     assert key in client.reads
     assert len(client.writes) == writes
+
+
+def test_catalog_merges_three_competing_groups_without_losing_any_named_outcome(corpus, monkeypatch):
+    import json
+    from src.audit_reports.document_corpus import reconcile_inventory
+    from src.audit_reports import document_corpus_store
+    store, client, *_ = corpus
+    filings = [Filing(bank, "2026Q1", "consolidated") for bank in ("ONE", "TWO", "THREE", "FOUR")]
+    inventory = reconcile_inventory({}, [(f.bank_ticker, f.period, f.kind, f.filename) for f in filings], [])
+    inventory["acquisition_checked"] = True
+    indexes = [store.record_failure(filing, f"Named failure {filing.bank_ticker}") for filing in filings]
+    engines = {"evidence_engine": {"version": "test"}, "structure_engine": {"version": "test"}}
+    real_put = client.put_object
+    competing = iter(indexes[1:])
+    delays = []
+    monkeypatch.setattr(document_corpus_store.time, "sleep", delays.append)
+
+    def put_with_race(**kwargs):
+        if kwargs["Key"] == PREFIX + "catalog.json":
+            other = next(competing, None)
+            if other is not None:
+                # Let another writer finish using the original put before our
+                # stale conditional write is attempted.
+                monkeypatch.setattr(client, "put_object", real_put)
+                try:
+                    store.update_catalog(inventory, [other], **engines)
+                finally:
+                    monkeypatch.setattr(client, "put_object", put_with_race)
+        return real_put(**kwargs)
+
+    monkeypatch.setattr(client, "put_object", put_with_race)
+    catalog = store.update_catalog(inventory, indexes[:1], **engines)
+    assert len(delays) == 3
+    assert catalog["summary"]["failed"] == 4
+    assert {row["capture"]["last_error"] for row in catalog["filings"]} == {
+        f"Named failure {filing.bank_ticker}" for filing in filings}
+    assert json.loads(client.objects[PREFIX + "catalog.json"]) == catalog

@@ -107,3 +107,56 @@ def test_r2_capture_reads_current_object_instead_of_a_stale_local_copy(tmp_path,
     assert result["source"]["object_key"] == key
     assert result["source"]["byte_count"] == len(body)
     assert local.read_bytes() == b"stale local non-PDF"
+
+
+def test_filing_groups_are_disjoint_exhaustive_and_stable_when_inventory_changes():
+    rows = [{"bank_ticker": bank, "period": f"202{year}Q{quarter}", "kind": kind}
+            for bank in ("AKBNK", "ALBRK", "QNBFB") for year in range(2, 7)
+            for quarter in range(1, 5) for kind in ("consolidated", "unconsolidated")]
+    groups = [{build.Filing(**row).filename for row in rows if build.filing_shard(row, 4) == index}
+              for index in range(4)]
+    assert set.union(*groups) == {build.Filing(**row).filename for row in rows}
+    assert sum(map(len, groups)) == len(rows)
+    assert all(groups)
+    expanded = [{"bank_ticker": "OTHER", "period": "2021Q1", "kind": "consolidated"}] + rows[::-1]
+    for index, group in enumerate(groups):
+        reassigned = {build.Filing(**row).filename for row in expanded if build.filing_shard(row, 4) == index}
+        assert group <= reassigned
+
+
+@pytest.mark.parametrize("count,index", [(0, 0), (-1, 0), (4, -1), (4, 4)])
+def test_invalid_group_is_rejected_before_inventory(tmp_path, count, index):
+    with pytest.raises(SystemExit):
+        build.main(_args(tmp_path) + ["--shard-count", str(count), "--shard-index", str(index)])
+    assert not (tmp_path / "out/inventory.json").exists()
+
+
+def test_empty_assigned_group_reports_full_scope_without_hiding_invalid_selection(tmp_path):
+    filing = {"bank_ticker": "TEST", "period": "2026Q1", "kind": "consolidated"}
+    empty_group = (build.filing_shard(filing, 4) + 1) % 4
+    args = _args(tmp_path) + ["--capture", "--bank", "TEST", "--shard-count", "4",
+                              "--shard-index", str(empty_group)]
+    assert build.main(args) == 0
+    report = json.loads((tmp_path / "out/capture-results.json").read_text())
+    assert report["filings"] == []
+    assert report["run_scope"]["assigned_filings"] == 0
+    assert report["run_scope"]["selected_filings"] == 1
+    assert json.loads((tmp_path / "out/inventory.json").read_text())["registered_filings"] == 1
+    with pytest.raises(SystemExit):
+        build.main(args + ["--period", "2025Q1"])
+
+
+def test_limit_applies_to_global_scope_before_group_assignment(tmp_path):
+    config = _config(tmp_path)
+    data = json.loads(config.read_text())
+    data["banks"]["TEST"]["urls"]["consolidated"]["2026Q2"] = "https://bank.example/q2.pdf"
+    config.write_text(json.dumps(data))
+    results = []
+    for index in range(4):
+        output = tmp_path / f"out-{index}"
+        build.main(["--config", str(config), "--source-dir", str(tmp_path), "--output-dir", str(output),
+                    "--capture", "--limit", "1", "--shard-count", "4", "--shard-index", str(index)])
+        report = json.loads((output / "capture-results.json").read_text())
+        assert report["run_scope"]["selected_filings"] == 1
+        results.extend(report["filings"])
+    assert len(results) == 1  # A per-group limit would incorrectly process both filings.

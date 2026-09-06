@@ -1333,6 +1333,18 @@ share one queue. For a read-only probe with `limit` between 1 and 4, Actions
 retains original PDFs and capture artifacts for seven days as
 `audit-document-probe-evidence`, enabling independent review of the runner's
 output. The compact inventory/outcome report remains available for 30 days.
+Full-scope runs (`banks=ALL`, `limit=0`, or automatic follow-up) use four parallel
+groups within that publishing queue. A stable SHA-256 of the filing filename
+assigns each filing exactly once; additions to the inventory cannot move existing
+filings between groups. CLI `--shard-count` and zero-based `--shard-index` expose
+the same partitioning, applied after scope filters and the global limit. Each
+report records selected and assigned counts while retaining the full inventory
+denominator. Empty assigned groups succeed explicitly; an empty requested scope
+is an error. Report artifacts are named `audit-document-corpus-report-0` through
+`-3`; bounded single-job probes retain `audit-document-corpus-report`.
+One group's failure does not cancel the others. Conditional catalog writes retry
+contention with a short randomized delay and merge the latest saved progress;
+filing artifacts remain disjoint. A repeated completed run still writes nothing.
 Annotation reuse is scoped to the filing; another bank's new test does not
 invalidate that filing. Source-text cases gate source-only capture before its
 evidence is published. Source receipts bind their separate annotation identity;

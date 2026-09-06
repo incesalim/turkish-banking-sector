@@ -10,6 +10,8 @@ from __future__ import annotations
 import gzip
 import hashlib
 import json
+import random
+import time
 from pathlib import Path
 
 from .document_corpus import Filing, source_identity
@@ -101,7 +103,9 @@ class CorpusStore:
                        evidence_engine: dict, structure_engine: dict) -> dict:
         from .document_corpus_catalog import build_catalog
         key = PREFIX + "catalog.json"
-        for _attempt in range(3):
+        # Four disjoint filing groups share only this compact catalog. Re-read
+        # and merge after contention; never overwrite another group's progress.
+        for attempt in range(8):
             previous, etag = self._read(key)
             catalog = build_catalog(inventory, json.loads(previous) if previous else None, indexes,
                                     evidence_engine=evidence_engine, structure_engine=structure_engine)
@@ -116,6 +120,8 @@ class CorpusStore:
             except Exception as error:
                 if _error_code(error) not in ("412", "PreconditionFailed"):
                     raise
+                if attempt < 7:
+                    time.sleep(random.uniform(0.02, min(0.5, 0.05 * 2 ** attempt)))
         raise RuntimeError("Corpus catalog changed concurrently; retry its update")
 
     def read_index(self, filing: Filing) -> dict | None:

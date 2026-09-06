@@ -38,7 +38,7 @@ The source-only registered fleet
 was stopped after 242 successful named outcomes when an independent Akbank
 page-9 check exposed truncated replacement text under default page clipping.
 Original PDFs are intact. The revised source engine preserves unbounded text,
-literal glyph words and native PDF structure; cloud validation is pending.
+literal glyph words and native PDF structure; its selected cloud cases now pass.
 The initial structure fleet was stopped after independent probes found a missed
 Akbank single-row table and a Garanti audit-table border corrupted by logo-path
 snapping. Repairs pass source annotations locally. Paragraph/heading candidates
@@ -47,7 +47,16 @@ the cloud probe caught cover typography leaking into its heading context.
 The repair passes the unchanged four cases in cloud replay `34031695563` and an
 independent download check. Akbank, Garanti, QNB and TOMK's seven selected table
 cases also passed in Actions. The new source-fidelity revision adds two Akbank
-text cases; fleet publication remains pending its cloud check. Existing analytical lanes and their stored data have
+text cases. At `9b1d9b84`, all 13 selected table/prose/source cases pass in
+Actions. Published sample `34033192250` covers four Akbank/Albaraka filings
+(374 pages); independently downloaded originals, evidence and structure match
+their source hashes and committed engines and pass integrity/annotation checks.
+The live admin shows the recovered Akbank footnote and separated Albaraka audit
+passages. Its catalog has 242 preserved sources, 18 structured candidates and
+238 stale captures awaiting the new engine; zero filings are fully verified.
+Full-scope runs now use four stable, disjoint filing groups, with independent
+named outcomes and conditional catalog merging. Fleet publication is pending.
+Existing analytical lanes and their stored data have
 not been replaced. The source-verified QNB countercyclical-buffer classification
 fix is in code; existing stored wide rows have not been rebuilt.
 

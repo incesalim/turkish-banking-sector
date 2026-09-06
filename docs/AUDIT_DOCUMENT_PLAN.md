@@ -187,3 +187,14 @@ of detected tables.
   consolidated (none in solo). These are detector flags, not a completed source
   review. Original images/vectors are preserved; OCR recovery and independent
   transcription checks remain outstanding.
+- 2026-09-06: source-fidelity cloud probes at `9b1d9b84` pass all 13 selected
+  table, prose and source-text cases. Published sample `34033192250` covers four
+  Akbank/Albaraka filings and 374 pages. Independently downloaded their originals,
+  evidence and structure: source/acquisition bytes, committed engine hashes,
+  page accounting and all matching annotations pass. Live admin checks show the
+  separated Albaraka opinion and complete Akbank footnote; the catalog correctly
+  reports 238 stale captures among 242 preserved sources and zero fully verified
+  filings. Added four stable filing groups for full Actions runs; tests verify
+  exhaustive/disjoint assignment, global limit handling, explicit empty groups
+  and safe catalog merging after three competing writers. This changes execution
+  only; the source and structure engine fingerprints remain unchanged.
