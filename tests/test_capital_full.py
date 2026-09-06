@@ -187,3 +187,37 @@ def test_bonus_shares_does_not_steal_net_profit(tmp_path):
     roles = {r.get("role"): r["cur"] for r in got["rows"] if r.get("role")}
     assert roles["net_profit"] == 10.0
     assert roles["bonus_shares"] == 1.0
+
+
+def test_countercyclical_requirement_is_not_a_reference_inside_another_ratio(tmp_path):
+    """Source-verified: QNBFB 2026Q1 solo, PDF p46 / printed p41.
+
+    The true requirement is 0.01%; the 5.97% additional-CET1 ratio merely
+    mentions the regulation. A complete aggregate identity does not validate
+    either individual label, so source association must be tested directly.
+    """
+    reference = ("The ratio of Additional Common Equity Tier 1 capital which will be "
+                 "calculated by the first paragraph of the Article 4 of Regulation on "
+                 "Capital Conservation and Countercyclical Capital buffers to Risk "
+                 "Weighted Assets (%)")
+    db = _db(tmp_path, [(46, 1, "milyon", [
+        (OPENER_TR, [100.0, 90.0]),
+        ("b) Bank specific counter-cyclical buffer requirement (%)", [0.01, 0.01]),
+        (reference, [5.97, 8.13]),
+    ])])
+    rows = C.assemble(db, KEY)["rows"]
+    requirement = next(r for r in rows if r.get("role") == "countercyclical_buffer")
+    assert requirement["cur"] == 0.01
+    assert requirement["pri"] == 0.01
+    quoted = next(r for r in rows if r["label"] == reference)
+    assert quoted.get("role") is None
+    assert (quoted["cur"], quoted["pri"]) == (5.97, 8.13)
+
+
+def test_regulation_reference_alone_does_not_invent_a_buffer_requirement(tmp_path):
+    db = _db(tmp_path, [(46, 1, "bin", [
+        (OPENER_TR, [100.0, 90.0]),
+        ("Additional capital ratio under Countercyclical Capital Buffer rules (%)", [5.97, 8.13]),
+    ])])
+    rows = C.assemble(db, KEY)["rows"]
+    assert all(r.get("role") != "countercyclical_buffer" for r in rows)

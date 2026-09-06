@@ -15,6 +15,7 @@ machine involvement is required for routine refreshes.
 
 | When | Workflow | What it does |
 |---|---|---|
+| Manual only | `build-document-corpus.yml` | Preserve original audit PDFs and versioned source-page evidence in `document-corpus/v1/` on R2. Inputs `banks=ALL`, optional `period`, `limit=0`, `publish=true`. Uses existing `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY`; optional local `R2_BUCKET` overrides the default bucket. Separate `audit-document-corpus` concurrency group; no D1 or analytical snapshot writes. Reuses only evidence matching current PDF bytes and current engine; retains every source revision and failed filing. Run artifacts contain inventory and outcomes. Successful source preservation does not certify table/prose correctness. |
 | Manual only | `repair-audit-roles.yml` | Restore missing/stale `bank_audit_pl_roles` after a targeted reload omitted the role map. Pulls the current audit snapshot, compares semantic role content with live D1, and requires identical underlying P&L rows before replacing **only differing role partitions**. No PDF extraction or financial-row writes. Inputs: explicit `banks` (no ALL), optional `periods`, `kind`, `dry_run=true` by default. `--apply` is Actions-only; a repeat run writes nothing. Uses existing R2 and `CLOUDFLARE_API_TOKEN` secrets; serialized with the `bddk-audit` lane |
 | Manual only | `repair-missing-audit-rows.yml` | Repair narrowly proven D1 drift against the latest authoritative R2 audit snapshot without extraction or re-stamping. Default missing-row mode accepts explicit allowlisted `tables` (no ALL) plus optional `banks`/`periods`/`kind`; complete D1 factual multisets must be strict source subsets (null is distinct from zero), then Actions-only apply replaces only affected table partitions, post-verifies, requires a no-op replay, and uploads updated snapshot digests. `remove_remote_extras=true` instead requires explicit `partitions=BANK:YYYYQn:kind` and no Cartesian filters; every named D1 partition must contain every authoritative fact unchanged, then one atomic import deletes only the extra full primary keys. Canonical rows and R2 remain untouched. Missing tables, source-empty targets, schema/PK drift, changed or missing canonical facts, duplicate keys, or incomplete reads abort **all selected tables before any write**. `dry_run=true` by default; unchanged runs write neither D1 nor R2. Uses existing R2 and `CLOUDFLARE_API_TOKEN` secrets; serialized with `bddk-audit` |
 | Sun–Fri 05:00 UTC | `refresh-evds-daily.yml` | TCMB EVDS **daily/workday series only** (FX, policy/funding rates, sterilization, …) → D1. Weekly/monthly/quarterly series are polled by Saturday's full refresh. A run with no changed observation performs no D1 or R2 write |
@@ -1279,3 +1280,36 @@ For a verified reporting-unit error affecting a whole filing, `refresh-audit.yml
 Migrations `0045_capital_deductions.sql` and `0046_npl_accrual_movement.sql` add nullable amounts; old rows remain null. Apply through the CI-gated deploy before capital/NPL repair pushes or the updated analyst queries. Capital uses `Tier1 + Tier2 - capital_deductions`; NPL accrual is a separate signed movement. Neither is filled from an unexplained residual.
 
 `data/audit_quality_reviews.json` records exact source PDF hashes, pages and values for verified liquidity outliers. Only the same partition, metric and value is treated as an observation; validator failures are never waived. Reconciled P&L sign changes remain printed observations, while incomplete or inconsistent signed statements still alert. The final empty quality scan also clears its R2 alert baseline and reports resolutions.
+
+## Complete-document source corpus (implementation in progress)
+
+`build-document-corpus.yml` runs `scripts/build_document_corpus.py` against
+registered sources in R2. `structure=true` adds source-linked numerical and
+ruled-table candidates, physical text blocks, section candidates and content
+issues. The source itself remains immutable and independently accessible.
+`publish=true` writes only `document-corpus/v1/`; no D1, acquired source object or
+analytical snapshot is modified. Originals are preserved even when decoding
+fails. Artifact uploads are read back, filing indexes use conditional updates,
+revisions and failures are retained, and unchanged replay performs no R2 writes.
+Large published files are removed from the runner after verified publication.
+
+For a light local sample (no remote writes):
+
+```powershell
+python scripts/build_document_corpus.py --from-r2 --capture --structure --bank QNBFB --period 2026Q1 --kind unconsolidated
+```
+
+Local R2 reads require the existing R2 credentials in the process environment.
+Without `--capture`, the command only reconciles the inventory. Without an R2
+query or `--inventory-json`, remote acquisition is recorded as unknown. The local
+output defaults to `data/audit_capture/corpus-v1/`; source originals and evidence
+are addressed by PDF and artifact SHA-256. `capture-results.json` is the current
+run's outcomes; durable per-filing history lives in R2's `filings/` indexes.
+
+The builder runs the matching source-revision cases in
+`tests/fixtures/document_annotations/` when structuring. A failed annotated case
+fails that filing and the run. No matching annotation is explicitly unverified.
+`source_preserved` and `structured_candidates` are not semantic approval. Never
+use the number of detected tables as the denominator for complete capture.
+Fleet processing belongs in Actions; use `banks`, `period` and `limit` to select
+an initial sample or a repair scope. See [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).

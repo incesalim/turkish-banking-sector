@@ -1,0 +1,77 @@
+name: Build audit document corpus
+
+# Separate from analytical snapshot publication. Stores immutable originals and
+# source evidence only; a successful run never means the contents are verified.
+on:
+  workflow_dispatch:
+    inputs:
+      banks:
+        description: "ALL or comma-separated registered bank tickers"
+        type: string
+        default: "ALL"
+      period:
+        description: "One YYYYQn; blank = all registered periods"
+        type: string
+        default: ""
+      limit:
+        description: "Maximum filings after filters; 0 = all"
+        type: number
+        default: 0
+      publish:
+        description: "Preserve originals and page evidence in the separate R2 corpus"
+        type: boolean
+        default: true
+      structure:
+        description: "Add source-linked table candidates and text blocks (unverified)"
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: audit-document-corpus
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Preserve and verify source artifact bytes
+        env:
+          BANKS: ${{ inputs.banks }}
+          PERIOD: ${{ inputs.period }}
+          LIMIT: ${{ inputs.limit }}
+          PUBLISH: ${{ inputs.publish }}
+          STRUCTURE: ${{ inputs.structure }}
+        run: |
+          args=(--from-r2 --capture --limit "$LIMIT")
+          [ "$BANKS" != "ALL" ] && args+=(--bank "$BANKS")
+          [ -n "$PERIOD" ] && args+=(--period "$PERIOD")
+          [ "$PUBLISH" = "true" ] && args+=(--publish --discard-published)
+          [ "$STRUCTURE" = "true" ] && args+=(--structure)
+          python scripts/build_document_corpus.py "${args[@]}"
+      - name: Keep inventory and named outcomes, including failures
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-document-corpus-report
+          path: |
+            data/audit_capture/corpus-v1/inventory.json
+            data/audit_capture/corpus-v1/capture-results.json
+          if-no-files-found: warn
+          retention-days: 30

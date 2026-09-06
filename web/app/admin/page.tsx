@@ -47,10 +47,10 @@ function fmtValue(p: string | null): string {
   return m ? m[1] : p;
 }
 
-/** Audit freshness is validation health, not a clock — say so. */
+/** This summary measures core extraction outcomes; detailed lane checks are separate. */
 function statusLabel(s: SourceHealth): string {
   if (s.key === "audit") {
-    if (s.status === "fresh") return "Clean";
+    if (s.status === "fresh") return "Loaded";
     if (s.status === "late") return "Failures";
   }
   return STATUS_STYLE[s.status].label;

@@ -194,7 +194,13 @@ ROLES: list[tuple[str, re.Pattern, bool]] = [
     ("capital_conservation_buffer", re.compile(
         r"SERMAYE KORUMA TAMPONU|CAPITAL CONSERVATION BUFFER"), False),
     ("countercyclical_buffer", re.compile(
-        r"DONGUSEL SERMAYE TAMPONU|COUNTERCYCLICAL (CAPITAL )?BUFFER"), False),
+        # Match the disclosure name, not a regulation reference inside another
+        # ratio's label. QNB 2026Q1 PDF p46 prints 0.01 for the hyphenated
+        # counter-cyclical requirement; a different additional-CET1 ratio below
+        # mentions Countercyclical Capital buffers but is 5.97.
+        r"^(?:[A-Z][).]\s*)?(?:BANKAYA OZGU\s+)?DONGUSEL SERMAYE TAMPONU|"
+        r"^(?:[A-Z][).]\s*)?(?:BANK[ -]?SPECIFIC\s+)?"
+        r"COUNTER[ -]?CYCLICAL (?:CAPITAL )?BUFFER"), False),
 ]
 
 # Wide-lane roles → the narrow lane's columns. The anchor: production has

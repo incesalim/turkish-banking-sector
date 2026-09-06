@@ -14,6 +14,25 @@ coverage or known issues change.
 
 ---
 
+## Complete audit document corpus (2026-09-06; implementation in progress)
+
+The registered corpus is the first scope, before older history or more banks.
+Read-only R2 reconciliation found 1,117 acquired PDFs across 38 banks and
+2022Q1–2026Q2; all 1,101 explicitly configured filings have a corresponding
+acquired PDF. These are acquisition counts, not completeness or accuracy claims.
+
+`build-document-corpus.yml` and its dedicated builder preserve immutable original
+PDFs, versioned page evidence and candidate document structure under the separate
+R2 `document-corpus/v1/` prefix. A source hash and engine identity bind each
+artifact. Failed attempts remain visible and previous revisions survive. This
+implementation is being tested locally; fleet publication and a corpus-specific
+admin view remain pending. Existing analytical lanes and their stored data have
+not been replaced. The source-verified QNB countercyclical-buffer classification
+fix is in code; existing stored wide rows have not been rebuilt.
+
+Table/prose association, unreadable image/vector content, corpus verification
+and admin integration remain active work. See [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
+
 ## Data coverage in D1
 
 **Anomaly repair (2026-08-31–2026-09-01; completed):** The current-code

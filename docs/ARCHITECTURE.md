@@ -6,6 +6,14 @@ machine is involved in the production data flow.
 
 ## Data flow
 
+The complete-document corpus is an additional, separate audit output under
+`document-corpus/v1/` in the audit R2 bucket. `build-document-corpus.yml` preserves
+original PDF bytes and versioned page evidence, indexed by filing with retained
+revisions and named failures. It does not publish analytical rows or replace the
+existing capture database. Source preservation, structural extraction and semantic
+verification are separate states; the active work is tracked in
+[AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
+
 ```
               ┌─── BDDK API ────┐    ┌─── Bank IR sites ────┐    ┌─── TCMB EVDS ────┐
               │                 │    │                      │    │                  │

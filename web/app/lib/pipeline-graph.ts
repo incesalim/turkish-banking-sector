@@ -108,6 +108,7 @@ export const PIPELINE_NODES: PipelineNode[] = [
   { id: "src-ir-pdf", kind: "source", layer: "source", lane: "audit", label: "Bank IR / BRSA PDFs", sublabel: `${BANK_COUNT} banks · +13 auto-discover quarters`, statusKey: "audit" },
 
   // ── Audit lane · ingestion (workflows) ─────────────────────────────────
+  { id: "wf-document-corpus", kind: "workflow", layer: "ingestion", lane: "audit", label: "preserve audit documents", sublabel: "manual · original PDFs + versioned page evidence; verification pending", workflowFile: "build-document-corpus.yml" },
   { id: "wf-acquire-audit", kind: "workflow", layer: "ingestion", lane: "audit", label: "acquire-audit", sublabel: "manual · download only (diagnostic)", workflowFile: "acquire-audit.yml" },
   { id: "wf-refresh-audit", kind: "workflow", layer: "ingestion", lane: "audit", label: "refresh-audit", sublabel: "filing windows daily · acquire → extract → one push", workflowFile: "refresh-audit.yml" },
   { id: "wf-reextract", kind: "workflow", layer: "ingestion", lane: "audit", label: "reextract-statement", sublabel: "manual · one lane (oci/cf/equity/…)", workflowFile: "reextract-statement.yml" },
@@ -123,6 +124,7 @@ export const PIPELINE_NODES: PipelineNode[] = [
   { id: "wf-analyst-research", kind: "workflow", layer: "ingestion", lane: "audit", label: "analyst-research", sublabel: "manual · V2 scout → research loop → verifier (artifacts only, eval phase)", workflowFile: "analyst-research.yml" },
 
   // ── Audit lane · storage ───────────────────────────────────────────────
+  { id: "store-document-corpus", kind: "store", layer: "storage", lane: "audit", label: "R2 · document corpus", sublabel: "PDF revisions · source text and geometry · capture failures" },
   { id: "store-r2-pdf", kind: "store", layer: "storage", lane: "audit", label: "R2 · PDF bucket", sublabel: "bddk-audit-reports/<ticker>/*.pdf" },
   { id: "store-d1-audit-fin", kind: "store", layer: "storage", lane: "audit", label: "D1 · bank_audit financials", sublabel: "balance_sheet · profit_loss · oci · cash_flow · equity_change", statusKey: "audit:balance_sheet" },
   { id: "store-d1-audit-credit", kind: "store", layer: "storage", lane: "audit", label: "D1 · bank_audit credit", sublabel: "credit_quality · stages · npl_movement · loans_by_sector", statusKey: "audit:stages" },
@@ -244,6 +246,8 @@ export const PIPELINE_EDGES: PipelineEdge[] = [
   { source: "src-ir-pdf", target: "wf-acquire-audit" },
   { source: "src-ir-pdf", target: "wf-refresh-audit" },
   { source: "wf-acquire-audit", target: "store-r2-pdf" },
+  { source: "store-r2-pdf", target: "wf-document-corpus" },
+  { source: "wf-document-corpus", target: "store-document-corpus" },
   { source: "wf-acquire-audit", target: "store-d1-audit-spine" },
   { source: "wf-refresh-audit", target: "store-r2-pdf" },
   { source: "store-r2-pdf", target: "wf-refresh-audit" },

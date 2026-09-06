@@ -1,0 +1,50 @@
+{
+  "schema_version": "document-annotations-1",
+  "filing": {"bank_ticker": "QNBFB", "period": "2026Q1", "kind": "unconsolidated"},
+  "pdf_sha256": "cbe23222dcf88730fc8fe498f86dfa3c4805dba700c0270ec35c2d370749b6b2",
+  "source_url": "https://www.qnb.com.tr/medium/document-file-4620.vsf",
+  "annotation_method": "Rendered original PDF pages 46–47 (printed 41–42), visually read on 2026-09-06. Coordinates in displayed PDF points. Selected regression cases only; not a complete report annotation.",
+  "cases": [
+    {
+      "id": "debt_instrument_issuers_in_raster_dashed_grid",
+      "page": 47,
+      "method": "pymupdf_lines_strict",
+      "row_label": "Issuer",
+      "column_count": 3,
+      "cells": [
+        {"column": 1, "text": "QATAR NATIONAL BANK Q.P.S.C.", "bbox": [444, 200, 573, 212]},
+        {"column": 2, "text": "QNB BANK A.Ş.", "bbox": [654, 200, 716, 212]}
+      ]
+    },
+    {
+      "id": "final_total_capital",
+      "page": 46,
+      "row_label": "Total Capital",
+      "column_count": 2,
+      "cells": [
+        {"column": 0, "text": "226,784,919", "bbox": [407, 198, 451, 209]},
+        {"column": 1, "text": "216,455,819", "bbox": [493, 198, 537, 209]}
+      ]
+    },
+    {
+      "id": "countercyclical_buffer_requirement",
+      "page": 46,
+      "row_label": "b) Bank specific counter-cyclical buffer requirement (%)",
+      "column_count": 2,
+      "cells": [
+        {"column": 0, "text": "0.01", "bbox": [433, 281, 451, 293]},
+        {"column": 1, "text": "0.01", "bbox": [519, 281, 537, 293]}
+      ]
+    },
+    {
+      "id": "additional_cet1_ratio_regulation_reference",
+      "page": 46,
+      "row_label": "The ratio of Additional Common Equity Tier 1 capital which will be calculated by the first paragraph of the Article 4 of Regulation on Capital Conservation and Countercyclical Capital buffers to Risk Weighted Assets (%)",
+      "column_count": 2,
+      "cells": [
+        {"column": 0, "text": "5.97", "bbox": [433, 318, 451, 330]},
+        {"column": 1, "text": "8.13", "bbox": [519, 318, 537, 330]}
+      ]
+    }
+  ]
+}

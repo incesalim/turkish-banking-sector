@@ -232,21 +232,21 @@ async function auditSource(db: DB): Promise<SourceHealth> {
     "SELECT MAX(period) AS latest, MAX(extracted_at) AS last_refresh, COUNT(*) AS n, " +
       "SUM(CASE WHEN success=0 THEN 1 ELSE 0 END) AS failed FROM bank_audit_extractions",
   );
-  // Reports publish quarterly, so audit freshness remains completeness-based
-  // even though refresh-audit now checks daily during filing windows. The
-  // coverage matrix is where missing/failed partitions are surfaced and acted on.
+  // success records core BS/P&L extraction, not every lane's validation and not
+  // full-document completeness. Name that scope explicitly in the vitals band.
   const n = agg?.n ?? 0;
   const status: FreshnessStatus =
     n === 0 ? "unknown" : (agg?.failed ?? 0) > 0 ? "late" : "fresh";
   return {
     key: "audit",
-    label: "Audit reports",
+    label: "Audit core statements",
     latestPeriod: agg?.latest ?? null,
     lastRefresh: agg?.last_refresh ?? null,
     rowCount: n,
     ageHours: hoursSince(agg?.last_refresh),
     cadenceHours: WEEK,
     status,
+    note: `${n.toLocaleString("en-US")} filings · balance sheet and income statement extraction`,
   };
 }
 

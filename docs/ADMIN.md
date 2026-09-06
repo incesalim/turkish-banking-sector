@@ -14,6 +14,19 @@ health**, **manual refresh triggers**, and **site traffic** into one view.
 
 ## Code map
 
+The existing audit coverage matrix measures predefined analytical lanes. A green
+cell does not certify that every table or passage in the filing was captured.
+The separate complete-document corpus is under active implementation in
+[AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md). Its source preservation and
+candidate structure currently run through `build-document-corpus.yml`; corpus
+revision, unresolved-content and verification controls are not yet integrated
+into the admin view.
+
+The audit vitals label is **Audit core statements / Loaded**: it reports the
+balance-sheet and income-statement extraction flag. It does not certify all
+lanes or a complete document. The former **Audit reports / Clean** wording was
+misleading and has been corrected in code (2026-09-06).
+
 | Piece | File |
 |---|---|
 | Auth (password session + Access JWT) | `web/app/lib/admin-auth.ts` |
