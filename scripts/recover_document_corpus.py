@@ -26,7 +26,6 @@ from build_document_corpus import _write_json, _write_bytes, filing_shard  # noq
 
 
 def select_pages(original: Path, explicit: list[int]) -> dict:
-    from src.audit_reports.document_capture import _probe_text_layer
     observations = []
     with fitz.open(original) as pdf:
         if any(n > len(pdf) for n in explicit):
@@ -34,11 +33,24 @@ def select_pages(original: Path, explicit: list[int]) -> dict:
         for number in explicit or range(1, len(pdf) + 1):
             page = pdf[number - 1]
             words = page.get_text("words", clip=fitz.INFINITE_RECT())
-            layer = _probe_text_layer(page, len(words))
+            # page.rect is already in display coordinates. Rotating it again
+            # clips the wrong area on landscape PDFs. Transform source boxes only.
+            bounds = page.rect
+            images = [fitz.Rect(i['bbox']) * page.rotation_matrix & bounds for i in page.get_image_info()]
+            images = [r for r in images if not r.is_empty]
+            display_words = [fitz.Rect(w[:4]) * page.rotation_matrix for w in words]
+            area = sum(r.get_area() for r in images)
+            inside_images = sum(any(r.contains((w.tl + w.br) / 2) for r in images) for w in display_words)
+            items = sum(len(d['items']) for d in page.get_drawings())
+            raster = bool(images and area / bounds.get_area() >= 0.10 and inside_images <= 8)
+            outlined = items >= 2000 and items / max(len(words), 1) >= 25
+            layer = 'vector' if outlined else 'raster' if raster else 'text'
             observations.append({"page": number, "native_words": len(words), "text_layer": layer,
+                                 "drawing_items": items, "summed_image_area_ratio": area / bounds.get_area(),
+                                 "native_words_inside_images": inside_images,
                                  "selected": bool(explicit) or layer != "text"})
         return {"page_count": len(pdf), "method": "explicit" if explicit else "image_outline_detector",
-                "detector_sha256": hashlib.sha256((REPO / "src/audit_reports/document_capture.py").read_bytes()).hexdigest(),
+                "detector_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
                 "pages": [p['page'] for p in observations if p['selected']],
                 "observations": observations, "selection_completeness_verified": False}
 

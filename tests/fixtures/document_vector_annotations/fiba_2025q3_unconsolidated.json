@@ -512,6 +512,17 @@
         710
       ],
       "text": "0,00952"
+    },
+    {
+      "id": "profit_loss_interest_from_banks_current",
+      "page": 13,
+      "source_bbox": [
+        308,
+        195,
+        365,
+        201
+      ],
+      "text": "717.417"
     }
   ]
 }

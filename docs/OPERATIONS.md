@@ -1408,6 +1408,9 @@ filing indexes, the core catalog or D1. Automatic recovery follow-up is pending
 validation of the production recovery run.
 
 The source classifier records its per-page observations and selected-page list.
+It transforms image/word boxes into display coordinates once, keeps the already
+rotated page bounds, and counts native words inside images. Overlapping image
+areas are summed as a heuristic, not asserted to be a measured content union.
 Its image/outline flags are a heuristic, not proof that other pages contain no
 unreadable text. Explicit pages are always recovered. Each selected page keeps
 full-page OCR, source pixels, line/word references and, for outlined pages, the
@@ -1419,7 +1422,10 @@ Recovery artifacts are immutable under `document-corpus/v1/sources/<PDF hash>/re
 Separate `recovery/<bank>/<period>/<basis>/<PDF hash>.json` indexes retain page
 revisions, selections and failed attempts. Read-back verification precedes index
 publication. Reuse verifies retained bytes and source pixels with the current
-engine; source/model/atlas changes or missing/corrupt artifacts invalidate reuse.
+recognition inputs; source/model/atlas changes or missing/corrupt artifacts
+invalidate reuse. A derived-view implementation change rebuilds that view from
+verified raw observations without running OCR again. Artifact keys must agree
+with both source identity and the indexed content hash.
 Matching annotations are rerun even when OCR is reused. Failed source annotations
 retain candidates for review and fail the named page/run. Successful published
 page files are removed individually from the runner; failures remain in its

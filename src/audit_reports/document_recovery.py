@@ -190,10 +190,19 @@ class RecoveryStore:
         if not row or not row["current"] or row.get("last_attempt", {}).get("status") == "failed":
             return None
         revision = row["current"]
-        if revision["engine"] != engine:
+        # A view/association code change must not needlessly run OCR again.
+        # Compare recognition inputs, verify retained raw observations, then
+        # rebuild the current view. No previous view is carried forward as truth.
+        if any(revision['engine'].get(k) != engine.get(k) for k in (
+                'ocr', 'atlas_sha256', 'vector_implementation_sha256')):
             return None
         loaded = {}
         for name, item in revision["artifacts"].items():
+            suffix = {'page': 'recovery.json.gz', 'ocr_pdf': 'ocr.pdf', 'atlas': 'atlas.json.gz'}.get(name)
+            expected = (f"{PREFIX}sources/{item['sha256']}/original.pdf" if name == 'reference_pdf' else
+                        f"{PREFIX}sources/{source['pdf_sha256']}/recovery/{item['sha256']}.{suffix}" if suffix else None)
+            if item['key'] != expected:
+                raise ValueError("Recovery artifact key differs from its source/content identity")
             body, _ = self.store._read(item["key"])
             if body is None or len(body) != item["bytes"] or digest(body) != item["sha256"]:
                 return None
@@ -203,5 +212,8 @@ class RecoveryStore:
             raise ValueError("Stored atlas differs from the source-rebuilt reference")
         if packet["source"] != source or packet["page"] != page:
             raise ValueError("Cached recovery is for a different page")
-        verify_packet(packet, loaded["ocr_pdf"], original, atlas)
-        return packet, loaded["ocr_pdf"]
+        if packet['engine'] != revision['engine']:
+            raise ValueError("Recovery index and packet engines disagree")
+        rebuilt = make_packet(packet['ocr'], packet['vector'], packet['benchmarks'], engine)
+        verify_packet(rebuilt, loaded["ocr_pdf"], original, atlas)
+        return rebuilt, loaded["ocr_pdf"]

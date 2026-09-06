@@ -50,8 +50,10 @@ missing OCR/outline readings, retained image-bearing OCR PDFs and full evidence.
 The API accepts only the current source revision and checks artifact bytes before
 returning them. A failed latest attempt remains visible alongside earlier retained
 candidates. Recovery does not clear source review flags or mark values verified.
-`recover-document-corpus.yml` currently runs manually; production validation and
-automatic follow-up remain pending.
+`recover-document-corpus.yml` currently runs manually. Published FIBA 2025Q3 solo
+pages 10/11/13 and ISCTR 2025Q1 consolidated page 11 have passed independent
+artifact/source checks and live admin review. Whole-document accuracy, broader
+recovery coverage and automatic follow-up remain pending.
 
 The audit vitals label is **Audit core statements / Loaded**: it reports the
 balance-sheet and income-statement extraction flag. It does not certify all

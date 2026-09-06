@@ -248,3 +248,13 @@ of detected tables.
   page mismatches, missing/corrupt storage, interrupted uploads and false approval;
   repeated identical publication writes nothing. Production recovery, source
   classification coverage and broader table/prose associations remain pending.
+- 2026-09-06: published recovery samples `34039939707` (three FIBA pages) and
+  `34039941630` (one ISCTR page) pass. Independent R2 downloads reproduce original
+  hashes, pixels, OCR observations, outline atlas/readings and annotations. Live
+  admin displays both, including FIBA's 21/4/2 raw-reader differences; anonymous
+  access returns 403. Source review confirms one material disagreement: interest
+  received from banks is 717.417, which OCR read as 7.417. The outline read is
+  correct; added a source regression without teaching new glyphs. Replaced the
+  inherited selector's double-rotated page bounds with explicit display geometry
+  and image-region word counts, tested at all four rotations. Changed recovery
+  views now rebuild from retained raw observations without repeating OCR.

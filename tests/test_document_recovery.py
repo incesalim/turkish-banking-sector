@@ -80,6 +80,25 @@ def test_missing_or_changed_retained_bytes_invalidate_reuse(recovery):
     assert store.cached(packet['source'], 1, engine, original, None) is None
 
 
+def test_changed_view_code_reuses_raw_ocr_and_rebuilds_its_current_view(recovery):
+    from src.audit_reports.document_recovery import digest
+    from src.audit_reports.document_corpus_store import _json
+    store, client, packet, derivative, original = recovery
+    index = store.publish(packet, derivative, original)
+    old = copy.deepcopy(packet)
+    old['engine']['implementation_sha256'] = 'a' * 64
+    old['view']['lines'] = []  # Old derived view is not evidence of source text.
+    body = gzip.compress(_json(old), mtime=0)
+    current = index['pages']['1']['current']
+    current['engine'] = old['engine']
+    current['artifacts']['page'] = {'key': f"{PREFIX}sources/{packet['source']['pdf_sha256']}/recovery/{digest(body)}.recovery.json.gz",
+                                    'bytes': len(body), 'sha256': digest(body)}
+    client.objects[current['artifacts']['page']['key']] = body
+    client.objects[store.index_key(packet['source'])] = _json(index)
+    rebuilt, pdf = store.cached(packet['source'], 1, packet['engine'], original, None)
+    assert rebuilt['view'] == packet['view'] and pdf == derivative
+
+
 def test_scope_records_do_not_erase_other_selected_pages_or_approve_unselected_pages(recovery):
     store, client, packet, _, _ = recovery
     source = packet['source']

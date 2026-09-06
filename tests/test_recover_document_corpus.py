@@ -2,8 +2,28 @@ import copy
 import json
 
 import pytest
+import fitz
 
 from test_document_ocr import retained_observation  # noqa: F401
+
+
+def test_raster_selection_uses_display_bounds_once_and_counts_text_inside_images(tmp_path):
+    import recover_document_corpus as cli
+    with fitz.open() as picture:
+        picture.new_page(width=200, height=100).insert_text((10, 30), 'Disclosed figures 1,000')
+        pix = picture[0].get_pixmap()
+    for rotation in (0, 90, 180, 270):
+        path = tmp_path / f'rotation{rotation}.pdf'
+        with fitz.open() as pdf:
+            page = pdf.new_page(width=240, height=180)
+            page.insert_text((10, 20), 'A typed banner outside the image has many words here')
+            page.insert_image(fitz.Rect(20, 70, 220, 170), pixmap=pix)
+            page.set_rotation(rotation)
+            pdf.save(path)
+        selection = cli.select_pages(path, [])
+        assert selection['pages'] == [1]
+        assert selection['observations'][0]['text_layer'] == 'raster'
+        assert selection['observations'][0]['native_words_inside_images'] == 0
 
 
 @pytest.mark.parametrize('args', [[], ['--limit', '1'], ['--pages', '1'],

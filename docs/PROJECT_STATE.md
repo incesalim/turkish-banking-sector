@@ -76,8 +76,9 @@ checks. Actions probes `34035657812` and `34035660589` and independent downloads
 pass the same retention and token checks. This is not cell approval: an isolated-cell comparison misread FIBA's
 `37.237.474` as `37.137.474`, while full-page OCR read it correctly, and table
 borders sometimes become punctuation. Local and Actions OCR also differ on
-other labels and amounts. OCR remains probe evidence; agreement handling,
-cell structure and production integration are pending.
+other labels and amounts. OCR remains an unverified observation. The separate
+recovery run described below now persists it and exposes raw-reader differences;
+cell structure and recognition accuracy remain pending.
 
 A separate outline-reader probe rebuilds numeric character templates from
 transcribed regions of the hash-bound FIBA PDF. It reads all 182 numbers and
@@ -96,8 +97,18 @@ cloud replay `34038991010` and an independent source reconstruction pass all 46
 checks. Recovery publication and admin viewing are now implemented locally, with
 separate per-source/page revision indexes, retained image-bearing OCR PDFs and
 explicit OCR/outline disagreements, through manual `recover-document-corpus.yml`.
-This has not yet been published or verified
-in Actions. It does not change core source/structure fingerprints or served data.
+Published samples at `4ccc6316` (`34039939707`, FIBA pages 10/11/13;
+`34039941630`, ISCTR page 11) pass. Independently downloaded source-bound artifacts,
+rendered pixels, atlas, retained observations and matching annotations pass; the
+live admin shows both reports' recovery and anonymous requests return 403.
+FIBA has 21/4/2 OCR-outline differences on those pages, including a source-checked
+`717.417` read by OCR as `7.417`. Raw alternatives remain visible. A new regression
+adds this printed amount to the vector checks. Local selector repairs avoid
+rotating display-page bounds twice and count native text inside image regions;
+tests cover all four rotations. Recovery reuse now rebuilds changed derived views
+from verified raw observations without needlessly repeating OCR. Cloud replay
+of these refinements remains pending. Core capture fingerprints and served data
+are unchanged.
 
 ## Data coverage in D1
 
