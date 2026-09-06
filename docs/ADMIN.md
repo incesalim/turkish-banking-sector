@@ -44,6 +44,15 @@ glyph word view when image replacement text changes extraction. These are in the
 page evidence JSON. Replacement-text coordinates and native table boundaries
 remain unverified; the source's table tags can describe only column fragments.
 
+The page viewer also reads separately stored image/outline recovery through
+`/api/admin/document-recovery`. It shows source-linked OCR lines, differing or
+missing OCR/outline readings, retained image-bearing OCR PDFs and full evidence.
+The API accepts only the current source revision and checks artifact bytes before
+returning them. A failed latest attempt remains visible alongside earlier retained
+candidates. Recovery does not clear source review flags or mark values verified.
+`recover-document-corpus.yml` currently runs manually; production validation and
+automatic follow-up remain pending.
+
 The audit vitals label is **Audit core statements / Loaded**: it reports the
 balance-sheet and income-statement extraction flag. It does not certify all
 lanes or a complete document. The former **Audit reports / Clean** wording was

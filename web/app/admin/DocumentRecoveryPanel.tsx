@@ -1,0 +1,55 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import type { RecoveryPage } from "@/app/lib/document-recovery";
+
+type Result = { status: "ready"; page: RecoveryPage; last_attempt?: { status: string; error?: string } }
+  | { status: "not_started" | "source_not_captured"; last_attempt?: { status: string; error?: string } };
+
+export default function DocumentRecoveryPanel({ filing, page }: { filing: string; page: number }) {
+  const key = `${filing}:${page}`;
+  const query = `filing=${encodeURIComponent(filing)}&page=${page}`;
+  const [state, setState] = useState<{ key: string; value?: Result; error?: string } | null>(null);
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch(`/api/admin/document-recovery?filing=${encodeURIComponent(filing)}&page=${page}`, { signal: controller.signal, cache: "no-store" })
+      .then(async r => { const body = await r.json(); if (!r.ok) throw new Error(body.error); return body as Result; })
+      .then(value => setState({ key, value }))
+      .catch(error => { if (!controller.signal.aborted) setState({ key, error: error.message }); });
+    return () => controller.abort();
+  }, [filing, page, key]);
+  const current = state?.key === key ? state : null;
+  const value = current?.value;
+  const recovered = value?.status === "ready" ? value.page : null;
+  const differences = recovered?.view.vector_comparisons.filter(c => c.status !== "exact_agreement") ?? [];
+  return <details className="my-4 border-y border-border py-3" open={Boolean(recovered)}>
+    <summary className="cursor-pointer text-xs font-semibold">Text recovered from page images and outlines</summary>
+    {!current && <p className="mt-2 text-xs text-faint">Checking recovery records…</p>}
+    {current?.error && <p className="mt-2 text-xs text-negative" role="alert">{current.error}</p>}
+    {value?.last_attempt?.error && <p className="mt-2 text-xs text-negative">Latest attempt: {value.last_attempt.error}</p>}
+    {value && !recovered && <p className="mt-2 text-xs text-faint">No recovered text is stored for this source page yet.</p>}
+    {recovered && <>
+      <p className="my-2 text-xs text-warning">Recognition and reading order need review. Raw readings retain punctuation and possible errors; matching readings are not approval of a value.</p>
+      <div className="flex flex-wrap gap-4 text-xs">
+        <a className="text-primary hover:underline" href={`/api/admin/document-recovery?${query}&artifact=ocr-pdf`} target="_blank" rel="noreferrer">Open source image with recovered text</a>
+        <a className="text-primary hover:underline" href={`/api/admin/document-recovery?${query}`} target="_blank" rel="noreferrer">Full recovery evidence</a>
+      </div>
+      {recovered.view.vector_comparisons.length > 0 && <details className="mt-3" open={differences.length > 0}>
+        <summary className="cursor-pointer text-xs">{differences.length} differing or missing OCR readings · {recovered.view.vector_comparisons.length} outline comparisons</summary>
+        <div className="mt-2 max-h-80 overflow-auto"><table className="w-full text-left text-[11px]">
+          <thead><tr className="border-b border-border"><th className="p-2">Source region</th><th className="p-2">Outline reading</th><th className="p-2">Image reading</th></tr></thead>
+          <tbody>{differences.map(c => <tr key={c.drawing_id} className="border-b border-border/60">
+            <td className="p-2 font-mono">{c.bbox.map(n => n.toFixed(1)).join(", ")}</td>
+            <td className="p-2 font-mono">{c.vector_text}</td><td className="p-2 font-mono">{c.ocr_text ?? "[no matching OCR word]"}</td>
+          </tr>)}</tbody>
+        </table></div>
+      </details>}
+      <details className="mt-3" open><summary className="cursor-pointer text-xs">All recovered text · {recovered.view.lines.length} source-linked lines</summary>
+        <div className="mt-2 max-h-96 overflow-auto">{recovered.view.lines.map(line => <div key={line.id} className="border-b border-border/60 py-2">
+          <span className="font-mono text-[10px] text-faint" title={`Source words: ${line.word_ids.join(", ")}`}>{line.id}</span>
+          <p className="whitespace-pre-wrap text-xs leading-relaxed">{line.text}</p>
+        </div>)}</div>
+      </details>
+    </>}
+  </details>;
+}

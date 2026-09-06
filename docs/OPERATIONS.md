@@ -1398,6 +1398,42 @@ path; background shapes centered inside a cell are excluded. Failed checks retai
 the named probe and fail the run. This probe does not update production recovery
 data or existing analytical lanes.
 
+`recover-document-corpus.yml` runs `scripts/recover_document_corpus.py` as a
+separate manual workflow. Inputs are `banks`, `period`, `kind`, `limit`, `pages`
+(`flagged` or up to four explicit page numbers), `publish`, `dpi` and `language`.
+It uses the same three R2 secrets and optional `R2_BUCKET` override. Full-scope
+runs use four stable filing groups; publishing shares the separate
+`audit-document-recovery` queue. It does not change native capture engines,
+filing indexes, the core catalog or D1. Automatic recovery follow-up is pending
+validation of the production recovery run.
+
+The source classifier records its per-page observations and selected-page list.
+Its image/outline flags are a heuristic, not proof that other pages contain no
+unreadable text. Explicit pages are always recovered. Each selected page keeps
+full-page OCR, source pixels, line/word references and, for outlined pages, the
+source-rebuilt atlas and every matched/unresolved path. OCR/outline comparisons
+retain both raw strings and disclose differences without changing either value.
+Even exact agreement is not semantic approval.
+
+Recovery artifacts are immutable under `document-corpus/v1/sources/<PDF hash>/recovery/`.
+Separate `recovery/<bank>/<period>/<basis>/<PDF hash>.json` indexes retain page
+revisions, selections and failed attempts. Read-back verification precedes index
+publication. Reuse verifies retained bytes and source pixels with the current
+engine; source/model/atlas changes or missing/corrupt artifacts invalidate reuse.
+Matching annotations are rerun even when OCR is reused. Failed source annotations
+retain candidates for review and fail the named page/run. Successful published
+page files are removed individually from the runner; failures remain in its
+run report. Artifacts `audit-document-recovery-report-0` through `-3` retain
+inventory and named outcomes for 30 days; bounded read-only runs keep originals
+and recovery evidence for seven days as `audit-document-recovery-evidence`.
+
+Local recovery requires explicit `--pages` and `--limit 1..4`; unbounded recovery
+and all publication require Actions. No local OCR fleet is permitted.
+The private `/api/admin/document-recovery` reader accepts a validated filing and
+page, finds only that current source revision's recovery, and verifies checksums.
+`artifact=ocr-pdf` opens the retained source image with its recognition layer.
+Missing recovery, failed attempts and unreviewed readings stay explicit.
+
 For a light local sample (no remote writes):
 
 ```powershell

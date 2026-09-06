@@ -240,3 +240,11 @@ of detected tables.
   whole-page background path: requiring whole-path containment resolves it
   without relaxing glyph matching. Cloud replay and durable recovery integration
   remain outstanding.
+- 2026-09-06: punctuation replay `34038991010` and an independent download/source
+  reconstruction pass all 46 selected outline checks. Implemented separate
+  recovery publication, per-page history/failures, source-linked OCR lines and
+  raw OCR/outline comparisons. Added a manual Actions recovery workflow and a
+  private admin reader/viewer. Tests inject changed words, lost lines, source and
+  page mismatches, missing/corrupt storage, interrupted uploads and false approval;
+  repeated identical publication writes nothing. Production recovery, source
+  classification coverage and broader table/prose associations remain pending.

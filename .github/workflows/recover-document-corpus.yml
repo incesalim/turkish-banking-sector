@@ -1,0 +1,108 @@
+name: Recover audit document text
+
+on:
+  workflow_dispatch:
+    inputs:
+      banks:
+        description: "ALL or comma-separated registered banks"
+        type: string
+        default: "ALL"
+      period:
+        description: "One YYYYQn; blank = all registered periods"
+        type: string
+        default: ""
+      kind:
+        description: "Filing basis"
+        type: choice
+        options: [BOTH, consolidated, unconsolidated]
+        default: BOTH
+      limit:
+        description: "Maximum filings after filters; 0 = all"
+        type: number
+        default: 0
+      pages:
+        description: "flagged, or up to four explicit PDF pages"
+        type: string
+        default: "flagged"
+      publish:
+        description: "Store unverified recovery evidence in the separate R2 corpus"
+        type: boolean
+        default: true
+      dpi:
+        description: "OCR render resolution"
+        type: choice
+        options: ["300", "450", "600"]
+        default: "300"
+      language:
+        description: "Pinned OCR language models"
+        type: choice
+        options: [eng+tur, tur+eng, eng, tur]
+        default: eng+tur
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ inputs.publish && 'audit-document-recovery' || format('audit-recovery-probe-{0}', github.run_id) }}
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: ${{ fromJSON((inputs.banks == 'ALL' && inputs.limit == 0) && '[0,1,2,3]' || '[0]') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    env:
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Recover selected source pages and retain disagreements
+        env:
+          BANKS: ${{ inputs.banks }}
+          PERIOD: ${{ inputs.period }}
+          KIND: ${{ inputs.kind }}
+          LIMIT: ${{ inputs.limit }}
+          PAGES: ${{ inputs.pages }}
+          PUBLISH: ${{ inputs.publish }}
+          DPI: ${{ inputs.dpi }}
+          LANGUAGE: ${{ inputs.language }}
+          SHARD_INDEX: ${{ matrix.shard }}
+          SHARD_COUNT: ${{ strategy.job-total }}
+        run: |
+          args=(--from-r2 --limit "$LIMIT" --pages "$PAGES" --dpi "$DPI" --language "$LANGUAGE" --shard-count "$SHARD_COUNT" --shard-index "$SHARD_INDEX")
+          [ "$BANKS" != "ALL" ] && args+=(--bank "$BANKS")
+          [ -n "$PERIOD" ] && args+=(--period "$PERIOD")
+          [ "$KIND" != "BOTH" ] && args+=(--kind "$KIND")
+          [ "$PUBLISH" = "true" ] && args+=(--publish)
+          python scripts/recover_document_corpus.py "${args[@]}"
+      - name: Keep named recovery outcomes
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-document-recovery-report-${{ matrix.shard }}
+          path: |
+            data/audit_capture/recovery-v1/inventory.json
+            data/audit_capture/recovery-v1/recovery-results.json
+          retention-days: 30
+      - name: Keep bounded read-only recovery evidence
+        if: always() && !inputs.publish && inputs.limit > 0 && inputs.limit <= 4
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-document-recovery-evidence
+          path: |
+            data/audit_capture/recovery-v1/inputs/
+            data/audit_capture/recovery-v1/reference/
+            data/audit_capture/recovery-v1/sources/
+          retention-days: 7

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { SecHead } from "@/app/components/desk";
 import type { CorpusCatalogResult, CorpusFiling } from "@/app/lib/document-corpus";
 import { nf } from "@/app/lib/chart-format";
+import DocumentRecoveryPanel from "./DocumentRecoveryPanel";
 
 const endpoint = "/api/admin/document-corpus";
 const id = (f: CorpusFiling) => `${f.bank_ticker}|${f.period}|${f.kind}`;
@@ -106,6 +107,7 @@ function FilingPreview({ filing }: { filing: CorpusFiling }) {
           <summary className="cursor-pointer">{preview.page.issues.length} review flags on this page</summary>
           <ul className="mt-2 list-disc pl-5">{preview.page.issues.map((issue, i) => <li key={i}>{issue.kind.replaceAll("_", " ")}{issue.count != null ? ` (${count(issue.count)})` : ""}</li>)}</ul>
         </details>}
+        <DocumentRecoveryPanel filing={id(filing)} page={page} />
         <h4 className="border-b border-border py-2 text-xs font-semibold">Table candidates · {count(preview.page.tables.length)}</h4>
         {preview.page.tables.map((table) => <TablePreview key={table.id} table={table} />)}
         {preview.page.tables.length === 0 && <p className="py-3 text-xs text-faint">No table detected. This does not establish that the source page contains no table.</p>}

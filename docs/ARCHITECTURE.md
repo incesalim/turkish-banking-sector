@@ -8,6 +8,10 @@ machine is involved in the production data flow.
 
 The complete-document corpus is an additional, separate audit output under
 `document-corpus/v1/` in the audit R2 bucket. `build-document-corpus.yml` preserves
+the native source layer. Manual `recover-document-corpus.yml` adds separate
+image-bearing OCR and outline observations with per-source/page revision history;
+the admin exposes raw alternatives and unresolved differences. Recovery never
+approves financial values or overwrites native source evidence. Source capture preserves
 original PDF bytes and versioned page evidence, indexed by filing with retained
 revisions and named failures. It does not publish analytical rows or replace the
 existing capture database. Source preservation, structural extraction and semantic

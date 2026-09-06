@@ -92,7 +92,12 @@ shape containment, excluding large background paths whose centers happen to
 fall inside an annotated cell. No matching tolerance was relaxed. Labels, full
 table semantics and broader source formats remain unverified. The bounded
 workflow probe retains the atlas, reference PDF and source-linked observations;
-cloud validation of the punctuation extension remains pending.
+cloud replay `34038991010` and an independent source reconstruction pass all 46
+checks. Recovery publication and admin viewing are now implemented locally, with
+separate per-source/page revision indexes, retained image-bearing OCR PDFs and
+explicit OCR/outline disagreements, through manual `recover-document-corpus.yml`.
+This has not yet been published or verified
+in Actions. It does not change core source/structure fingerprints or served data.
 
 ## Data coverage in D1
 
