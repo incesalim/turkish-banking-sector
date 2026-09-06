@@ -55,6 +55,22 @@ describe("source-bound recovery wire format", () => {
     const mocked = { get: async () => ({ size: bytes.length, body: stream(bytes) }) } as unknown as CorpusBucket;
     await expect(readRecoveryPage(mocked, bad, source, 1)).rejects.toThrow("source mismatch");
   });
+  it("keeps an unresolved cell distinct from OCR zero and rejects a false resolved value", async () => {
+    const packet = JSON.parse(gunzipSync(objects[entry.key]).toString());
+    const cell = { column: 0, candidate_text: null as string | null, candidate_method: "unresolved_outline",
+      ocr_text: "0", outline_text: null, ocr_word_ids: [2], drawing_ids: [], unresolved_drawing_ids: [1], recognition_verified: false };
+    packet.view.table_layout = { tables: [{ id: "p1:grid0", row_count: 1, n_cols: 1, header_text: "",
+      header_association_verified: false, table_structure_verified: false, rows: [{ index: 0, cells: [cell] }] }] };
+    const read = () => {
+      const bytes = gzipSync(JSON.stringify(packet));
+      const ref = { ...entry, bytes: bytes.length, sha256: createHash("sha256").update(bytes).digest("hex") };
+      const store = { get: async () => ({ size: bytes.length, body: stream(bytes) }) } as unknown as CorpusBucket;
+      return readRecoveryPage(store, ref, source, 1);
+    };
+    expect((await read()).view.table_layout?.tables[0].rows[0].cells[0].candidate_text).toBeNull();
+    cell.candidate_text = "0";
+    await expect(read()).rejects.toThrow("contradicts");
+  });
 });
 
 describe("private recovery route", () => {

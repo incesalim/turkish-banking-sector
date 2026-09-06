@@ -54,6 +54,11 @@ candidates. Recovery does not clear source review flags or mark values verified.
 pages 10/11/13 and ISCTR 2025Q1 consolidated page 11 have passed independent
 artifact/source checks and live admin review. Whole-document accuracy, broader
 recovery coverage and automatic follow-up remain pending.
+The new recovery-table view keeps image and outline alternatives in each cell,
+shows unresolved outlines explicitly and preserves unassigned header text.
+Its source-pixel columns and inferred rows remain candidates. This extension is
+pending cloud publication/verification; earlier recovery packets still show
+their complete lines and raw-reader differences.
 
 The audit vitals label is **Audit core statements / Loaded**: it reports the
 balance-sheet and income-statement extraction flag. It does not certify all

@@ -110,6 +110,17 @@ from verified raw observations without needlessly repeating OCR. Cloud replay
 of these refinements remains pending. Core capture fingerprints and served data
 are unchanged.
 
+Recovery refinement replay `34040563636` reused all three selected OCR pages.
+An unchanged replay (`34040764985`) reused them again and left all 12 checked
+object versions unchanged. Full recovery run `34040878532` is active in four
+groups at `8cb6b60`, independently of the native capture fleet. A local layout
+extension reconstructs source-pixel grids on the four tested pages: FIBA has
+47×8, 47×8 and 64×6 candidates, and ISCTR 48×8. All 59 selected method/region
+checks pass (53 annotated source locations; six are checked through both readers).
+This checks selected cell associations, not entire tables. Raw OCR errors,
+unresolved glyphs and unverified headers remain explicit. Layout publication
+and its cloud validation are pending.
+
 ## Data coverage in D1
 
 **Anomaly repair (2026-08-31–2026-09-01; completed):** The current-code

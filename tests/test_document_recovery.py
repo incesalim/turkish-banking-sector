@@ -123,3 +123,16 @@ def test_comparison_preserves_disagreement_and_never_turns_dash_into_zero():
     assert [c['status'] for c in view['vector_comparisons']] == ['disagreement', 'disagreement']
     assert view['vector_comparisons'][0]['vector_text'] == '-'
     assert not any(c['recognition_verified'] for c in view['vector_comparisons'])
+
+
+def test_published_table_geometry_is_recomputed_from_retained_source_pixels(recovery):
+    from src.audit_reports.document_recovery_tables import capture_recovery_tables
+    store, client, packet, derivative, original = recovery
+    layout = capture_recovery_tables(packet['ocr'], None, derivative)
+    packet = make_packet(packet['ocr'], None, packet['benchmarks'], packet['engine'], table_layout=layout)
+    store.publish(packet, derivative, original)
+    writes = len(client.writes)
+    packet['view']['table_layout']['vertical_rules'].append({'id': 99, 'x': 1, 'y0': 0, 'y1': 100})
+    with pytest.raises(ValueError, match='view differs'):
+        store.publish(packet, derivative, original)
+    assert len(client.writes) == writes

@@ -179,7 +179,11 @@ def main(argv=None):
                     benchmarks = {'ocr': ocr.check_ocr_annotations(observed, REPO / 'tests/fixtures/document_ocr_annotations')}
                     if outlines:
                         benchmarks['vector'] = vector.check_vector_annotations(outlines, REPO / 'tests/fixtures/document_vector_annotations')
-                    packet = make_packet(observed, outlines, benchmarks, engine)
+                    from src.audit_reports.document_recovery_tables import capture_recovery_tables, check_recovery_table_annotations
+                    layout = capture_recovery_tables(observed, outlines, derivative)
+                    benchmarks['tables'] = check_recovery_table_annotations(layout, observed, outlines,
+                        REPO / 'tests/fixtures/document_vector_annotations', REPO / 'tests/fixtures/document_ocr_annotations')
+                    packet = make_packet(observed, outlines, benchmarks, engine, table_layout=layout)
                     verify_packet(packet, derivative, original, use_atlas)
                     output = args.output_dir / 'sources' / source['pdf_sha256']
                     _write_json(output / f'p{number}.recovery.json', packet)

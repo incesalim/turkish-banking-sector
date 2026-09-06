@@ -21,9 +21,12 @@ def digest(body: bytes) -> str:
 
 
 def recovery_identity(ocr_engine: dict, atlas: dict | None) -> dict:
+    import numpy as np
     return {"ocr": ocr_engine, "atlas_sha256": atlas_digest(atlas) if atlas else None,
             "vector_implementation_sha256": digest(Path(__file__).with_name("document_vector.py").read_bytes())
-            if atlas else None, "implementation_sha256": digest(Path(__file__).read_bytes())}
+            if atlas else None, "implementation_sha256": digest(Path(__file__).read_bytes()),
+            "table_implementation_sha256": digest(Path(__file__).with_name('document_recovery_tables.py').read_bytes()),
+            "numpy": np.__version__}
 
 
 def recovery_view(ocr: dict, vector: dict | None) -> dict:
@@ -55,12 +58,15 @@ def recovery_view(ocr: dict, vector: dict | None) -> dict:
             "reading_order_verified": False, "table_structure_verified": False}
 
 
-def make_packet(ocr: dict, vector: dict | None, benchmarks: dict, engine: dict) -> dict:
+def make_packet(ocr: dict, vector: dict | None, benchmarks: dict, engine: dict, *, table_layout: dict | None = None) -> dict:
     if vector and (vector["source"] != ocr["source"] or vector["page"] != ocr["page"]):
         raise ValueError("Recovery observations refer to different source pages")
+    view = recovery_view(ocr, vector)
+    if table_layout is not None:
+        view['table_layout'] = table_layout
     return {"schema_version": "source-recovery-page-1", "source": ocr["source"], "page": ocr["page"],
             "width": ocr["width"], "height": ocr["height"], "coordinate_space": "display",
-            "engine": engine, "ocr": ocr, "vector": vector, "view": recovery_view(ocr, vector),
+            "engine": engine, "ocr": ocr, "vector": vector, "view": view,
             "benchmarks": benchmarks, "status": "recovery_candidates", "semantically_verified": False}
 
 
@@ -69,7 +75,11 @@ def verify_packet(packet: dict, derivative: bytes, original: Path, atlas: dict |
             or packet.get("status") != "recovery_candidates" or packet.get("semantically_verified") is not False):
         raise ValueError("Invalid recovery packet or unsupported approval")
     ocr, vector = packet["ocr"], packet["vector"]
-    if packet != make_packet(ocr, vector, packet["benchmarks"], packet["engine"]):
+    layout = None
+    if 'table_layout' in packet['view']:
+        from .document_recovery_tables import capture_recovery_tables
+        layout = capture_recovery_tables(ocr, vector, derivative)
+    if packet != make_packet(ocr, vector, packet["benchmarks"], packet["engine"], table_layout=layout):
         raise ValueError("Recovery view differs from its retained observations")
     if packet["engine"] != recovery_identity(ocr["engine"], atlas):
         raise ValueError("Recovery engine or reference changed")

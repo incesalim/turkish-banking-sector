@@ -258,3 +258,14 @@ of detected tables.
   inherited selector's double-rotated page bounds with explicit display geometry
   and image-region word counts, tested at all four rotations. Changed recovery
   views now rebuild from retained raw observations without repeating OCR.
+- 2026-09-06: refinement replay `34040563636` reuses all three selected OCR
+  observations. Unchanged replay `34040764985` reuses them and leaves all 12
+  checked object versions unchanged. Started full recovery `34040878532` in
+  four groups, alongside the native capture fleet. Implemented a candidate
+  table view from retained source pixels, thin vertical rules and repeated
+  amount baselines. Local FIBA/ISCTR probes yield 47×8, 47×8, 64×6 and 48×8
+  grids. All 59 method/region checks (53 annotated source locations) pass; tests
+  deliberately swap/drop/duplicate/move source cells, alter image pixels and
+  preserve unresolved signs and OCR `o` without inventing numeric zeros.
+  Full raw observations remain accessible; table semantics and cloud layout
+  validation are still outstanding.

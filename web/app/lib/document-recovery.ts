@@ -5,9 +5,14 @@ type Artifact = { key: string; sha256: string; bytes: number };
 type RecoveryRevision = { page: number; artifacts: Record<string, Artifact>; semantically_verified: false };
 type RecoveryRow = { current: RecoveryRevision | null; last_attempt?: { status: string; error?: string } };
 type RecoveryIndex = { pages: Record<string, RecoveryRow> };
+export type RecoveryTable = { id: string; row_count: number; n_cols: number; header_text: string;
+  rows: { index: number; cells: { column: number; candidate_text: string | null; candidate_method: string;
+    ocr_text: string; outline_text: string | null; ocr_word_ids: number[]; drawing_ids: number[];
+    unresolved_drawing_ids: number[] }[] }[] };
 export type RecoveryPage = { schema_version: "source-recovery-page-1"; page: number;
   source: { pdf_sha256: string }; status: "recovery_candidates"; semantically_verified: false;
   view: { lines: { id: string; text: string; word_ids: number[]; bbox: number[] }[];
+    table_layout?: { tables: RecoveryTable[] };
     vector_comparisons: { drawing_id: number; vector_text: string; ocr_text: string | null;
       status: "missing_ocr" | "exact_agreement" | "disagreement"; bbox: number[] }[] };
 };
@@ -89,6 +94,39 @@ export async function readRecoveryPage(bucket: CorpusBucket, entry: Artifact, so
         (value.source as Record<string, unknown>)[k] !== source.source[k as keyof typeof source.source])
       || !record(value.view) || !Array.isArray(value.view.lines) || !Array.isArray(value.view.vector_comparisons)) {
     throw new Error("Recovery page source mismatch");
+  }
+  const layout = value.view.table_layout;
+  if (layout !== undefined) {
+    if (!record(layout) || !Array.isArray(layout.tables)) throw new Error("Invalid recovered table layout");
+    for (const table of layout.tables) {
+      if (!record(table) || typeof table.id !== "string" || typeof table.header_text !== "string"
+          || !Array.isArray(table.rows) || table.row_count !== table.rows.length
+          || typeof table.n_cols !== "number" || !Number.isSafeInteger(table.n_cols) || table.n_cols < 1
+          || table.header_association_verified !== false || table.table_structure_verified !== false) {
+        throw new Error("Invalid recovered table");
+      }
+      for (const [r, row] of table.rows.entries()) {
+        if (!record(row) || row.index !== r || !Array.isArray(row.cells) || row.cells.length !== table.n_cols) {
+          throw new Error("Invalid recovered table row");
+        }
+        for (const [c, cell] of row.cells.entries()) {
+          if (!record(cell) || cell.column !== c || typeof cell.ocr_text !== "string"
+              || cell.candidate_text !== null && typeof cell.candidate_text !== "string"
+              || cell.outline_text !== null && typeof cell.outline_text !== "string"
+              || !["ocr", "outline", "unresolved_outline"].includes(String(cell.candidate_method))
+              || cell.recognition_verified !== false
+              || ["ocr_word_ids", "drawing_ids", "unresolved_drawing_ids"].some(k =>
+                !Array.isArray(cell[k]) || !(cell[k] as unknown[]).every(v => typeof v === "number" && Number.isSafeInteger(v) && v >= 0))) {
+            throw new Error("Invalid recovered table cell");
+          }
+          if (cell.candidate_method === "unresolved_outline" && cell.candidate_text !== null
+              || cell.candidate_method === "outline" && cell.candidate_text !== cell.outline_text
+              || cell.candidate_method === "ocr" && cell.candidate_text !== cell.ocr_text) {
+            throw new Error("Recovered cell reading contradicts its method");
+          }
+        }
+      }
+    }
   }
   return value as unknown as RecoveryPage;
 }

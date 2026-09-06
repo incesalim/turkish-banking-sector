@@ -1440,6 +1440,23 @@ page, finds only that current source revision's recovery, and verifies checksums
 `artifact=ocr-pdf` opens the retained source image with its recognition layer.
 Missing recovery, failed attempts and unreviewed readings stay explicit.
 
+Recovery now also proposes grids from the retained source pixels. Thin vertical
+rules suggest columns; repeated numeric baselines suggest rows. Light gray rules
+and OCR border punctuation must not hide those boundaries. An OCR `o` may suggest
+a baseline but is never changed into zero. Each cell keeps its raw image reading,
+matching outline reading and word/path references. Unresolved outlines inside a
+numeric cell make the selected candidate null while retaining the raw OCR text.
+Headers are preserved as source text; units, column roles, continuations and
+financial meaning are not inferred as fact. These grids remain candidates.
+
+The pixel/rule/table view is recomputed during retention verification, and the
+matching source annotations also check that their words land in the corresponding
+cells. Changed layout code rebuilds from the retained OCR PDF and observations;
+it does not require new OCR recognition. The artifact records the layout-code and
+NumPy identities separately from recognition inputs. This layout extension is
+pending cloud validation; the running recovery fleet `34040878532` is at `8cb6b60`
+and contains raw observations only.
+
 For a light local sample (no remote writes):
 
 ```powershell
