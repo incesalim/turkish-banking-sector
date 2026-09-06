@@ -19,7 +19,10 @@ approves financial values or overwrites native source evidence. Source capture p
 original PDF bytes and versioned page evidence, indexed by filing with retained
 revisions and named failures. It does not publish analytical rows or replace the
 existing capture database. Source preservation, structural extraction and semantic
-verification are separate states; the active work is tracked in
+verification are separate states. `review-document-origins.yml` compares fresh
+official downloads with acquired bytes and retains transport/PDF revisions plus
+independent comparison indexes. Differences never replace historical acquisitions;
+byte agreement never certifies contents. The active work is tracked in
 [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
 
 ```

@@ -1606,3 +1606,35 @@ without rewriting OCR. Packet verification recomputes the complete font view
 from the original. Its implementation participates in recovery engine and receipt
 identities; changing derived font code still reuses verified raw OCR. The admin
 reader validates the source/page binding and exposes text blocks and alternatives.
+
+### Independent official-source comparison
+
+`review-document-origins.yml` runs `scripts/review_document_origins.py`. Inputs
+are `banks=ALL`, optional `period`, `kind=BOTH`, `limit=0`, and `publish=false`.
+Full registered scopes use four stable filing groups. This manual workflow uses
+existing `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID`, `R2_SECRET_ACCESS_KEY` credentials;
+publication is serialized in `audit-document-origin-reviews`, separately from
+source capture. Local samples require `--limit 1..4` and cannot publish.
+
+The review reads acquired PDF bytes, downloads the registered URL afresh, retains
+transport and selected PDF hashes, observes the first three source pages and
+compares exact bytes. Only an explicitly observed Java stream wrapper may be
+removed for a separate wrapper-equivalence result. A changed PDF, unavailable
+URL, invalid/ambiguous transport or missing acquisition stays a named outcome.
+Byte agreement and source identity are separate findings; a conflicting cover
+still fails the review even when both copies have identical bytes.
+
+`publish=true` retains transport/PDF evidence and immutable comparison receipts
+under `document-corpus/v1/`; independent `origins/<bank>/<period>/<kind>/index.json`
+keeps revision history and the latest observation. Publication recomputes the
+observation from acquired bytes and retained transport, checks source versions,
+verifies immutable artifact bytes and reads back the comparison index. Replaying
+the same observation writes nothing; a fresh HTTP observation has a new timestamp.
+This path never changes acquired objects, core filing indexes, D1 or approval.
+
+Artifacts `audit-document-origin-report-0` through `-3` retain every assigned
+filing, status and source identity summary for 30 days, including failed runs.
+Differences and unavailable sources make the job fail for review while other
+filings continue. Bounded read-only samples (`limit=1..4`) retain downloaded bodies
+in `audit-document-origin-evidence` for seven days; full read-only runs retain
+reports only. Use publication for durable full-scope original-byte evidence.

@@ -110,6 +110,7 @@ export const PIPELINE_NODES: PipelineNode[] = [
   // ── Audit lane · ingestion (workflows) ─────────────────────────────────
   { id: "wf-document-corpus", kind: "workflow", layer: "ingestion", lane: "audit", label: "preserve audit documents", sublabel: "after acquisition + manual · source-bound tables/text; semantic review pending", workflowFile: "build-document-corpus.yml" },
   { id: "wf-document-recovery", kind: "workflow", layer: "ingestion", lane: "audit", label: "recover audit document text", sublabel: "after source capture + manual · images, outlines and fonts; review pending", workflowFile: "recover-document-corpus.yml" },
+  { id: "wf-document-origins", kind: "workflow", layer: "ingestion", lane: "audit", label: "compare official audit sources", sublabel: "manual · retain source revisions and unresolved differences", workflowFile: "review-document-origins.yml" },
   { id: "wf-acquire-audit", kind: "workflow", layer: "ingestion", lane: "audit", label: "acquire-audit", sublabel: "manual · download only (diagnostic)", workflowFile: "acquire-audit.yml" },
   { id: "wf-refresh-audit", kind: "workflow", layer: "ingestion", lane: "audit", label: "refresh-audit", sublabel: "filing windows daily · acquire → extract → one push", workflowFile: "refresh-audit.yml" },
   { id: "wf-reextract", kind: "workflow", layer: "ingestion", lane: "audit", label: "reextract-statement", sublabel: "manual · one lane (oci/cf/equity/…)", workflowFile: "reextract-statement.yml" },
@@ -252,6 +253,8 @@ export const PIPELINE_EDGES: PipelineEdge[] = [
   { source: "store-r2-pdf", target: "wf-document-recovery" },
   { source: "wf-document-corpus", target: "wf-document-recovery" },
   { source: "wf-document-recovery", target: "store-document-corpus" },
+  { source: "store-r2-pdf", target: "wf-document-origins" },
+  { source: "wf-document-origins", target: "store-document-corpus" },
   { source: "wf-acquire-audit", target: "store-d1-audit-spine" },
   { source: "wf-refresh-audit", target: "store-r2-pdf" },
   { source: "store-r2-pdf", target: "wf-refresh-audit" },

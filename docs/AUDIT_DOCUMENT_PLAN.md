@@ -426,3 +426,12 @@ of detected tables.
   stay one job; larger scopes use four stable groups. Tests cover scope omission,
   duplicate/conflicting bindings, changed source receipts and missing acquisitions.
   Automatic cloud execution remains pending; no D1 or analytical-lane writes.
+
+- 2026-09-06: a live quality-only capture and automatic follow-up pass with an
+  empty retained scope and recovery skipped; manual recovery still works. The
+  positive publishing follow-up awaits the larger capture. Added independent
+  official-origin comparison with exact downloaded/acquired byte checks, retained
+  transport and PDF revisions, separate indexes, source identity findings and
+  named unavailable/different outcomes. Matching wrong-period bytes still fail.
+  Mutation, publication readback, grouped-scope and CLI tests pass; cloud source
+  comparison pending. No acquired PDF or analytical row is replaced.

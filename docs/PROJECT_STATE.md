@@ -41,6 +41,14 @@ unexpected or failed filing and no cross-filing duplicate PDF hash. It preserved
 and produced 192,869 table candidates. Candidate counts are not a completeness
 denominator. **Zero whole filings are semantically verified.**
 
+A new independent `review-document-origins.yml` workflow compares fresh
+downloaded transport/PDF bytes with each registered acquisition. It retains exact
+versions, source identity observations, unavailable URLs and differences under
+separate origin indexes without replacing acquired PDFs. Local tests cover byte
+agreement with a wrong-period cover, changed revisions, archives, wrappers,
+missing sources, corrupted publication and complete grouped scope. Cloud source
+comparison is still pending; earlier stored-copy checks are not origin proof.
+
 The dedicated `build-document-corpus.yml` pipeline keeps immutable originals,
 versioned source evidence,
 candidate structure and failure history in R2 `document-corpus/v1/`. Each source
@@ -84,7 +92,9 @@ versions remain unchanged. Automatic recovery follow-up is now configured to
 consume source-hash-bound published outcomes from capture reports, including
 successful filings in a partially failed run. Failed/read-only rows are excluded
 explicitly; quality-only runs trigger no recovery. Missing or changed PDFs fail
-by name. The automatic trigger still needs cloud validation.
+by name. A live quality-only probe and its automatic follow-up pass: the retained
+scope is empty and recovery is skipped. A manual recovery probe also passes.
+The positive publishing trigger still needs cloud validation.
 
 Native unchanged-object receipts have passed cloud no-write replays; changed
 source bytes, engines, per-filing annotations or artifact versions invalidate

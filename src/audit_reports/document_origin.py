@@ -1,0 +1,177 @@
+"""Compare a fresh official download with acquired bytes; never replace either.
+
+Matching bytes establish source revision agreement, not text/table accuracy.
+Different revisions and unavailable URLs remain explicit review outcomes.
+"""
+from __future__ import annotations
+
+from datetime import datetime, timezone
+import hashlib
+from pathlib import Path
+
+import fitz
+
+from .document_acquisition import fetch_source, unwrap_pdf
+from .document_corpus import Filing
+from .document_corpus_resume import metadata
+from .document_corpus_store import PREFIX, _error_code, _json
+from .document_quality import source_identity_review
+
+
+def _sha(body):
+    return hashlib.sha256(body).hexdigest()
+
+
+def observe_origin(store, filing: Filing, acquisition_key: str | None, url: str, patterns: dict, *,
+                   reviewed_member: dict | None = None, fetch=fetch_source, checked_at: str | None = None):
+    result = {'schema_version': 'document-origin-review-1', 'filing': filing.as_dict(), 'source_url': url,
+              'acquisition_key': acquisition_key, 'requested_archive_selection': reviewed_member,
+              'checked_at': checked_at or datetime.now(timezone.utc).isoformat(),
+              'acquisition': None, 'transport': None, 'origin_pdf': None,
+              'semantically_verified': False,
+              'engine': {'pymupdf': fitz.VersionBind, 'implementation': {
+                  name: _sha(Path(__file__).with_name(name).read_bytes()) for name in
+                  ('document_origin.py', 'document_acquisition.py', 'document_quality.py')}}}
+    acquired = None
+    if acquisition_key:
+        try:
+            response = store.client.get_object(Bucket=store.bucket, Key=acquisition_key)
+        except Exception as error:
+            if _error_code(error) not in ('404', 'NoSuchKey'):
+                raise
+        else:
+            try:
+                acquired = response['Body'].read()
+            finally:
+                response['Body'].close()
+            if len(acquired) != response['ContentLength']:
+                raise ValueError('Acquisition read was truncated during origin comparison')
+            result['acquisition'] = {'key': acquisition_key, 'sha256': _sha(acquired), 'bytes': len(acquired),
+                                     'version': metadata(acquisition_key, response)}
+    artifacts = {}
+    try:
+        transport, response = fetch(url)
+    except Exception as error:
+        result.update(status='origin_unavailable', error=str(error))
+        return result, artifacts
+    result.update(response=response, transport={'sha256': _sha(transport), 'bytes': len(transport)})
+    artifacts['transport'] = transport
+    try:
+        body, selection = unwrap_pdf(transport, reviewed_member)
+        result['selection'] = selection
+        result['origin_pdf'] = {'sha256': _sha(body), 'bytes': len(body)}
+        artifacts['origin_pdf'] = body
+        leading = []
+        with fitz.open(stream=body, filetype='pdf') as pdf:
+            if pdf.needs_pass or not len(pdf):
+                raise ValueError('Origin PDF requires a password or has no pages')
+            for number in range(min(3, len(pdf))):
+                raw = pdf[number].get_text('dict', flags=fitz.TEXTFLAGS_DICT & ~fitz.TEXT_PRESERVE_IMAGES,
+                                           clip=fitz.INFINITE_RECT())
+                spans = []
+                for block_id, block in enumerate(raw['blocks']):
+                    if block['type'] != 0:
+                        continue
+                    for line_id, line in enumerate(block['lines']):
+                        for span in line['spans']:
+                            spans.append({'id': len(spans), 'block': block_id, 'line': line_id,
+                                          'text': span['text'], 'bbox': list(span['bbox'])})
+                leading.append({'page': number + 1, 'spans': spans})
+            result['page_count'] = len(pdf)
+        result['origin_leading_pages'] = leading
+        result['origin_identity'] = source_identity_review(filing, leading, patterns)
+        result['related_pdf_content_capture'] = 'pending' if selection.get('unselected_pdf_members') else 'not_applicable'
+    except Exception as error:
+        result.update(status='origin_needs_review', error=str(error))
+        return result, artifacts
+    if acquired is None:
+        status = 'acquisition_missing'
+    elif acquired == body:
+        status = 'matches_acquired_bytes'
+    else:
+        status = 'different_pdf_revision'
+        # Only an observed serialized wrapper may be normalized. Metadata,
+        # punctuation, PDF objects and visible contents are never discarded.
+        if acquired.startswith(b'\xac\xed\x00\x05'):
+            try:
+                normalized, wrapper = unwrap_pdf(acquired)
+            except ValueError as error:
+                result['acquisition_wrapper_error'] = str(error)
+            else:
+                result['acquisition_wrapper'] = wrapper
+                if normalized == body:
+                    status = 'same_pdf_after_acquisition_wrapper'
+    result['status'] = status
+    return result, artifacts
+
+
+def publish_origin(store, result: dict, artifacts: dict[str, bytes], patterns: dict) -> dict:
+    """Keep downloaded evidence and an immutable review before updating its index."""
+    import json
+
+    filing = Filing(**result['filing'])
+    if result.get('schema_version') != 'document-origin-review-1' or result.get('semantically_verified') is not False:
+        raise ValueError('Invalid source-origin review')
+    observed_at = datetime.fromisoformat(result['checked_at'])
+    if observed_at.tzinfo is None or observed_at.utcoffset().total_seconds() != 0:
+        raise ValueError('Origin observation time must have an explicit UTC offset')
+    acquired = result['acquisition']
+    if acquired:
+        current = metadata(acquired['key'], store.client.head_object(Bucket=store.bucket, Key=acquired['key']))
+        if current != acquired['version']:
+            raise ValueError('Acquisition changed during origin review')
+    expected = {name for name in ('transport', 'origin_pdf') if result.get(name) is not None}
+    if set(artifacts) != expected:
+        raise ValueError('Origin review is missing its downloaded evidence')
+    def retained_download(_url):
+        if 'transport' not in artifacts:
+            raise RuntimeError(result['error'])
+        return artifacts['transport'], result['response']
+    checked, retained = observe_origin(store, filing, result['acquisition_key'], result['source_url'], patterns,
+        reviewed_member=result['requested_archive_selection'], fetch=retained_download, checked_at=result['checked_at'])
+    if checked != result or retained != artifacts:
+        raise ValueError('Origin review differs from acquired bytes and retained transport')
+    value = dict(result)
+    for name, body in artifacts.items():
+        record = result[name]
+        if _sha(body) != record['sha256'] or len(body) != record['bytes']:
+            raise ValueError('Origin artifact differs from its observed bytes')
+        key = (f"{PREFIX}transports/{record['sha256']}/original.bin" if name == 'transport' else
+               f"{PREFIX}sources/{record['sha256']}/original.pdf")
+        store._immutable(key, body, 'application/octet-stream' if name == 'transport' else 'application/pdf')
+        value[name] = {**record, 'key': key}
+    base = f'{PREFIX}origins/{filing.bank_ticker}/{filing.period}/{filing.kind}/'
+    payload = _json(value)
+    digest = _sha(payload)
+    key = base + digest + '.json'
+    store._immutable(key, payload, 'application/json')
+    revision = {'key': key, 'sha256': digest, 'bytes': len(payload), 'checked_at': value['checked_at'],
+                'status': value['status'], 'acquisition_sha256': acquired['sha256'] if acquired else None}
+    for _ in range(8):
+        previous, etag = store._read(base + 'index.json')
+        index = json.loads(previous) if previous else {'schema_version': 'document-origin-index-1',
+            'filing': filing.as_dict(), 'current': None, 'revisions': [], 'semantically_verified': False}
+        if (index['filing'] != filing.as_dict() or index['schema_version'] != 'document-origin-index-1'
+                or index.get('semantically_verified') is not False):
+            raise ValueError('Origin index differs from its filing')
+        if revision not in index['revisions']:
+            index['revisions'].append(revision)
+        index['current'] = max(index['revisions'], key=lambda r: (r['checked_at'], r['sha256']))
+        body = _json(index)
+        if body == previous:
+            return {**value, 'review_key': key, 'index_key': base + 'index.json'}
+        try:
+            store.client.put_object(Bucket=store.bucket, Key=base + 'index.json', Body=body,
+                                    ContentType='application/json', **({'IfMatch': etag} if etag else {'IfNoneMatch': '*'}))
+            readback, _ = store._read(base + 'index.json')
+            retained_index = json.loads(readback)
+            if (retained_index.get('filing') != filing.as_dict()
+                    or retained_index.get('schema_version') != 'document-origin-index-1'
+                    or retained_index.get('semantically_verified') is not False
+                    or revision not in retained_index.get('revisions', [])):
+                raise ValueError('Origin index readback does not retain this observation')
+            return {**value, 'review_key': key, 'index_key': base + 'index.json'}
+        except Exception as error:
+            if _error_code(error) not in ('412', 'PreconditionFailed'):
+                raise
+    raise RuntimeError('Origin index changed concurrently; retry this review')
