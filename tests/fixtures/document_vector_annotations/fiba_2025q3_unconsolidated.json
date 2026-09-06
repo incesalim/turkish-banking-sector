@@ -5,7 +5,7 @@
     "kind": "unconsolidated"
   },
   "pdf_sha256": "7f87ed53ead58816393a1498fd98dbd97cf20ac893d6288a51e6dbccfc49e992",
-  "annotation_method": "Original PDF render and enlarged source regions. Page 10 supplies character seeds; page 11 supplies held-out values and negative-sign abstention checks.",
+  "annotation_method": "Transcribed from original PDF renders and enlarged source crops before reading the tested values. Numeric glyphs are learned on page 10; page 11 contributes only parentheses, and page 13 only the decimal comma. All listed words, including negative signs, must now be fully recognized.",
   "cases": [
     {
       "id": "assets_total_assets_current_tp",
@@ -214,8 +214,7 @@
         383.7427551269531,
         506.29820556640624
       ],
-      "text": "(190.248)",
-      "allow_unresolved": true
+      "text": "(190.248)"
     },
     {
       "id": "holdout_negative_sign_1",
@@ -226,8 +225,7 @@
         453.8083068847656,
         506.29820556640624
       ],
-      "text": "(190.248)",
-      "allow_unresolved": true
+      "text": "(190.248)"
     },
     {
       "id": "holdout_negative_sign_2",
@@ -238,8 +236,7 @@
         383.7427551269531,
         516.1608764648438
       ],
-      "text": "(375.116)",
-      "allow_unresolved": true
+      "text": "(375.116)"
     },
     {
       "id": "holdout_negative_sign_3",
@@ -250,8 +247,7 @@
         453.8083068847656,
         516.1608764648438
       ],
-      "text": "(209.006)",
-      "allow_unresolved": true
+      "text": "(209.006)"
     },
     {
       "id": "holdout_negative_sign_4",
@@ -262,8 +258,7 @@
         488.8460266113281,
         516.1608764648438
       ],
-      "text": "(277.881)",
-      "allow_unresolved": true
+      "text": "(277.881)"
     },
     {
       "id": "holdout_negative_sign_5",
@@ -274,8 +269,7 @@
         558.9115478515625,
         516.1608764648438
       ],
-      "text": "(261.173)",
-      "allow_unresolved": true
+      "text": "(261.173)"
     },
     {
       "id": "holdout_negative_sign_6",
@@ -286,8 +280,7 @@
         488.8460266113281,
         585.1994506835938
       ],
-      "text": "(40.026)",
-      "allow_unresolved": true
+      "text": "(40.026)"
     },
     {
       "id": "holdout_negative_sign_7",
@@ -298,8 +291,227 @@
         558.9164916992188,
         585.1994506835938
       ],
-      "text": "(40.026)",
-      "allow_unresolved": true
+      "text": "(40.026)"
+    },
+    {
+      "id": "profit_loss_derivative_result_0",
+      "page": 13,
+      "source_bbox": [
+        308,
+        419.5,
+        365,
+        425.8
+      ],
+      "text": "1.149.624"
+    },
+    {
+      "id": "profit_loss_derivative_result_1",
+      "page": 13,
+      "source_bbox": [
+        366,
+        419.5,
+        423.5,
+        425.8
+      ],
+      "text": "(1.115.567)"
+    },
+    {
+      "id": "profit_loss_derivative_result_2",
+      "page": 13,
+      "source_bbox": [
+        424.5,
+        419.5,
+        482,
+        425.8
+      ],
+      "text": "(9.316)"
+    },
+    {
+      "id": "profit_loss_derivative_result_3",
+      "page": 13,
+      "source_bbox": [
+        483,
+        419.5,
+        540.5,
+        425.8
+      ],
+      "text": "70.729"
+    },
+    {
+      "id": "profit_loss_fx_result_0",
+      "page": 13,
+      "source_bbox": [
+        308,
+        428.3,
+        365,
+        434.4
+      ],
+      "text": "(1.236.375)"
+    },
+    {
+      "id": "profit_loss_fx_result_1",
+      "page": 13,
+      "source_bbox": [
+        366,
+        428.3,
+        423.5,
+        434.4
+      ],
+      "text": "2.350.244"
+    },
+    {
+      "id": "profit_loss_fx_result_2",
+      "page": 13,
+      "source_bbox": [
+        424.5,
+        428.3,
+        482,
+        434.4
+      ],
+      "text": "(158.981)"
+    },
+    {
+      "id": "profit_loss_fx_result_3",
+      "page": 13,
+      "source_bbox": [
+        483,
+        428.3,
+        540.5,
+        434.4
+      ],
+      "text": "(19.308)"
+    },
+    {
+      "id": "profit_loss_current_tax_0",
+      "page": 13,
+      "source_bbox": [
+        308,
+        540.3,
+        365,
+        546.4
+      ],
+      "text": "(1.059.138)"
+    },
+    {
+      "id": "profit_loss_current_tax_1",
+      "page": 13,
+      "source_bbox": [
+        366,
+        540.3,
+        423.5,
+        546.4
+      ],
+      "text": "(838.011)"
+    },
+    {
+      "id": "profit_loss_current_tax_2",
+      "page": 13,
+      "source_bbox": [
+        424.5,
+        540.3,
+        482,
+        546.4
+      ],
+      "text": "(128.501)"
+    },
+    {
+      "id": "profit_loss_current_tax_3",
+      "page": 13,
+      "source_bbox": [
+        483,
+        540.3,
+        540.5,
+        546.4
+      ],
+      "text": "78.589"
+    },
+    {
+      "id": "profit_loss_period_profit_0",
+      "page": 13,
+      "source_bbox": [
+        308,
+        695.3,
+        365,
+        700.6
+      ],
+      "text": "4.501.547"
+    },
+    {
+      "id": "profit_loss_period_profit_1",
+      "page": 13,
+      "source_bbox": [
+        366,
+        695.3,
+        423.5,
+        700.6
+      ],
+      "text": "4.661.363"
+    },
+    {
+      "id": "profit_loss_period_profit_2",
+      "page": 13,
+      "source_bbox": [
+        424.5,
+        695.3,
+        482,
+        700.6
+      ],
+      "text": "1.745.634"
+    },
+    {
+      "id": "profit_loss_period_profit_3",
+      "page": 13,
+      "source_bbox": [
+        483,
+        695.3,
+        540.5,
+        700.6
+      ],
+      "text": "1.293.002"
+    },
+    {
+      "id": "profit_loss_earnings_per_share_0",
+      "page": 13,
+      "source_bbox": [
+        308,
+        704,
+        365,
+        710
+      ],
+      "text": "0,03316"
+    },
+    {
+      "id": "profit_loss_earnings_per_share_1",
+      "page": 13,
+      "source_bbox": [
+        366,
+        704,
+        423.5,
+        710
+      ],
+      "text": "0,03433"
+    },
+    {
+      "id": "profit_loss_earnings_per_share_2",
+      "page": 13,
+      "source_bbox": [
+        424.5,
+        704,
+        482,
+        710
+      ],
+      "text": "0,01286"
+    },
+    {
+      "id": "profit_loss_earnings_per_share_3",
+      "page": 13,
+      "source_bbox": [
+        483,
+        704,
+        540.5,
+        710
+      ],
+      "text": "0,00952"
     }
   ]
 }

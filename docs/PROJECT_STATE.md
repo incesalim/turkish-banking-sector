@@ -82,12 +82,17 @@ cell structure and production integration are pending.
 A separate outline-reader probe rebuilds numeric character templates from
 transcribed regions of the hash-bound FIBA PDF. It reads all 182 numbers and
 100 printed dashes in page 10's 47-row numeric body; all 38 identities containing
-three explicit numbers balance. Page 11 supplies no training glyphs: 274 entries
-are read and eight parenthesized amounts stay unresolved. Twelve manually checked
-held-out deposit/total-liability values match, and negative-sign checks reject a
-partial positive reading. Labels, full table semantics and broader source formats
-remain unverified. The bounded workflow probe retains the atlas, reference PDF
-and source-linked observations; its cloud validation is pending.
+three explicit numbers balance. Actions probe `34037621029` and an independent
+download/reconstruction pass the original 26 word/region/abstention checks.
+Numeric glyphs still come only from page 10. Additional source seeds teach only
+parentheses from page 11 and a decimal comma from page 13. The expanded local
+benchmark passes all 46 selected words, including eight signed page-11 amounts
+and 20 separately transcribed page-13 P&L values. Region checks now require full
+shape containment, excluding large background paths whose centers happen to
+fall inside an annotated cell. No matching tolerance was relaxed. Labels, full
+table semantics and broader source formats remain unverified. The bounded
+workflow probe retains the atlas, reference PDF and source-linked observations;
+cloud validation of the punctuation extension remains pending.
 
 ## Data coverage in D1
 

@@ -230,3 +230,13 @@ of detected tables.
   The 26 selected word/region/abstention checks pass locally. Cloud validation,
   parentheses and additional fonts/characters remain outstanding; this does not
   certify complete table or prose semantics.
+- 2026-09-06: outline cloud probe `34037621029` passes. Independently downloaded
+  its original, source evidence, atlas and observations: the rebuilt atlas is
+  identical and all 26 selected checks pass. Extended source seeds to learn only
+  parentheses and a decimal comma; numeric templates remain from page 10. Eight
+  previously unresolved page-11 negatives now require their exact signs. Twenty
+  page-13 P&L values were visually transcribed before testing. All 46 selected
+  words pass locally. One apparent miss was a test-region ambiguity caused by a
+  whole-page background path: requiring whole-path containment resolves it
+  without relaxing glyph matching. Cloud replay and durable recovery integration
+  remain outstanding.

@@ -1391,7 +1391,10 @@ guarantee, so candidate transcriptions carry explicit unverified status.
 `.vector.json` observations retain source drawing/glyph references and unresolved
 paths; checks reproduce these against the original PDF and atlas. The separately
 registered `tests/fixtures/document_vector_annotations/` cases check transcribed
-words/regions and abstention on unrecognized negative signs. Failed checks retain
+words/regions and abstention on unrecognized negative signs. Seed records can
+restrict `learn_characters` to selected punctuation, keeping numeric evaluation
+independent of new punctuation examples. Source regions must contain the whole
+path; background shapes centered inside a cell are excluded. Failed checks retain
 the named probe and fail the run. This probe does not update production recovery
 data or existing analytical lanes.
 

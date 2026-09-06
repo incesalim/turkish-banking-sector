@@ -79,6 +79,32 @@ def test_reference_hash_and_seed_occurrence_counts_are_checked(source_atlas):
         vector.build_atlas(path, changed)
 
 
+def test_punctuation_seed_does_not_teach_its_surrounding_numbers(source_atlas):
+    path, _, anchors, _ = source_atlas
+    selected = copy.deepcopy(anchors)
+    selected["seeds"][0]["learn_characters"] = ".-"
+    atlas = vector.build_atlas(path, selected)
+    assert {t["character"] for t in atlas["templates"]} == {".", "-"}
+    selected["seeds"][0]["learn_characters"] = "()"
+    with pytest.raises(ValueError, match="occur"):
+        vector.build_atlas(path, selected)
+
+
+def test_large_background_centered_in_a_source_region_is_not_a_word_match(source_atlas, tmp_path):
+    path, filing, anchors, atlas = source_atlas
+    record = vector.capture_vector_page(path, filing, 2, atlas)
+    record["unresolved_paths"].append({"drawing_id": 999, "bbox": [0, 0, 180, 144], "text": None})
+    annotation = {"filing": filing.as_dict(), "pdf_sha256": anchors["pdf_sha256"], "cases": [
+        {"id": "word_inside_large_background", "page": 2, "source_bbox": [75, 65, 110, 80], "text": "71"}]}
+    (tmp_path / "annotation.json").write_text(json.dumps(annotation))
+    check = vector.check_vector_annotations(record, tmp_path)
+    assert check["status"] == "passed"
+    assert check["checks"][0]["observed_text"] == "71"
+    annotation["cases"][0]["source_bbox"] = [81, 65, 90, 80]
+    (tmp_path / "annotation.json").write_text(json.dumps(annotation))
+    assert vector.check_vector_annotations(record, tmp_path)["status"] == "failed"
+
+
 @pytest.mark.parametrize("change", ["drop", "move", "value", "sign", "approve"])
 def test_source_retention_rejects_changes_including_guessed_positive_values(source_atlas, change):
     path, filing, _, atlas = source_atlas

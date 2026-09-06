@@ -7,8 +7,8 @@
   },
   "pdf_sha256": "7f87ed53ead58816393a1498fd98dbd97cf20ac893d6288a51e6dbccfc49e992",
   "object_key": "fiba/FIBA_2025Q3_unconsolidated.pdf",
-  "alphabet": "-.0123456789",
-  "annotation_method": "Numeric words and two dash styles transcribed from the original FIBA assets-page render. Glyph contours are rebuilt from that hash-bound PDF; the following liabilities page is held out.",
+  "alphabet": "(),-.0123456789",
+  "annotation_method": "Numeric glyphs and two dash styles transcribed from the original assets page. Parenthesis shapes alone come from a signed equity item on page 11; the comma shape alone comes from earnings per share on page 13. Glyph contours are rebuilt from this hash-bound reference PDF.",
   "seeds": [
     {
       "id": "number_or_mark_00",
@@ -295,6 +295,30 @@
         405
       ],
       "text": "-"
+    },
+    {
+      "id": "parentheses_from_signed_equity",
+      "page": 11,
+      "source_bbox": [
+        365.2,
+        500.65,
+        383.75,
+        506.3
+      ],
+      "text": "(190.248)",
+      "learn_characters": "()"
+    },
+    {
+      "id": "decimal_comma",
+      "page": 13,
+      "source_bbox": [
+        346.5,
+        704.2,
+        363.1,
+        709.9
+      ],
+      "text": "0,03316",
+      "learn_characters": ","
     }
   ]
 }

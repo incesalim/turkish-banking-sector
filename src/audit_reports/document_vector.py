@@ -111,17 +111,22 @@ def build_atlas(reference: Path, anchors: dict) -> dict:
             page = pdf[seed["page"] - 1]
             x0, y0, x1, y1 = seed["source_bbox"]
             found = [(i, path) for i, path in enumerate(page.get_drawings()) if path["type"] == "f"
-                     and x0 < (path["rect"].x0 + path["rect"].x1) / 2 < x1
-                     and y0 < (path["rect"].y0 + path["rect"].y1) / 2 < y1]
+                     and x0 <= path["rect"].x0 and path["rect"].x1 <= x1
+                     and y0 <= path["rect"].y0 and path["rect"].y1 <= y1]
             if len(found) != 1:
                 raise ValueError(f"Vector seed does not resolve to one source path: {seed['id']}")
             drawing_id, path = found[0]
             glyphs = glyph_components(path)
             if len(glyphs) != len(seed["text"]):
                 raise ValueError(f"Vector seed character count differs: {seed['id']}")
+            learned = set(seed.get("learn_characters", seed["text"]))
+            if not learned or learned - set(seed["text"]):
+                raise ValueError("Learned vector characters must occur in their transcribed seed")
             for index, (character, glyph) in enumerate(zip(seed["text"], glyphs)):
                 if character not in anchors["alphabet"]:
                     raise ValueError("Vector seed contains an undeclared character")
+                if character not in learned:
+                    continue
                 templates.append({"id": len(templates), "character": character,
                                   "seed_id": seed["id"], "page": seed["page"],
                                   "drawing_id": drawing_id, "glyph_index": index, **glyph})
@@ -207,8 +212,8 @@ def check_vector_annotations(record: dict, directory: Path) -> dict:
                 continue
             x0, y0, x1, y1 = case["source_bbox"]
             matches = [item for item in record["matched_paths"] + record["unresolved_paths"]
-                       if x0 <= (item["bbox"][0] + item["bbox"][2]) / 2 <= x1
-                       and y0 <= (item["bbox"][1] + item["bbox"][3]) / 2 <= y1]
+                       if x0 <= item["bbox"][0] and item["bbox"][2] <= x1
+                       and y0 <= item["bbox"][1] and item["bbox"][3] <= y1]
             text = matches[0]["text"] if len(matches) == 1 else None
             passed = len(matches) == 1 and (text == case["text"] or
                      (case.get("allow_unresolved", False) and text is None))
