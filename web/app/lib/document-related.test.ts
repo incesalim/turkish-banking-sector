@@ -53,6 +53,15 @@ describe("related-document provenance", () => {
     const data = objects(); data[fixture.origin_review_key] = Buffer.from("changed");
     await expect(getRelatedRevision(bucket(data), fixture.filing, fixture.member.sha256)).rejects.toThrow();
   });
+  it("cannot borrow a valid primary revision under an otherwise valid attachment relationship", async () => {
+    const data = objects();
+    const index = JSON.parse(data[fixture.index_key].toString());
+    const oldHash = index.current.source.pdf_sha256;
+    const primaryHash = index.relationship.primary_pdf_sha256;
+    index.current = JSON.parse(JSON.stringify(index.current).replaceAll(oldHash, primaryHash));
+    data[fixture.index_key] = Buffer.from(JSON.stringify(index));
+    await expect(getRelatedRevision(bucket(data), fixture.filing, fixture.member.sha256)).rejects.toThrow("matched directly");
+  });
 });
 
 describe("related source and recovery routes", () => {

@@ -475,3 +475,9 @@ of detected tables.
   Publication replay reuses raw OCR and leaves eight object versions, including
   the primary filing index, unchanged. The complete web suite passes 732 tests;
   live attachment-reader deployment checks remain pending.
+
+- 2026-09-07: tightened the attachment reader after an independent mutation
+  review: a valid parent-report revision substituted under an otherwise correct
+  attachment relationship must fail. The reader now binds its PDF hash directly
+  to the origin's raw member hash. Wrapped attachments need an explicit wrapper
+  byte binding before admin access; the signed declaration is an ordinary PDF.

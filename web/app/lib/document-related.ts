@@ -27,6 +27,12 @@ export async function getRelatedRevision(bucket: CorpusBucket, filing: FilingIde
     throw new Error("Related document index differs from its official source archive");
   }
   const revision = parseCorpusRevision(index, filing);
+  // For ordinary PDF members, the origin's independently retained member hash
+  // binds the current source directly. A wrapped member needs a separate
+  // verified wrapper binding; never accept another valid filing revision here.
+  if (revision && revision.source.pdf_sha256 !== memberHash) {
+    throw new Error("Related PDF bytes cannot be matched directly to the retained archive member");
+  }
   if (revision && (!record(index) || !record(index.current) || index.current.semantic_verification !== "not_performed")) {
     throw new Error("Related source claims unsupported semantic approval");
   }

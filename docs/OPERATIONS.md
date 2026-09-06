@@ -1685,3 +1685,9 @@ The reader validates transport, member name/bytes/hash, parent report and filing
 bindings before resolving the separate native index. Missing or ambiguous
 members and mismatched indexes fail explicitly; it cannot borrow the main report's
 page or recovery. Pinned OCR model files are kept outside uploaded source artifacts.
+
+Related-document admin access also requires the captured PDF hash to match the
+raw member hash retained by the origin review. A valid primary-report revision
+cannot be substituted under an attachment relationship. Wrapped related members
+whose canonical bytes differ from their raw member hash remain inaccessible until
+an explicit wrapper byte binding is verified; ordinary PDF members are supported.
