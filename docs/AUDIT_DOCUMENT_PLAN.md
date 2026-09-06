@@ -458,3 +458,20 @@ of detected tables.
   Visually transcribed two headings and both complete responsibility statements
   from Anadolubank's one-page signed source for independent cloud comparisons.
   Cloud capture and related-document admin text access remain pending.
+
+- 2026-09-06: completed all 1,146 registered native captures. Independently
+  reconciled 1,144 expanded outcomes plus the two repaired source-bound archive
+  acquisitions, totaling 119,772 pages. Every old source hash remains unchanged.
+  Both repaired originals and all 175 retained pages match their official sources.
+  Automatic recovery's live retained scope matches exactly 1,144 successful PDF
+  hashes, with the two missing rows explicitly excluded and all four workers
+  started; repair follow-ups follow separately. Full quality/origin reviews run.
+- 2026-09-06: independently verified and published the separate one-page signed
+  declaration: source/archive bytes, native image, OCR source pixels, 155 raw words
+  and geometry, candidate layout and committed engine hashes. Two of four source
+  regions match, while A.Ş./A.S. and ile/ve discrepancies remain explicit. Added
+  an origin/member-bound admin reader and separate page/recovery access; unknown
+  members, wrong archive/report bindings and corrupt receipts are rejected.
+  Publication replay reuses raw OCR and leaves eight object versions, including
+  the primary filing index, unchanged. The complete web suite passes 732 tests;
+  live attachment-reader deployment checks remain pending.

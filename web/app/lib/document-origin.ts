@@ -11,7 +11,7 @@ export type OriginReview = {
   acquisition: { sha256: string; bytes: number } | null;
   transport: Artifact | null; origin_pdf: Artifact | null;
   origin_identity?: { status: string }; related_pdf_content_capture?: string;
-  selection?: { unselected_pdf_members?: { name: string; bytes: number; sha256: string }[] };
+  selection?: { archive_member?: string; unselected_pdf_members?: { name: string; bytes: number; sha256: string }[] };
 };
 const record = (v: unknown): v is Record<string, unknown> => typeof v === "object" && v !== null && !Array.isArray(v);
 const hash = (v: unknown): v is string => typeof v === "string" && /^[a-f0-9]{64}$/.test(v);

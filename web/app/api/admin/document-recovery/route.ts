@@ -1,6 +1,7 @@
 import { requireAdminOr403 } from "@/app/lib/admin-auth";
 import { getCorpusBucket, getCorpusRevision, parseFiling } from "@/app/lib/document-corpus";
 import { getRecoveryIndex, readRecoveryArtifact, readRecoveryPage } from "@/app/lib/document-recovery";
+import { getRelatedRevision } from "@/app/lib/document-related";
 
 export const dynamic = "force-dynamic";
 const headers = { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" };
@@ -17,12 +18,14 @@ export async function GET(req: Request) {
   const pageText = params.get("page") ?? "";
   const page = Number(pageText);
   const artifact = params.get("artifact") ?? "page";
+  const related = params.get("related");
+  if (related !== null && !/^[a-f0-9]{64}$/.test(related)) return json({ error: "Invalid related document." }, 400);
   if (!filing || !/^\d+$/.test(pageText) || !Number.isSafeInteger(page) || page < 1
       || !["page", "ocr-pdf"].includes(artifact)) return json({ error: "Choose a valid filing, page and recovery artifact." }, 400);
   try {
     const bucket = await getCorpusBucket();
     if (!bucket) return json({ error: "Document storage is not connected." }, 503);
-    const source = await getCorpusRevision(bucket, filing);
+    const source = related ? await getRelatedRevision(bucket, filing, related) : await getCorpusRevision(bucket, filing);
     if (!source) return json({ status: "source_not_captured" });
     if (page > source.page_count) return json({ error: "Page is outside this source PDF." }, 400);
     const index = await getRecoveryIndex(bucket, source);

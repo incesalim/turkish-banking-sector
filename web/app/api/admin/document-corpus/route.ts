@@ -1,6 +1,7 @@
 /** Private source evidence, addressed by validated filing identity, never by user-supplied storage keys. */
 import { requireAdminOr403 } from "@/app/lib/admin-auth";
 import { getCorpusBucket, getCorpusCatalog, getCorpusRevision, parseFiling, readVerifiedPage } from "@/app/lib/document-corpus";
+import { getRelatedRevision } from "@/app/lib/document-related";
 
 export const dynamic = "force-dynamic";
 const headers = { "Cache-Control": "private, no-store", "X-Content-Type-Options": "nosniff" };
@@ -17,14 +18,17 @@ export async function GET(req: Request) {
   const filing = parseFiling(params.get("filing") ?? "");
   if (!filing) return json({ error: "Use BANK|YYYYQn|consolidated or unconsolidated." }, 400);
   const artifact = params.get("artifact");
+  const related = params.get("related");
+  if (related !== null && !/^[a-f0-9]{64}$/.test(related)) return json({ error: "Invalid related document." }, 400);
   if (artifact !== null && !["original", "source", "structure"].includes(artifact)) {
     return json({ error: "Unknown document artifact." }, 400);
   }
   const bucket = await getCorpusBucket();
   if (!bucket) return json({ error: "Document storage is not connected." }, 503);
   try {
-    const revision = await getCorpusRevision(bucket, filing);
-    if (!revision) return json({ error: "This filing has no successful source capture yet." }, 404);
+    const revision = related ? await getRelatedRevision(bucket, filing, related) : await getCorpusRevision(bucket, filing);
+    if (!revision) return json({ error: related ? "This related PDF has not been captured yet."
+      : "This filing has no successful source capture yet." }, 404);
     if (!artifact) return json({ revision });
     const pageText = params.get("page");
     const page = Number(pageText);

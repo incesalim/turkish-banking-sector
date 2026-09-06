@@ -6,18 +6,18 @@ import type { RecoveryPage } from "@/app/lib/document-recovery";
 type Result = { status: "ready"; page: RecoveryPage; last_attempt?: { status: string; error?: string } }
   | { status: "not_started" | "source_not_captured"; last_attempt?: { status: string; error?: string } };
 
-export default function DocumentRecoveryPanel({ filing, page }: { filing: string; page: number }) {
-  const key = `${filing}:${page}`;
-  const query = `filing=${encodeURIComponent(filing)}&page=${page}`;
+export default function DocumentRecoveryPanel({ filing, page, related }: { filing: string; page: number; related?: string }) {
+  const query = `filing=${encodeURIComponent(filing)}&page=${page}${related ? `&related=${related}` : ""}`;
+  const key = query;
   const [state, setState] = useState<{ key: string; value?: Result; error?: string } | null>(null);
   useEffect(() => {
     const controller = new AbortController();
-    fetch(`/api/admin/document-recovery?filing=${encodeURIComponent(filing)}&page=${page}`, { signal: controller.signal, cache: "no-store" })
+    fetch(`/api/admin/document-recovery?${query}`, { signal: controller.signal, cache: "no-store" })
       .then(async r => { const body = await r.json(); if (!r.ok) throw new Error(body.error); return body as Result; })
       .then(value => setState({ key, value }))
       .catch(error => { if (!controller.signal.aborted) setState({ key, error: error.message }); });
     return () => controller.abort();
-  }, [filing, page, key]);
+  }, [query, key]);
   const current = state?.key === key ? state : null;
   const value = current?.value;
   const recovered = value?.status === "ready" ? value.page : null;

@@ -7,6 +7,7 @@ const mocks = vi.hoisted(() => ({ gate: vi.fn(), context: vi.fn() }));
 vi.mock("@opennextjs/cloudflare", () => ({ getCloudflareContext: mocks.context }));
 vi.mock("@/app/lib/admin-auth", () => ({ requireAdminOr403: mocks.gate }));
 vi.mock("@/app/lib/document-corpus", () => import("./document-corpus"));
+vi.mock("@/app/lib/document-related", () => import("./document-related"));
 import { GET } from "../api/admin/document-corpus/route";
 
 const fixture = JSON.parse(readFileSync(new URL("../../../tests/fixtures/document_corpus_wire.json", import.meta.url), "utf8"));

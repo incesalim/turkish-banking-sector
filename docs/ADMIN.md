@@ -119,7 +119,13 @@ still awaiting capture. Links open the retained official PDF, raw HTTP response
 and comparison receipt. The reader checks receipt hashes, filing/source bindings
 and artifact checksums; anonymous access is forbidden. A source comparison can
 be read before core capture exists. A mismatch with the currently displayed source
-revision remains explicit. Byte agreement never clears semantic review.
+revision remains explicit. Byte agreement never clears semantic review. Other PDFs
+in the same archive expand into their own page reader, with original/native
+structure links and the same recovered-text/disagreement display. The member's
+name, byte hash, transport and parent-report relationship are verified before
+reading its separate index. An absent attachment never falls back to the primary
+report. The signed Anadolubank declaration's two independently found OCR
+word/diacritic differences remain visible.
 
 ### Managing audit reports (the intended workflow)
 

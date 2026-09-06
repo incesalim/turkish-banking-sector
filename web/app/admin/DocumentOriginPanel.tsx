@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import type { OriginReview } from "@/app/lib/document-origin";
+import DocumentRelatedPanel from "./DocumentRelatedPanel";
 
 const labels: Record<OriginReview["status"], string> = {
   matches_acquired_bytes: "Fresh official download matches the acquired PDF",
@@ -44,9 +45,7 @@ export default function DocumentOriginPanel({ filing, sourceHash }: { filing: st
         {review.transport && <a className="text-primary hover:underline" href={`${url}&artifact=transport`}>Download original response</a>}
         <a className="text-primary hover:underline" href={url} target="_blank" rel="noreferrer">Comparison evidence</a>
       </div>
-      {(review.selection?.unselected_pdf_members?.length ?? 0) > 0 && <p className="mt-2 text-warning">
-        Related PDF content remains pending: {review.selection?.unselected_pdf_members?.map(m => m.name).join("; ")}.
-      </p>}
+      {review.selection?.unselected_pdf_members?.map(member => <DocumentRelatedPanel key={`${member.name}:${member.sha256}`} filing={filing} member={member} />)}
     </>}
   </div>;
 }

@@ -1676,3 +1676,12 @@ failures remain named and make the run fail while the other documents continue.
 `audit-related-document-evidence` retains source/native/structure/recovery files
 for seven days. Existing source/structure and OCR artifacts are immutable and
 unchanged replays do not rewrite their indexes.
+
+The admin official-source comparison lists every related PDF as an expandable
+document with its own page selector, original/source/structure links and recovered
+text. `/api/admin/document-corpus` and `/api/admin/document-recovery` accept an
+optional `related=<raw member SHA>` selected from the verified origin archive.
+The reader validates transport, member name/bytes/hash, parent report and filing
+bindings before resolving the separate native index. Missing or ambiguous
+members and mismatched indexes fail explicitly; it cannot borrow the main report's
+page or recovery. Pinned OCR model files are kept outside uploaded source artifacts.

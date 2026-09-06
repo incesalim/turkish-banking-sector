@@ -146,6 +146,10 @@ export async function getCorpusRevision(bucket: CorpusBucket, filing: FilingIden
   if (!object) return null;
   if (object.size > 8_000_000) throw new Error("Oversized filing index");
   const index: unknown = await object.json();
+  return parseCorpusRevision(index, filing);
+}
+
+export function parseCorpusRevision(index: unknown, filing: FilingIdentity): CorpusRevision | null {
   if (!isRecord(index) || !isRecord(index.filing) || index.schema_version !== "corpus-index-1"
       || Object.entries(filing).some(([key, value]) => index.filing && (index.filing as Record<string, unknown>)[key] !== value)) {
     throw new Error("Invalid filing index");

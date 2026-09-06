@@ -28,7 +28,8 @@ def recover_pages(store, original, filing, page_count, output, publish):
 
     recovery = RecoveryStore(store)
     source = source_identity(original, filing)
-    lock = ocr.ensure_models(output.parent / 'models')
+    model_directory = output.parent.parent / 'models'
+    lock = ocr.ensure_models(model_directory)
     engine = recovery_identity(ocr._engine(lock, 300, 'eng+tur'), None)
     if publish:
         recovery.record_selection(source, {'method': 'all_related_document_pages', 'page_count': page_count,
@@ -40,7 +41,7 @@ def recover_pages(store, original, filing, page_count, output, publish):
             if cached:
                 observed, derivative = cached[0]['ocr'], cached[1]
             else:
-                observed, derivative = ocr.capture_ocr_page(original, filing, number, output.parent / 'models',
+                observed, derivative = ocr.capture_ocr_page(original, filing, number, model_directory,
                                                            dpi=300, language='eng+tur')
             layout = capture_recovery_tables(observed, None, derivative)
             benchmarks = {'text_regions': check_text_regions(observed, REPO / 'tests/fixtures/document_recovery_text_annotations')}

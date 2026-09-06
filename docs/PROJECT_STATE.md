@@ -20,10 +20,17 @@ The first scope is the existing 38 banks and 2022Q1–2026Q2. The initial R2
 inventory contained 1,117 acquired PDFs, while the explicit URL registry contained
 1,101 filings. Independent comparison with BDDK's current register found 45
 missing URL bindings: 16 already-acquired filings and 29 sources absent from R2.
-The registry now includes all 1,146. Those 29 additions require acquisition and
-source verification; this is a correction within the existing bank/date scope.
+The registry now includes all 1,146, and every filing is acquired and has published
+native source/structure artifacts. The expanded run `34049704430` preserved
+1,144 reports; source-bound archive repairs `34051064505` and `34051067193`
+completed the other two. Their combined outcomes independently reconcile exactly
+against the registered scope: 119,772 pages, 308,126,554 native characters,
+2,241,656 physical text blocks and 197,883 table candidates. Both repaired PDFs
+and all 175 source/structure pages match the independently checked official
+bytes. These are preservation/candidate counts; zero whole filings are semantically
+verified. Full current quality and official-origin reviews remain in progress.
 
-The omissions include nine VakıfBank quarterly consolidated reports, sixteen
+The repaired omissions included nine VakıfBank quarterly consolidated reports, sixteen
 Türkiye Kalkınma historical consolidated reports, Takasbank 2022Q1 solo, Ziraat
 Dinamik 2025Q2 solo, and Aktif/Anadolubank 2026Q2 consolidated. The old VakıfBank
 claim that Q1/Q3 reports were not published was wrong. BDDK and the bank's own
@@ -55,10 +62,16 @@ The full registered comparison has been dispatched. Earlier stored-copy checks
 alone are not origin proof. Admin source-comparison access is implemented with
 checksum and filing/source validation. CI/deploy at `00eede4` pass; live FIBA
 agreement and Anadolubank missing-acquisition/related-declaration displays are
-independently checked. Anadolubank's signed one-page declaration remains uncaptured
-in production. `capture-related-documents.yml` now implements separate native
-and OCR capture for archive attachments; local isolation/omission/mutation/replay
-tests pass, and its cloud source probe is still required.
+independently checked. `capture-related-documents.yml` now preserves Anadolubank's
+signed one-page declaration separately. Probe `34058889184` and publication
+`34059202689` match its independently rendered archive member, native image,
+source pixels, 155 OCR words/positions and candidate layout. Two of four source
+text passages disagree (`A.S.` versus `A.Ş.`, and `ve` versus `ile`); they remain
+explicit, unapproved observations. The attachment reader and page/recovery links
+are implemented in admin; 732 web tests, lint and type checks pass. An unchanged
+publication replay reuses raw OCR and leaves all eight observed object versions
+(including the primary filing index) unchanged. Live attachment-reader deployment
+verification remains pending.
 
 The dedicated `build-document-corpus.yml` pipeline keeps immutable originals,
 versioned source evidence,
@@ -83,8 +96,8 @@ pages and all 17 selected table/prose/source/position cases. Publishing sample
 updates Akbank/Albaraka 2026Q1 solo (185 pages). R2 bytes match the independently
 reviewed probes, and the live admin shows Akbank's 86-row/six-value-column
 alternative with the correct source-linked label on the reviewed rows. The
-remaining 1,115 candidate structures need the newer implementation; their
-preserved source evidence is current. Selected-case success is not whole-table approval.
+expanded capture now includes that newer structure implementation across the
+registered corpus. Selected-case success is not whole-table approval.
 
 Raw image/outline recovery in `recover-document-corpus.yml`, run
 [34040878532](https://github.com/incesalim/Carthago/actions/runs/34040878532)
@@ -105,7 +118,10 @@ successful filings in a partially failed run. Failed/read-only rows are excluded
 explicitly; quality-only runs trigger no recovery. Missing or changed PDFs fail
 by name. A live quality-only probe and its automatic follow-up pass: the retained
 scope is empty and recovery is skipped. A manual recovery probe also passes.
-The positive publishing trigger still needs cloud validation.
+The positive automatic scope is also cloud verified: run `34058889360` selects
+exactly the expanded capture's 1,144 successful PDF hashes, with the two missing
+outcomes explicitly excluded. All four recovery groups started; separate repair
+follow-ups are queued. Their page outcomes still require reconciliation.
 
 Native unchanged-object receipts have passed cloud no-write replays; changed
 source bytes, engines, per-filing annotations or artifact versions invalidate
