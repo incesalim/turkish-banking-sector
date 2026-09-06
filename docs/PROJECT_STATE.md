@@ -25,7 +25,9 @@ acquired PDF. These are acquisition counts, not completeness or accuracy claims.
 PDFs, versioned page evidence and candidate document structure under the separate
 R2 `document-corpus/v1/` prefix. A source hash and engine identity bind each
 artifact. Failed attempts remain visible and previous revisions survive. This
-implementation is being tested locally; fleet publication and a corpus-specific
+implementation has passed an Actions sample for both QNB 2026Q1 filings (218
+pages). The eight stored R2 objects were independently downloaded and verified;
+four source-annotated solo cases pass. Whole-corpus publication and a dedicated
 admin view remain pending. Existing analytical lanes and their stored data have
 not been replaced. The source-verified QNB countercyclical-buffer classification
 fix is in code; existing stored wide rows have not been rebuilt.

@@ -12,8 +12,6 @@ import hashlib
 import json
 from pathlib import Path
 
-from botocore.exceptions import ClientError
-
 from .document_corpus import Filing, source_identity
 from .document_evidence import artifact_digest, verify_evidence_records
 
@@ -29,6 +27,16 @@ def _sha(body: bytes) -> str:
     return hashlib.sha256(body).hexdigest()
 
 
+def _error_code(error: Exception) -> str | None:
+    """S3 error protocol, without making offline storage tests import an SDK.
+
+    The live client is still boto3. Transport and unexpected programming errors
+    have no service code and must propagate rather than becoming missing objects.
+    """
+    response = getattr(error, "response", None)
+    return response.get("Error", {}).get("Code") if isinstance(response, dict) else None
+
+
 class CorpusStore:
     def __init__(self, client, bucket: str):
         self.client, self.bucket = client, bucket
@@ -38,8 +46,8 @@ class CorpusStore:
             raise ValueError("Object is outside the document corpus namespace")
         try:
             response = self.client.get_object(Bucket=self.bucket, Key=key)
-        except ClientError as error:
-            if error.response["Error"]["Code"] in ("404", "NoSuchKey"):
+        except Exception as error:
+            if _error_code(error) in ("404", "NoSuchKey"):
                 return None, None
             raise
         return response["Body"].read(), response["ETag"]
@@ -53,8 +61,8 @@ class CorpusStore:
         try:
             self.client.put_object(Bucket=self.bucket, Key=key, Body=body,
                                    ContentType=content_type, IfNoneMatch="*")
-        except ClientError as error:
-            if error.response["Error"]["Code"] not in ("412", "PreconditionFailed"):
+        except Exception as error:
+            if _error_code(error) not in ("412", "PreconditionFailed"):
                 raise
         stored, _ = self._read(key)
         if stored != body:
@@ -84,8 +92,8 @@ class CorpusStore:
                 self.client.put_object(Bucket=self.bucket, Key=key, Body=body,
                                        ContentType="application/json", **condition)
                 return index
-            except ClientError as error:
-                if error.response["Error"]["Code"] not in ("412", "PreconditionFailed"):
+            except Exception as error:
+                if _error_code(error) not in ("412", "PreconditionFailed"):
                     raise
         raise RuntimeError("Corpus index changed concurrently; retry the filing")
 

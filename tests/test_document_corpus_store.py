@@ -4,11 +4,16 @@ import io
 
 import fitz
 import pytest
-from botocore.exceptions import ClientError
 
 from src.audit_reports.document_corpus import Filing
 from src.audit_reports.document_corpus_store import CorpusStore, PREFIX
 from src.audit_reports.document_evidence import capture_source_evidence, save_evidence
+
+
+class ClientError(Exception):
+    def __init__(self, response, operation):
+        super().__init__(operation)
+        self.response = response
 
 
 class MemoryR2:
@@ -146,6 +151,17 @@ def test_store_rejects_access_outside_its_own_namespace(corpus):
     with pytest.raises(ValueError, match="outside"):
         store._immutable("state/bank_audit.db.gz", b"bad", "application/gzip")
     assert not client.writes
+
+
+def test_access_denied_is_not_relabelled_as_a_missing_object(corpus, monkeypatch):
+    store, client, filing, *_ = corpus
+
+    def forbidden(**kwargs):
+        raise ClientError({"Error": {"Code": "AccessDenied"}}, "GetObject")
+
+    monkeypatch.setattr(client, "get_object", forbidden)
+    with pytest.raises(ClientError):
+        store._read(store.index_key(filing))
 
 
 def test_structure_is_source_bound_and_replay_writes_nothing(corpus):

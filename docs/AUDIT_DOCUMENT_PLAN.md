@@ -119,3 +119,10 @@ of detected tables.
   text table against the rendered PDF. Four independently annotated source
   cases pass; this is not a whole-document benchmark. Image/drawing review,
   table continuation and complete narrative semantics remain outstanding.
+- 2026-09-06: Actions sample [34026793864](https://github.com/incesalim/Carthago/actions/runs/34026793864)
+  preserved QNB 2026Q1 consolidated and solo: 218 pages, with original PDFs,
+  evidence and candidate structure in eight R2 objects. Independently downloaded
+  and verified the stored bytes and source accounting; the four annotated solo
+  cases pass, while consolidated remains unannotated. CI exposed an unnecessary
+  SDK import in offline storage tests; removed that dependency and tested the
+  adapter with the SDK unavailable. Unchanged cloud replay is the next check.
