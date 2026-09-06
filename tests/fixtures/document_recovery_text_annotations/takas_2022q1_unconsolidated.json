@@ -1,0 +1,60 @@
+{
+  "filing": {
+    "bank_ticker": "TAKAS",
+    "period": "2022Q1",
+    "kind": "unconsolidated"
+  },
+  "pdf_sha256": "539d79512fff0909246d93c2f6d8f00b2b665fe76fbeead18b6d8d058936f6cf",
+  "review_method": "independent transcription from rendered original source pages; no OCR cleanup",
+  "coordinate_space": "display",
+  "cases": [
+    {
+      "id": "cover_bank_full_name",
+      "page": 1,
+      "source_bbox": [
+        140,
+        115,
+        440,
+        160
+      ],
+      "text": "İstanbul Takas ve Saklama Bankası Anonim Şirketi",
+      "kind": "full_text_region"
+    },
+    {
+      "id": "cover_reporting_title",
+      "page": 1,
+      "source_bbox": [
+        140,
+        168,
+        450,
+        201
+      ],
+      "text": "31 Mart 2022 Tarihinde Sona Eren Ara Hesap Dönemine Ait Konsolide Olmayan Finansal Tablolar",
+      "kind": "full_text_region"
+    },
+    {
+      "id": "balance_sheet_unit_qualification",
+      "page": 13,
+      "source_bbox": [
+        55,
+        79,
+        313,
+        92
+      ],
+      "text": "(Tutarlar aksi belirtilmedikçe Bin Türk Lirası (TL) olarak ifade edilmiştir.)",
+      "kind": "full_text_region"
+    },
+    {
+      "id": "balance_sheet_complete_footer",
+      "page": 13,
+      "source_bbox": [
+        181,
+        758,
+        425,
+        774
+      ],
+      "text": "İlişikteki notlar bu finansal tabloların tamamlayıcı parçalarıdır.",
+      "kind": "full_text_region"
+    }
+  ]
+}

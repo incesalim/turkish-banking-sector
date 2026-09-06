@@ -119,9 +119,26 @@ control characters, which the old legibility heuristic missed. Four source pages
 now trigger explicit control-character signals. The revised automatic recovery
 selector includes these text signals, binds its identity to the quality code and
 preserves raw text. Raw OCR engine identity is unchanged. Local source probes and
-regression tests pass; a new cloud recovery/quality sample remains pending. Eight
+regression tests pass. Cloud sample `34051061868` supports all four selected
+EMLAK/EXIM/VAKIFK/ZIRAAT identities; its exact review-code hashes were checked. Eight
 ambiguous cover cases still require source review; some covers themselves mix
 consolidated and unconsolidated wording, so they are not silently reclassified.
+
+Takasbank read-only recovery `34051059461` preserved the exact independently
+acquired original, source pixels and OCR observations for pages 1 and 13. It
+exposed a borderless balance sheet missed by the ruled-grid builder. A new
+repeated-amount alignment fallback yields a 54-row, seven-column physical grid;
+16 manually transcribed amount-region checks pass, including six liability
+totals and four negative figures. Wrapped labels remain separate physical rows;
+header, logical-row and financial associations are unverified. Empty cells stay
+unobserved, distinct from a disclosed zero or dash. Raw OCR punctuation remains.
+
+Recovery now retains OCR blocks, line/word references and table membership.
+Four complete source-text regions check the cover name/title, unit qualification
+and footer. Three match; the name comparison explicitly records OCR `Istanbul`
+against source `İstanbul`. A `source_disagreement` is retained and surfaced in
+quality review and the admin viewer, never converted into text approval. These
+new derived views reuse retained OCR; cloud publication and live review are pending.
 
 All-table coverage, row/header/unit/period meaning, cross-page continuations,
 reading order and unrecovered text remain active work. The source ledger is the

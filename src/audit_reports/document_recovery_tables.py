@@ -165,6 +165,11 @@ def capture_recovery_tables(ocr: dict, vector: dict | None, derivative: bytes) -
                        'header_bbox': header, 'header_text': _text(header_words),
                        'header_word_ids': [w['id'] for w in header_words],
                        'header_association_verified': False, 'table_structure_verified': False})
+    if not tables:
+        # The source image was checked above. Alignment is an alternative only
+        # when no ruled grid was found; mixed ruled/unruled pages need review.
+        from .document_recovery_unruled import unruled_tables
+        tables = unruled_tables(ocr)
     return {'source_pixels_sha256': ocr['render']['pixels_sha256'], 'vertical_rules': rules,
             'tables': tables, 'semantic_verification': 'not_performed'}
 

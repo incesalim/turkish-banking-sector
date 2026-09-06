@@ -47,7 +47,8 @@ The candidate table viewer also supports **PDF-linked label positions**: an
 alternative for replacement text explicitly paired with an image in the PDF's
 structure. It keeps raw labels and source piece IDs; full JSON retains the
 original span/image/node links. These positions and table headers remain
-unverified. Cloud publication of this new candidate view is pending.
+unverified. Akbank and Albaraka 2026Q1 solo samples were published and independently
+checked; live Akbank page 9 review confirms the alternative labels and figures.
 
 The page viewer also reads separately stored image/outline recovery through
 `/api/admin/document-recovery`. It shows source-linked OCR lines, differing or
@@ -65,6 +66,14 @@ Its source-pixel columns and inferred rows remain candidates. Independent
 checks of four cloud sample pages pass the 59 selected cell associations.
 Publication awaits completion of the older recovery fleet; earlier packets
 still show their complete lines and raw-reader differences.
+For pages without a ruled grid, a further candidate uses repeated amount
+alignment. Its wrapped lines remain separate physical rows; absent text is
+shown as `[no text observed]`, distinct from zero and unresolved outlines.
+Recovered OCR blocks keep their line/word IDs and table membership. Full text
+comparisons show the source transcription beside differing OCR, including
+Turkish diacritics. These new views are implemented; cloud publication and live
+review remain pending. Neither a matching passage nor a receipt approves the
+rest of a page.
 
 The audit vitals label is **Audit core statements / Loaded**: it reports the
 balance-sheet and income-statement extraction flag. It does not certify all

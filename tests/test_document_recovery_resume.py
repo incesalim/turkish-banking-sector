@@ -123,7 +123,7 @@ def test_no_selected_pages_still_requires_source_and_selection_versions(publishe
 
 
 def test_annotation_fingerprint_is_per_filing_and_missing_directory_fails(tmp_path):
-    for name in ('document_ocr_annotations', 'document_vector_annotations'):
+    for name in ('document_ocr_annotations', 'document_vector_annotations', 'document_recovery_text_annotations'):
         (tmp_path / 'tests/fixtures' / name).mkdir(parents=True)
     filing = Filing('TEST', '2026Q1', 'consolidated')
     other = Filing('OTHER', '2026Q1', 'consolidated')

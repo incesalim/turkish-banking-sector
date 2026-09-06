@@ -138,12 +138,15 @@ def review_filing(store, filing: Filing, acquisition_key: str, patterns: dict) -
     recovery = RecoveryStore(store).read_index(recovery_source)
     selections = (recovery or {}).get('selections', [])
     selected = {n for s in selections for n in s['pages']}
-    recovered, failed = set(), []
+    recovered, failed, source_disagreements = set(), [], []
     for number, page in (recovery or {}).get('pages', {}).items():
         if page.get('last_attempt', {}).get('status') == 'failed':
             failed.append({'page': int(number), 'error': page['last_attempt']['error']})
         elif page.get('current'):
             recovered.add(int(number))
+            checks = page['current'].get('benchmarks', {}).get('text_regions', {}).get('checks', [])
+            if any(not c['passed'] for c in checks):
+                source_disagreements.append({'page': int(number), 'checks': [c for c in checks if not c['passed']]})
     return {'filing': filing.as_dict(), 'source': source, 'status': 'reviewed',
             'source_pdf_copies_byte_verified': True, 'source_artifact_byte_verified': True,
             'structure_artifact_byte_verified': bool(structure), 'counts': dict(counts),
@@ -158,6 +161,7 @@ def review_filing(store, filing: Filing, acquisition_key: str, patterns: dict) -
                          'text_legibility_selection_recorded': any(s['method'] == 'source_content_detector' for s in selections),
                          'selected_pages_all_requests': sorted(selected), 'recovered_pages': sorted(recovered),
                          'pending_selected_pages': sorted(selected - recovered), 'failed_pages': failed,
+                         'source_text_disagreements': source_disagreements,
                          'unselected_text_review_pages': [p['page'] for p in legibility if p['page'] not in selected],
                          'selection_completeness_verified': False},
             'semantic_verification': 'not_performed'}

@@ -1,0 +1,204 @@
+{
+  "filing": {
+    "bank_ticker": "TAKAS",
+    "period": "2022Q1",
+    "kind": "unconsolidated"
+  },
+  "pdf_sha256": "539d79512fff0909246d93c2f6d8f00b2b665fe76fbeead18b6d8d058936f6cf",
+  "review_method": "independent reading of original page 13; tokens are not complete-cell or whole-table approval",
+  "coordinate_space": "display",
+  "cases": [
+    {
+      "id": "funds_column_1",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        324,
+        212,
+        360,
+        223
+      ],
+      "token": "31,404,147"
+    },
+    {
+      "id": "funds_column_2",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        364,
+        212,
+        400,
+        223
+      ],
+      "token": "9,780,292"
+    },
+    {
+      "id": "funds_column_3",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        405,
+        212,
+        441,
+        223
+      ],
+      "token": "41,184,439"
+    },
+    {
+      "id": "funds_column_4",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        445,
+        212,
+        481,
+        223
+      ],
+      "token": "30,460,007"
+    },
+    {
+      "id": "funds_column_5",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        485,
+        212,
+        523,
+        223
+      ],
+      "token": "7,495,950"
+    },
+    {
+      "id": "funds_column_6",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        526,
+        212,
+        565,
+        223
+      ],
+      "token": "37,955,957"
+    },
+    {
+      "id": "liabilities_total_column_1",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        324,
+        590,
+        360,
+        603
+      ],
+      "token": "35,114,495"
+    },
+    {
+      "id": "liabilities_total_column_2",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        364,
+        590,
+        400,
+        603
+      ],
+      "token": "16,263,624"
+    },
+    {
+      "id": "liabilities_total_column_3",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        405,
+        590,
+        441,
+        603
+      ],
+      "token": "51,378,119"
+    },
+    {
+      "id": "liabilities_total_column_4",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        445,
+        590,
+        481,
+        603
+      ],
+      "token": "34,132,509"
+    },
+    {
+      "id": "liabilities_total_column_5",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        485,
+        590,
+        523,
+        603
+      ],
+      "token": "10,891,502"
+    },
+    {
+      "id": "liabilities_total_column_6",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        526,
+        590,
+        565,
+        603
+      ],
+      "token": "45,024,011"
+    },
+    {
+      "id": "negative_oci_column_1",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        324,
+        486,
+        360,
+        497
+      ],
+      "token": "(3,889)"
+    },
+    {
+      "id": "negative_oci_column_3",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        405,
+        486,
+        441,
+        497
+      ],
+      "token": "(3,889)"
+    },
+    {
+      "id": "negative_oci_column_4",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        445,
+        486,
+        481,
+        497
+      ],
+      "token": "(596)"
+    },
+    {
+      "id": "negative_oci_column_6",
+      "kind": "token_in_region",
+      "page": 13,
+      "source_bbox": [
+        526,
+        486,
+        565,
+        497
+      ],
+      "token": "(596)"
+    }
+  ]
+}

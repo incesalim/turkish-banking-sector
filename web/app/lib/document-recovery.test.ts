@@ -70,6 +70,29 @@ describe("source-bound recovery wire format", () => {
     expect((await read()).view.table_layout?.tables[0].rows[0].cells[0].candidate_text).toBeNull();
     cell.candidate_text = "0";
     await expect(read()).rejects.toThrow("contradicts");
+    cell.candidate_text = null;
+    cell.candidate_method = "unobserved";
+    cell.ocr_text = "";
+    cell.ocr_word_ids = [];
+    cell.unresolved_drawing_ids = [];
+    expect((await read()).view.table_layout?.tables[0].rows[0].cells[0].candidate_text).toBeNull();
+    cell.ocr_text = "0";
+    await expect(read()).rejects.toThrow("contradicts");
+  });
+  it("retains source transcription disagreements without approving the image reading", async () => {
+    const packet = JSON.parse(gunzipSync(objects[entry.key]).toString());
+    const check = { id: "bank", source_bbox: [10, 20, 100, 40], source_transcription: "İstanbul",
+      observed_text: "Istanbul", passed: false };
+    packet.benchmarks = { text_regions: { status: "source_disagreement", checks: [check] } };
+    const read = () => {
+      const bytes = gzipSync(JSON.stringify(packet));
+      const ref = { ...entry, bytes: bytes.length, sha256: createHash("sha256").update(bytes).digest("hex") };
+      const store = { get: async () => ({ size: bytes.length, body: stream(bytes) }) } as unknown as CorpusBucket;
+      return readRecoveryPage(store, ref, source, 1);
+    };
+    expect((await read()).benchmarks?.text_regions?.checks[0]).toEqual(check);
+    check.source_bbox = [10, 20];
+    await expect(read()).rejects.toThrow("Invalid source text comparison");
   });
 });
 

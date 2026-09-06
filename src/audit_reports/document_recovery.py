@@ -26,6 +26,8 @@ def recovery_identity(ocr_engine: dict, atlas: dict | None) -> dict:
             "vector_implementation_sha256": digest(Path(__file__).with_name("document_vector.py").read_bytes())
             if atlas else None, "implementation_sha256": digest(Path(__file__).read_bytes()),
             "table_implementation_sha256": digest(Path(__file__).with_name('document_recovery_tables.py').read_bytes()),
+            "unruled_implementation_sha256": digest(Path(__file__).with_name('document_recovery_unruled.py').read_bytes()),
+            "text_implementation_sha256": digest(Path(__file__).with_name('document_recovery_text.py').read_bytes()),
             "numpy": np.__version__}
 
 
@@ -64,6 +66,8 @@ def make_packet(ocr: dict, vector: dict | None, benchmarks: dict, engine: dict, 
     view = recovery_view(ocr, vector)
     if table_layout is not None:
         view['table_layout'] = table_layout
+    from .document_recovery_text import text_blocks
+    view['text_blocks'] = text_blocks(ocr, view['lines'], (table_layout or {}).get('tables', []))
     return {"schema_version": "source-recovery-page-1", "source": ocr["source"], "page": ocr["page"],
             "width": ocr["width"], "height": ocr["height"], "coordinate_space": "display",
             "engine": engine, "ocr": ocr, "vector": vector, "view": view,
@@ -183,6 +187,7 @@ class RecoveryStore:
                     "ocr_words": len(packet["ocr"]["words"]),
                     "vector_words": len((packet["vector"] or {}).get("matched_paths", [])),
                     "disagreements": sum(c["status"] != "exact_agreement" for c in packet["view"]["vector_comparisons"]),
+                    "source_text_disagreements": sum(not c['passed'] for c in packet['benchmarks'].get('text_regions', {}).get('checks', [])),
                     "semantically_verified": False}
 
         def update(index):

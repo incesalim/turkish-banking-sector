@@ -374,3 +374,14 @@ of detected tables.
   identity claims do not establish that an older acquisition matches the current
   official published revision. Add an independent origin comparison and retain
   named mismatches/unavailable sources without overwriting historical originals.
+
+- 2026-09-06: cloud source-identity repair sample supports all four selected
+  covers; exact committed review-code hashes checked. Independently verified
+  Takasbank's official PDF bytes, rendered pixels and raw recovery observations
+  for pages 1/13. Its borderless balance sheet had no recovery table. Added a
+  conservative amount-alignment fallback, preserving physical continuation rows
+  and empty cells; 16 independently transcribed source amount regions pass.
+  Added complete text-region comparisons and physical OCR blocks with table
+  membership. Three of four source passages match; `İstanbul` versus OCR
+  `Istanbul` stays explicitly different in the quality record and admin view.
+  Recognition, whole-table structure and semantic coverage remain unapproved.

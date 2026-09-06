@@ -1519,6 +1519,19 @@ geometry. Historical `image_outline_detector` selections remain readable. The
 request/selector hashes include `document_quality.py`; the raw OCR engine is
 unchanged, so existing OCR observations can be reused when derived views change.
 
+Recovery tables use printed vertical rules first. When no ruled table is
+found on a page, repeated right-aligned OCR amounts supply an unruled physical
+grid candidate. Mixed ruled/unruled pages, wrapped logical rows and headers
+remain review work. An unobserved cell is `null`, never zero. Recovery packets
+also retain OCR text blocks and source word/line/table associations.
+`tests/fixtures/document_recovery_text_annotations/` supplies complete,
+source-transcribed regions. Comparison preserves accents, punctuation, signs
+and word order. `source_disagreement` means retained OCR differs from that
+transcription; it remains visible in the packet, revision and read-only quality
+report. It does not fail preservation or approve/correct the reading. Structural
+or artifact failures still fail the run. Receipt identity binds these modules
+and filing-specific text annotations; raw OCR remains reusable.
+
 To fill explicitly registered source gaps, dispatch the same workflow with
 `acquire_missing=true` and `publish=true` (not `quality_only`). This runs
 `scripts/acquire_document_corpus.py` before capture, with the same bank, period,

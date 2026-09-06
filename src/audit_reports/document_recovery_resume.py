@@ -22,7 +22,8 @@ def request_identity(repo: Path, ocr_engine: dict, pages: list[int]) -> dict:
         'document_corpus.py', 'document_corpus_resume.py', 'document_corpus_store.py',
         'document_ocr.py', 'document_ocr_models.json', 'document_vector.py',
         'document_vector_anchors.json', 'document_recovery.py',
-        'document_recovery_tables.py', 'document_recovery_resume.py'))]
+        'document_recovery_tables.py', 'document_recovery_unruled.py', 'document_recovery_text.py',
+        'document_recovery_resume.py'))]
     paths.append(repo / 'src/audit_reports/document_quality.py')
     return {'ocr_engine': ocr_engine, 'numpy': np.__version__, 'pages': sorted(pages),
             'implementation': {p.relative_to(repo).as_posix(): digest(p.read_bytes()) for p in paths}}
@@ -30,7 +31,7 @@ def request_identity(repo: Path, ocr_engine: dict, pages: list[int]) -> dict:
 
 def annotation_identity(repo: Path, filing: Filing) -> str:
     result = hashlib.sha256()
-    for name in ('document_ocr_annotations', 'document_vector_annotations'):
+    for name in ('document_ocr_annotations', 'document_vector_annotations', 'document_recovery_text_annotations'):
         directory = repo / 'tests/fixtures' / name
         if not directory.is_dir():
             raise ValueError('Recovery annotation directory is missing')

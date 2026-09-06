@@ -72,6 +72,19 @@ def test_uncaptured_filing_is_named_without_becoming_zero_content(published):
     assert result == {'filing': filing.as_dict(), 'status': 'capture_missing'}
 
 
+def test_source_transcription_disagreement_is_retained_in_quality_review(published):
+    from src.audit_reports.document_recovery import RecoveryStore
+    store, client, filing, _key = published
+    source = {**store.read_index(filing)['current']['source'], 'source_url': None, 'object_key': None}
+    check = {'id': 'bank', 'passed': False, 'source_transcription': 'İstanbul', 'observed_text': 'Istanbul'}
+    index = {'schema_version': 'corpus-recovery-index-1', 'source': source, 'selections': [],
+             'pages': {'1': {'current': {'benchmarks': {'text_regions': {'checks': [check]}}}}}}
+    client.objects[RecoveryStore.index_key(source)] = json.dumps(index).encode()
+    result = review(published)
+    assert result['recovery']['source_text_disagreements'] == [{'page': 1, 'checks': [check]}]
+    assert result['semantic_verification'] == 'not_performed'
+
+
 def test_full_local_review_is_refused(monkeypatch):
     from review_document_corpus import main
     monkeypatch.delenv('GITHUB_ACTIONS', raising=False)

@@ -5,13 +5,17 @@ type Artifact = { key: string; sha256: string; bytes: number };
 type RecoveryRevision = { page: number; artifacts: Record<string, Artifact>; semantically_verified: false };
 type RecoveryRow = { current: RecoveryRevision | null; last_attempt?: { status: string; error?: string } };
 type RecoveryIndex = { pages: Record<string, RecoveryRow> };
-export type RecoveryTable = { id: string; row_count: number; n_cols: number; header_text: string;
+export type RecoveryTable = { id: string; method?: string; row_count: number; n_cols: number; header_text: string;
   rows: { index: number; cells: { column: number; candidate_text: string | null; candidate_method: string;
     ocr_text: string; outline_text: string | null; ocr_word_ids: number[]; drawing_ids: number[];
     unresolved_drawing_ids: number[] }[] }[] };
 export type RecoveryPage = { schema_version: "source-recovery-page-1"; page: number;
   source: { pdf_sha256: string }; status: "recovery_candidates"; semantically_verified: false;
+  benchmarks?: { text_regions?: { status: string; checks: { id: string; source_bbox: number[];
+    source_transcription: string; observed_text: string; passed: boolean }[] } };
   view: { lines: { id: string; text: string; word_ids: number[]; bbox: number[] }[];
+    text_blocks?: { id: string; text: string; ocr_word_ids: number[]; line_ids: string[];
+      table_associations: { table_id: string; ocr_word_ids: number[] }[] }[];
     table_layout?: { tables: RecoveryTable[] };
     vector_comparisons: { drawing_id: number; vector_text: string; ocr_text: string | null;
       status: "missing_ocr" | "exact_agreement" | "disagreement"; bbox: number[] }[] };
@@ -113,13 +117,15 @@ export async function readRecoveryPage(bucket: CorpusBucket, entry: Artifact, so
           if (!record(cell) || cell.column !== c || typeof cell.ocr_text !== "string"
               || cell.candidate_text !== null && typeof cell.candidate_text !== "string"
               || cell.outline_text !== null && typeof cell.outline_text !== "string"
-              || !["ocr", "outline", "unresolved_outline"].includes(String(cell.candidate_method))
+              || !["ocr", "outline", "unresolved_outline", "unobserved"].includes(String(cell.candidate_method))
               || cell.recognition_verified !== false
               || ["ocr_word_ids", "drawing_ids", "unresolved_drawing_ids"].some(k =>
                 !Array.isArray(cell[k]) || !(cell[k] as unknown[]).every(v => typeof v === "number" && Number.isSafeInteger(v) && v >= 0))) {
             throw new Error("Invalid recovered table cell");
           }
-          if (cell.candidate_method === "unresolved_outline" && cell.candidate_text !== null
+          if (cell.candidate_method === "unobserved" && (cell.candidate_text !== null || cell.ocr_text !== ""
+                || (cell.ocr_word_ids as unknown[]).length !== 0 || cell.outline_text !== null)
+              || cell.candidate_method === "unresolved_outline" && cell.candidate_text !== null
               || cell.candidate_method === "outline" && cell.candidate_text !== cell.outline_text
               || cell.candidate_method === "ocr" && cell.candidate_text !== cell.ocr_text) {
             throw new Error("Recovered cell reading contradicts its method");
@@ -127,6 +133,21 @@ export async function readRecoveryPage(bucket: CorpusBucket, entry: Artifact, so
         }
       }
     }
+  }
+  const blocks = value.view.text_blocks;
+  if (blocks !== undefined) {
+    if (!Array.isArray(blocks) || blocks.some(b => !record(b) || typeof b.id !== "string" || typeof b.text !== "string"
+        || !Array.isArray(b.ocr_word_ids) || !Array.isArray(b.line_ids) || !Array.isArray(b.table_associations)
+        || b.recognition_verified !== false || b.reading_order_verified !== false || b.paragraph_boundaries_verified !== false)) {
+      throw new Error("Invalid recovered text blocks");
+    }
+  }
+  const textReview = record(value.benchmarks) ? value.benchmarks.text_regions : undefined;
+  if (textReview !== undefined && (!record(textReview) || typeof textReview.status !== "string"
+      || !Array.isArray(textReview.checks) || textReview.checks.some(c => !record(c) || typeof c.id !== "string"
+        || typeof c.passed !== "boolean" || typeof c.source_transcription !== "string" || typeof c.observed_text !== "string"
+        || !Array.isArray(c.source_bbox) || c.source_bbox.length !== 4 || !c.source_bbox.every(n => typeof n === "number" && Number.isFinite(n))))) {
+    throw new Error("Invalid source text comparison");
   }
   return value as unknown as RecoveryPage;
 }

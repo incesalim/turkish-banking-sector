@@ -214,6 +214,8 @@ def main(argv=None):
                     layout = capture_recovery_tables(observed, outlines, derivative)
                     benchmarks['tables'] = check_recovery_table_annotations(layout, observed, outlines,
                         REPO / 'tests/fixtures/document_vector_annotations', REPO / 'tests/fixtures/document_ocr_annotations')
+                    from src.audit_reports.document_recovery_text import check_text_regions
+                    benchmarks['text_regions'] = check_text_regions(observed, REPO / 'tests/fixtures/document_recovery_text_annotations')
                     packet = make_packet(observed, outlines, benchmarks, engine, table_layout=layout)
                     verify_packet(packet, derivative, original, use_atlas)
                     output = args.output_dir / 'sources' / source['pdf_sha256']
