@@ -22,7 +22,10 @@ existing capture database. Source preservation, structural extraction and semant
 verification are separate states. `review-document-origins.yml` compares fresh
 official downloads with acquired bytes and retains transport/PDF revisions plus
 independent comparison indexes. Differences never replace historical acquisitions;
-byte agreement never certifies contents. The active work is tracked in
+byte agreement never certifies contents. `capture-related-documents.yml` reads
+verified retained archives and preserves every other PDF in its own archive/member
+index, reusing native evidence and source-bound OCR without moving the primary
+filing index. The active work is tracked in
 [AUDIT_DOCUMENT_PLAN.md](AUDIT_DOCUMENT_PLAN.md).
 
 ```

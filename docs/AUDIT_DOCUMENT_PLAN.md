@@ -446,3 +446,15 @@ of detected tables.
   filing/source bindings, explicit differences and links to retained source bytes.
   Python-produced wire tests exercise corrupt bytes, reminted wrong bindings,
   nonexistent comparisons and anonymous access; 719 web tests pass.
+
+- 2026-09-06: the origin admin is deployed and independently checked for FIBA
+  exact-byte agreement and Anadolubank's missing acquisition/pending signed PDF.
+  Added separate archive-member document capture: verify every member against
+  the retained transport, retain native source/structure in an isolated index,
+  and recover every page with pinned OCR, physical text blocks and source-pixel
+  table candidates. Tests reject dropped/invented members, altered primary or
+  attachment bytes, changed source relationships and cross-filing index access.
+  Primary index bytes survive; repeated native capture performs no new writes.
+  Visually transcribed two headings and both complete responsibility statements
+  from Anadolubank's one-page signed source for independent cloud comparisons.
+  Cloud capture and related-document admin text access remain pending.

@@ -1,0 +1,60 @@
+name: Capture related audit documents
+
+on:
+  workflow_dispatch:
+    inputs:
+      filing:
+        description: "BANK|YYYYQn|consolidated or unconsolidated; requires retained origin evidence"
+        type: string
+        required: true
+      publish:
+        description: "Retain each related PDF, native structure and recovered page text in its separate index"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ inputs.publish && 'audit-related-documents' || format('audit-related-probe-{0}', github.run_id) }}
+  queue: max
+  cancel-in-progress: false
+
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      R2_ACCOUNT_ID: ${{ secrets.R2_ACCOUNT_ID }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+      PYTHONIOENCODING: utf-8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+          cache: pip
+      - run: pip install -r requirements.txt
+      - name: Capture every related PDF in the retained archive
+        env:
+          FILING: ${{ inputs.filing }}
+          PUBLISH: ${{ inputs.publish }}
+        run: |
+          args=(--filing "$FILING")
+          [ "$PUBLISH" = "true" ] && args+=(--publish)
+          python scripts/capture_related_documents.py "${args[@]}"
+      - name: Keep every named document and page outcome
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-related-document-report
+          path: data/audit_capture/related-v1/related-results.json
+          retention-days: 30
+      - name: Keep read-only originals and recovery evidence
+        if: always() && !inputs.publish
+        uses: actions/upload-artifact@v7
+        with:
+          name: audit-related-document-evidence
+          path: data/audit_capture/related-v1/sources/
+          retention-days: 7

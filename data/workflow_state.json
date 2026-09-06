@@ -138,6 +138,10 @@
     "review-document-origins.yml": {
       "state": "active",
       "reason": "Manual source-byte comparison. Optional publication retains transport and PDF revisions in the private document corpus; it never replaces acquired sources or analytical data."
+    },
+    "capture-related-documents.yml": {
+      "state": "active",
+      "reason": "Manual capture of other PDFs in a verified report archive. Optional publication uses separate related-document indexes and source-bound recovery; primary filing indexes and analytical data stay unchanged."
     }
   }
 }

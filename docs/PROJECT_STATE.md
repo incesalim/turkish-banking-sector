@@ -53,7 +53,12 @@ Dinamik/Anadolubank correctly report the two still-pending acquisitions. FIBA
 publication also matches the probe, with its old original object version unchanged.
 The full registered comparison has been dispatched. Earlier stored-copy checks
 alone are not origin proof. Admin source-comparison access is implemented with
-checksum and filing/source validation; deployment verification remains pending.
+checksum and filing/source validation. CI/deploy at `00eede4` pass; live FIBA
+agreement and Anadolubank missing-acquisition/related-declaration displays are
+independently checked. Anadolubank's signed one-page declaration remains uncaptured
+in production. `capture-related-documents.yml` now implements separate native
+and OCR capture for archive attachments; local isolation/omission/mutation/replay
+tests pass, and its cloud source probe is still required.
 
 The dedicated `build-document-corpus.yml` pipeline keeps immutable originals,
 versioned source evidence,

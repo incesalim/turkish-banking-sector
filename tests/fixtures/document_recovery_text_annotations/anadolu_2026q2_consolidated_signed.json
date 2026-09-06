@@ -1,0 +1,60 @@
+{
+  "filing": {
+    "bank_ticker": "ANADOLU",
+    "period": "2026Q2",
+    "kind": "consolidated"
+  },
+  "pdf_sha256": "da5c2e0c848606216b08a57bac459c25ad1cda393483268c5d51bea0f63c6e64",
+  "review_method": "Independent transcription from the rendered one-page signed responsibility declaration; signature marks remain source-image evidence, not transcribed names.",
+  "coordinate_space": "display",
+  "cases": [
+    {
+      "id": "bank_heading",
+      "page": 1,
+      "kind": "full_text_region",
+      "source_bbox": [
+        205,
+        65,
+        385,
+        92
+      ],
+      "text": "ANADOLUBANK A.Ş."
+    },
+    {
+      "id": "responsibility_heading",
+      "page": 1,
+      "kind": "full_text_region",
+      "source_bbox": [
+        205,
+        95,
+        385,
+        122
+      ],
+      "text": "SORUMLULUK BEYANI"
+    },
+    {
+      "id": "complete_first_responsibility_statement",
+      "page": 1,
+      "kind": "full_text_region",
+      "source_bbox": [
+        38,
+        229,
+        557,
+        269
+      ],
+      "text": "- Banka'daki görev ve sorumluluk alanımız ve sahip olduğumuz bilgiler çerçevesinde, Konsolide Finansal Tablolar ile Bağımsız Denetim Raporu'nun önemli konularda gerçeğe aykırı bir açıklama veya açıklamanın yapıldığı tarih itibarıyla yanıltıcı olması sonucunu doğurabilecek herhangi bir eksiklik içermediğini,"
+    },
+    {
+      "id": "complete_second_responsibility_statement",
+      "page": 1,
+      "kind": "full_text_region",
+      "source_bbox": [
+        38,
+        280,
+        557,
+        317
+      ],
+      "text": "- Banka'daki görev ve sorumluluk alanımız ve sahip olduğumuz bilgiler çerçevesinde Konsolide Finansal Tablolar ile Bağımsız Denetim Raporu'nun Banka'nın aktifleri, pasifleri, finansal durumu ve kâr ve zararı ile ilgili gerçeği dürüst bir biçimde yansıttığını beyan ederiz."
+    }
+  ]
+}

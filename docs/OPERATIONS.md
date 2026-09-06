@@ -1646,3 +1646,33 @@ comparison receipt and artifact hashes, rejects arbitrary storage keys and keeps
 revision differences, source identity and pending archive attachments separately
 from capture/semantic status. Artifact previews use the existing bounded
 24 MB verified-byte reader; larger responses require direct operator R2 access.
+
+### Other PDFs bundled with a report
+
+`capture-related-documents.yml` runs `scripts/capture_related_documents.py` for
+one required `filing=BANK|YYYYQn|consolidated` (or `unconsolidated`), with optional
+`publish=false`. It requires a retained official-origin comparison; it never
+redownloads an arbitrary URL. Existing `R2_ACCOUNT_ID`, `R2_ACCESS_KEY_ID` and
+`R2_SECRET_ACCESS_KEY` credentials provide private corpus access. Publishing
+runs share `audit-related-documents`; read-only probes have independent groups.
+All capture/recovery runs belong in Actions.
+
+The runner verifies the origin receipt, exact archive transport, complete member
+inventory and primary PDF selection. Every remaining PDF member, including
+activity reports and signed declarations, gets a named outcome. No archive path
+is used as a local output path. Canonical PDF bytes, native page evidence and
+structure use the existing source-hash artifacts; separate indexes live at
+`related/<bank>/<period>/<kind>/<transport SHA>/<raw member SHA>.json`. The index
+retains the exact member name, bytes/hash and primary-report association. It
+cannot update the primary filing index or acquisition object.
+
+Every related-document page receives the pinned `eng+tur`, 300 dpi OCR reading,
+source-pixel table candidates, physical text blocks and eligible embedded-font
+readings; cached raw OCR is byte/source verified before reuse. Native text and
+signature images remain intact. All recognition and semantic states are unverified;
+independent complete text-region disagreements stay in the recovery record. Page
+failures remain named and make the run fail while the other documents continue.
+`audit-related-document-report` retains every outcome for 30 days. Read-only
+`audit-related-document-evidence` retains source/native/structure/recovery files
+for seven days. Existing source/structure and OCR artifacts are immutable and
+unchanged replays do not rewrite their indexes.
