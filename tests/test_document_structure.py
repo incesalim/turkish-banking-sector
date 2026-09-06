@@ -86,6 +86,26 @@ def test_changed_pdf_cannot_be_given_old_evidence(document):
         build_document_structure(path, evidence)
 
 
+@pytest.mark.parametrize('change', ['piece', 'missing_view', 'unknown_view', 'cell'])
+def test_positioned_table_references_are_checked_against_their_own_source_view(document, change):
+    from src.audit_reports.document_positioned_text import positioned_text
+    _path, evidence, structure = document
+    page = structure['pages'][1]
+    page['positioned_text'] = positioned_text(evidence[2])
+    table = next(t for t in page['tables'] if t['method'] == 'legacy_numeric_geometry')
+    table['word_view'] = 'positioned_text'
+    assert verify_document_structure(structure, evidence)['valid']
+    if change == 'piece':
+        page['positioned_text']['pieces'][0]['text'] = 'Invented'
+    elif change == 'missing_view':
+        del page['positioned_text']
+    elif change == 'unknown_view':
+        table['word_view'] = 'undefined_word_collection'
+    else:
+        table['rows'][0]['cells'][0]['word_ids'] = [99999]
+    assert not verify_document_structure(structure, evidence)['valid']
+
+
 def test_raster_dash_rules_recover_text_table_without_ocr(tmp_path):
     path = tmp_path / "TEST_2026Q1_consolidated.pdf"
     with fitz.open() as doc:

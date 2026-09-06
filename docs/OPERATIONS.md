@@ -1463,8 +1463,8 @@ Successful publishing runs now issue `recovery-receipts/<bank>/<period>/<basis>/
 receipts after reading back the original, selected page artifacts and recovery
 index. Receipts bind metadata from the exact acquired PDF download, source hash,
 request scope, code/runtime/model identities and per-filing annotations. An
-unchanged publishing replay reads the receipt and recovery index and checks object versions without downloading or
-classifying the PDF. Changes, missing artifacts or a later recovery-index failure
+unchanged publishing replay reads the receipt and recovery index and checks
+object versions without downloading or classifying the PDF. Changes, missing artifacts or a later recovery-index failure
 invalidate reuse. Explicit page scopes cannot stand in for automatic selection.
 No-page selections still retain source and selector evidence and never certify
 that a report needs no recovery. `recheck_bytes=true` / `--recheck-bytes` bypasses
@@ -1472,6 +1472,19 @@ filing receipts while retaining verified raw-OCR reuse. Read-only probes always
 process retained bytes so their evidence remains downloadable. The runner
 `RECHECK_BYTES` input carries the option; it is not a secret. Local unit and
 end-to-end no-write/changed-input tests pass; receipt cloud validation is pending.
+
+Native candidate structure also records `positioned_text` when replacement text
+changes the word view. Literal glyph words remain separate from uniquely paired
+image replacement spans. Each position cites the declared parent/image/text
+nodes plus source span and image IDs; clipped image geometry must be contained
+in the observed source image. Ambiguous pairs remain issues. Additional
+`native_image_replacement_geometry` tables refer to positioned pieces through
+`word_view=positioned_text`; ordinary tables still refer to source words. These
+views do not move the original source spans or certify visual/semantic accuracy.
+Retention and source-annotation checks recompute the pair links before checking
+selected row/column associations. The native source-evidence fingerprint is
+unchanged; candidate structure has a new implementation identity and requires
+cloud sample validation before its next publication.
 
 For a light local sample (no remote writes):
 

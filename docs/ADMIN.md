@@ -43,6 +43,11 @@ New source evidence also retains PDF-declared structure and a separate literal
 glyph word view when image replacement text changes extraction. These are in the
 page evidence JSON. Replacement-text coordinates and native table boundaries
 remain unverified; the source's table tags can describe only column fragments.
+The candidate table viewer also supports **PDF-linked label positions**: an
+alternative for replacement text explicitly paired with an image in the PDF's
+structure. It keeps raw labels and source piece IDs; full JSON retains the
+original span/image/node links. These positions and table headers remain
+unverified. Cloud publication of this new candidate view is pending.
 
 The page viewer also reads separately stored image/outline recovery through
 `/api/admin/document-recovery`. It shows source-linked OCR lines, differing or

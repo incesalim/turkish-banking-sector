@@ -105,10 +105,35 @@ def check_annotations(structure: dict, evidence: list[dict], annotation: dict) -
                 failures.append({**prefix, "kind": "paragraph_heading_source_mismatch",
                                  "matching_candidates": len(matching)})
             continue
+        if case.get('kind') == 'positioned_text':
+            from .document_positioned_text import verify_positioned_text
+            view = pages[case['page']].get('positioned_text')
+            bounds = case['bbox']
+            matching = []
+            if view is not None and verify_positioned_text(view, sources[case['page']])['valid']:
+                matching = [p for p in view['pieces'] if p['method'] == case['method']
+                            and paragraph_digest(p['text']) == case['text_sha256']
+                            and bounds[0] <= p['bbox'][0] <= p['bbox'][2] <= bounds[2]
+                            and bounds[1] <= p['bbox'][1] <= p['bbox'][3] <= bounds[3]]
+            if len(matching) != 1:
+                failures.append({**prefix, 'kind': 'positioned_source_region_mismatch',
+                                 'matching_candidates': len(matching)})
+            continue
         candidates = [table for table in pages[case["page"]]["tables"]
                       if table["method"] == case.get("method", "legacy_numeric_geometry")]
         matching = []
         for table in candidates:
+            word_view = table.get('word_view', 'words')
+            if word_view == 'positioned_text':
+                from .document_positioned_text import verify_positioned_text
+                view = pages[case['page']].get('positioned_text')
+                if view is None or not verify_positioned_text(view, sources[case['page']])['valid']:
+                    continue
+                source_words = view['pieces']
+            elif word_view == 'words':
+                source_words = sources[case['page']]['words']
+            else:
+                continue
             rows = [r for r in table["rows"] if _text(r.get("label", r["cells"][0].get("text")
                                                        if r["cells"] else None)) == _text(case["row_label"])]
             for row in rows:
@@ -126,7 +151,7 @@ def check_annotations(structure: dict, evidence: list[dict], annotation: dict) -
                         good = False
                         break
                     box, bounds = cell["bbox"], expected["bbox"]
-                    words = {w["id"]: w for w in sources[case["page"]]["words"]}
+                    words = {w['id']: w for w in source_words}
                     if any(i not in words for i in cell["word_ids"]):
                         good = False
                         break

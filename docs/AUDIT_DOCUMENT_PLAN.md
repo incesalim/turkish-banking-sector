@@ -285,3 +285,16 @@ of detected tables.
   writes nothing and runs no PDF processing; explicit byte recheck reuses raw
   OCR. These receipts still require a cloud replay proof before automatic
   recovery follow-up. The native and raw-recovery full runs remain active.
+
+- 2026-09-06: independently rendered Akbank 2026Q1 solo page 9 confirms that
+  replacement labels can inherit the preceding amount's text cursor. Literal
+  glyphs alone fix numeric geometry but lose the image labels. A candidate view
+  now uses only unique image/text siblings under a native Span, retains all
+  original references and rejects ambiguous links. Native clipped image bounds
+  must fit the observed image region. The selected page has 82 pairs and an
+  86-row/six-value-column alternative. Three source-transcribed rows (18 values)
+  and the complete footnote position pass, alongside the previous two page-9
+  source cases. Unit tests reject changed/missing/duplicate associations and
+  confirm display coordinates are transformed only once at all four rotations.
+  Candidate structure and the admin table reader are integrated locally; source
+  evidence stays unchanged. Cloud validation/publication remain pending.

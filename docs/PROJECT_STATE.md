@@ -106,8 +106,9 @@ FIBA has 21/4/2 OCR-outline differences on those pages, including a source-check
 adds this printed amount to the vector checks. Local selector repairs avoid
 rotating display-page bounds twice and count native text inside image regions;
 tests cover all four rotations. Recovery reuse now rebuilds changed derived views
-from verified raw observations without needlessly repeating OCR. The cloud refinement and unchanged replays are described below. Core capture
-fingerprints and served data are unchanged.
+from verified raw observations without needlessly repeating OCR. The cloud
+refinement and unchanged replays are described below. Core capture fingerprints
+and served data are unchanged.
 
 Recovery refinement replay `34040563636` reused all three selected OCR pages.
 An unchanged replay (`34040764985`) reused them again and left all 12 checked
@@ -117,7 +118,8 @@ extension reconstructs source-pixel grids on the four tested pages: FIBA has
 47×8, 47×8 and 64×6 candidates, and ISCTR 48×8. All 59 selected method/region
 checks pass (53 annotated source locations; six are checked through both readers).
 This checks selected cell associations, not entire tables. Raw OCR errors,
-unresolved glyphs and unverified headers remain explicit. Read-only cloud runs `34042466701` and `34042468735` pass at `7cd0cf88`.
+unresolved glyphs and unverified headers remain explicit. Read-only cloud runs
+`34042466701` and `34042468735` pass at `7cd0cf88`.
 Independent downloads reproduce the retained source pixels, raw observations,
 source-built atlas and all four grids, and pass all 59 cell-association checks.
 NumPy differs between Actions (2.5.2) and Windows (1.26.4), but the reconstructed
@@ -132,6 +134,19 @@ precedes a metadata shortcut, and source, runtime, code, annotation, recovery
 index or artifact changes invalidate it. End-to-end tests confirm unchanged
 replay performs no PDF processing or writes and explicit recheck reuses OCR.
 Cloud validation of these receipts and automatic recovery follow-up are pending.
+
+A new Akbank source check exposes a separate layout problem: image replacement
+text can appear at the preceding numeric cursor. The original spans and literal
+glyphs are preserved, but a legacy table can attach the next section heading to
+the prior row. A local alternative joins only unique image/text siblings in the
+PDF's declared structure, retaining native node, span and image references.
+Clipped image regions must fit their observed source image; ambiguous links
+remain unresolved. Akbank 2026Q1 solo page 9 yields 82 paired labels and a separate
+86-row/six-value-column table. Three independently transcribed rows (18 amounts)
+and the complete footnote position now have regression cases; all six page-9
+source/association cases pass locally. Rotation tests cover 0/90/180/270 degrees.
+This is an additional unverified table view; cloud validation and publication
+are pending, and original source text and legacy candidates remain available.
 
 ## Data coverage in D1
 

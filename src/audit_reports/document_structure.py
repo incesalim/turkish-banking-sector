@@ -16,12 +16,13 @@ from pathlib import Path
 
 import fitz
 
-from .document_capture import capture_document
+from .document_capture import capture_document, capture_page, _fold
 from .document_corpus import Filing, source_identity
 from .document_evidence import artifact_digest, compare_page_text, text_characters, verify_evidence_records
 from .document_sections import body_section_starts, document_contents
 from .document_rule_tables import grid_paths, underline_candidates
 from .document_narrative import narrative_candidates, verify_narrative
+from .document_positioned_text import positioned_text, verify_positioned_text
 from .prose import role_from_title
 
 STRUCTURE_VERSION = "document-structure-1"
@@ -34,6 +35,7 @@ def structure_engine() -> dict:
     for name in ("document_structure.py", "document_capture.py", "document_sections.py",
                  "document_evidence.py", "document_corpus.py", "document_rule_tables.py", "document_narrative.py",
                  "document_tagged.py",
+                 "document_positioned_text.py",
                  "prose.py", "extractor.py", "units.py"):
         path = Path(__file__).parent / name
         digest.update(path.name.encode())
@@ -183,6 +185,36 @@ def _numeric_candidates(source, capture):
     return tables, lines, issues
 
 
+def _positioned_candidates(page, source, captured):
+    """Keep source-declared image positions as a separate table alternative."""
+    view = positioned_text(source)
+    if not view['replacement_pair_count']:
+        return view, [], view['issues']
+
+    class PositionedPage:
+        rotation = 0  # Pieces are already in displayed page coordinates.
+
+        def __getattr__(self, name):
+            return getattr(page, name)
+
+        def get_text(self, *args, **kwargs):
+            if args and args[0] == 'words':
+                return [(*p['bbox'], p['text'], 0, i, 0) for i, p in enumerate(view['pieces'])]
+            return page.get_text(*args, **kwargs)
+
+    furniture = frozenset(_fold(line.text) for line in captured.lines if line.role == 'furniture')
+    alternative = capture_page(PositionedPage(), source['page'], furniture)
+    tables, _lines, issues = _numeric_candidates({**source, 'words': view['pieces']}, alternative)
+    for table in tables:
+        table.update(id=table['id'].replace(':numeric', ':positioned'),
+                     method='native_image_replacement_geometry', word_view='positioned_text')
+    # Table diagnostics belong beside the tables, without altering the source
+    # positioning object that can be recomputed from retained evidence alone.
+    for issue in issues:
+        issue['view'] = 'positioned_text'
+    return view, tables, [*view['issues'], *issues]
+
+
 def _ruled_candidates(page, source):
     tables = []
     # Horizontal underlines alone cannot define a ruled grid. Avoid the costly
@@ -293,6 +325,11 @@ def build_document_structure(pdf_path: Path, evidence: list[dict]) -> dict:
             ruled = _ruled_candidates(pdf[observed["page"] - 1], observed)
             extra = underline_candidates(observed, numeric + ruled)
             tables = numeric + ruled + extra
+            positioned = None
+            if observed.get('actualtext_changes_word_view'):
+                positioned, alternatives, position_issues = _positioned_candidates(pdf[observed['page'] - 1], observed, captured)
+                tables.extend(alternatives)
+                issues.extend(position_issues)
             for table in tables:
                 for row in table["rows"]:
                     for cell in row["cells"]:
@@ -324,6 +361,7 @@ def build_document_structure(pdf_path: Path, evidence: list[dict]) -> dict:
                           "source_image_ids": [x["id"] for x in observed["images"]],
                           "source_drawing_ids": [x["id"] for x in observed["drawings"]],
                           "text_conservation": conservation, "issues": issues,
+                          **({'positioned_text': positioned} if positioned is not None else {}),
                           "reading_order_verified": False})
     narrative_candidates(pages, evidence, sections)
     assert_source()
@@ -372,8 +410,16 @@ def verify_document_structure(structure: dict, evidence: list[dict]) -> dict:
         for key, source_key in (("source_image_ids", "images"), ("source_drawing_ids", "drawings")):
             if page[key] != [x["id"] for x in source[source_key]]:
                 errors.append(prefix + source_key + "_inventory_mismatch")
-        words = {w["id"]: w for w in source["words"]}
+        positioned = page.get('positioned_text')
+        if positioned is not None:
+            errors.extend(prefix + error for error in verify_positioned_text(positioned, source)['errors'])
         for table in page["tables"]:
+            word_view = table.get('word_view', 'words')
+            if word_view not in ('words', 'positioned_text') or word_view == 'positioned_text' and positioned is None:
+                errors.append(prefix + 'unknown_table_word_view')
+                continue
+            items = positioned['pieces'] if word_view == 'positioned_text' else source['words']
+            words = {w['id']: w for w in items}
             for row in table["rows"]:
                 for cell in row["cells"]:
                     refs = cell["word_ids"]

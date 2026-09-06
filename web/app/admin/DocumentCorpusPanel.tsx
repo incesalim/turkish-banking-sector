@@ -12,7 +12,7 @@ const count = (v: number | null | undefined) => v == null ? "—" : nf(v, 0);
 const control = "border-b border-border bg-transparent px-1 py-1.5 text-xs text-foreground focus:outline-primary";
 
 type Cell = { text: string; col_index?: number | null; column?: number; placement?: string; word_ids: string[] };
-type Table = { id: string; method: string; n_cols: number; row_count: number; col_labels?: string[];
+type Table = { id: string; method: string; n_cols: number; row_count: number; col_labels?: string[]; word_view?: string;
   rows: { index: number; label?: string; cells: Cell[] }[] };
 type Narrative = { id: string; kind: string; text: string; span_ids: string[];
   heading_path: { id: string; text: string }[]; table_ids: string[] };
@@ -36,12 +36,13 @@ function status(row: CorpusFiling) {
 }
 
 function TablePreview({ table }: { table: Table }) {
-  const numeric = table.method === "legacy_numeric_geometry";
+  const positioned = table.method === "native_image_replacement_geometry";
+  const numeric = table.method === "legacy_numeric_geometry" || positioned;
   const unplaced = table.rows.some((r) => r.cells.some((c) => c.placement === "unplaced"));
   return <details className="border-b border-border py-3" open>
     <summary className="cursor-pointer text-xs font-medium">
       Candidate {table.id} · {table.row_count} rows · {table.n_cols} value/text columns
-      <span className="ml-2 font-normal text-faint">{numeric ? "Numeric layout" : "Ruled layout"} · unreviewed</span>
+      <span className="ml-2 font-normal text-faint">{positioned ? "PDF-linked label positions" : numeric ? "Numeric layout" : "Ruled layout"} · unreviewed</span>
     </summary>
     <div className="mt-2 overflow-x-auto">
       <table className="w-full border-collapse text-[11px]">
@@ -54,7 +55,7 @@ function TablePreview({ table }: { table: Table }) {
           {numeric && <td className="min-w-48 whitespace-pre-wrap p-2">{row.label}</td>}
           {Array.from({ length: table.n_cols }, (_, c) => <td key={c} className="min-w-20 whitespace-pre-wrap p-2 font-mono">
             {row.cells.filter((cell) => (numeric ? cell.placement === "data" && cell.col_index === c : cell.column === c))
-              .map((cell, i) => <div key={i} title={`Source words: ${cell.word_ids.join(", ")}`}>{cell.text || "[empty source cell]"}</div>)}
+              .map((cell, i) => <div key={i} title={`${positioned ? "Positioned source pieces" : "Source words"}: ${cell.word_ids.join(", ")}`}>{cell.text || "[empty source cell]"}</div>)}
           </td>)}
           {unplaced && <td className="p-2 font-mono text-warning">{row.cells.filter((c) => c.placement === "unplaced").map((c) => c.text).join("\n")}</td>}
         </tr>)}</tbody>
