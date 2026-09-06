@@ -41,7 +41,8 @@ unexpected or failed filing and no cross-filing duplicate PDF hash. It preserved
 and produced 192,869 table candidates. Candidate counts are not a completeness
 denominator. **Zero whole filings are semantically verified.**
 
-The dedicated pipeline keeps immutable originals, versioned source evidence,
+The dedicated `build-document-corpus.yml` pipeline keeps immutable originals,
+versioned source evidence,
 candidate structure and failure history in R2 `document-corpus/v1/`. Each source
 is identified by its PDF bytes; artifacts include the implementation and runtime
 identity. Every native span, word occurrence, image/drawing region and native
